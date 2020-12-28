@@ -1,9 +1,10 @@
 {
   "name": "fpsmath-bot",
   "version": "1.0.0",
-  "main": "/src/index",
+  "main": "index.js",
   "scripts": {
- 
+    "lint": "eslint .",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,15 @@
     "mathjs": "^8.1.0"
   },
   "engines": {
-		"node": ">=8.6.0"
-	}
+    "node": ">=12.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5"
+  }
 }
