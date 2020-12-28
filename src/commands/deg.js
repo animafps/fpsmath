@@ -14,7 +14,7 @@ module.exports = {
         for (var i=0; i < array.length; i++){
             if (args[1] == array[i].name) {
                 var yaw = array[i].yaw;
-            } else if (typeof(args[1] == 'number')){
+            } else if (typeof(args[1] === 'number')){
                 var yaw = args[1];
             }
         }

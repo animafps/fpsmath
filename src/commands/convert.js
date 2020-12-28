@@ -14,13 +14,13 @@ module.exports = {
         for (var i=0; i < array.length; i++){
             if (args[1] == array[i].name) {
                 var inyaw = array[i].yaw;
-            } else if (typeof(args[1] == 'number')){
+            } else if (typeof(args[1] === 'number')){
                 var inyaw = args[1];
             }
             if (args[2] == array[i].name){
                 var outyaw = array[i].yaw;
             }
-            else if (typeof(args[2] == 'number')){
+            else if (typeof(args[2] === 'number')){
                 var outyaw = args[2];
             }
         }
