@@ -1,5 +1,5 @@
 {
-  "name": "discord-bot",
+  "name": "fpsmath-bot",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,6 @@
   "description": "",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "fetch-headers": "^2.0.0",
-    "mathjs": "^8.1.0",
-    "node-fetch": "^2.6.1"
+    "mathjs": "^8.1.0"
   }
 }
