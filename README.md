@@ -5,6 +5,7 @@ A Discord bot designed to convert sensitivities, fovs, mouse feel across themsel
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![dependencies](https://david-dm.org/AnimaFPS/FPSMath-bot.svg?style=flat-square)](https://david-dm.org/AnimaFPS/FPSMath-bot)
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/overview/main)
+[![Licence](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/AnimaFPS/FPSMath-bot/LICENCE)
 
 # Installation
 [Install This Bot](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240)
