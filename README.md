@@ -4,7 +4,6 @@ A Discord bot designed to convert sensitivities, fovs, mouse feel across themsel
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![GitHub](https://img.shields.io/github/license/AnimaFPS/FPSMath-bot?style=flat-square)](https://github.com/AnimaFPS/FPSMath-bot/blob/main/LICENSE)
-[![dependencies](https://david-dm.org/AnimaFPS/FPSMath-bot.svg?style=flat-square)](https://david-dm.org/AnimaFPS/FPSMath-bot)
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/overview/main)
 [![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/AnimaFPS/FPSMath-bot?style=flat-square)](https://codeclimate.com/github/AnimaFPS/FPSMath-bot)
 
@@ -25,6 +24,8 @@ Note: When building from source you have to input your own discord token in /src
 | /convert | {sensitivity value} {initial game or yaw value} {output game or yaw value} | Converts Different Sensitivities from one game to another                | /convert 3 ow 0.022 |
 | /fov     | {fov} {input fov ratio or game} {output fov ratio or game}                 | Converts fovs from one type to another                                   | /fov 90 16:9 quake  |
 | /focal   | {old sens} {old fov value} {new fov value}                                 | Focal Length Scales a desired sens between 2 fov values of the same type | /focal 3 90 100     |
+| /sens    | {cm/360} {game or yaw value} {cpi/dpi}                                     | Converts cm/360 to a game sensitivity                                    | /sens 28 quake 1600  |
+| /sens-deg| {deg/mm} {game or yaw value} {cpi/dpi}                                     | Converts deg/mm to a game sensitivity                                    | /sens-deg 1.28 quake 1600  |
 
 ## Supported Games and FOV Ratios
 
@@ -55,7 +56,6 @@ Note: When building from source you have to input your own discord token in /src
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/AnimaFPS/FPSMath-bot/tags).
-
 
 ## License
 
