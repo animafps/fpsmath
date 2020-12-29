@@ -16,7 +16,7 @@ var array = [
 ];
 
 function getYaw(args) {
-    if (array.some(elem => elem.name === args)){
+    if (typeof(args) == 'number'){
         return args;
     } else {
         for (var i=0; i < array.length; i++){
