@@ -1,6 +1,5 @@
 const PI = 3.14159;
 const { tan } = require('mathjs');
-var array = require("./array");
 module.exports = {
 	name: 'focal',
 	description: 'Focal Length Scales a desired sens between 2 fov values of the same type',
