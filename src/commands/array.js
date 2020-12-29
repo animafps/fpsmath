@@ -27,9 +27,10 @@ function getYaw(args) {
 
 function gameNames() {
     var gamenames = '';
-    for (var x=0; x < array.length-2; x++){
+    for (var x=0; x < array.length-1; x++){
         gamenames += array[x].name + ', ';
     }
+    gamenames += array[array.length-1].name;
     return gamenames
 }
 
