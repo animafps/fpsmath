@@ -5,7 +5,7 @@ A Discord bot designed to convert sensitivities, fovs, mouse feel across themsel
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![dependencies](https://david-dm.org/AnimaFPS/FPSMath-bot.svg?style=flat-square)](https://david-dm.org/AnimaFPS/FPSMath-bot)
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/overview/main)
-[![Licence](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/AnimaFPS/FPSMath-bot/LICENCE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/AnimaFPS/FPSMath-bot/blob/main/LICENSE)
 
 # Installation
 [Install This Bot](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240)
@@ -22,5 +22,19 @@ Note: When building from source you have to input your own discord token in /src
 | /fov     | {fov} {input fov ratio or game} {output fov ratio or game}                 | Converts fovs from one type to another                                   | /fov 90 16:9 quake  |
 | /focal   | {old sens} {old fov value} {new fov value}                                 | Focal Length Scales a desired sens between 2 fov values of the same type | /focal 3 90 100     |
 
-(Supported games: aimgods, source, csgo, cs, quake, apex, val, valorant, ow, overwatch, fn, fortnite, fn-config, fortnite-config, dbt, r6, cod, destiny)
+# Supported Games and FOV Ratios
+## Games
+- Apex Legends (`apex`)
+- Aimgods (`aimgods`)
+- Call of Duty (`cod`)
+- Counter Strike(`cs` or `csgo`)
+- Fortnite Config (`fortnite` or `fortnite-config`)
+- Overwatch (`overwatch` or `ow`)
+- Quake (`quake`)
+- Rainbow Six Siege (`r6`)
+- Source Engine games (`source`)
+- Valorant (`valorant` or `val`)
+- Destiny 2 (`destiny`)
+
+## Ratios
 (Supported ratios: 16:9, 4:3, 1:1)
