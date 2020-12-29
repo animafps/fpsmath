@@ -17,11 +17,12 @@ var array = [
 
 function getYaw(args) {
     if (Number.isFinite(args)){
-        return args
+        var number = args;
+        return number;
     } else {
         for (var i=0; i < array.length; i++){
             if (args == array[i].name) {
-                return array[i].yaw
+                return array[i].yaw;
             }
         }
     }
