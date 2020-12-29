@@ -13,12 +13,13 @@ or build from source using Docker
 Note: When building from source you have to input your own discord token in /src/config.json
 
 # Usage
-```sh
-/cm <sensitivity value> <game or yaw value> <cpi/dpi>
-/deg <sensitivity value> <game or yaw value> <cpi/dpi>
-/fov <fov> <input fov ratio or game> <output fov ratio or game> (Supported ratios: 16:9, 4:3, 1:1)
-/sens <cm/360 value> <game or yaw value> <cpi/dpi>
-/focal <old sens> <old fov> <new fov>
-/convert <sensitivity value> <initial game or yaw value> <output game or yaw value>
-```
+| Command  | Arguments                                                                  | Description                                               | Example             |
+|----------|----------------------------------------------------------------------------|-----------------------------------------------------------|---------------------|
+| /cm      | {sensitivity value} {game or yaw value} {cpi/dpi}                          | Converts Senstivity to cm/360                             | /cm 6 ow 1600       |
+| /deg     | {sensitivity value} {game or yaw value} {cpi/dpi}                          | Converts Senstivity to deg/mm                             | /deg 1.9 0.022 800  |
+| /convert | {sensitivity value} {initial game or yaw value} {output game or yaw value} | Converts Different Sensitivities from one game to another | /convert 3 ow 0.022 |
+| /fov     | {fov} {input fov ratio or game} {output fov ratio or game}                 | Converts fovs from one type to another                                   | /fov 90 16:9 quake  |
+| /focal   | {old sens} {old fov value} {new fov value}                                 | Focal Length Scales a desired sens between 2 fov values of the same type | /focal 3 90 100     |
+
 (Supported games: aimgods, source, csgo, cs, quake, apex, val, valorant, ow, overwatch, fn, fortnite, fn-config, fortnite-config, dbt, r6, cod, destiny)
+(Supported ratios: 16:9, 4:3, 1:1)
