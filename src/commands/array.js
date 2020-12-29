@@ -16,11 +16,16 @@ var array = [
 ];
 
 function getYaw(args) {
-    for (var i=0; i < array.length; i++){
-        if (args == array[i].name) {
-            return array[i].yaw
-        } 
+    if (args.isFinite()){
+        return args
+    } else {
+        for (var i=0; i < array.length; i++){
+            if (args == array[i].name) {
+                return array[i].yaw
+            }
+        }
     }
+    
 }
 
 function gameNames() {
