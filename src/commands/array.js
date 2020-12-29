@@ -16,9 +16,8 @@ var array = [
 ];
 
 function getYaw(args) {
-    if (Number.isFinite(args)){
-        var number = args;
-        return number;
+    if (array.some(elem => elem.name === args)){
+        return args;
     } else {
         for (var i=0; i < array.length; i++){
             if (args == array[i].name) {
