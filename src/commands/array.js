@@ -19,9 +19,7 @@ function getYaw(args) {
     for (var i=0; i < array.length; i++){
         if (args == array[i].name) {
             return array[i].yaw
-        } else if (typeof(args === 'number')){
-            return args
-        }
+        } 
     }
 }
 
