@@ -12,10 +12,9 @@
     "prettier/prettier": [
       2,
       {
-        "printWidth": 120,
+        "printWidth": 80,
         "singleQuote": true,
-        "quoteProps": "as-needed",
-        "trailingComma": "all",
+        "trailingComma": "es5",
         "endOfLine": "lf",
         "arrowParens": "avoid"
       }

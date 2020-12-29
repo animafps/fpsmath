@@ -6,14 +6,14 @@
     "test": "npm run lint",
     "lint": "eslint .",
     "start": "node index.js",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AnimaFPS/FPSMath-bot.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "AnimaFPS",
   "license": "MIT",
   "description": "",
   "dependencies": {
@@ -28,15 +28,25 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
     "prettier": "2.2.1"
   },
   "prettier": {
     "singleQuote": true,
-    "printWidth": 120,
-    "trailingComma": "all",
+    "printWidth": 80,
+    "trailingComma": "es5",
     "endOfLine": "lf",
     "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["eslint --cache --fix", "prettier --write"]
   }
 }
