@@ -342,7 +342,7 @@ PreCommit:
     description: 'Check for "focused" tests'
     required_executable: 'grep'
     flags: ['-IEHnw']
-    keywords: ['FContext','FDescribe','FIt','FMeasure','FSpecify','FWhen']
+    keywords: ['FContext', 'FDescribe', 'FIt', 'FMeasure', 'FSpecify', 'FWhen']
 
   GoFmt:
     enabled: false
@@ -543,14 +543,14 @@ PreCommit:
     flags: ['-t']
     include: '**/nginx.conf'
 
-  Pep257:  # Deprecated – use Pydocstyle instead.
+  Pep257: # Deprecated – use Pydocstyle instead.
     enabled: false
     description: 'Analyze docstrings with pep257'
     required_executable: 'pep257'
     install_command: 'pip install pep257'
     include: '**/*.py'
 
-  Pep8:  # Deprecated – use Pycodestyle instead.
+  Pep8: # Deprecated – use Pycodestyle instead.
     enabled: false
     description: 'Analyze with pep8'
     required_executable: 'pep8'
@@ -719,11 +719,12 @@ PreCommit:
     enabled: false
     description: 'Check ruby syntax'
     required_executable: 'ruby'
-    command: [
-      'ruby',
-      '-e',
-      'ARGV.each { |applicable_file| ruby_c_output = `ruby -c #{applicable_file}`; puts ruby_c_output unless $?.success? }'
-    ]
+    command:
+      [
+        'ruby',
+        '-e',
+        'ARGV.each { |applicable_file| ruby_c_output = `ruby -c #{applicable_file}`; puts ruby_c_output unless $?.success? }',
+      ]
     include:
       - '**/*.gemspec'
       - '**/*.rb'
@@ -1247,11 +1248,11 @@ PrepareCommitMsg:
     branch_pattern: '\A(\d+)-(\w+).*\z'
     replacement_text: '[#\1]'
     skipped_commit_types:
-     - 'message'  # if message is given via `-m`, `-F`
-     - 'template' # if `-t` is given or `commit.template` is set
-     - 'commit'   # if `-c`, `-C`, or `--amend` is given
-     - 'merge'    # if merging
-     - 'squash'   # if squashing
+      - 'message' # if message is given via `-m`, `-F`
+      - 'template' # if `-t` is given or `commit.template` is set
+      - 'commit' # if `-c`, `-C`, or `--amend` is given
+      - 'merge' # if merging
+      - 'squash' # if squashing
     on_fail: warn
 
 # Hooks that run during `git push`, after remote refs have been updated but

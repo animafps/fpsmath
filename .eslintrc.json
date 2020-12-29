@@ -1,0 +1,24 @@
+{
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["import"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "env": {
+    "es2020": true,
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      2,
+      {
+        "printWidth": 120,
+        "singleQuote": true,
+        "quoteProps": "as-needed",
+        "trailingComma": "all",
+        "endOfLine": "lf",
+        "arrowParens": "avoid"
+      }
+    ]
+  }
+}
