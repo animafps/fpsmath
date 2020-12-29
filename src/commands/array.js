@@ -15,14 +15,14 @@ var array = [
     {name:'destiny', yaw:0.0066, fovt:0.5625}
 ];
 
-function getYaw(args) {
+function getObject(args, object) {
     var isYaw = array.some(elem => elem.name === args);
     if (!isYaw){
         return args;
     } else {
         for (var i=0; i < array.length; i++){
             if (args == array[i].name) {
-                return array[i].yaw;
+                return array[i] [object];
             }
         }
     }
@@ -44,6 +44,6 @@ function getArray() {
 module.exports = {
     getArray: getArray,
     games: gameNames,
-    getYaw: getYaw
+    getObject: getObject
 };
 

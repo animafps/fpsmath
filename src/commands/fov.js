@@ -1,8 +1,7 @@
 const { atan } = require('mathjs');
 const PI = 3.14159;
 const { tan } = require('mathjs');
-var { games,getArray } = require("./array");
-var array = getArray();
+var { games,getObject } = require("./array");
 module.exports = {
 	name: 'fov',
 	description: 'Converts fovs from one type to another',
@@ -17,11 +16,7 @@ module.exports = {
             } else if (argS == '16:9'){
                 return 0.5625;
             } else {
-                for (var i=0; i< array.length;i++){
-                    if (argS == array[i].name) {
-                        return array[i].fovt;
-                    }
-                }
+                return getObject(argS, 'fovt');
             } 
         }
         var IFOVT = FOVT(args[1]);
