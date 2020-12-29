@@ -16,10 +16,9 @@ var array = [
 ];
 
 function getYaw(args) {
-    console.log(typeof(args))
-    if (typeof(args) == 'number'){
-        var yaw = args;
-        return yaw;
+    var isYaw = array.some(elem => elem.name === args);
+    if (!isYaw){
+        return args;
     } else {
         for (var i=0; i < array.length; i++){
             if (args == array[i].name) {
