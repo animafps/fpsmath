@@ -1,6 +1,7 @@
 FROM node:12
-WORKDIR /usr/src/app
+WORKDIR /home/node/app
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 COPY . .
+EXPOSE 8888
 CMD [ "node", "index.js" ]

@@ -5,13 +5,14 @@ A Discord bot designed to convert sensitivities, fovs, mouse feel across themsel
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![dependencies](https://david-dm.org/AnimaFPS/FPSMath-bot.svg?style=flat-square)](https://david-dm.org/AnimaFPS/FPSMath-bot)
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath-bot/overview/main)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/AnimaFPS/FPSMath-bot/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/AnimaFPS/FPSMath-bot?style=flat-square)](https://github.com/AnimaFPS/FPSMath-bot/blob/main/LICENSE)
 
 # Installation
-[Install This Bot](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240)
+[Install This Bot on Your Server](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240)
+
 or build from source using Docker
 
-Note: When building from source you have to input your own discord token in /src/config.json
+Note: When building from source you have to input your own discord token in /src/config.json before building
 
 # Usage
 | Command  | Arguments                                                                  | Description                                               | Example             |

@@ -1,4 +1,4 @@
-module.exports = [
+var array = [
     {name:'aimgods', yaw:0.0023331}, //horizontal no ratio
     {name:'source', yaw:0.022, fovt: 0.75},
     {name:'csgo', yaw:0.022, fovt: 0.75},{name:'cs', yaw:0.022, fovt:0.75},
@@ -13,4 +13,28 @@ module.exports = [
     {name:'cod', yaw:0.0066, fovt:0.5625},
     {name:'battlefield', yaw:2.291831180523293, fovt:1},
     {name:'destiny', yaw:0.0066, fovt:0.5625}
-]
+];
+
+function getYaw(args) {
+    for (var i=0; i < array.length; i++){
+        if (args == array[i].name) {
+            return array[i].yaw
+        } else if (typeof(args === 'number')){
+            return args
+        }
+    }
+}
+module.exports = {
+    getArray: () => {
+        return array;
+    },
+    games: () => {
+        var gamenames = '';
+        for (var x=0; x < array.length-2; x++){
+            gamenames += array[x].name + ', ';
+        }
+        return gamenames;
+    },
+    getYaw: getYaw,
+};
+
