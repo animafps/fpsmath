@@ -24,17 +24,21 @@ function getYaw(args) {
         }
     }
 }
+
+function gameNames() {
+    var gamenames = '';
+    for (var x=0; x < array.length-2; x++){
+        gamenames += array[x].name + ', ';
+    }
+    return gamenames
+}
+
+function getArray() {
+    return array;
+}
 module.exports = {
-    getArray: () => {
-        return array;
-    },
-    games: () => {
-        var gamenames = '';
-        for (var x=0; x < array.length-2; x++){
-            gamenames += array[x].name + ', ';
-        }
-        return gamenames;
-    },
-    getYaw: getYaw,
+    getArray: getArray,
+    games: gameNames,
+    getYaw: getYaw
 };
 

@@ -6,7 +6,7 @@ module.exports = {
 	name: 'fov',
 	description: 'Converts fovs from one type to another',
     args: true,
-    usage: '<fov> <input fov ratio or game> <output fov ratio or game> \n(Supported ratios: 16:9, 4:3, 1:1) (Supported games: ' + games + ')',
+    usage: '<fov> <input fov ratio or game> <output fov ratio or game> \n(Supported ratios: 16:9, 4:3, 1:1) (Supported games: ' + games() + ')',
 	execute(message, args) {
         function fovT(Args){
             if (Args=='1:1'){
