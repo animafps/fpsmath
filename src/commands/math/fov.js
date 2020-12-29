@@ -1,6 +1,6 @@
 const { atan, tan } = require('mathjs');
 const PI = 3.14159;
-var { games, getObject } = require('./array');
+var { games, getObject } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class fovCommand extends commando.Command {
   constructor(client) {

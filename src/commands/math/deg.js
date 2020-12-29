@@ -1,4 +1,4 @@
-var { games, getObject } = require('./array');
+var { games, getObject } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class degCommand extends commando.Command {
   constructor(client) {
