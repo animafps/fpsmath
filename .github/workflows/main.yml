@@ -107,7 +107,6 @@ jobs:
   codecov:
     name: Codecov
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - uses: actions/checkout@v2
       # Download coverage artifact
