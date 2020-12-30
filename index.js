@@ -1,7 +1,6 @@
 const commando = require('discord.js-commando');
 const path = require('path');
 const oneLine = require('common-tags').oneLine;
-const sqlite = require('sqlite');
 const { ownerID, token, prefix, invite } = require('./src/config.json');
 
 const client = new commando.Client({
@@ -56,17 +55,6 @@ client
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   });
-
-client
-  .setProvider(
-    sqlite
-      .open({
-        filename: 'settings.sqlite',
-        driver: sqlite.Database,
-      })
-      .then(db => new commando.SQLiteProvider(db))
-  )
-  .catch(console.error);
 
 client.registry
   .registerGroup('math', 'Math')
