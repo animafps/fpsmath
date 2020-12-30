@@ -34,11 +34,6 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-      - uses: actions/upload-artifact@v2
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '12'
-        with:
-          name: coverage
-          path: coverage
 
   docker:
     name: Docker
@@ -48,11 +43,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - uses: actions/upload-artifact@v2
-      with:
-          name: coverage
-          path: coverage
-      
   
   analyze:
     name: Analyze
@@ -99,19 +89,3 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
-    - uses: actions/upload-artifact@v2
-      with:
-          name: coverage
-          path: coverage
-      
-  codecov:
-    name: Codecov
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      # Download coverage artifact
-      - uses: actions/download-artifact@v2
-        with:
-          name: coverage
-      # Run codecov.io
-      - uses: codecov/codecov-action@v1.1.1
