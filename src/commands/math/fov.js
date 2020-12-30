@@ -23,13 +23,13 @@ module.exports = class fovCommand extends commando.Command {
           key: 'ifovt',
           label: 'Input Game or FOV ratio',
           prompt: 'What Game or FOV ratio do you want to convert from',
-          type: 'string|float',
+          type: 'gamename|float',
         },
         {
           key: 'ofovt',
           label: 'Output Game or FOV ratio',
           prompt: 'What Game or FOV ratio do you want to convert to',
-          type: 'string|float',
+          type: 'gamename|float',
         },
       ],
     });

@@ -50,6 +50,7 @@ Note: When building from source you have to input your own discord token in /src
 ## Built With
 
 - [Discord.JS](https://github.com/discordjs/discord.js) - The Discord Intergration
+- [Discord.JS - Commando](https://github.com/discordjs/commando) - Framework for Discord.js
 - [Node](https://nodejs.org/) - The Framework and Runtime
 - [Mathjs](https://mathjs.org/) - Used for Math functions
 

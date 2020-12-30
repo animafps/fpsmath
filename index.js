@@ -71,6 +71,7 @@ client
 client.registry
   .registerGroup('math', 'Math')
   .registerDefaults()
+  .registerTypesIn(path.join(__dirname, '/src/types'))
   .registerCommandsIn(path.join(__dirname, '/src/commands'));
 
 client.login(token);

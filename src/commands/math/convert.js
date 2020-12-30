@@ -21,13 +21,13 @@ module.exports = class convertCommand extends commando.Command {
           key: 'ingame',
           label: 'input Game or yaw value',
           prompt: 'What game or yaw value do you want to use for input',
-          type: 'string|float',
+          type: 'gamename|float',
         },
         {
           key: 'outgame',
           label: 'output Game or yaw value',
           prompt: 'What game or yaw value do you want to use for output',
-          type: 'string|float',
+          type: 'gamename|float',
         },
       ],
     });

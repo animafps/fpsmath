@@ -21,7 +21,7 @@ module.exports = class degCommand extends commando.Command {
           key: 'yawv',
           label: 'Game or yaw value',
           prompt: 'What game or yaw value do you want to use',
-          type: 'string|float',
+          type: 'gamename|float',
         },
         {
           key: 'cpi',
