@@ -1,6 +1,6 @@
 const { atan, tan } = require('mathjs');
 const PI = 3.14159;
-var { games, getObject } = require('../../array');
+var { games, getFOVT } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class fovCommand extends commando.Command {
   constructor(client) {
@@ -23,34 +23,24 @@ module.exports = class fovCommand extends commando.Command {
           key: 'ifovt',
           label: 'Input Game or FOV ratio',
           prompt: 'What Game or FOV ratio do you want to convert from',
-          type: 'gamename|float',
+          type: 'gamename|fovt',
         },
         {
           key: 'ofovt',
           label: 'Output Game or FOV ratio',
           prompt: 'What Game or FOV ratio do you want to convert to',
-          type: 'gamename|float',
+          type: 'gamename|fovt',
         },
       ],
     });
   }
 
   async run(message, args) {
-    function FOVT(argS) {
-      if (argS == '1:1') {
-        return 1;
-      } else if (argS == '4:3') {
-        return 0.75;
-      } else if (argS == '16:9') {
-        return 0.5625;
-      } else {
-        return getObject(argS, 'fovt');
-      }
-    }
-    var IFOVT = FOVT(args.ifovt);
-    var OFOVT = FOVT(args.ofovt);
     var output = (
-      (atan((IFOVT / OFOVT) * tan((args.fov * PI) / 360)) * 360) /
+      (atan(
+        (getFOVT(args.ifovt) / getFOVT(args.ofovt)) * tan((args.fov * PI) / 360)
+      ) *
+        360) /
       PI
     ).toFixed(5);
     return message.reply(output + '°');
