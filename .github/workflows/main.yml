@@ -19,6 +19,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   test:
+    name: Node
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,7 +32,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
+      - run: npm ci
       - run: npm run build --if-present
       - run: npm test
 
