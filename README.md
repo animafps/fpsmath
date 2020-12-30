@@ -1,3 +1,5 @@
+<img alt='FPS Math bot' src='https://cdn.discordapp.com/avatars/792712521546465301/ad49c4793a2cc688793aeeaaa25cbd81.png?size=256' style='display: block; margin-left: auto; margin-right: auto;'>
+
 # Sensitivity, FOV, Focal length Converter and Calculator Bot
 
 A Discord bot designed to convert sensitivities, fovs, mouse feel across themselves and preset games
