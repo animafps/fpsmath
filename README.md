@@ -1,4 +1,4 @@
-<img alt='FPS Math bot' src='https://cdn.discordapp.com/avatars/792712521546465301/ad49c4793a2cc688793aeeaaa25cbd81.png?size=256' style='display: block; margin-left: auto; margin-right: auto;'>
+<img alt='FPS Math bot' src='https://cdn.discordapp.com/avatars/792712521546465301/a8176886ccd814f17b4c5a98b62e185a.png?size=256' style='display: block; margin-left: auto; margin-right: auto;'>
 
 # Sensitivity, FOV, Focal length Converter and Calculator Bot
 
