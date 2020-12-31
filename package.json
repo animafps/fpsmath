@@ -24,7 +24,7 @@
     "mathjs": "^8.1.0"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=14.0.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
