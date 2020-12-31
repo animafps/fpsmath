@@ -36,6 +36,6 @@ module.exports = class sensCommand extends commando.Command {
   async run(message, args) {
     var yaw = getObject(args.yawv, 'yaw');
     var output = ((2.54 * 360) / (args.cpi * yaw * args.cm)).toFixed(2);
-    return message.reply(output);
+    return message.say(output);
   }
 };

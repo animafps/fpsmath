@@ -12,6 +12,6 @@ module.exports = class gamesCommand extends commando.Command {
   }
 
   async run(message) {
-    return message.reply(`Suported Games: ${games()}`);
+    return message.say(`Suported Games: ${games()}`);
   }
 };

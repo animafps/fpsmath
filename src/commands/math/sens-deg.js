@@ -35,6 +35,6 @@ module.exports = class sensdegCommand extends commando.Command {
   async run(message, args) {
     var yaw = getObject(args.yawv, 'yaw');
     var output = ((args.cpi * yaw * args.deg) / 25.4).toFixed(2);
-    return message.reply(output);
+    return message.say(output);
   }
 };

@@ -37,6 +37,6 @@ module.exports = class convertCommand extends commando.Command {
     var inyaw = getObject(args.ingame, 'yaw');
     var outyaw = getObject(args.outgame, 'yaw');
     var output = (args.sens * (inyaw / outyaw)).toFixed(5);
-    return message.reply(output);
+    return message.say(output);
   }
 };

@@ -16,7 +16,7 @@
   "keywords": [],
   "author": "AnimaFPS",
   "license": "MIT",
-  "description": "",
+  "description": "A Discord bot designed to convert sensitivities, fovs, mouse feel across themselves and preset games",
   "dependencies": {
     "common-tags": "^1.8.0",
     "discord.js": "^12.5.1",
@@ -51,10 +51,8 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --cache --fix",
-      "prettier --write"
-    ]
+    "*.js": "eslint --cache --fix",
+    "**": "prettier --write"
   },
   "config": {
     "commitizen": {

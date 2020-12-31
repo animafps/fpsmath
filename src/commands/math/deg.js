@@ -36,6 +36,6 @@ module.exports = class degCommand extends commando.Command {
   async run(message, args) {
     var yaw = getObject(args.yawv, 'yaw');
     var output = ((args.cpi * yaw * args.sens) / 25.4).toFixed(2);
-    return message.reply(output + ' deg/mm');
+    return message.say(output + ' deg/mm');
   }
 };

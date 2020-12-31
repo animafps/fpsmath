@@ -43,6 +43,6 @@ module.exports = class fovCommand extends commando.Command {
         360) /
       PI
     ).toFixed(5);
-    return message.reply(output + '°');
+    return message.say(output + '°');
   }
 };
