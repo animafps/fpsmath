@@ -7,7 +7,8 @@
     "lint": "eslint .",
     "start": "node index.js",
     "lint:fix": "eslint --fix .",
-    "commit": "lint-staged && cz"
+    "commit": "lint-staged && cz",
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",

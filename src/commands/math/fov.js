@@ -1,6 +1,6 @@
 const { atan, tan } = require('mathjs');
 const PI = 3.14159;
-var { games, getFOVT } = require('../../array');
+var { games, getObject } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class fovCommand extends commando.Command {
   constructor(client) {
@@ -9,8 +9,9 @@ module.exports = class fovCommand extends commando.Command {
       aliases: ['fov-convert'],
       group: 'math',
       memberName: 'fov',
-      description: 'Converts fovs from one type to another',
-      details: `Converts fovs from one type to another \n (Supported ratios: 16:9, 4:3, 1:1) (Supported Games: ${games()})`,
+      description:
+        'Converts fovs from one type to another or finds the true fov for a resolution aspect ratio',
+      details: `Converts fovs from one type to another or finds the true fov  for a resolution aspect ratio(if the game scales to maintain vFOV) \n(Supported Games: ${games()})`,
       examples: ['`/fov 90 quake 16:9`'],
 
       args: [
@@ -21,21 +22,30 @@ module.exports = class fovCommand extends commando.Command {
         },
         {
           key: 'ifovt',
-          label: 'Input Game or FOV ratio',
-          prompt: 'What Game or FOV ratio do you want to convert from',
-          type: 'gamename|fovt',
+          label: 'Input Game or aspect ratio',
+          prompt: 'What Game or aspect ratio do you want to convert from',
+          type: 'gamename|string',
         },
         {
           key: 'ofovt',
-          label: 'Output Game or FOV ratio',
-          prompt: 'What Game or FOV ratio do you want to convert to',
-          type: 'gamename|fovt',
+          label: 'Output Game or aspect ratio',
+          prompt: 'What Game or aspect ratio do you want to convert to',
+          type: 'gamename|string',
         },
       ],
     });
   }
 
   async run(message, args) {
+    function getFOVT(args) {
+      if (isNaN(parseFloat(args))) {
+        return getObject(args, 'fovt');
+      } else {
+        var ratio = args.split(':');
+        return ratio[1] / ratio[0];
+      }
+    }
+
     var output = (
       (atan(
         (getFOVT(args.ifovt) / getFOVT(args.ofovt)) * tan((args.fov * PI) / 360)

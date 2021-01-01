@@ -33,18 +33,6 @@ function getObject(args, object) {
   }
 }
 
-function getFOVT(args) {
-  if (args == '1:1') {
-    return 1;
-  } else if (args == '4:3') {
-    return 0.75;
-  } else if (args == '16:9') {
-    return 0.5625;
-  } else {
-    return getObject(args, 'fovt');
-  }
-}
-
 function gameNames() {
   var gamenames = '';
   for (var x = 0; x < array.length - 1; x++) {
@@ -61,5 +49,4 @@ module.exports = {
   getArray: getArray,
   games: gameNames,
   getObject: getObject,
-  getFOVT: getFOVT,
 };
