@@ -7,7 +7,6 @@ A Discord bot designed to convert sensitivities, fovs, mouse feel across themsel
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![GitHub](https://img.shields.io/github/license/AnimaFPS/FPSMath?style=flat-square)](https://github.com/AnimaFPS/FPSMath/blob/main/LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath/overview/main)
-[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/AnimaFPS/FPSMath?style=flat-square)](https://codeclimate.com/github/AnimaFPS/FPSMath)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AnimaFPS/FPSMath/CI?logo=github&style=flat-square)](https://github.com/AnimaFPS/FPSMath/Actions)
 
 ## Installing
@@ -44,11 +43,8 @@ Note: When building from source you have to input your own discord token in /src
 - Rainbow Six Siege (`r6`)
 - Source Engine games (`source`)
 - Valorant (`valorant` or `val`)
+- Battlefield (`battlefield`)
 - Destiny 2 (`destiny`)
-
-### Ratios
-
-(Supported ratios: 16:9, 4:3, 1:1)
 
 ## Built With
 
