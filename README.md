@@ -21,13 +21,13 @@ Note: When building from source you have to input your own discord token in /src
 
 | Command   | Arguments                                                                  | Description                                                                                            | Example                   |
 | --------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------- |
-| /cm       | {sensitivity value} {game or yaw value} {cpi/dpi}                          | Converts Senstivity to cm/360                                                                          | /cm 6 ow 1600             |
-| /deg      | {sensitivity value} {game or yaw value} {cpi/dpi}                          | Converts Senstivity to deg/mm                                                                          | /deg 1.9 0.022 800        |
-| /convert  | {sensitivity value} {initial game or yaw value} {output game or yaw value} | Converts Different Sensitivities from one game to another                                              | /convert 3 ow 0.022       |
-| /fov      | {input fov} {input aspect ratio or game} {output aspect ratio or game}     | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | /fov 90 16:9 quake        |
-| /focal    | {old sens} {old fov value} {new fov value}                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | /focal 3 90 100           |
-| /sens     | {cm/360} {game or yaw value} {cpi/dpi}                                     | Converts cm/360 to a game sensitivity                                                                  | /sens 28 quake 1600       |
-| /sens-deg | {deg/mm} {game or yaw value} {cpi/dpi}                                     | Converts deg/mm to a game sensitivity                                                                  | /sens-deg 1.28 quake 1600 |
+| /cm       | &lt;sensitivity value&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                          | Converts Senstivity to cm/360                                                                          | /cm 6 ow 1600             |
+| /deg      | &lt;sensitivity value&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                          | Converts Senstivity to deg/mm                                                                          | /deg 1.9 0.022 800        |
+| /convert  | &lt;sensitivity value&gt; &lt;initial game or yaw value&gt; &lt;output game or yaw value&gt; | Converts Different Sensitivities from one game to another                                              | /convert 3 ow 0.022       |
+| /fov      | &lt;input fov&gt; &lt;input aspect ratio or game&gt; &lt;output aspect ratio or game&gt;     | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | /fov 90 16:9 quake        |
+| /focal    | &lt;old sens&gt; &lt;old fov value&gt; &lt;new fov value&gt;                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | /focal 3 90 100           |
+| /sens     | &lt;cm/360&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                                     | Converts cm/360 to a game sensitivity                                                                  | /sens 28 quake 1600       |
+| /sens-deg | &lt;deg/mm&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                                     | Converts deg/mm to a game sensitivity                                                                  | /sens-deg 1.28 quake 1600 |
 
 ## Supported Games and FOV Ratios
 
