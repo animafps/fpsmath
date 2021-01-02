@@ -35,7 +35,7 @@ module.exports = class focalCommand extends commando.Command {
   }
 
   async run(message, args) {
-    var output = (
+    const output = (
       (tan((args.ofov * PI) / 360) / tan((args.ifov * PI) / 360)) *
       args.sens
     ).toFixed(5);
