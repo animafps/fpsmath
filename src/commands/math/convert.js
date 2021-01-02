@@ -1,4 +1,4 @@
-var { games, getObject } = require('../../array');
+const { games, getObject } = require('../../array');
 const commando = require('discord.js-commando');
 
 module.exports = class convertCommand extends commando.Command {
@@ -34,9 +34,10 @@ module.exports = class convertCommand extends commando.Command {
   }
 
   async run(message, args) {
-    var inyaw = getObject(args.ingame, 'yaw');
-    var outyaw = getObject(args.outgame, 'yaw');
-    var output = (args.sens * (inyaw / outyaw)).toFixed(5);
+    const output = (
+      args.sens *
+      (getObject(args.ingame, 'yaw') / getObject(args.outgame, 'yaw'))
+    ).toFixed(5);
     return message.say(output);
   }
 };

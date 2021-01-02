@@ -35,9 +35,9 @@ client
 			blocked; ${reason}
 		`);
   })
-  .on('commandPrefixChange', (guild, prefix) => {
+  .on('commandPrefixChange', (guild, Prefix) => {
     console.log(oneLine`
-			Prefix ${prefix === '' ? 'removed' : `changed to ${prefix || 'the default'}`}
+			Prefix ${Prefix === '' ? 'removed' : `changed to ${Prefix || 'the default'}`}
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   })

@@ -1,6 +1,6 @@
 const { atan, tan } = require('mathjs');
 const PI = 3.14159;
-var { games, getObject } = require('../../array');
+const { games, getObject } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class fovCommand extends commando.Command {
   constructor(client) {
@@ -24,29 +24,29 @@ module.exports = class fovCommand extends commando.Command {
           key: 'ifovt',
           label: 'Input Game or aspect ratio',
           prompt: 'What Game or aspect ratio do you want to convert from',
-          type: 'gamename|string',
+          type: 'gamename|ratio',
         },
         {
           key: 'ofovt',
           label: 'Output Game or aspect ratio',
           prompt: 'What Game or aspect ratio do you want to convert to',
-          type: 'gamename|string',
+          type: 'gamename|ratio',
         },
       ],
     });
   }
 
   async run(message, args) {
-    function getFOVT(args) {
-      if (isNaN(parseFloat(args))) {
-        return getObject(args, 'fovt');
+    function getFOVT(Args) {
+      if (isNaN(parseFloat(Args))) {
+        return getObject(Args, 'fovt');
       } else {
-        var ratio = args.split(':');
+        const ratio = Args.split(':');
         return ratio[1] / ratio[0];
       }
     }
 
-    var output = (
+    const output = (
       (atan(
         (getFOVT(args.ifovt) / getFOVT(args.ofovt)) * tan((args.fov * PI) / 360)
       ) *

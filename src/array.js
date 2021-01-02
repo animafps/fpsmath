@@ -1,5 +1,5 @@
-var array = [
-  { name: 'aimgods', yaw: 0.0023331 }, //horizontal no ratio
+const array = [
+  { name: 'aimgods', yaw: 0.0023331 },
   { name: 'source', yaw: 0.022, fovt: 0.75 },
   { name: 'csgo', yaw: 0.022, fovt: 0.75 },
   { name: 'cs', yaw: 0.022, fovt: 0.75 },
@@ -21,11 +21,11 @@ var array = [
 ];
 
 function getObject(args, object) {
-  var isYaw = array.some(elem => elem.name === args);
+  const isYaw = array.some(elem => elem.name === args);
   if (!isYaw) {
     return args;
   } else {
-    for (var i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       if (args == array[i].name) {
         return array[i][object];
       }
@@ -34,8 +34,8 @@ function getObject(args, object) {
 }
 
 function gameNames() {
-  var gamenames = '';
-  for (var x = 0; x < array.length - 1; x++) {
+  let gamenames = '';
+  for (let x = 0; x < array.length - 1; x++) {
     gamenames += array[x].name + ', ';
   }
   gamenames += array[array.length - 1].name;

@@ -7,8 +7,7 @@ class GameNameArgumentType extends commando.ArgumentType {
   }
 
   validate(val) {
-    var game = getObject(val, 'yaw');
-    return val.toLowerCase() !== game;
+    return val.toLowerCase() !== getObject(val, 'yaw');
   }
 
   parse(val) {
