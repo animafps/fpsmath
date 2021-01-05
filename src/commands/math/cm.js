@@ -34,8 +34,10 @@ module.exports = class cmCommand extends commando.Command {
   }
 
   async run(message, args) {
-    const yaw = getObject(args.yawv, 'yaw');
-    const output = ((2.54 * 360) / (args.cpi * yaw * args.sens)).toFixed(2);
+    const output = (
+      (2.54 * 360) /
+      (args.cpi * getObject(args.yawv, 'yaw') * args.sens)
+    ).toFixed(2);
     return message.say(output + ' cm/360');
   }
 };

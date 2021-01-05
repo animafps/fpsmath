@@ -25,28 +25,19 @@ function getObject(args, object) {
   if (!isYaw) {
     return args;
   } else {
-    for (let i = 0; i < array.length; i++) {
-      if (args == array[i].name) {
-        return array[i][object];
-      }
-    }
+    array.find(argS => argS === args)[object];
   }
 }
 
 function gameNames() {
   let gamenames = '';
-  for (let x = 0; x < array.length - 1; x++) {
-    gamenames += array[x].name + ', ';
-  }
-  gamenames += array[array.length - 1].name;
+  array.forEach(value => {
+    gamenames += value.name + ', ';
+  });
   return gamenames;
 }
 
-function getArray() {
-  return array;
-}
 module.exports = {
-  getArray: getArray,
   games: gameNames,
   getObject: getObject,
 };
