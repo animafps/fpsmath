@@ -1,9 +1,10 @@
 ![FPSMath](https://socialify.git.ci/animafps/fpsmath/image?description=1&font=Inter&language=1&logo=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F792712521546465301%2Fa8176886ccd814f17b4c5a98b62e185a.png%3Fsize%3D256&owner=1&pattern=Plus&theme=Dark)
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/AnimaFPS/FPSMath?style=flat-square)](https://github.com/AnimaFPS/FPSMath/releases)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![GitHub](https://img.shields.io/github/license/AnimaFPS/FPSMath?style=flat-square)](https://github.com/AnimaFPS/FPSMath/blob/main/LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath/overview/main)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AnimaFPS/FPSMath/CI?logo=github&style=flat-square)](https://github.com/AnimaFPS/FPSMath/Actions)
+
 
 ## Installing
 
