@@ -17,7 +17,6 @@ client
   .on('debug', console.log)
   .on('ready', () => {
     client.user.setActivity('/help | animafps.github.io');
-    client.registry.commands.forEach(c => (c.argsCollector.promptLimit = 0));
     console.log(
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
@@ -60,6 +59,10 @@ client
   });
 
 client.setProvider(new commando.SyncSQLiteProvider(db));
+
+client.registry.commands
+  .filter(c => c.argsCollector)
+  .forEach(c => (c.argsCollector.promptLimit = 0));
 
 client.registry
   .registerGroup('math', 'Math')
