@@ -2,6 +2,8 @@ const commando = require('discord.js-commando');
 const path = require('path');
 const oneLine = require('common-tags').oneLine;
 const { ownerID, token, prefix, invite } = require('./src/config.json');
+const database = require('better-sqlite3');
+const db = new database('settings.db');
 
 const client = new commando.Client({
   owner: ownerID,
@@ -15,6 +17,7 @@ client
   .on('debug', console.log)
   .on('ready', () => {
     client.user.setActivity('/help | animafps.github.io');
+    client.registry.commands.forEach(c => (c.argsCollector.promptLimit = 0));
     console.log(
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
@@ -55,6 +58,8 @@ client
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   });
+
+client.setProvider(new commando.SyncSQLiteProvider(db));
 
 client.registry
   .registerGroup('math', 'Math')
