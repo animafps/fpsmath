@@ -20,6 +20,9 @@ client
     console.log(
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
+    console.log(
+      `Running on servers: ${client.guilds.cache.array().join(', ')}`
+    );
   })
   .on('disconnect', () => {
     console.warn('Disconnected!');
