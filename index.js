@@ -60,14 +60,14 @@ client
 
 client.setProvider(new commando.SyncSQLiteProvider(db));
 
-client.registry.commands
-  .filter(c => c.argsCollector)
-  .forEach(c => (c.argsCollector.promptLimit = 0));
-
 client.registry
   .registerGroup('math', 'Math')
   .registerDefaults()
   .registerTypesIn(path.join(__dirname, '/src/types'))
   .registerCommandsIn(path.join(__dirname, '/src/commands'));
+
+client.registry.commands
+  .filter(c => c.argsCollector)
+  .forEach(c => (c.argsCollector.promptLimit = 0));
 
 client.login(token);
