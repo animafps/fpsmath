@@ -17,6 +17,7 @@ client
   .on('debug', console.log)
   .on('ready', () => {
     client.user.setActivity('/help | animafps.github.io');
+    client.guilds.forEach(g => console.log(`Bot Running in: ${g.name}`));
     console.log(
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
