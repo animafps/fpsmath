@@ -15,6 +15,8 @@ or from source `npm ci` or `npm install` then `npm start`
 Note: When building or runing from source you have to input your own discord token in /src/config.json or in the environment variables under `DISCORD_TOKEN` before building or running
 
 ## Usage
+&lt;required&#124;alternitive option&gt;
+&#91;optional&#93;
 
 | Command  | Arguments                                                                                    | Description                                                                                            | Example                 |
 | -------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
