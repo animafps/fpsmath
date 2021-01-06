@@ -23,7 +23,7 @@ Note: When building or runing from source you have to input your own discord tok
 | /convert | &lt;sens&gt; &lt;initial game&#124;yaw&gt; &lt;output game&#124;yaw&gt;                      | Converts Different Sensitivities from one game to another                                              | /convert 3 ow 0.022     |
 | /fov     | &lt;input fov&gt; &lt;input aspect ratio&#124;game&gt; &lt;output aspect ratio&#124;game&gt; | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | /fov 90 16:9 quake      |
 | /focal   | &lt;sens&gt; &lt;old fov&gt; &lt;new fov&gt;                                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | /focal 3 90 100         |
-| /sens    | &lt;cm/360&gt; &lt;game&#124;yaw&gt; &lt;cpi/dpi&gt; &#91;-cm;-deg&#124;-inch&#93;           | Converts cm/360&#124;deg/mm&#124;inch/360 to a game sensitivity                                        | /sens 28 quake 1600 -cm |
+| /sens    | &lt;cm/360&gt; &lt;game&#124;yaw&gt; &lt;cpi/dpi&gt; &#91;-cm&#124;-deg&#124;-inch&#93;           | Converts cm/360&#124;deg/mm&#124;inch/360 to a game sensitivity                                        | /sens 28 quake 1600 -cm |
 
 ## Supported Games
 
