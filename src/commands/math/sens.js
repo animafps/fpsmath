@@ -13,7 +13,7 @@ module.exports = class sensCommand extends commando.Command {
         '`/sens 28.5 quake 1600`',
         '`/sens 28.5 ow 1600 -cm`',
         '`/sens 1.21 cs 1600 -deg`',
-        '/sens 11.22 fortnite 1600 -inch',
+        '`/sens 11.22 fortnite 1600 -inch`',
       ],
       format: '<cm/360|deg/mm|inch/360> <game|yaw> <cpi> [-cm|-deg|-inch]',
 

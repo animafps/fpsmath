@@ -15,17 +15,29 @@ or from source `npm ci` or `npm install` then `npm start`
 Note: When building or runing from source you have to input your own discord token in /src/config.json or in the environment variables under `DISCORD_TOKEN` before building or running
 
 ## Usage
+
 &lt;required&#124;alternitive option&gt;
 &#91;optional&#93;
 
-| Command  | Arguments                                                                                    | Description                                                                                            | Example                 |
-| -------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
-| /cm      | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to cm/360                                                                          | /cm 6 ow 1600           |
-| /deg     | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to deg/mm                                                                          | /deg 1.9 0.022 800      |
-| /convert | &lt;sens&gt; &lt;initial game&#124;yaw&gt; &lt;output game&#124;yaw&gt;                      | Converts Different Sensitivities from one game to another                                              | /convert 3 ow 0.022     |
-| /fov     | &lt;input fov&gt; &lt;input aspect ratio&#124;game&gt; &lt;output aspect ratio&#124;game&gt; | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | /fov 90 16:9 quake      |
-| /focal   | &lt;sens&gt; &lt;old fov&gt; &lt;new fov&gt;                                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | /focal 3 90 100         |
-| /sens    | &lt;cm/360&gt; &lt;game&#124;yaw&gt; &lt;cpi/dpi&gt; &#91;-cm&#124;-deg&#124;-inch&#93;           | Converts cm/360&#124;deg/mm&#124;inch/360 to a game sensitivity                                        | /sens 28 quake 1600 -cm |
+### Main Commands
+
+| Command  | Arguments                                                                                    | Description                                                                                            | Example                   |
+| -------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------- |
+| /cm      | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to cm/360                                                                          | `/cm 6 ow 1600`           |
+| /deg     | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to deg/mm                                                                          | `/deg 1.9 0.022 800`      |
+| /convert | &lt;sens&gt; &lt;initial game&#124;yaw&gt; &lt;output game&#124;yaw&gt;                      | Converts Different Sensitivities from one game to another                                              | `/convert 3 ow 0.022`     |
+| /fov     | &lt;input fov&gt; &lt;input aspect ratio&#124;game&gt; &lt;output aspect ratio&#124;game&gt; | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | `/fov 90 16:9 quake`      |
+| /focal   | &lt;sens&gt; &lt;old fov&gt; &lt;new fov&gt;                                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | `/focal 3 90 100`         |
+| /sens    | &lt;cm/360&gt; &lt;game&#124;yaw&gt; &lt;cpi/dpi&gt; &#91;-cm&#124;-deg&#124;-inch&#93;      | Converts cm/360&#124;deg/mm&#124;inch/360 to a game sensitivity                                        | `/sens 28 quake 1600 -cm` |
+
+### Utility Commands
+
+| Command    | Arguments                                    | Description                                                                             | Example             |
+| ---------- | -------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------- |
+| /prefix    | &lt;prefix&#124;none&#124;default&gt;        | Shows or sets the command prefix.                                                       | `/prefix !`         |
+| /help      | none                                         | Displays a list of available commands, or detailed information for a specified command. | `/help`             |
+| /games     | none                                         | Displays the supported games for this bot                                               | `/games`            |
+| /getobject | &lt;game&gt; &lt;yaw&#124;name&#124;fovt&gt; | Displays the object from the array assoiated for a game                                 | `/getobject ow yaw` |
 
 ## Supported Games
 
