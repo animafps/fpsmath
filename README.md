@@ -8,7 +8,7 @@
 
 ## Installing
 
-[Install This Bot on Your Server](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240)
+[Install This Bot on Your Server](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240) or DM `FPS Math#9838` with the commands outside of a server
 
 or build from source using Docker
 
