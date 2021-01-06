@@ -6,9 +6,9 @@ const database = require('better-sqlite3');
 const db = new database('settings.db');
 
 const client = new commando.Client({
-  owner: ownerID,
-  commandPrefix: prefix,
-  invite: invite,
+  owner: process.env.OWENERID || ownerID,
+  commandPrefix: process.env.PREFIX || prefix,
+  invite: process.env.INVITE || invite,
 });
 
 client
@@ -21,7 +21,12 @@ client
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
     console.log(
-      `Running on servers: ${client.guilds.cache.array().join(', ')}`
+      `Running on servers: ${client.guilds.cache
+        .array()
+        .map(val => {
+          return `${val.name}(${val.memberCount})`;
+        })
+        .join(', ')}`
     );
   })
   .on('disconnect', () => {
@@ -73,4 +78,5 @@ client.registry.commands
   .filter(c => c.argsCollector)
   .forEach(c => (c.argsCollector.promptLimit = 0));
 
-client.login(token);
+const Token = process.env.DISCORD_TOKEN || token;
+client.login(Token);

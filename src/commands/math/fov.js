@@ -13,6 +13,7 @@ module.exports = class fovCommand extends commando.Command {
         'Converts fovs from one type to another or finds the true fov for a resolution aspect ratio',
       details: `Converts fovs from one type to another or finds the true fov  for a resolution aspect ratio(if the game scales to maintain vFOV) \n(Supported Games: ${games()})`,
       examples: ['`/fov 90 quake 16:9`'],
+      format: '<fov> <input game|aspect ratio> <output game|aspect ratio>',
 
       args: [
         {

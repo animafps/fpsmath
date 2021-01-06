@@ -1,32 +1,31 @@
-[![FPSMath](https://socialify.git.ci/animafps/fpsmath/image?description=1&font=Inter&language=1&logo=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F792712521546465301%2Fa8176886ccd814f17b4c5a98b62e185a.png%3Fsize%3D256&owner=1&pattern=Plus&theme=Dark)](#)
+[![FPSMath](https://socialify.git.ci/animafps/fpsmath/image?description=1&font=Inter&language=1&logo=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F792712521546465301%2Fa8176886ccd814f17b4c5a98b62e185a.png%3Fsize%3D256&owner=1&pattern=Plus&theme=Dark)](https://github.com/AnimaFPS/FPSMath)
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/AnimaFPS/FPSMath?style=flat-square)](https://github.com/AnimaFPS/FPSMath/releases)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath/overview/main)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AnimaFPS/FPSMath/CI?logo=github&style=flat-square)](https://github.com/AnimaFPS/FPSMath/Actions)
 
-
 ## Installing
 
 [Install This Bot on Your Server](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240)
 
 or build from source using Docker
+or from source `npm ci` or `npm install` then `npm start`
 
-Note: When building from source you have to input your own discord token in /src/config.json before building
+Note: When building or runing from source you have to input your own discord token in /src/config.json or in the environment variables under `DISCORD_TOKEN` before building or running
 
 ## Usage
 
-| Command   | Arguments                                                                  | Description                                                                                            | Example                   |
-| --------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------- |
-| /cm       | &lt;sensitivity value&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                          | Converts Senstivity to cm/360                                                                          | /cm 6 ow 1600             |
-| /deg      | &lt;sensitivity value&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                          | Converts Senstivity to deg/mm                                                                          | /deg 1.9 0.022 800        |
-| /convert  | &lt;sensitivity value&gt; &lt;initial game or yaw value&gt; &lt;output game or yaw value&gt; | Converts Different Sensitivities from one game to another                                              | /convert 3 ow 0.022       |
-| /fov      | &lt;input fov&gt; &lt;input aspect ratio or game&gt; &lt;output aspect ratio or game&gt;     | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | /fov 90 16:9 quake        |
-| /focal    | &lt;old sens&gt; &lt;old fov value&gt; &lt;new fov value&gt;                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | /focal 3 90 100           |
-| /sens     | &lt;cm/360&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                                     | Converts cm/360 to a game sensitivity                                                                  | /sens 28 quake 1600       |
-| /sens-deg | &lt;deg/mm&gt; &lt;game or yaw value&gt; &lt;cpi/dpi&gt;                                     | Converts deg/mm to a game sensitivity                                                                  | /sens-deg 1.28 quake 1600 |
+| Command  | Arguments                                                                                    | Description                                                                                            | Example                 |
+| -------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
+| /cm      | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to cm/360                                                                          | /cm 6 ow 1600           |
+| /deg     | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to deg/mm                                                                          | /deg 1.9 0.022 800      |
+| /convert | &lt;sens&gt; &lt;initial game&#124;yaw&gt; &lt;output game&#124;yaw&gt;                      | Converts Different Sensitivities from one game to another                                              | /convert 3 ow 0.022     |
+| /fov     | &lt;input fov&gt; &lt;input aspect ratio&#124;game&gt; &lt;output aspect ratio&#124;game&gt; | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | /fov 90 16:9 quake      |
+| /focal   | &lt;sens&gt; &lt;old fov&gt; &lt;new fov&gt;                                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | /focal 3 90 100         |
+| /sens    | &lt;cm/360&gt; &lt;game&#124;yaw&gt; &lt;cpi/dpi&gt; &#91;-cm;-deg&#124;-inch&#93;           | Converts cm/360&#124;deg/mm&#124;inch/360 to a game sensitivity                                        | /sens 28 quake 1600 -cm |
 
-## Supported Games and FOV Ratios
+## Supported Games
 
 ### Games
 

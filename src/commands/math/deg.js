@@ -10,6 +10,7 @@ module.exports = class degCommand extends commando.Command {
       description: 'Converts Senstivity to deg/mm',
       details: `Converts Senstivity to deg/mm \n (Supported Games: ${games()})`,
       examples: ['`/deg 0.95 ow 1600`'],
+      format: '<sens> <game|yaw> <cpi>',
 
       args: [
         {

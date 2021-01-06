@@ -10,6 +10,7 @@ module.exports = class cmCommand extends commando.Command {
       description: 'Converts Senstivity to cm/360',
       details: `Converts Senstivity to cm/360 \n (Supported Games: ${games()})`,
       examples: ['`/cm 0.95 ow 1600`'],
+      format: '<sens> <game|yaw> <cpi>',
 
       args: [
         {

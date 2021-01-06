@@ -10,6 +10,7 @@ module.exports = class convertCommand extends commando.Command {
       description: 'Converts Different Sensitivities from one game to another',
       details: `Converts Different Sensitivities from one game to another \n (Supported Games: ${games()})`,
       examples: ['`/convert 0.95 ow 0.022`'],
+      format: '<sens> <input game|yaw> <output game|yaw>',
 
       args: [
         {
