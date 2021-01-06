@@ -70,7 +70,9 @@ client.setProvider(new commando.SyncSQLiteProvider(db));
 
 client.registry
   .registerGroup('math', 'Math')
-  .registerDefaults()
+  .registerDefaultGroups()
+  .registerDefaultTypes()
+  .registerDefaultCommands({ unknownCommand: false })
   .registerTypesIn(path.join(__dirname, '/src/types'))
   .registerCommandsIn(path.join(__dirname, '/src/commands'));
 

@@ -5,6 +5,8 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath/overview/main)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AnimaFPS/FPSMath/CI?logo=github&style=flat-square)](https://github.com/AnimaFPS/FPSMath/Actions)
 
+[![Discord Bots](https://top.gg/api/widget/792712521546465301.svg)](https://top.gg/bot/792712521546465301)
+
 ## Installing
 
 [Install This Bot on Your Server](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240) or DM `FPS Math#9838` with the commands outside of a server
