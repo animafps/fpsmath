@@ -25,15 +25,20 @@ function getObject(args, object) {
   if (!isYaw) {
     return args;
   } else {
-    array.find(argS => argS === args)[object];
+    for (let i = 0; i < array.length; i++) {
+      if (args == array[i].name) {
+        return array[i][object];
+      }
+    }
   }
 }
 
 function gameNames() {
   let gamenames = '';
-  array.forEach(value => {
-    gamenames += value.name + ', ';
-  });
+  for (let x = 0; x < array.length - 1; x++) {
+    gamenames += array[x].name + ', ';
+  }
+  gamenames += array[array.length - 1].name;
   return gamenames;
 }
 
