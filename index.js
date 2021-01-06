@@ -6,7 +6,7 @@ const database = require('better-sqlite3');
 const db = new database('settings.db');
 
 const client = new commando.Client({
-  owner: process.env.OWENERID || ownerID,
+  owner: process.env.OWNERID || ownerID,
   commandPrefix: process.env.PREFIX || prefix,
   invite: process.env.INVITE || invite,
 });
