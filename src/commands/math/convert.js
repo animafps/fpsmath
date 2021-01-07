@@ -1,4 +1,4 @@
-const { games, getObject } = require('../../array');
+const { getObject } = require('../../array');
 const commando = require('discord.js-commando');
 
 module.exports = class convertCommand extends commando.Command {
@@ -8,7 +8,8 @@ module.exports = class convertCommand extends commando.Command {
       group: 'math',
       memberName: 'convert',
       description: 'Converts Different Sensitivities from one game to another',
-      details: `Converts Different Sensitivities from one game to another \n (Supported Games: ${games()})`,
+      details:
+        'Converts Different Sensitivities from one game to another \nTo see the Supported games do /games)',
       examples: ['`/convert 0.95 ow 0.022`'],
       format: '<sens> <input game|yaw> <output game|yaw>',
 

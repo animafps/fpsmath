@@ -1,4 +1,4 @@
-const { getObject, games } = require('../../array');
+const { getObject } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class getObjectCommand extends commando.Command {
   constructor(client) {
@@ -7,8 +7,11 @@ module.exports = class getObjectCommand extends commando.Command {
       group: 'util',
       memberName: 'getobject',
       description: 'Displays the object assoiated for a game',
-      details: `Displays the object assoiated for a game \n(Supported games: ${games()}), (Supported Objects: fovt, yaw)`,
+      details:
+        'Displays the object assoiated for a game \nTo see the Supported games do /games, (Supported Objects: fovt, yaw, name)',
       examples: ['`/getobject ow yaw`'],
+      format: '<game> <"yaw"|"name"|"fovt">',
+
       args: [
         {
           key: 'game',

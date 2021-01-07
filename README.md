@@ -18,45 +18,46 @@ Note: When building or runing from source you have to input your own discord tok
 
 ## Usage
 
-&lt;required&#124;alternitive option&gt;
-&#91;optional&#93;
+\<required\|alternitive option\> \[optional\] **exact argument**
 
 ### Main Commands
 
-| Command  | Arguments                                                                                    | Description                                                                                            | Example                   |
-| -------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------- |
-| /cm      | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to cm/360                                                                          | `/cm 6 ow 1600`           |
-| /deg     | &lt;sens&gt; &lt;game&#124;yaw&gt; &lt;cpi&gt;                                               | Converts Senstivity to deg/mm                                                                          | `/deg 1.9 0.022 800`      |
-| /convert | &lt;sens&gt; &lt;initial game&#124;yaw&gt; &lt;output game&#124;yaw&gt;                      | Converts Different Sensitivities from one game to another                                              | `/convert 3 ow 0.022`     |
-| /fov     | &lt;input fov&gt; &lt;input aspect ratio&#124;game&gt; &lt;output aspect ratio&#124;game&gt; | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | `/fov 90 16:9 quake`      |
-| /focal   | &lt;sens&gt; &lt;old fov&gt; &lt;new fov&gt;                                                 | Focal Length Scales a desired sens between 2 fov values of the same type                               | `/focal 3 90 100`         |
-| /sens    | &lt;cm/360&gt; &lt;game&#124;yaw&gt; &lt;cpi/dpi&gt; &#91;-cm&#124;-deg&#124;-inch&#93;      | Converts cm/360&#124;deg/mm&#124;inch/360 to a game sensitivity                                        | `/sens 28 quake 1600 -cm` |
+| Command  | Arguments                                                                | Description                                                                                            | Example                   |
+| -------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------- |
+| /cm      | \<sens\> \<game\|yaw\> \<cpi\>                                           | Converts Senstivity to cm/360                                                                          | `/cm 6 ow 1600`           |
+| /deg     | \<sens\> \<game\|yaw\> \<cpi\>                                           | Converts Senstivity to deg/mm                                                                          | `/deg 1.9 0.022 800`      |
+| /convert | \<sens\> \<initial game\|yaw\> \<output game\|yaw\>                      | Converts Different Sensitivities from one game to another                                              | `/convert 3 ow 0.022`     |
+| /fov     | \<input fov\> \<input aspect ratio\|game\> \<output aspect ratio\|game\> | Converts fovs from one type to another or finds the equivilent for a differnet resolution aspect ratio | `/fov 90 16:9 quake`      |
+| /focal   | \<sens\> \<old fov\> \<new fov\>                                         | Focal Length Scales a desired sens between 2 fov values of the same type                               | `/focal 3 90 100`         |
+| /sens    | \<cm/360\> \<game\|yaw\> \<cpi/dpi\> \[**-cm**\|**-deg**\|**-inch**\]    | Converts cm/360\|deg/mm\|inch/360 to a game sensitivity                                                | `/sens 28 quake 1600 -cm` |
 
 ### Utility Commands
 
-| Command    | Arguments                                    | Description                                                                             | Example             |
-| ---------- | -------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------- |
-| /prefix    | &lt;prefix&#124;none&#124;default&gt;        | Shows or sets the command prefix.                                                       | `/prefix !`         |
-| /help      | none                                         | Displays a list of available commands, or detailed information for a specified command. | `/help`             |
-| /games     | none                                         | Displays the supported games for this bot                                               | `/games`            |
-| /getobject | &lt;game&gt; &lt;yaw&#124;name&#124;fovt&gt; | Displays the object from the array assoiated for a game                                 | `/getobject ow yaw` |
+| Command    | Arguments                                | Description                                                                             | Example             |
+| ---------- | ---------------------------------------- | --------------------------------------------------------------------------------------- | ------------------- |
+| /prefix    | \<prefix\|**none**\|**default**\>        | Shows or sets the command prefix.                                                       | `/prefix !`         |
+| /help      | none                                     | Displays a list of available commands, or detailed information for a specified command. | `/help`             |
+| /games     | none                                     | Displays the supported games for this bot                                               | `/games`            |
+| /getobject | \<game\> \<**yaw**\|**name**\|**fovt**\> | Displays the object from the array assoiated for a game                                 | `/getobject ow yaw` |
 
 ## Supported Games
 
 ### Games
 
-- Apex Legends (`apex`)
-- Aimgods (`aimgods`)
-- Call of Duty (`cod`)
-- Counter Strike(`cs` or `csgo`)
-- Fortnite Config (`fortnite` or `fortnite-config`)
-- Overwatch (`overwatch` or `ow`)
-- Quake (`quake`)
-- Rainbow Six Siege (`r6`)
-- Source Engine games (`source`)
-- Valorant (`valorant` or `val`)
-- Battlefield (`battlefield`)
-- Destiny 2 (`destiny`)
+- Aimgods: (`aimgods`)
+- Apex Legends: (`apex-legends`, `apex`)
+- Battlefield: (`battlefield`, `bf`)
+- Call of Duty: (`cod`, `callofduty`, `call-of-duty`, `warzone`, `wz`)
+- Counter Strike: (`cs`, `cs:go`, `csgo`)
+- Destiny: (`destiny`, `d2`, `destiny2`)
+- Diabotical: (`diabotical`, `dbt`)
+- Fortnite: (`fornite`, `fn`)
+- Fortnite config: (`fn-config`, `fornite-config`)
+- Overwatch: (`overwatch`, `ow`)
+- Quake: (`quake`)
+- Rainbow Six: Siege: (`r6`, `rainbow6`, `r6s`)
+- Source: (`source`)
+- Valorant: (`valorant`, `val`)
 
 ## Built With
 

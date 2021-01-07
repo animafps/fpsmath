@@ -1,5 +1,7 @@
 const { games } = require('../../array');
 const commando = require('discord.js-commando');
+const discord = require('discord.js');
+
 module.exports = class gamesCommand extends commando.Command {
   constructor(client) {
     super(client, {
@@ -12,6 +14,9 @@ module.exports = class gamesCommand extends commando.Command {
   }
 
   async run(message) {
-    return message.say(`Suported Games: ${games()}`);
+    const Embed = new discord.MessageEmbed()
+      .setColor('#0099ff')
+      .addField('Supported Games:', `\`\`\`${games()}\`\`\``);
+    return message.say(Embed);
   }
 };

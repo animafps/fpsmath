@@ -65,14 +65,16 @@ client
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   });
-
 client.setProvider(new commando.SyncSQLiteProvider(db));
 
 client.registry
   .registerGroup('math', 'Math')
   .registerDefaultGroups()
   .registerDefaultTypes()
-  .registerDefaultCommands({ unknownCommand: false })
+  .registerDefaultCommands({
+    unknownCommand: false,
+    help: false,
+  })
   .registerTypesIn(path.join(__dirname, '/src/types'))
   .registerCommandsIn(path.join(__dirname, '/src/commands'));
 

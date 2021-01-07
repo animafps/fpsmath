@@ -1,16 +1,16 @@
 const { getObject } = require('../../array');
 const commando = require('discord.js-commando');
-module.exports = class degCommand extends commando.Command {
+module.exports = class inchCommand extends commando.Command {
   constructor(client) {
     super(client, {
-      name: 'deg',
-      aliases: ['deg/mm'],
+      name: 'inch',
+      aliases: ['inch/360', 'inch/rev'],
       group: 'math',
-      memberName: 'deg',
-      description: 'Converts Senstivity to deg/mm',
+      memberName: 'inch',
+      description: 'Converts Senstivity to inch/360',
       details:
-        'Converts Senstivity to deg/mm \nTo see the Supported games do /games)',
-      examples: ['`/deg 0.95 ow 1600`'],
+        'Converts Senstivity to inch/360 \nTo see the Supported games do /games',
+      examples: ['`/inch 0.95 ow 1600`'],
       format: '<sens> <game|yaw> <cpi>',
 
       args: [
@@ -37,9 +37,9 @@ module.exports = class degCommand extends commando.Command {
 
   async run(message, args) {
     const output = (
-      (args.cpi * getObject(args.yawv, 'yaw') * args.sens) /
-      25.4
+      360 /
+      (args.cpi * getObject(args.yawv, 'yaw') * args.sens)
     ).toFixed(2);
-    return message.say(output + ' deg/mm');
+    return message.say(output + ' inch/360');
   }
 };
