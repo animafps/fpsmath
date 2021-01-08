@@ -4,11 +4,12 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint .",
+    "lint": "eslint --format github .",
     "start": "node index.js",
     "lint:fix": "eslint --fix .",
     "commit": "lint-staged && cz",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "cz": "cz"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
+    "eslint-formatter-github": "^1.0.11",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.0",

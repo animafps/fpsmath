@@ -43,7 +43,9 @@ client
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
     logger.info(
-      `Running on servers: ${client.guilds.cache
+      `Running on ${
+        client.guilds.cache.array().length
+      } servers: ${client.guilds.cache
         .array()
         .map(val => {
           return `${val.name}(${val.memberCount})`;
