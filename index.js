@@ -1,9 +1,31 @@
+require('dotenv').config();
 const commando = require('discord.js-commando');
+const winston = require('winston');
 const path = require('path');
 const oneLine = require('common-tags').oneLine;
 const { ownerID, token, prefix, invite } = require('./src/config.json');
-const database = require('better-sqlite3');
-const db = new database('settings.db');
+const logger = winston.createLogger({
+  level: 'debug',
+  format: winston.format.combine(
+    winston.format.timestamp({
+      format: 'YYYY-MM-DD HH:mm:ss',
+    }),
+    winston.format.errors({ stack: true }),
+    winston.format.splat(),
+    winston.format.json()
+  ),
+  defaultMeta: { service: 'fpsmath' },
+  transports: [
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.printf(
+          info => `${info.timestamp} ${info.level}: ${info.message}`
+        )
+      ),
+    }),
+  ],
+});
 
 const client = new commando.Client({
   owner: process.env.OWNERID || ownerID,
@@ -12,15 +34,15 @@ const client = new commando.Client({
 });
 
 client
-  .on('error', console.error)
-  .on('warn', console.warn)
-  .on('debug', console.log)
+  .on('debug', m => logger.debug(m))
+  .on('warn', m => logger.warn(m))
+  .on('error', m => logger.error(m))
   .on('ready', () => {
     client.user.setActivity('/help | animafps.github.io');
-    console.log(
+    logger.info(
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
-    console.log(
+    logger.info(
       `Running on servers: ${client.guilds.cache
         .array()
         .map(val => {
@@ -30,42 +52,43 @@ client
     );
   })
   .on('disconnect', () => {
-    console.warn('Disconnected!');
+    logger.warn('Disconnected!');
   })
   .on('reconnecting', () => {
-    console.warn('Reconnecting...');
+    logger.warn('Reconnecting...');
   })
   .on('commandError', (cmd, err) => {
     if (err instanceof commando.FriendlyError) return;
-    console.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
+    logger.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
   })
   .on('commandBlocked', (msg, reason) => {
-    console.log(oneLine`
+    logger.info(oneLine`
 			Command ${msg.command ? `${msg.command.groupID}:${msg.command.memberName}` : ''}
 			blocked; ${reason}
 		`);
   })
   .on('commandPrefixChange', (guild, Prefix) => {
-    console.log(oneLine`
+    logger.info(oneLine`
 			Prefix ${Prefix === '' ? 'removed' : `changed to ${Prefix || 'the default'}`}
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   })
   .on('commandStatusChange', (guild, command, enabled) => {
-    console.log(oneLine`
+    logger.info(oneLine`
 			Command ${command.groupID}:${command.memberName}
 			${enabled ? 'enabled' : 'disabled'}
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   })
   .on('groupStatusChange', (guild, group, enabled) => {
-    console.log(oneLine`
+    logger.info(oneLine`
 			Group ${group.id}
 			${enabled ? 'enabled' : 'disabled'}
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   });
-client.setProvider(new commando.SyncSQLiteProvider(db));
+
+process.on('uncaughtException', error => logger.error(error));
 
 client.registry
   .registerGroup('math', 'Math')
