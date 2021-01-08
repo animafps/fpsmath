@@ -1,6 +1,6 @@
 {
-  "token": "Discord bot token",
-  "ownerID": "owners discord it",
-  "prefix": "/",
+  "token": "",
+  "ownerID": "",
+  "prefix": "",
   "invite": ""
 }

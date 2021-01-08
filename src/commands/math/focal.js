@@ -11,6 +11,7 @@ module.exports = class focalCommand extends commando.Command {
       description:
         'Focal Length Scales a desired sens between 2 fov values of the same type',
       examples: ['`/focal 0.95 90 100`'],
+      format: '<sens> <old fov> <new fov>',
 
       args: [
         {

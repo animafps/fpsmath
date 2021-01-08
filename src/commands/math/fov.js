@@ -1,6 +1,6 @@
 const { atan, tan } = require('mathjs');
 const PI = 3.14159;
-const { games, getObject } = require('../../array');
+const { getObject } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class fovCommand extends commando.Command {
   constructor(client) {
@@ -11,8 +11,10 @@ module.exports = class fovCommand extends commando.Command {
       memberName: 'fov',
       description:
         'Converts fovs from one type to another or finds the true fov for a resolution aspect ratio',
-      details: `Converts fovs from one type to another or finds the true fov  for a resolution aspect ratio(if the game scales to maintain vFOV) \n(Supported Games: ${games()})`,
+      details:
+        'Converts fovs from one type to another or finds the true fov  for a resolution aspect ratio(if the game scales to maintain vFOV) \nTo see the Supported games do /games)',
       examples: ['`/fov 90 quake 16:9`'],
+      format: '<fov> <input game|aspect ratio> <output game|aspect ratio>',
 
       args: [
         {

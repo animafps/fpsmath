@@ -1,4 +1,4 @@
-const { games, getObject } = require('../../array');
+const { getObject } = require('../../array');
 const commando = require('discord.js-commando');
 module.exports = class cmCommand extends commando.Command {
   constructor(client) {
@@ -8,8 +8,10 @@ module.exports = class cmCommand extends commando.Command {
       group: 'math',
       memberName: 'cm',
       description: 'Converts Senstivity to cm/360',
-      details: `Converts Senstivity to cm/360 \n (Supported Games: ${games()})`,
+      details:
+        'Converts Senstivity to cm/360 \nTo see the Supported games do /games)',
       examples: ['`/cm 0.95 ow 1600`'],
+      format: '<sens> <game|yaw> <cpi>',
 
       args: [
         {

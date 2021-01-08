@@ -2,11 +2,13 @@ const commando = require('discord.js-commando');
 const path = require('path');
 const oneLine = require('common-tags').oneLine;
 const { ownerID, token, prefix, invite } = require('./src/config.json');
+const database = require('better-sqlite3');
+const db = new database('settings.db');
 
 const client = new commando.Client({
-  owner: ownerID,
-  commandPrefix: prefix,
-  invite: invite,
+  owner: process.env.OWNERID || ownerID,
+  commandPrefix: process.env.PREFIX || prefix,
+  invite: process.env.INVITE || invite,
 });
 
 client
@@ -17,6 +19,14 @@ client
     client.user.setActivity('/help | animafps.github.io');
     console.log(
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
+    );
+    console.log(
+      `Running on servers: ${client.guilds.cache
+        .array()
+        .map(val => {
+          return `${val.name}(${val.memberCount})`;
+        })
+        .join(', ')}`
     );
   })
   .on('disconnect', () => {
@@ -55,11 +65,22 @@ client
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
   });
+client.setProvider(new commando.SyncSQLiteProvider(db));
 
 client.registry
   .registerGroup('math', 'Math')
-  .registerDefaults()
+  .registerDefaultGroups()
+  .registerDefaultTypes()
+  .registerDefaultCommands({
+    unknownCommand: false,
+    help: false,
+  })
   .registerTypesIn(path.join(__dirname, '/src/types'))
   .registerCommandsIn(path.join(__dirname, '/src/commands'));
 
-client.login(token);
+client.registry.commands
+  .filter(c => c.argsCollector)
+  .forEach(c => (c.argsCollector.promptLimit = 0));
+
+const Token = process.env.DISCORD_TOKEN || token;
+client.login(Token);
