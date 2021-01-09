@@ -69,11 +69,15 @@ function getObject(args, object) {
   if (!isYaw) {
     return args;
   } else {
+    let outcome;
     array.forEach(item => {
-      if (item.aliases.some(currentValue => currentValue === args)) {
-        return item[object];
-      }
+      item.aliases.forEach(val => {
+        if (val === args) {
+          outcome = item[object]
+        }
+      });
     });
+    return outcome;
   }
 }
 
