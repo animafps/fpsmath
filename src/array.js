@@ -73,7 +73,7 @@ function getObject(args, object) {
     array.forEach(item => {
       item.aliases.forEach(val => {
         if (val === args) {
-          outcome = item[object]
+          outcome = item[object];
         }
       });
     });

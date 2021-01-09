@@ -56,7 +56,6 @@ module.exports = class sensCommand extends commando.Command {
           (24.5 * args.cm) /
           (args.cpi * getObject(args.yawv.toLowerCase(), 'yaw'))
         ).toFixed(2);
-        console.log(output);
         message.say(output);
         break;
       }
