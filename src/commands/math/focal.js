@@ -40,6 +40,6 @@ module.exports = class focalCommand extends commando.Command {
       (tan((args.ofov * PI) / 360) / tan((args.ifov * PI) / 360)) *
       args.sens
     ).toFixed(5);
-    return message.say(output + ' deg/mm');
+    return message.say(output);
   }
 };
