@@ -84,7 +84,7 @@ module.exports = class HelpCommand extends commando.Command {
         commandhelpEmbed.addField(
           'Quick Links',
           // eslint-disable-next-line prettier/prettier
-          '[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite to your server**](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240) | [**Dev\'s Twitter**](https://twitter.com/animafps)'
+          "[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite to your server**](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240) | [**Dev's Twitter**](https://twitter.com/animafps)"
         );
         const messages = [];
         try {
@@ -184,7 +184,7 @@ module.exports = class HelpCommand extends commando.Command {
         generalhelpEmbed.addField(
           'Quick Links',
           // eslint-disable-next-line prettier/prettier
-          '[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite to your server**](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240) | [**Dev\'s Twitter**](https://twitter.com/animafps)'
+          "[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite to your server**](https://discordapp.com/api/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=10240) | [**Dev's Twitter**](https://twitter.com/animafps)"
         );
         messages.push(await msg.direct(generalhelpEmbed));
 
