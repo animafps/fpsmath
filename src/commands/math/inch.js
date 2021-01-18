@@ -7,9 +7,9 @@ module.exports = class inchCommand extends commando.Command {
       aliases: ['inch/360', 'inch/rev'],
       group: 'math',
       memberName: 'inch',
-      description: 'Converts Senstivity to inch/360',
+      description: 'Converts Sensitivity to inch/360',
       details:
-        'Converts Senstivity to inch/360 \nTo see the Supported games do /games',
+        'Converts Sensitivity to inch/360 \nTo see the Supported games do /games',
       examples: ['`/inch 0.95 ow 1600`'],
       format: '<sens> <game|yaw> <cpi>',
 
@@ -20,7 +20,7 @@ module.exports = class inchCommand extends commando.Command {
           type: 'float',
         },
         {
-          key: 'yawv',
+          key: 'yaw',
           label: 'Game or yaw value',
           prompt: 'What game or yaw value do you want to use',
           type: 'gamename|float',
@@ -31,6 +31,13 @@ module.exports = class inchCommand extends commando.Command {
           prompt: 'What CPI/DPI do you want to use',
           type: 'float',
         },
+        {
+          key: 'dp',
+          label: 'decimal places',
+          prompt: 'How Many Decimal places',
+          type: 'float',
+          default: '2',
+        },
       ],
     });
   }
@@ -38,8 +45,8 @@ module.exports = class inchCommand extends commando.Command {
   async run(message, args) {
     const output = (
       360 /
-      (args.cpi * getObject(args.yawv, 'yaw') * args.sens)
-    ).toFixed(2);
+      (args.cpi * getObject(args.yaw, 'yaw') * args.sens)
+    ).toFixed(args.dp);
     return message.say(output + ' inch/360');
   }
 };

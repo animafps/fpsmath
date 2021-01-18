@@ -20,16 +20,23 @@ module.exports = class focalCommand extends commando.Command {
           type: 'float',
         },
         {
-          key: 'ifov',
+          key: 'iFOV',
           label: 'old fov',
           prompt: 'What is the old FOV value',
           type: 'float',
         },
         {
-          key: 'ofov',
+          key: 'oFOV',
           label: 'new fov',
           prompt: 'What is the new FOV value',
           type: 'float',
+        },
+        {
+          key: 'dp',
+          label: 'decimal places',
+          prompt: 'How Many Decimal places',
+          type: 'float',
+          default: '5',
         },
       ],
     });
@@ -37,9 +44,9 @@ module.exports = class focalCommand extends commando.Command {
 
   async run(message, args) {
     const output = (
-      (tan((args.ofov * PI) / 360) / tan((args.ifov * PI) / 360)) *
+      (tan((args.oFOV * PI) / 360) / tan((args.iFOV * PI) / 360)) *
       args.sens
-    ).toFixed(5);
+    ).toFixed(args.dp);
     return message.say(output);
   }
 };

@@ -23,16 +23,23 @@ module.exports = class fovCommand extends commando.Command {
           type: 'float',
         },
         {
-          key: 'ifovt',
+          key: 'iFOVT',
           label: 'Input Game or aspect ratio',
           prompt: 'What Game or aspect ratio do you want to convert from',
           type: 'gamename|ratio',
         },
         {
-          key: 'ofovt',
+          key: 'oFOVT',
           label: 'Output Game or aspect ratio',
           prompt: 'What Game or aspect ratio do you want to convert to',
           type: 'gamename|ratio',
+        },
+        {
+          key: 'dp',
+          label: 'decimal places',
+          prompt: 'How Many Decimal places',
+          type: 'float',
+          default: '5',
         },
       ],
     });
@@ -50,11 +57,11 @@ module.exports = class fovCommand extends commando.Command {
 
     const output = (
       (atan(
-        (getFOVT(args.ifovt) / getFOVT(args.ofovt)) * tan((args.fov * PI) / 360)
+        (getFOVT(args.iFOVT) / getFOVT(args.oFOVT)) * tan((args.fov * PI) / 360)
       ) *
         360) /
       PI
-    ).toFixed(5);
+    ).toFixed(args.dp);
     return message.say(output + '°');
   }
 };

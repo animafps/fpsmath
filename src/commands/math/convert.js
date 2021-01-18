@@ -20,16 +20,23 @@ module.exports = class convertCommand extends commando.Command {
           type: 'float',
         },
         {
-          key: 'ingame',
+          key: 'inGame',
           label: 'input Game or yaw value',
           prompt: 'What game or yaw value do you want to use for input',
           type: 'gamename|float',
         },
         {
-          key: 'outgame',
+          key: 'outGame',
           label: 'output Game or yaw value',
           prompt: 'What game or yaw value do you want to use for output',
           type: 'gamename|float',
+        },
+        {
+          key: 'dp',
+          label: 'decimal places',
+          prompt: 'How Many Decimal places',
+          type: 'float',
+          default: '5',
         },
       ],
     });
@@ -38,8 +45,8 @@ module.exports = class convertCommand extends commando.Command {
   async run(message, args) {
     const output = (
       args.sens *
-      (getObject(args.ingame, 'yaw') / getObject(args.outgame, 'yaw'))
-    ).toFixed(5);
+      (getObject(args.inGame, 'yaw') / getObject(args.outGame, 'yaw'))
+    ).toFixed(args.dp);
     return message.say(output);
   }
 };

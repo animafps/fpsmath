@@ -6,9 +6,9 @@ module.exports = class getObjectCommand extends commando.Command {
       name: 'getobject',
       group: 'util',
       memberName: 'getobject',
-      description: 'Displays the object assoiated for a game',
+      description: 'Displays the object associated for a game',
       details:
-        'Displays the object assoiated for a game \nTo see the Supported games do /games, (Supported Objects: fovt, yaw, name)',
+        'Displays the object associated for a game \nTo see the Supported games do /games, (Supported Objects: fovt, yaw, name)',
       examples: ['`/getobject ow yaw`'],
       format: '<game> <"yaw"|"name"|"fovt">',
 

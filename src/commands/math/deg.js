@@ -7,9 +7,9 @@ module.exports = class degCommand extends commando.Command {
       aliases: ['deg/mm'],
       group: 'math',
       memberName: 'deg',
-      description: 'Converts Senstivity to deg/mm',
+      description: 'Converts Sensitivity to deg/mm',
       details:
-        'Converts Senstivity to deg/mm \nTo see the Supported games do /games)',
+        'Converts Sensitivity to deg/mm \nTo see the Supported games do /games)',
       examples: ['`/deg 0.95 ow 1600`'],
       format: '<sens> <game|yaw> <cpi>',
 
@@ -20,7 +20,7 @@ module.exports = class degCommand extends commando.Command {
           type: 'float',
         },
         {
-          key: 'yawv',
+          key: 'yaw',
           label: 'Game or yaw value',
           prompt: 'What game or yaw value do you want to use',
           type: 'gamename|float',
@@ -31,15 +31,22 @@ module.exports = class degCommand extends commando.Command {
           prompt: 'What CPI/DPI do you want to use',
           type: 'float',
         },
+        {
+          key: 'dp',
+          label: 'decimal places',
+          prompt: 'How Many Decimal places',
+          type: 'float',
+          default: '5',
+        },
       ],
     });
   }
 
   async run(message, args) {
     const output = (
-      (args.cpi * getObject(args.yawv, 'yaw') * args.sens) /
+      (args.cpi * getObject(args.yaw, 'yaw') * args.sens) /
       25.4
-    ).toFixed(2);
+    ).toFixed(args.dp);
     return message.say(output + ' deg/mm');
   }
 };

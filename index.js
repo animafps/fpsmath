@@ -5,7 +5,7 @@ const path = require('path');
 const oneLine = require('common-tags').oneLine;
 const { ownerID, token, prefix, invite } = require('./src/config.json');
 const logger = winston.createLogger({
-  level: 'debug',
+  level: 'info',
   format: winston.format.combine(
     winston.format.timestamp({
       format: 'YYYY-MM-DD HH:mm:ss',
@@ -34,9 +34,9 @@ const client = new commando.Client({
 });
 
 client
-  .on('debug', m => logger.debug(m))
   .on('warn', m => logger.warn(m))
   .on('error', m => logger.error(m))
+  .on('info', m => logger.info(m))
   .on('ready', () => {
     client.user.setActivity('/help | animafps.github.io');
     logger.info(
