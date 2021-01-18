@@ -84,7 +84,7 @@ module.exports = class HelpCommand extends commando.Command {
         commandHelpEmbed.addField(
           'Quick Links',
           // eslint-disable-next-line prettier/prettier
-          '[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/) | [**Follow the Developer\'s Twitter**](https://twitter.com/animafps)'
+          "[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/) | [**Follow the Developer's Twitter**](https://twitter.com/animafps)"
         );
         const messages = [];
         try {
@@ -184,7 +184,7 @@ module.exports = class HelpCommand extends commando.Command {
         generalHelpEmbed.addField(
           'Quick Links',
           // eslint-disable-next-line prettier/prettier
-          '[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/) | [**Follow the Developer\'s Twitter**](https://twitter.com/animafps)'
+          "[**Github/ README.md**](https://github.com/animafps/fpsmath) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/) | [**Follow the Developer's Twitter**](https://twitter.com/animafps)"
         );
         messages.push(await msg.direct(generalHelpEmbed));
 
