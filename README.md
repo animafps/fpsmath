@@ -28,10 +28,11 @@ Note: When building or running from source you have to input your own discord to
 | -------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------- |
 | /cm      | \<sens\> \<game\|yaw\> \<cpi\>                                           | Converts Sensitivity to cm/360                                                                         | `/cm 6 ow 1600`           |
 | /deg     | \<sens\> \<game\|yaw\> \<cpi\>                                           | Converts Sensitivity to deg/mm                                                                         | `/deg 1.9 0.022 800`      |
+| /mpi     | \<sens\> \<game\|yaw\> \<cpi>                                            | Converts Sensitivity to MPI                                                                            | `/MPI 0.23327 val 1600`   |
 | /convert | \<sens\> \<initial game\|yaw\> \<output game\|yaw\>                      | Converts Different Sensitivities from one game to another                                              | `/convert 3 ow 0.022`     |
 | /fov     | \<input fov\> \<input aspect ratio\|game\> \<output aspect ratio\|game\> | Converts FOVs from one type to another or finds the equivalent for a different resolution aspect ratio | `/fov 90 16:9 quake`      |
 | /focal   | \<sens\> \<old fov\> \<new fov\>                                         | Focal Length Scales a desired sens between 2 fov values of the same type                               | `/focal 3 90 100`         |
-| /sens    | \<cm/360\> \<game\|yaw\> \<cpi/dpi\> \[**-cm**\|**-deg**\|**-inch**\]    | Converts cm/360\|deg/mm\|inch/360 to a game sensitivity                                                | `/sens 28 quake 1600 -cm` |
+| /sens    | \<cm/360\> \<game\|yaw\> \<cpi\> \[**-cm**\|**-deg**\|**-inch**\]        | Converts cm/360\|deg/mm\|inch/360 to a game sensitivity                                                | `/sens 28 quake 1600 -cm` |
 
 ### Utility Commands
 
@@ -58,7 +59,7 @@ Note: When building or running from source you have to input your own discord to
 - Overwatch: (`overwatch`, `ow`)
 - Quake: (`quake`)
 - Rainbow Six: Siege: (`r6`, `rainbow6`, `r6s`)
-- Reflex: (`relfex`, `relfex-arena`)
+- Reflex: (`reflex`, `reflex-arena`)
 - Source: (`source`)
 - Valorant: (`valorant`, `val`)
 
