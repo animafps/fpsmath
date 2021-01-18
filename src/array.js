@@ -21,16 +21,16 @@ const array = [
     fovt: 0.5625,
     aliases: ['overwatch', 'ow'],
   },
-  { name: 'Fortnite', yaw: 0.005555, fovt: 1, aliases: ['fornite', 'fn'] },
+  { name: 'Fortnite', yaw: 0.005555, fovt: 1, aliases: ['fortnite', 'fn'] },
   {
     name: 'Fortnite config',
     yaw: 2.222,
     fovt: 1,
-    aliases: ['fn-config', 'fornite-config'],
+    aliases: ['fn-config', 'fortnite-config'],
   },
   {
     name: 'Diabotical',
-    yaw: 0.022000000000000002,
+    yaw: 0.022,
     fovt: 1,
     aliases: ['diabotical', 'dbt'],
   },
@@ -57,6 +57,11 @@ const array = [
     yaw: 0.0066,
     fovt: 0.5625,
     aliases: ['destiny', 'd2', 'destiny2'],
+  },
+  {
+    name: 'Reflex',
+    yaw: 0.005729577951308232087679815481411,
+    aliases: ['reflex', 'reflex-arena'],
   },
 ];
 

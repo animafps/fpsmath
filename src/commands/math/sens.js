@@ -27,7 +27,7 @@ module.exports = class sensCommand extends commando.Command {
           type: 'float',
         },
         {
-          key: 'yawv',
+          key: 'yaw',
           label: 'Game or yaw value',
           prompt: 'What game or yaw value do you want to use',
           type: 'gamename|float',
@@ -44,18 +44,33 @@ module.exports = class sensCommand extends commando.Command {
           default: '-cm',
           type: 'string',
         },
+        {
+          key: 'dp',
+          label: 'decimal places',
+          prompt: 'How Many Decimal places',
+          type: 'float',
+          default: '5',
+        },
       ],
     });
   }
 
-  run(message, args) {
-    console.log(args.flags);
+  async run(message, args) {
     switch (args.flags) {
       case '-deg': {
         const output = (
+          (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw') * 60) /
+          args.cm
+        ).toFixed(args.dp);
+        message.say(output);
+        break;
+      }
+
+      case '-MPI': {
+        const output = (
           (24.5 * args.cm) /
-          (args.cpi * getObject(args.yawv.toLowerCase(), 'yaw'))
-        ).toFixed(2);
+          (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw'))
+        ).toFixed(args.dp);
         message.say(output);
         break;
       }
@@ -63,8 +78,8 @@ module.exports = class sensCommand extends commando.Command {
       case '-inch': {
         const output = (
           360 /
-          (args.cpi * getObject(args.yawv.toLowerCase(), 'yaw') * args.cm)
-        ).toFixed(2);
+          (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw') * args.cm)
+        ).toFixed(args.dp);
         message.say(output);
         break;
       }
@@ -72,8 +87,8 @@ module.exports = class sensCommand extends commando.Command {
       case '-cm': {
         const output = (
           (2.54 * 360) /
-          (args.cpi * getObject(args.yawv.toLowerCase(), 'yaw') * args.cm)
-        ).toFixed(2);
+          (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw') * args.cm)
+        ).toFixed(args.dp);
         message.say(output);
       }
     }
