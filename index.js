@@ -38,7 +38,7 @@ client
   .on('error', m => logger.error(m))
   .on('info', m => logger.info(m))
   .on('ready', () => {
-    client.user.setActivity('/help | animafps.github.io');
+    client.user.setActivity('/help | animafps.xyz');
     logger.info(
       `Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`
     );
