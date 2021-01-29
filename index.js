@@ -37,7 +37,6 @@ client
   .on('warn', m => logger.warn(m))
   .on('error', m => logger.error(m))
   .on('info', m => logger.info(m))
-  .on('DiscordAPIError', m => logger.error(m))
   .on('ready', () => {
     client.user.setActivity('/help | animafps.xyz');
     logger.info(
