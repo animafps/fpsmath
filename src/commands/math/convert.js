@@ -47,6 +47,6 @@ module.exports = class convertCommand extends commando.Command {
       args.sens *
       (getObject(args.inGame, 'yaw') / getObject(args.outGame, 'yaw'))
     ).toFixed(args.dp);
-    return message.say(output);
+    return message.reply(output);
   }
 };

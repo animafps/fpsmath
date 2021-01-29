@@ -47,6 +47,6 @@ module.exports = class cmCommand extends commando.Command {
       (2.54 * 360) /
       (args.cpi * getObject(args.yaw, 'yaw') * args.sens)
     ).toFixed(args.dp);
-    return message.say(output + ' cm/360');
+    return message.reply(output + ' cm/360');
   }
 };

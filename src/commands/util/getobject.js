@@ -28,6 +28,6 @@ module.exports = class getObjectCommand extends commando.Command {
   }
 
   async run(message, args) {
-    return message.say(getObject(args.game, args.object));
+    return message.reply(getObject(args.game, args.object));
   }
 };

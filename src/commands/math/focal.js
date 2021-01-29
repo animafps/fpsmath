@@ -47,6 +47,6 @@ module.exports = class focalCommand extends commando.Command {
       (tan((args.oFOV * PI) / 360) / tan((args.iFOV * PI) / 360)) *
       args.sens
     ).toFixed(args.dp);
-    return message.say(output);
+    return message.reply(output);
   }
 };

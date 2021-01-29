@@ -42,6 +42,6 @@ module.exports = class MPICommand extends commando.Command {
       args.sens *
       60
     ).toFixed(0);
-    return message.say(output + ' MPI');
+    return message.reply(output + ' MPI');
   }
 };

@@ -62,7 +62,7 @@ module.exports = class sensCommand extends commando.Command {
           (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw') * 60) /
           args.cm
         ).toFixed(args.dp);
-        message.say(output);
+        message.reply(output);
         break;
       }
 
@@ -71,7 +71,7 @@ module.exports = class sensCommand extends commando.Command {
           (24.5 * args.cm) /
           (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw'))
         ).toFixed(args.dp);
-        message.say(output);
+        message.reply(output);
         break;
       }
 
@@ -80,7 +80,7 @@ module.exports = class sensCommand extends commando.Command {
           360 /
           (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw') * args.cm)
         ).toFixed(args.dp);
-        message.say(output);
+        message.reply(output);
         break;
       }
 
@@ -89,7 +89,7 @@ module.exports = class sensCommand extends commando.Command {
           (2.54 * 360) /
           (args.cpi * getObject(args.yaw.toLowerCase(), 'yaw') * args.cm)
         ).toFixed(args.dp);
-        message.say(output);
+        message.reply(output);
       }
     }
   }

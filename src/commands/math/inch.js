@@ -47,6 +47,6 @@ module.exports = class inchCommand extends commando.Command {
       360 /
       (args.cpi * getObject(args.yaw, 'yaw') * args.sens)
     ).toFixed(args.dp);
-    return message.say(output + ' inch/360');
+    return message.reply(output + ' inch/360');
   }
 };

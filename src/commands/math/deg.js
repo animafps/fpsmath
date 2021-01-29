@@ -47,6 +47,6 @@ module.exports = class degCommand extends commando.Command {
       (args.cpi * getObject(args.yaw, 'yaw') * args.sens) /
       25.4
     ).toFixed(args.dp);
-    return message.say(output + ' deg/mm');
+    return message.reply(output + ' deg/mm');
   }
 };
