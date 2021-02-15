@@ -4,12 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint --format github .",
-    "start": "node index.js",
+    "lint": "eslint .",
+    "start": "npx tsc && node dist/index.js",
     "lint:fix": "eslint --fix .",
-    "commit": "lint-staged && cz",
-    "prettier": "prettier --write .",
     "cz": "cz",
+    "prettier": "prettier --write .",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -34,34 +33,17 @@
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
+    "@types/common-tags": "^1.8.0",
+    "@types/mathjs": "^6.0.11",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.16.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-formatter-github": "^1.0.11",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-promise": "^4.2.1",
-    "husky": "^4.3.6",
-    "lint-staged": "^10.5.3",
+    "eslint-plugin-security": "^1.4.0",
     "prettier": "2.2.1",
-    "semantic-release": "^17.3.7"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 80,
-    "trailingComma": "es5",
-    "endOfLine": "lf",
-    "arrowParens": "avoid"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,jsx,md,yaml,json}": "prettier --write"
+    "semantic-release": "^17.3.7",
+    "typescript": "^4.1.5"
   },
   "config": {
     "commitizen": {
