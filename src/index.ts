@@ -3,6 +3,7 @@ import { Client } from "discord.js-commando";
 const winston = require("winston");
 const path = require("path");
 const oneLine = require("common-tags");
+const AutoPoster = require("topgg-autoposter");
 
 const logger = winston.createLogger({
   level: "info",
@@ -32,6 +33,12 @@ const client = new Client({
   owner: process.env.OWNERID,
   commandPrefix: process.env.PREFIX,
   invite: process.env.INVITE,
+});
+
+const ap = AutoPoster(process.env.TOPGG_API_TOKEN || "", client);
+
+ap.on("posted", () => {
+  logger.info("Posted stats to top.gg");
 });
 
 client

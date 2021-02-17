@@ -27,6 +27,8 @@
     "discord.js-commando": "^0.12.2",
     "dotenv": "^8.2.0",
     "mathjs": "^9.0.0",
+    "node-fetch": "^2.6.1",
+    "topgg-autoposter": "^1.1.6",
     "winston": "^3.3.3"
   },
   "engines": {
