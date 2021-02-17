@@ -1,5 +1,5 @@
 import { games } from "../../array";
-import { Command, CommandoClient } from "discord.js-commando";
+import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
 import { MessageEmbed } from "discord.js";
 
 module.exports = class gamesCommand extends Command {
@@ -13,11 +13,10 @@ module.exports = class gamesCommand extends Command {
     });
   }
 
-  async run(message: { say: (arg0: any) => any }) {
-    const Embed = new MessageEmbed().addField(
-      "Supported Games:",
-      `\`\`\`${games()}\`\`\``
-    );
+  async run(message: CommandoMessage) {
+    const Embed = new MessageEmbed()
+      .setColor("#0099ff")
+      .addField("Supported Games:", `\`\`\`${games()}\`\`\``);
     return message.say(Embed);
   }
 };

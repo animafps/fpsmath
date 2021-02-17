@@ -1,5 +1,5 @@
 import { getObject } from "../../array";
-import { Command, CommandoClient } from "discord.js-commando";
+import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
 module.exports = class getObjectCommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
@@ -27,10 +27,7 @@ module.exports = class getObjectCommand extends Command {
     });
   }
 
-  async run(
-    message: { reply: (arg0: any) => any },
-    args: { game: any; object: any }
-  ) {
+  async run(message: CommandoMessage, args: { game: any; object: any }) {
     return message.reply(getObject(args.game, args.object));
   }
 };
