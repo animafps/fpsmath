@@ -4,10 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint .",
-    "start": "node dist/index.js",
-    "start-dev": "tsc && node dist/index.js",
-    "lint:fix": "eslint --fix .",
+    "lint": "eslint",
+    "start": "tsc && node dist/index.js",
+    "lint:fix": "eslint --fix",
     "cz": "cz",
     "prettier": "prettier --write .",
     "semantic-release": "semantic-release"
@@ -27,12 +26,12 @@
     "discord.js-commando": "^0.12.2",
     "dotenv": "^8.2.0",
     "mathjs": "^9.0.0",
-    "node-fetch": "^2.6.1",
     "topgg-autoposter": "^1.1.6",
+    "typescript": "^4.1.5",
     "winston": "^3.3.3"
   },
   "engines": {
-    "node": "^14.15.5"
+    "node": ">=14.15.5"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
@@ -45,9 +44,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
-    "prettier": "2.2.1",
-    "semantic-release": "^17.3.7",
-    "typescript": "^4.1.5"
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.3.7"
   },
   "config": {
     "commitizen": {
