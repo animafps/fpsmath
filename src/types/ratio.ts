@@ -1,8 +1,8 @@
-import { ArgumentType, CommandoClient } from "discord.js-commando"
+import { ArgumentType, CommandoClient } from "discord.js-commando";
 
 class RatioArgumentType extends ArgumentType {
   constructor(client: CommandoClient) {
-    super(client, 'ratio');
+    super(client, "ratio");
   }
 
   validate(val: string) {

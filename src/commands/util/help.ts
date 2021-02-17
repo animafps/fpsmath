@@ -1,5 +1,6 @@
 import { stripIndents, oneLine } from "common-tags";
 import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
+import { emit } from "process";
 const { disambiguation } = require("discord.js-commando");
 const discord = require("discord.js");
 
@@ -32,7 +33,7 @@ module.exports = class HelpCommand extends Command {
     });
   }
 
-  async run(msg: CommandoMessage, args: { command: string | undefined }) {
+  async run(msg: CommandoMessage, args: { command?: string }) {
     const groups = this.client.registry.groups;
     const commands = this.client.registry.findCommands(
       args.command,
@@ -95,7 +96,6 @@ module.exports = class HelpCommand extends Command {
             messages.push(await msg?.reply("Sent you a DM with information."));
           }
         } catch (err) {
-          console.log(err);
           messages.push(
             await msg?.reply(
               "Unable to send you the help DM. You probably have DMs disabled."
@@ -138,7 +138,7 @@ module.exports = class HelpCommand extends Command {
                           msg.guild
                             ? "To run a command in this DM, simply use ``command`` with no prefix"
                             : ""
-                        }.
+                        }
                         Use \`\`${
                           msg.guild ? msg.guild.commandPrefix : ""
                         }help <command>\`\` to view detailed information about a specific command.

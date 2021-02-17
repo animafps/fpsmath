@@ -1,5 +1,5 @@
 import { getObject } from "../../array";
-import { Command, CommandoClient } from "discord.js-commando";
+import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
 module.exports = class MPICommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
@@ -36,7 +36,7 @@ module.exports = class MPICommand extends Command {
   }
 
   async run(
-    message: { reply: (arg0: string) => any },
+    message: CommandoMessage,
     args: { cpi: number; yaw: any; sens: number }
   ) {
     const output = (

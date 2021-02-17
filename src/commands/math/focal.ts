@@ -1,5 +1,5 @@
 import { tan, pi } from "mathjs";
-import { Command, CommandoClient } from "discord.js-commando";
+import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
 module.exports = class focalCommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
@@ -41,7 +41,7 @@ module.exports = class focalCommand extends Command {
   }
 
   async run(
-    message: { reply: (arg0: string) => any },
+    message: CommandoMessage,
     args: { oFOV: number; iFOV: number; sens: number; dp?: number }
   ) {
     const output = (

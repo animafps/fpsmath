@@ -8,11 +8,11 @@ on:
       [main]
       # Do not run on tags
     tags-ignore:
-      - '*'
+      - "*"
   pull_request:
     # Run on to branches with an open PR
     branches:
-      - '*'
+      - "*"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -36,7 +36,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-        
+
   analyze:
     name: Analyze
 
@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['javascript']
+        language: ["javascript"]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
         # Learn more:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
