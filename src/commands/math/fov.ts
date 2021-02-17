@@ -1,6 +1,6 @@
 import { atan, tan, pi } from "mathjs";
 import { getObject } from "../../array";
-import { Command, CommandoClient } from "discord.js-commando";
+import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
 module.exports = class fovCommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
@@ -44,7 +44,7 @@ module.exports = class fovCommand extends Command {
   }
 
   async run(
-    message: { reply: (arg0: string) => any },
+    message: CommandoMessage,
     args: { iFOVT: any; oFOVT: any; fov: number; dp?: number }
   ) {
     function getFOVT(Args: string) {

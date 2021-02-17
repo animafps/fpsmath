@@ -1,5 +1,5 @@
 import { getObject } from "../../array";
-import { Command, CommandoClient } from "discord.js-commando";
+import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
 
 module.exports = class convertCommand extends Command {
   constructor(client: CommandoClient) {
@@ -43,7 +43,7 @@ module.exports = class convertCommand extends Command {
   }
 
   async run(
-    message: { reply: (arg0: string) => any },
+    message: CommandoMessage,
     args: { sens: number; inGame: any; outGame: any; dp: number | undefined }
   ) {
     const output = (
