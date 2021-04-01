@@ -3,10 +3,10 @@ import { Client } from "discord.js-commando";
 const winston = require("winston");
 const path = require("path");
 const oneLine = require("common-tags");
-const AutoPoster = require("topgg-autoposter");
+const dbots = require("dbots");
 
 const logger = winston.createLogger({
-  level: "info",
+  level: "debug",
   format: winston.format.combine(
     winston.format.timestamp({
       format: "YYYY-MM-DD HH:mm:ss",
@@ -35,12 +35,6 @@ const client = new Client({
   invite: process.env.INVITE,
 });
 
-const ap = AutoPoster(process.env.TOPGG_API_TOKEN || "", client);
-
-ap.on("posted", () => {
-  logger.info("Posted stats to top.gg");
-});
-
 client
   .on("warn", (m) => logger.warn(m))
   .on("error", (m) => logger.error(m))
@@ -59,6 +53,15 @@ client
         })
         .join(", ")}`
     );
+    const poster = new dbots.Poster({
+      client,
+      apiKeys: {
+        topgg: process.env.TOPGG_API_TOKEN,
+        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN,
+        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN
+      }
+    })
+    poster.startInterval()
   })
   .on("disconnect", () => {
     logger.warn("Disconnected!");

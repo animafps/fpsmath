@@ -4,12 +4,12 @@ module.exports = class inchCommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
       name: "inch",
-      aliases: ["inch/360", "inch/rev"],
+      aliases: ["inch/rev", "inch/rev"],
       group: "math",
       memberName: "inch",
-      description: "Converts Sensitivity to inch/360",
+      description: "Converts Sensitivity to inch/rev",
       details:
-        "Converts Sensitivity to inch/360 \nTo see the Supported games use the `games` Command",
+        "Converts Sensitivity to inch/rev \nTo see the Supported games use the `games` Command",
       examples: ["inch 0.95 ow 1600"],
       format: "<sens> <game|yaw> <cpi>",
 
@@ -50,6 +50,6 @@ module.exports = class inchCommand extends Command {
       360 /
       (args.cpi * parseFloat(getObject(args.yaw, "yaw")) * args.sens)
     ).toFixed(args.dp);
-    return message.reply(output + " inch/360");
+    return message.reply(output + " inch/rev");
   }
 };

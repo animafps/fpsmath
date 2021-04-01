@@ -4,7 +4,6 @@
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/AnimaFPS/FPSMath?style=flat-square)](https://github.com/AnimaFPS/FPSMath/releases)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![CodeFactor](https://www.codefactor.io/repository/github/animafps/fpsmath/badge/main?style=flat-square)](https://www.codefactor.io/repository/github/animafps/fpsmath/overview/main)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AnimaFPS/FPSMath/CI?logo=github&style=flat-square)](https://github.com/AnimaFPS/FPSMath/Actions)
 
 [![Discord Bots](https://top.gg/api/widget/792712521546465301.svg)](https://top.gg/bot/792712521546465301)
@@ -13,10 +12,7 @@
 
 [Install This Bot on Your Server](https://top.gg/bot/792712521546465301/invite) or DM `FPS Math#9838` with the commands outside of a server
 
-or build from source using Docker
-or from source `npm ci` or `npm install` then `npm start`
-
-Note: When building or running from source you have to input your own discord token in /src/config.json or in the environment variables under `DISCORD_TOKEN` before building or running
+or from source [Instructions](/docs/CONTRIBUTING.MD)
 
 ## Usage
 
@@ -24,15 +20,16 @@ Note: When building or running from source you have to input your own discord to
 
 ### Main Commands
 
-| Command  | Arguments                                                                   | Description                                                                                            | Example                   |
-| -------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------- |
-| /cm      | \<sens\> \<game\|yaw\> \<cpi\>                                              | Converts Sensitivity to cm/360                                                                         | `/cm 6 ow 1600`           |
-| /deg     | \<sens\> \<game\|yaw\> \<cpi\>                                              | Converts Sensitivity to deg/mm                                                                         | `/deg 1.9 0.022 800`      |
-| /mpi     | \<sens\> \<game\|yaw\> \<cpi>                                               | Converts Sensitivity to MPI                                                                            | `/MPI 0.23327 val 1600`   |
-| /convert | \<sens\> \<initial game\|yaw\> \<output game\|yaw\>                         | Converts Different Sensitivities from one game to another                                              | `/convert 3 ow 0.022`     |
-| /fov     | \<input fov\> \<input aspect ratio\|game\> \<output aspect ratio\|game\>    | Converts FOVs from one type to another or finds the equivalent for a different resolution aspect ratio | `/fov 90 16:9 quake`      |
-| /focal   | \<sens\> \<old fov\> \<new fov\>                                            | Focal Length Scales a desired sens between 2 fov values of the same type                               | `/focal 3 90 100`         |
-| /sens    | \<cm/360\> \<game\|yaw\> \<cpi\> \[**-cm**\|**-deg**\|**-mpi**\|**-inch**\] | Converts cm/360\|deg/mm\|MPI\|inch/360 to a game sensitivity                                           | `/sens 28 quake 1600 -cm` |
+| Command  | Arguments                                                                   | Description                                                                                                     | Example                   |
+| -------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| /cm      | \<sens\> \<game\|yaw\> \<cpi\>                                              | Converts Sensitivity to cm/rev                                                                                  | `/cm 6 ow 1600`           |
+| /deg     | \<sens\> \<game\|yaw\> \<cpi\>                                              | Converts Sensitivity to deg/mm                                                                                  | `/deg 1.9 0.022 800`      |
+| /mpi     | \<sens\> \<game\|yaw\> \<cpi>                                               | Converts Sensitivity to MPI                                                                                     | `/MPI 0.23327 val 1600`   |
+| /inch    | \<sens\> \<game\|yaw\> \<cpi\>                                              | Converts Sensitivity to inch/rev                                                                                | `/inch 8 fn 1200`         |
+| /convert | \<sens\> \<input game\|yaw\> \<output game\|yaw\>                           | Converts Different Sensitivities from one game to another                                                       | `/convert 3 ow 0.022`     |
+| /fov     | \<fov> \<fov> \<game\|FILM notation\> \<aspect ratio\>                      | Finds the true vertical and horizontal FOVs for certain aspect ratio and game/FOV scaling method(FILM notation) | `fov 90 source 16:9`      |
+| /focal   | \<sens\> \<old fov\> \<new fov\>                                            | Focal Length Scales a desired sens between 2 fov values of the same type                                        | `/focal 3 90 100`         |
+| /sens    | \<cm/rev\> \<game\|yaw\> \<cpi\> \[**-cm**\|**-deg**\|**-mpi**\|**-inch**\] | Converts cm/rev\|deg/mm\|MPI\|inch/rev to a game sensitivity default cm/rev                                     | `/sens 28 quake 1600 -cm` |
 
 ### Utility Commands
 
@@ -42,6 +39,8 @@ Note: When building or running from source you have to input your own discord to
 | /help      | none                                     | Displays a list of available commands, or detailed information for a specified command. | `/help`             |
 | /games     | none                                     | Displays the supported games for this bot                                               | `/games`            |
 | /getobject | \<game\> \<**yaw**\|**name**\|**fovt**\> | Displays the object from the array associated for a game                                | `/getobject ow yaw` |
+| /info      | none                                     | Displays the major information about this bot                                           | `/info`             |
+| /cminfo    | none                                     | Displays an explaination for what cm/rev (cm/360) is                                    | `/cminfo`           |
 
 ## Supported Games
 
@@ -62,6 +61,7 @@ Note: When building or running from source you have to input your own discord to
 - Reflex: (`reflex`, `reflex-arena`)
 - Source: (`source`)
 - Valorant: (`valorant`, `val`)
+- Many more supported games use `games` command
 
 ## Built With
 

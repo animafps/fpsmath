@@ -1,18 +1,19 @@
 import { atan, tan, pi } from "mathjs";
 import { getObject } from "../../array";
 import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
+import type { Message } from "discord.js";
 module.exports = class fovCommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
       name: "fov",
-      aliases: ["fov-convert"],
+      aliases: ["fov-scailing", "film"],
       group: "math",
       memberName: "fov",
-      description: "Converts fovs from one type to another",
+      description: "Finds the true vertical and horizontal FOVs for certain aspect ratio and game/FOV scaling method(FILM notation)",
       details:
-        "Converts fovs from one type to another or finds the true fov  for a resolution aspect ratio(if the game scales to maintain vFOV) \nTo see the Supported games use the `games` Command",
-      examples: ["fov 90 quake 16:9"],
-      format: "<fov> <input game|aspect ratio> <output game|aspect ratio>",
+        "Finds the true vertical and horizontal FOVs for certain aspect ratio that the game is being rendered at and game/FOV scaling method(FILM notation) \nTo see the Supported games use the `games` Command \n [To learn about FILM notation click here](https://www.kovaak.com/film-notation/)",
+      examples: ["fov 90 4ML3 16:10", "fov 103 ow 1920:1440"],
+      format: "<fov> <fov> <game|FILM notation> <aspect ratio> [decimal places]",
 
       args: [
         {
@@ -21,48 +22,103 @@ module.exports = class fovCommand extends Command {
           type: "float",
         },
         {
-          key: "iFOVT",
-          label: "Input Game or aspect ratio",
+          key: "fovt",
+          label: "Input Game or Game's FOV Scailing",
           prompt: "What Game or aspect ratio do you want to convert from",
-          type: "gamename|ratio",
+          type: "string",
         },
         {
-          key: "oFOVT",
-          label: "Output Game or aspect ratio",
-          prompt: "What Game or aspect ratio do you want to convert to",
-          type: "gamename|ratio",
+          key: "aspect",
+          label: "",
+          prompt: "",
+          type: "ratio",
+          default: "16:9",
         },
         {
           key: "dp",
           label: "decimal places",
           prompt: "How Many Decimal places",
           type: "float",
-          default: "5",
+          default: "3",
         },
       ],
     });
   }
 
   async run(
-    message: CommandoMessage,
-    args: { iFOVT: any; oFOVT: any; fov: number; dp?: number }
-  ) {
-    function getFOVT(Args: string) {
-      if (isNaN(parseFloat(Args))) {
-        return parseFloat(getObject(Args, "fovt"));
+    msg: CommandoMessage,
+    args: { fov: number; fovt: string; aspect?: string; dp?: number }
+  ): Promise<Message> {
+    const FOVT = (game: string) => {
+      if (getObject(game, "afovt") !== game) {
+        return getObject(game, "afovt").toLowerCase();
       } else {
-        const ratio = Args.split(":");
-        return parseFloat(ratio[1]) / parseFloat(ratio[0]);
+        return game.toLowerCase();
       }
-    }
+    };
 
-    const output = (
-      (atan(
-        (getFOVT(args.iFOVT) / getFOVT(args.oFOVT)) * tan((args.fov * pi) / 360)
-      ) *
-        360) /
-      pi
-    ).toFixed(args.dp);
-    return message.reply(output + "°");
+    const func = (from: number, to: number, fov: number) => {
+      return (atan((to / from) * tan((fov * pi) / 360)) * 360) / pi;
+    };
+
+    const fovtAspect =
+      parseFloat(FOVT(args.fovt).split(/m[l|f|i]/)[0]) /
+      parseFloat(FOVT(args.fovt).split(/m[l|f|i]/)[1]);
+
+    const argAspect =
+      parseFloat(args.aspect?.split(":")[0] || "") /
+      parseFloat(args.aspect?.split(":")[1] || "");
+
+    const output = () => {
+      if (
+        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("l") &&
+        (args.fovt.split("")[0].toLowerCase() !== "v" || "h")
+      ) {
+        return {
+          vfov: func(fovtAspect, 1, args.fov),
+          hfov: func(fovtAspect, argAspect, args.fov),
+        };
+      } else if (
+        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("l") &&
+        args.fovt.split("")[0].toLowerCase() == "h"
+      ) {
+        return { vfov: func(argAspect, 1, args.fov), hfov: args.fov };
+      } else if (
+        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("l") &&
+        args.fovt.split("")[0].toLowerCase() == "v"
+      ) {
+        return { hfov: func(1, argAspect, args.fov), vfov: args.fov };
+      } else if (
+        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("f")
+      ) {
+        if (argAspect > fovtAspect) {
+          return { hfov: args.fov, vfov: func(argAspect, 1, args.fov) };
+        } else {
+          return {
+            hfov: func(fovtAspect, argAspect, args.fov),
+            vfov: func(fovtAspect, 1, args.fov),
+          };
+        }
+      } else if (
+        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("i")
+      ) {
+        if (argAspect > fovtAspect) {
+          return {
+            hfov: func(fovtAspect, argAspect, args.fov),
+            vfov: func(fovtAspect, 1, args.fov),
+          };
+        } else if (argAspect < fovtAspect) {
+          return {
+            hfov: args.fov,
+            vfov: func(argAspect, 1, args.fov),
+          };
+        } else {
+          return { hfov: args.fov, vfov: func(argAspect, 1, args.fov) };
+        }
+      }
+      return { hfov: undefined, vfov: undefined };
+    };
+    return msg.reply(`Horizontal FOV: ${output().hfov?.toFixed(args.dp) || "error"}
+    Vertical FOV: ${output().vfov?.toFixed(args.dp) || "error"}`);
   }
 };

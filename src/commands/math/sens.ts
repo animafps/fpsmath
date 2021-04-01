@@ -9,9 +9,9 @@ module.exports = class sens extends Command {
       group: "math",
       memberName: "sens",
       description:
-        "Converts cm/360(default), deg/mm or inch/360 to a game sensitivity",
+        "Converts cm/rev(default), deg/mm or inch/rev to a game sensitivity",
       details:
-        "Converts cm/360(default), deg/mm or inch/360 to a game sensitivity \nTo see the Supported games use the `games` Command",
+        "Converts cm/rev(default), deg/mm or inch/rev to a game sensitivity \nTo see the Supported games use the `games` Command",
       examples: [
         "sens 28.5 quake 1600",
         "sens 28.5 ow 1600 -cm",
@@ -19,12 +19,12 @@ module.exports = class sens extends Command {
         "sens 11.22 fortnite 1600 -inch",
       ],
       format:
-        '<cm/360|deg/mm|inch/360> <game|yaw> <cpi> ["-cm"|"-deg"|"-inch"]',
+        '<cm/rev|deg/mm|inch/rev> <game|yaw> <cpi> ["-cm"|"-deg"|"-inch"]',
 
       args: [
         {
           key: "cm",
-          prompt: "What cm/360 do you want to convert from",
+          prompt: "What cm/rev do you want to convert from",
           type: "float",
         },
         {

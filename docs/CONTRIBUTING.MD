@@ -13,8 +13,14 @@ Using Nodejs above v14.0.0
 1. Download the [Latest Release](https://github.com/AnimaFPS/FPSMath/releases/latest) or clone the repo(`git clone https://github.com/AnimaFPS/FPSMath.git`)
 2. Navigate and open a command prompt or terminal in the root directory
 3. Install npm dependencies `npm ci` or `npm i`
-4. To run you execute the index.js with node `node index.js` from the root directory
-5. Code as much as you want
+4. Create a .env file for environment variables
+   1. `DISCORD_TOKEN` for the discord bot token
+   2. `OWNERID` for the owners discord id
+   3. `PREFIX` for the command prefix
+   4. `INVITE` for a link to a support server
+   5. there are more for api's that you can use for online bot directories
+5. To run you execute the start script with `npm run start` from the root directory
+6. Code as much as you want
 
 ## How to submit changes
 
@@ -35,4 +41,4 @@ Click this link: [Make a new issue](https://github.com/AnimaFPS/FPSMath/issues/n
 This project uses
 
 * [Commitizen](https://https://github.com/commitizen/cz-cli) for the commit messages
-* [Prettier](https://prettier.io/) for the Code
+* [Prettier](https://prettier.io/) for the code styling

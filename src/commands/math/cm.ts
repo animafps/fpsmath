@@ -4,12 +4,12 @@ module.exports = class cmCommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
       name: "cm",
-      aliases: ["cm/360", "cm/rev"],
+      aliases: ["cm/rev", "cm/rev"],
       group: "math",
       memberName: "cm",
-      description: "Converts Sensitivity to cm/360",
+      description: "Converts Sensitivity to cm/rev (cm/360)",
       details:
-        "Converts Sensitivity to cm/360 \nTo see the Supported games use the `games` Command",
+        "Converts Sensitivity to cm/rev (cm/360) \nTo see the Supported games use the `games` Command",
       examples: ["cm 0.23327 val 1600"],
       format: "<sens> <game|yaw> <cpi>",
 
@@ -50,6 +50,6 @@ module.exports = class cmCommand extends Command {
       (2.54 * 360) /
       (args.cpi * parseFloat(getObject(args.yaw, "yaw")) * args.sens)
     ).toFixed(args.dp);
-    return message.reply(output + " cm/360");
+    return message.reply(output + " cm/rev");
   }
 };
