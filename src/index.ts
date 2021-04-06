@@ -56,12 +56,13 @@ client
     const poster = new dbots.Poster({
       client,
       apiKeys: {
-        topgg: process.env.TOPGG_API_TOKEN,
-        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN,
-        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN
+        topgg: process.env.TOPGG_API_TOKEN || '',
+        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN || '',
+        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN || ''
       },
       clientLibrary: 'discord.js',
     })
+    poster.post('all');
     poster.startInterval()
   })
   .on("disconnect", () => {
