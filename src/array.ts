@@ -1,4 +1,7 @@
 "use strict";
+
+import { html } from "common-tags";
+
 const array = [
   { name: "Aimgods", yaw: 0.0023331, aliases: ["aimgods"] },
   {
@@ -20,6 +23,7 @@ const array = [
     name: "Quake Champions",
     fovt: 16 / 9,
     aliases: ["qc", "quake-champions"],
+    afovt: "16ML9",
     yaw: 0.022,
   },
   {
@@ -49,6 +53,7 @@ const array = [
     yaw: 2.222,
     fovt: 16 / 9,
     aliases: ["fn-config", "fortnite-config"],
+    afovt: "16MF9",
   },
   {
     name: "Diabotical",
@@ -62,53 +67,53 @@ const array = [
     yaw: 0.005729577951308232,
     fovt: 1,
     aliases: ["r6", "rainbow6", "r6s"],
-    afovt: "vML"
+    afovt: "vML",
   },
   {
     name: "Call of Duty",
     yaw: 0.0066,
     fovt: 16 / 9,
     aliases: ["cod", "callofduty", "call-of-duty", "warzone", "wz"],
-    afovt: "16ML9"
+    afovt: "16ML9",
   },
   {
     name: "Battlefield",
     yaw: 2.291831180523293,
     fovt: 1,
     aliases: ["battlefield", "bf"],
-    afovt: "vML"
+    afovt: "vML",
   },
   {
     name: "Destiny",
     yaw: 0.0066,
     fovt: 16 / 9,
     aliases: ["destiny", "d2", "destiny2"],
-    afovt: "16ML9"
+    afovt: "16ML9",
   },
   {
     name: "Reflex",
     yaw: 0.005729577951308232087679815481411,
     fovt: 4 / 3,
     aliases: ["reflex", "reflex-arena"],
-    afovt: "4ML3"
+    afovt: "4ML3",
   },
   {
     name: "Krunker",
     yaw: 0.13750954927425516,
     fovt: 1,
     aliases: ["krunker"],
-    afovt: "vML"
+    afovt: "vML",
   },
   {
     name: "Minecraft",
     yaw: 0.2592,
     aliases: ["mc", "minecraft"],
-    afovt: "hML"
+    afovt: "hML",
   },
   {
     name: "Palidins",
     aliases: ["palidins"],
-    afovt: "hML"
+    afovt: "hML",
   },
 ];
 array.sort();

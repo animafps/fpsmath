@@ -1,9 +1,9 @@
 require("dotenv").config();
 import { Client } from "discord.js-commando";
-const winston = require("winston");
-const path = require("path");
+import * as winston from "winston";
+import * as path from "path";
 const oneLine = require("common-tags");
-const dbots = require("dbots");
+import * as dbots from "dbots";
 
 const logger = winston.createLogger({
   level: "debug",
@@ -21,7 +21,7 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.printf(
-          (info: { timestamp: any; level: any; message: any }) =>
+          (info) =>
             `${info.timestamp} ${info.level}: ${info.message}`
         )
       ),
@@ -62,6 +62,8 @@ client
       },
       clientLibrary: 'discord.js',
     })
+    poster.addHandler("postFail", (m) => logger.debug(m))
+    poster.addHandler("postSuccess", (m) => logger.debug(m))
     poster.post('all');
     poster.startInterval()
   })
