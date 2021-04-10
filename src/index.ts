@@ -21,8 +21,7 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.printf(
-          (info) =>
-            `${info.timestamp} ${info.level}: ${info.message}`
+          (info) => `${info.timestamp} ${info.level}: ${info.message}`
         )
       ),
     }),
@@ -43,29 +42,20 @@ client
     logger.info(
       `Client ready; logged in as ${client.user?.username}#${client.user?.discriminator} (${client.user?.id})`
     );
-    logger.info(
-      `Running on ${
-        client.guilds.cache.array().length
-      } servers: ${client.guilds.cache
-        .array()
-        .map((val) => {
-          return `${val.name}(${val.memberCount})`;
-        })
-        .join(", ")}`
-    );
+    logger.info(`Running on ${client.guilds.cache.array().length} servers`);
     const poster = new dbots.Poster({
       client,
       apiKeys: {
-        topgg: process.env.TOPGG_API_TOKEN || '',
-        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN || '',
-        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN || ''
+        topgg: process.env.TOPGG_API_TOKEN || "",
+        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN || "",
+        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN || "",
       },
-      clientLibrary: 'discord.js',
-    })
-    poster.addHandler("postFail", (m) => logger.debug(m))
-    poster.addHandler("postSuccess", (m) => logger.debug(m))
-    poster.post('all');
-    poster.startInterval()
+      clientLibrary: "discord.js",
+    });
+    poster.addHandler("postFail", () => logger.debug("Api Post Fail"));
+    poster.addHandler("postSuccess", () => logger.debug("Api Post Success"));
+    poster.post("all");
+    poster.startInterval();
   })
   .on("disconnect", () => {
     logger.warn("Disconnected!");

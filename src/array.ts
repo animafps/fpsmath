@@ -1,7 +1,5 @@
 "use strict";
 
-import { html } from "common-tags";
-
 const array = [
   { name: "Aimgods", yaw: 0.0023331, aliases: ["aimgods"] },
   {
