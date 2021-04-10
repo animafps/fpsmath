@@ -1,9 +1,9 @@
 require("dotenv").config();
-import { Client } from "discord.js-commando";
-const winston = require("winston");
-const path = require("path");
-const oneLine = require("common-tags");
-const dbots = require("dbots");
+import { AkairoClient, CommandHandler } from "discord-akairo";
+import * as winston from "winston";
+import { Poster } from "dbots";
+import { getObject } from "./array";
+const Token = process.env.DISCORD_TOKEN;
 
 const logger = winston.createLogger({
   level: "debug",
@@ -21,7 +21,7 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.printf(
-          (info: { timestamp: any; level: any; message: any }) =>
+          (info: winston.Logform.TransformableInfo) =>
             `${info.timestamp} ${info.level}: ${info.message}`
         )
       ),
@@ -29,11 +29,55 @@ const logger = winston.createLogger({
   ],
 });
 
-const client = new Client({
-  owner: process.env.OWNERID,
-  commandPrefix: process.env.PREFIX,
-  invite: process.env.INVITE,
-});
+class Client extends AkairoClient {
+  commandHandler: CommandHandler;
+  constructor() {
+    super(
+      {
+        ownerID: process.env.OWNERID,
+      },
+      {}
+    );
+
+    this.commandHandler = new CommandHandler(this, {
+      directory: __dirname.includes("/dist/")
+        ? "./dist/commands/"
+        : "./src/commands/",
+      commandUtil: true,
+      handleEdits: true,
+      automateCategories: true,
+      commandUtilLifetime: 30000,
+      prefix: "/",
+      allowMention: true,
+      aliasReplacement: /-/g,
+    });
+    this.commandHandler.loadAll();
+    this.commandHandler.resolver.addType("game", (message, phrase) => {
+      if (!phrase) return null;
+
+      if (phrase === "cs") {
+        return phrase;
+      }
+
+      return null;
+    });
+    this.commandHandler.resolver.addType("film", (message, phrase) => {
+      if (!phrase) return null;
+
+      if (/^\d{1,2}m[lfi]\d{1,2}$/gi.test(phrase)) {
+        return phrase;
+      }
+
+      if (/^[hv]m[lif]/gi.test(phrase)) {
+        return phrase;
+      }
+
+      return null;
+    });
+  }
+}
+
+const client = new Client();
 
 client
   .on("warn", (m) => logger.warn(m))
@@ -48,61 +92,28 @@ client
         client.guilds.cache.array().length
       } servers: ${client.guilds.cache
         .array()
-        .map((val) => {
+        .map((val: { name: string; memberCount: number }) => {
           return `${val.name}(${val.memberCount})`;
         })
         .join(", ")}`
     );
-    const poster = new dbots.Poster({
+    const poster = new Poster({
       client,
       apiKeys: {
-        topgg: process.env.TOPGG_API_TOKEN,
-        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN,
-        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN
-      }
-    })
-    poster.startInterval()
+        topgg: process.env.TOPGG_API_TOKEN || "",
+        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN || "",
+        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN || "",
+      },
+      clientLibrary: "discord.js",
+    });
+    poster.post("all");
+    poster.startInterval();
   })
   .on("disconnect", () => {
     logger.warn("Disconnected!");
-  })
-  .on("commandPrefixChange", (guild, Prefix) => {
-    logger.info(oneLine`
-			Prefix ${Prefix === "" ? "removed" : `changed to ${Prefix || "the default"}`}
-			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
-  })
-  .on("commandStatusChange", (guild, command, enabled) => {
-    logger.info(oneLine`
-			Command ${command.groupID}:${command.memberName}
-			${enabled ? "enabled" : "disabled"}
-			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
-  })
-  .on("groupStatusChange", (guild, group, enabled) => {
-    logger.info(oneLine`
-			Group ${group.id}
-			${enabled ? "enabled" : "disabled"}
-			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
   });
 
 process.on("uncaughtException", (error) => logger.error(error));
+process.on("unhandledRejection", (m) => logger.error(m));
 
-client.registry
-  .registerGroup("math", "Math")
-  .registerDefaultGroups()
-  .registerDefaultTypes()
-  .registerDefaultCommands({
-    unknownCommand: false,
-    help: false,
-  })
-  .registerTypesIn(path.join(__dirname, "./types"))
-  .registerCommandsIn(path.join(__dirname, "./commands"));
-
-client.registry.commands
-  .filter((c) => !c.argsCollector === false)
-  .forEach((c) => (c.argsCollector.promptLimit = 0));
-
-const Token = process.env.DISCORD_TOKEN;
 client.login(Token);

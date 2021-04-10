@@ -1,56 +1,55 @@
 import { getObject } from "../../array";
-import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
+import { Message } from "discord.js";
+import { Argument, Command } from "discord-akairo";
 
-module.exports = class convertCommand extends Command {
-  constructor(client: CommandoClient) {
-    super(client, {
-      name: "convert",
-      group: "math",
-      memberName: "convert",
-      description: "Converts Different Sensitivities from one game to another",
-      details:
-        "Converts Different Sensitivities from one game to another \nTo see the Supported games use the `games` Command",
-      examples: ["convert 0.95 ow 0.022"],
-      format: "<sens> <input game|yaw> <output game|yaw>",
-
+export default class convertCommand extends Command {
+  constructor() {
+    super("convert", {
+      aliases: ["convert"],
       args: [
         {
-          key: "sens",
-          prompt: "What Sensitivity do you want to convert from",
-          type: "float",
+          id: "sens",
+          type: "number",
         },
         {
-          key: "inGame",
-          label: "input Game or yaw value",
-          prompt: "What game or yaw value do you want to use for input",
-          type: "gamename|float",
+          id: "inGame",
+          type: Argument.union("game", "number"),
         },
         {
-          key: "outGame",
-          label: "output Game or yaw value",
-          prompt: "What game or yaw value do you want to use for output",
-          type: "gamename|float",
+          id: "outGame",
+          type: Argument.union("game", "number"),
         },
         {
-          key: "dp",
-          label: "decimal places",
-          prompt: "How Many Decimal places",
-          type: "float",
-          default: "5",
+          id: "cpi",
+          type: "number",
+        },
+        {
+          id: "dp",
+          type: "number",
+          match: "option",
+          flag: ["-dp", "dp:", "dp"],
+          default: 3,
         },
       ],
+      description:
+        "Converts Different Sensitivities from one game to another \nTo see the Supported games use the `games` Command",
     });
   }
-
-  async run(
-    message: CommandoMessage,
-    args: { sens: number; inGame: any; outGame: any; dp: number | undefined }
+  async exec(
+    message: Message,
+    args: {
+      cpi: number;
+      inGame: string;
+      outGame: string;
+      sens: number;
+      dp: number;
+    }
   ) {
     const output = (
       args.sens *
       (parseFloat(getObject(args.inGame, "yaw")) /
         parseFloat(getObject(args.outGame, "yaw")))
     ).toFixed(args.dp);
-    return message.reply(output);
+    return message.util?.reply(output);
   }
-};
+}

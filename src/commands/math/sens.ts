@@ -1,111 +1,111 @@
 import { getObject } from "../../array";
-import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
+import { Argument, Command } from "discord-akairo";
+import type { Message } from "discord.js";
 
-module.exports = class sens extends Command {
-  constructor(client: CommandoClient) {
-    super(client, {
-      name: "sens",
-      aliases: ["sens-cm", "sens-deg", "sens-inch"],
-      group: "math",
-      memberName: "sens",
+export default class sensCommand extends Command {
+  constructor() {
+    super("sens", {
+      aliases: ["sens-cm", "sens-deg", "sens-inch", "sens"],
       description:
         "Converts cm/rev(default), deg/mm or inch/rev to a game sensitivity",
-      details:
-        "Converts cm/rev(default), deg/mm or inch/rev to a game sensitivity \nTo see the Supported games use the `games` Command",
-      examples: [
-        "sens 28.5 quake 1600",
-        "sens 28.5 ow 1600 -cm",
-        "sens 1.21 cs 1600 -deg",
-        "sens 11.22 fortnite 1600 -inch",
-      ],
-      format:
-        '<cm/rev|deg/mm|inch/rev> <game|yaw> <cpi> ["-cm"|"-deg"|"-inch"]',
-
       args: [
         {
-          key: "cm",
-          prompt: "What cm/rev do you want to convert from",
-          type: "float",
+          id: "cm",
+          type: "number",
         },
         {
-          key: "yaw",
-          label: "Game or yaw value",
-          prompt: "What game or yaw value do you want to use",
-          type: "gamename|float",
+          id: "yaw",
+          type: Argument.union("game", "number"),
         },
         {
-          key: "cpi",
-          label: "cpi/dpi",
-          prompt: "What CPI/DPI do you want to use",
-          type: "float",
+          id: "cpi",
+          type: "number",
         },
         {
-          key: "flags",
-          prompt: "",
-          default: "-cm",
-          type: "string",
+          id: "cmflag",
+          match: "flag",
+          flag: "-cm",
         },
         {
-          key: "dp",
-          label: "decimal places",
-          prompt: "How Many Decimal places",
-          type: "float",
-          default: "5",
+          id: "inchflag",
+          match: "flag",
+          flag: "-inch",
+        },
+        {
+          id: "degflag",
+          match: "flag",
+          flag: "-deg",
+        },
+        {
+          id: "mpiflag",
+          match: "flag",
+          flag: "-mpi",
+        },
+        {
+          id: "dp",
+          type: "number",
+          match: "option",
+          flag: ["-dp", "dp:", "dp"],
+          default: 5,
         },
       ],
     });
   }
-  async run(
-    msg: CommandoMessage,
+  async exec(
+    msg: Message,
     args: {
-      flags: any;
       cpi: number;
       yaw: string;
       cm: number;
-      dp: number | undefined;
+      cmflag?: boolean;
+      inchflag?: boolean;
+      mpiflag?: boolean;
+      degflag?: boolean;
+      dp: number;
     }
-  ): Promise<any> {
-    switch (args.flags) {
-      case "-deg": {
-        const output = (
-          (args.cpi *
-            parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
-            60) /
-          args.cm
-        ).toFixed(args.dp);
-        msg.reply(output);
-        break;
-      }
-
-      case "-MPI": {
-        const output = (
-          (24.5 * args.cm) /
-          (args.cpi * parseFloat(getObject(args.yaw.toLowerCase(), "yaw")))
-        ).toFixed(args.dp);
-        msg.reply(output);
-        break;
-      }
-
-      case "-inch": {
-        const output = (
-          360 /
-          (args.cpi *
-            parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
-            args.cm)
-        ).toFixed(args.dp);
-        msg.reply(output);
-        break;
-      }
-
-      case "-cm": {
-        const output = (
-          (2.54 * 360) /
-          (args.cpi *
-            parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
-            args.cm)
-        ).toFixed(args.dp);
-        msg.reply(output);
-      }
+  ) {
+    if (args.degflag) {
+      const output = (
+        (args.cpi * parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) * 60) /
+        args.cm
+      ).toFixed(args.dp);
+      return msg.util?.reply(output);
     }
+
+    if (args.mpiflag) {
+      const output = (
+        (24.5 * args.cm) /
+        (args.cpi * parseFloat(getObject(args.yaw.toLowerCase(), "yaw")))
+      ).toFixed(args.dp);
+      return msg.util?.reply(output);
+    }
+
+    if (args.inchflag) {
+      const output = (
+        360 /
+        (args.cpi *
+          parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
+          args.cm)
+      ).toFixed(args.dp);
+      return msg.util?.reply(output);
+    }
+
+    if (args.cmflag) {
+      const output = (
+        (2.54 * 360) /
+        (args.cpi *
+          parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
+          args.cm)
+      ).toFixed(args.dp);
+      return msg.util?.reply(output);
+    }
+
+    const output = (
+      (2.54 * 360) /
+      (args.cpi *
+        parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
+        args.cm)
+    ).toFixed(args.dp);
+    return msg.util?.reply(output);
   }
-};
+}

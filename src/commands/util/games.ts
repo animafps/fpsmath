@@ -1,22 +1,24 @@
 import { games } from "../../array";
-import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
+import { Command } from "discord-akairo";
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
 
-module.exports = class gamesCommand extends Command {
-  constructor(client: CommandoClient) {
-    super(client, {
-      name: "games",
-      group: "util",
-      memberName: "games",
-      description: "Displays the supported games for this bot",
-      examples: ["games"],
+export default class gamesCommand extends Command {
+  constructor() {
+    super("games", {
+      aliases: ["games", "supported-games"],
+      description: {
+        content: "Displays the supported games for this bot",
+        usage: "",
+        examples: ["games"],
+      },
     });
   }
 
-  async run(message: CommandoMessage) {
+  async exec(message: Message) {
     const Embed = new MessageEmbed()
       .setColor("#0099ff")
       .addField("Supported Games:", `\`\`\`${games()}\`\`\``);
-    return message.say(Embed);
+    return message.util?.send(Embed);
   }
-};
+}

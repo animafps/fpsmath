@@ -1,15 +1,16 @@
 {
   "name": "fpsmath",
-  "version": "1.9.0",
-  "main": "index.js",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint",
+    "lint": "eslint .",
     "start": "tsc && node dist/index.js",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint --fix .",
     "cz": "cz",
     "prettier": "prettier --write .",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "dev": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -20,16 +21,13 @@
   "license": "MIT",
   "description": "A Discord bot designed to convert sensitivities, fovs, mouse feel across themselves and preset games",
   "dependencies": {
-    "@types/common-tags": "^1.8.0",
-    "@types/mathjs": "^6.0.11",
-    "@types/node": "^14.14.20",
-    "better-sqlite3": "^7.1.2",
     "common-tags": "^1.8.0",
     "dbots": "^8.0.2",
+    "discord-akairo": "^8.1.0",
     "discord.js": "^12.5.1",
-    "discord.js-commando": "^0.12.2",
     "dotenv": "^8.2.0",
     "mathjs": "^9.0.0",
+    "ms": "^2.1.2",
     "typescript": "^4.1.5",
     "winston": "^3.3.3"
   },
@@ -39,14 +37,21 @@
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
+    "@types/common-tags": "^1.8.0",
+    "@types/mathjs": "^6.0.11",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^14.14.37",
+    "@types/sqlite3": "^3.1.7",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.16.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.3.7"
+    "semantic-release": "^17.3.7",
+    "ts-node": "^9.1.1"
   },
   "config": {
     "commitizen": {
