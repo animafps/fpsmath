@@ -2,7 +2,6 @@ import * as dotenv from "dotenv";
 import { AkairoClient, CommandHandler } from "discord-akairo";
 import * as winston from "winston";
 import { Poster } from "dbots";
-import { gameTypeCaster } from "./arguments/game";
 
 dotenv.config();
 const Token = process.env.DISCORD_TOKEN;
@@ -54,7 +53,6 @@ class Client extends AkairoClient {
       aliasReplacement: /-/g,
     });
     this.commandHandler.loadAll();
-    this.commandHandler.resolver.addType("game", gameTypeCaster);
     this.commandHandler.resolver.addType("film", (message, phrase) => {
       if (!phrase) return null;
 
