@@ -1,14 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es2019",
     "module": "CommonJS",
     "strict": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
     "outDir": "./dist",
-    "allowJs": true,
-    "esModuleInterop": true
+    "target": "ESNext",
+    "declaration": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "alwaysStrict": true,
+    "pretty": true,
+    "incremental": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "ESNext.Array",
+      "ESNext.AsyncIterable",
+      "ESNext.Intl",
+      "ESNext.Symbol",
+      "ESNext.BigInt"
+    ]
   },
   "include": ["./src/**/*", "./src/*"]
 }

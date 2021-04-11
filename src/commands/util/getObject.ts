@@ -1,29 +1,31 @@
 import { getObject } from "../../array";
-import { Command, Argument } from "discord-akairo";
+import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
 export default class getObjectCommand extends Command {
   constructor() {
     super("getobject", {
-      aliases: ["getobject"],
+      aliases: ["get-object"],
       description:
-        "Displays the object associated for a game \nTo see the Supported games use the `games` Command, (Supported Objects: fovt, yaw, name)",
+        "Displays the object associated for a game \nTo see the Supported games use the `games` Command, (Supported Objects: fovt, yaw, aliases, afovt)",
       args: [
         {
           id: "game",
-          type: "game",
         },
         {
           id: "object",
-          type: Argument.validate("string", (m, p) =>
-            ["fovt", "yaw", "name", "afovt"].includes(p)
-          ),
         },
       ],
     });
   }
 
-  async exec(message: Message, args: { game: string; object: string }) {
-    return message.util?.reply(getObject(args.game, args.object));
+  async exec(
+    message: Message,
+    args: { game: string; object: string }
+  ): Promise<Message> {
+    return message.reply(
+      getObject(args.game, args.object)?.toString() ||
+        "Object or Game not found"
+    );
   }
 }

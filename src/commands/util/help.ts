@@ -1,8 +1,8 @@
 import { stripIndents, oneLine } from "common-tags";
-import { Command, CommandHandler } from "discord-akairo";
+import { Category, Command, CommandHandler } from "discord-akairo";
 import { MessageEmbed } from "discord.js";
-import type { Message } from "discord.js";
-function generalHelp(command: Command, msg: Message, handler: CommandHandler) {
+import type { Message, Collection } from "discord.js";
+function commandHelp(command: Command, msg: Message, handler: CommandHandler) {
   const commandHelpEmbed = new MessageEmbed()
     .setTitle(`Command Help - ${command.id}`)
     .setColor("#0099ff")
@@ -16,25 +16,21 @@ function generalHelp(command: Command, msg: Message, handler: CommandHandler) {
       "Format",
       `\`${handler.prefix}${command.id} ${command.description.usage}\``
     )
-    .addField("Aliases", command.aliases.join(", "))
+    .addField("Supported Flags", `\`\`${command.description.flags}\`\``)
+    .addField("Aliases", `\`\`${command.aliases.join(", ")}\`\``)
     .addField("Group", command.categoryID)
-    .addField(
-      "Examples",
-      `\`\`${command.description.examples.forEach(
-        (value: string) => `${value}\n`
-      )}\`\``
-    )
+    .addField("Examples", `\`\`${command.description.examples.join(`\n`)}\`\``)
     .addField(
       "Quick Links",
-      "[**Documentation/ Github**](https://github.com/animafps/fpsmath) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/)"
+      "[**Documentation**](https://fpsmath.animafps.xyz) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/)"
     );
   return commandHelpEmbed;
 }
 
-function commandHelp(
+function generalHelp(
   msg: Message,
   showAll: string | boolean | undefined,
-  groups: any,
+  groups: Collection<string, Category<string, Command>>,
   handler: CommandHandler
 ) {
   const generalHelpEmbed = new MessageEmbed()
@@ -73,10 +69,21 @@ function commandHelp(
                         }**__
                     `
     );
-  console.log(groups.entries().next().value[0]);
+  groups.array().forEach((value) => {
+    if (value.id === "owner") {
+      return;
+    }
+    let commands = ``;
+    for (let x = 0; x < value.array().length; x++) {
+      commands += `${value.array()[x].id}: \`${
+        value.array()[x].description.content
+      }\`\n`;
+    }
+    return generalHelpEmbed.addField(value.id, commands);
+  });
   generalHelpEmbed.addField(
     "Quick Links",
-    "[**Documentation/ Github**](https://github.com/animafps/fpsmath) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/)"
+    "[**Documentation**](https://fpsmath.animafps.xyz) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/)"
   );
   return generalHelpEmbed;
 }
@@ -84,19 +91,23 @@ export default class HelpCommand extends Command {
   constructor() {
     super("help", {
       aliases: ["commands", "help"],
-      description:
-        "Displays a list of available commands, or detailed information for a specified command.",
+      description: {
+        content:
+          "Displays a list of available commands, or detailed information for a specified command.",
+      },
       args: [
         {
           id: "command",
-          type: "string",
           default: "",
         },
       ],
     });
   }
 
-  async exec(msg: Message, args: { command?: string }) {
+  async exec(
+    msg: Message,
+    args: { command?: string }
+  ): Promise<Message | unknown> {
     const groups = this.handler.categories;
     const command = this.handler.findCommand(args.command || "");
     const showAll = args.command && args.command.toLowerCase() === "all";
@@ -104,7 +115,7 @@ export default class HelpCommand extends Command {
       const messages = [];
       try {
         messages.push(
-          await msg?.author.send(generalHelp(command, msg, this.handler))
+          await msg?.author.send(commandHelp(command, msg, this.handler))
         );
         if (msg?.channel.type !== "dm") {
           messages.push(
@@ -123,7 +134,7 @@ export default class HelpCommand extends Command {
       const messages = [];
       try {
         messages.push(
-          await msg.author.send(commandHelp(msg, showAll, groups, this.handler))
+          await msg.author.send(generalHelp(msg, showAll, groups, this.handler))
         );
 
         if (msg.channel.type !== "dm") {

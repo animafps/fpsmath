@@ -14,7 +14,10 @@ export default class ReloadCommand extends Command {
     });
   }
 
-  async exec(message: Message, args: { commandID: string }) {
+  async exec(
+    message: Message,
+    args: { commandID: string }
+  ): Promise<Message | undefined> {
     this.handler.reload(args.commandID);
     return message.util?.reply(`Reloaded command ${args.commandID}!`);
   }

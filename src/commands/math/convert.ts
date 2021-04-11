@@ -1,6 +1,6 @@
 import { getObject } from "../../array";
 import { Message } from "discord.js";
-import { Argument, Command } from "discord-akairo";
+import { Command } from "discord-akairo";
 
 export default class convertCommand extends Command {
   constructor() {
@@ -10,18 +10,17 @@ export default class convertCommand extends Command {
         {
           id: "sens",
           type: "number",
+          prompt: true,
         },
         {
           id: "inGame",
-          type: Argument.union("game", "number"),
+          type: "string",
+          prompt: true,
         },
         {
           id: "outGame",
-          type: Argument.union("game", "number"),
-        },
-        {
-          id: "cpi",
-          type: "number",
+          type: "string",
+          prompt: true,
         },
         {
           id: "dp",
@@ -31,25 +30,36 @@ export default class convertCommand extends Command {
           default: 3,
         },
       ],
-      description:
-        "Converts Different Sensitivities from one game to another \nTo see the Supported games use the `games` Command",
+      argumentDefaults: {
+        prompt: {
+          start: `Invalid command usage. The \`convert\` command's accepted format is \`convert <sens> <input game | yaw> <output game | yaw>\`. Use \`help convert\` for more information`,
+          time: 1,
+          retries: 0,
+        },
+      },
+      description: {
+        content: "Converts Different Sensitivities from one game to another",
+      },
     });
   }
   async exec(
     message: Message,
     args: {
-      cpi: number;
-      inGame: string;
-      outGame: string;
+      inGame: string | number;
+      outGame: string | number;
       sens: number;
       dp: number;
     }
-  ) {
+  ): Promise<Message> {
     const output = (
-      args.sens *
-      (parseFloat(getObject(args.inGame, "yaw")) /
-        parseFloat(getObject(args.outGame, "yaw")))
+      (args.sens *
+        (typeof args.inGame === "string"
+          ? Number(getObject(args.inGame, "yaw") )
+          : args.inGame)) /
+      (typeof args.outGame === "string"
+        ? Number(getObject(args.outGame, "yaw"))
+        : args.outGame)
     ).toFixed(args.dp);
-    return message.util?.reply(output);
+    return message.reply(output);
   }
 }

@@ -5,10 +5,13 @@ export default class PingCommand extends Command {
   constructor() {
     super("info", {
       aliases: ["info", "botinfo", "information"],
+      description: {
+        content: "Info about the bot",
+      },
     });
   }
 
-  async exec(message: Message) {
+  async exec(message: Message): Promise<Message> {
     const Embed = new MessageEmbed()
       .setColor("#0099ff")
       .setTitle("FPSMath Info")

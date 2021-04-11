@@ -1,14 +1,18 @@
 import { atan, tan, pi } from "mathjs";
 import { getObject } from "../../array";
-import { Argument, Command } from "discord-akairo";
+import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
 export default class fovCommand extends Command {
   constructor() {
     super("fov", {
       aliases: ["fov-scailing", "film", "fov"],
-      description:
-        "Finds the true vertical and horizontal FOVs for certain aspect ratio that the game is being rendered at and game/FOV scaling method(FILM notation) \nTo see the Supported games use the `games` Command \n [To learn about FILM notation click here](https://www.kovaak.com/film-notation/)",
+      description: {
+        content:
+          "Finds the true vertical and horizontal FOVs for certain aspect ratio that the game is being rendered at and game/FOV scaling method(FILM notation)",
+        extra:
+          "To see the Supported games use the `games` Command \n [To learn about FILM notation click here](https://www.kovaak.com/film-notation/)",
+      },
       args: [
         {
           id: "fov",
@@ -17,8 +21,6 @@ export default class fovCommand extends Command {
         },
         {
           id: "fovt",
-          description: "game|FILM notation",
-          type: Argument.union("game", "film"),
           prompt: true,
         },
         {
@@ -37,7 +39,7 @@ export default class fovCommand extends Command {
       ],
       argumentDefaults: {
         prompt: {
-          start: `Invalid command usage. The \`fov\` command's accepted format is \`fov <fov> <Game | FILM> <aspect ratio>\`. Use \`help cm\` for more information`,
+          start: `Invalid command usage. The \`fov\` command's accepted format is \`fov <fov> <Game | FILM> <aspect ratio>\`. Use \`help fov\` for more information`,
           time: 1,
           retries: 0,
         },
@@ -48,13 +50,12 @@ export default class fovCommand extends Command {
   async exec(
     msg: Message,
     args: { fov: number; fovt: string; aspect?: string; dp?: number }
-  ) {
+  ): Promise<Message> {
     const FOVT = (game: string) => {
-      if (getObject(game, "afovt") !== game) {
-        return getObject(game, "afovt").toLowerCase();
-      } else {
-        return game.toLowerCase();
-      }
+      return (getObject(game, "afovt")
+        ? getObject(game, "afovt") || "".toLowerCase()
+        : game.toLowerCase()
+      ).toString();
     };
 
     const func = (from: number, to: number, fov: number) => {
@@ -62,8 +63,8 @@ export default class fovCommand extends Command {
     };
 
     const fovtAspect =
-      parseFloat(FOVT(args.fovt).split(/m[l|f|i]/)[0]) /
-      parseFloat(FOVT(args.fovt).split(/m[l|f|i]/)[1]);
+      Number(FOVT(args.fovt).split(/m[l|f|i]/)[0]) /
+      Number(FOVT(args.fovt).split(/m[l|f|i]/)[1]);
 
     const argAspect =
       parseFloat(args.aspect?.split(":")[0] || "") /
@@ -118,7 +119,7 @@ export default class fovCommand extends Command {
       }
       return { hfov: undefined, vfov: undefined };
     };
-    return msg.util?.reply(`Horizontal FOV: ${
+    return msg.reply(`Horizontal FOV: ${
       output().hfov?.toFixed(args.dp) || "error"
     }
     Vertical FOV: ${output().vfov?.toFixed(args.dp) || "error"}`);

@@ -10,6 +10,8 @@ or from source [Instructions](/docs/CONTRIBUTING.MD)
 
 ## Usage
 
+[**Documentation**](https://fpsmath.animafps.xyz)
+
 \<required\|alternative option\> \[optional\] **exact argument**
 
 ### Main Commands
@@ -60,7 +62,7 @@ or from source [Instructions](/docs/CONTRIBUTING.MD)
 ## Built With
 
 - [Discord.JS](https://github.com/discordjs/discord.js) - The Discord Integration
-- [Discord.JS - Commando](https://github.com/discordjs/commando) - Framework for Discord.js
+- [discord-akairo](https://github.com/discord-akairo/discord-akairo) - Bot Framework
 - [Node](https://nodejs.org/) - The Framework and Runtime
 - [Mathjs](https://mathjs.org/) - Used for Math functions
 

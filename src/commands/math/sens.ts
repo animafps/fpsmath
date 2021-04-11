@@ -1,25 +1,29 @@
 import { getObject } from "../../array";
-import { Argument, Command } from "discord-akairo";
+import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
-export default class sensCommand extends Command {
+export default class SensCommand extends Command {
   constructor() {
     super("sens", {
       aliases: ["sens-cm", "sens-deg", "sens-inch", "sens"],
-      description:
-        "Converts cm/rev(default), deg/mm or inch/rev to a game sensitivity",
+      description: {
+        content:
+          "Converts cm/rev(default), deg/mm or inch/rev to a game sensitivity",
+      },
       args: [
         {
           id: "cm",
           type: "number",
+          prompt: true,
         },
         {
           id: "yaw",
-          type: Argument.union("game", "number"),
+          prompt: true,
         },
         {
           id: "cpi",
           type: "number",
+          prompt: true,
         },
         {
           id: "cmflag",
@@ -49,6 +53,13 @@ export default class sensCommand extends Command {
           default: 5,
         },
       ],
+      argumentDefaults: {
+        prompt: {
+          start: `Invalid command usage. The \`sens\` command's accepted format is \`sens <cm/rev | deg/mm | inch/rev | mpi > <game | yaw> <cpi>\`. Use \`help sens\` for more information`,
+          time: 1,
+          retries: 0,
+        },
+      },
     });
   }
   async exec(
@@ -63,49 +74,43 @@ export default class sensCommand extends Command {
       degflag?: boolean;
       dp: number;
     }
-  ) {
+  ): Promise<Message> {
+    let yaw: number;
+    if (isNaN(Number(args.yaw))) {
+      if (getObject(args.yaw, "yaw")) {
+        yaw = Number(getObject(args.yaw, "yaw"));
+      } else {
+        return msg.reply(
+          `\`${args.yaw}\` game not supported. To see the supported games use the \`games\` command`
+        );
+      }
+    } else {
+      yaw = Number(args.yaw);
+    }
+
     if (args.degflag) {
-      const output = (
-        (args.cpi * parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) * 60) /
-        args.cm
-      ).toFixed(args.dp);
-      return msg.util?.reply(output);
+      const output = ((args.cpi * yaw * 60) / args.cm).toFixed(args.dp);
+      return msg.reply(output);
     }
 
     if (args.mpiflag) {
-      const output = (
-        (24.5 * args.cm) /
-        (args.cpi * parseFloat(getObject(args.yaw.toLowerCase(), "yaw")))
-      ).toFixed(args.dp);
-      return msg.util?.reply(output);
+      const output = ((24.5 * args.cm) / (args.cpi * yaw)).toFixed(args.dp);
+      return msg.reply(output);
     }
 
     if (args.inchflag) {
-      const output = (
-        360 /
-        (args.cpi *
-          parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
-          args.cm)
-      ).toFixed(args.dp);
-      return msg.util?.reply(output);
+      const output = (360 / (args.cpi * yaw * args.cm)).toFixed(args.dp);
+      return msg.reply(output);
     }
 
     if (args.cmflag) {
-      const output = (
-        (2.54 * 360) /
-        (args.cpi *
-          parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
-          args.cm)
-      ).toFixed(args.dp);
-      return msg.util?.reply(output);
+      const output = ((2.54 * 360) / (args.cpi * yaw * args.cm)).toFixed(
+        args.dp
+      );
+      return msg.reply(output);
     }
 
-    const output = (
-      (2.54 * 360) /
-      (args.cpi *
-        parseFloat(getObject(args.yaw.toLowerCase(), "yaw")) *
-        args.cm)
-    ).toFixed(args.dp);
-    return msg.util?.reply(output);
+    const output = ((2.54 * 360) / (args.cpi * yaw * args.cm)).toFixed(args.dp);
+    return msg.reply(output);
   }
 }

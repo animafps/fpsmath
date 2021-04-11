@@ -1,25 +1,29 @@
 import { getObject } from "../../array";
-import { Argument, Command } from "discord-akairo";
+import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
 export default class inchCommand extends Command {
   constructor() {
     super("inch", {
       aliases: ["inch/rev", "inch/360", "inch"],
-      description:
-        "Converts Sensitivity to inch/rev \nTo see the Supported games use the `games` Command",
+      description: {
+        content: "Converts Sensitivity to inch/rev",
+      },
       args: [
         {
           id: "sens",
           type: "number",
+          prompt: true,
+
         },
         {
           id: "yaw",
-          type: Argument.union("game", "number"),
+          prompt: true,
         },
         {
           id: "cpi",
           type: "number",
+          prompt: true,
         },
         {
           id: "dp",
@@ -29,17 +33,34 @@ export default class inchCommand extends Command {
           default: 2,
         },
       ],
+      argumentDefaults: {
+        prompt: {
+          start: `Invalid command usage. The \`inch\` command's accepted format is \`inch <sens> <game|yaw> <cpi>\`. Use \`help inch\` for more information`,
+          time: 1,
+          retries: 0,
+        },
+      },
     });
   }
 
   async exec(
     message: Message,
-    args: { cpi: number; yaw: any; sens: number; dp: number | undefined }
-  ) {
-    const output = (
-      360 /
-      (args.cpi * parseFloat(getObject(args.yaw, "yaw")) * args.sens)
-    ).toFixed(args.dp);
-    return message.util?.reply(output + " inch/rev");
+    args: { cpi: number; yaw: string; sens: number; dp: number | undefined }
+  ): Promise<Message> {
+    let yaw: number;
+    if (isNaN(Number(args.yaw))) {
+      if (getObject(args.yaw, "yaw")) {
+        yaw = Number(getObject(args.yaw, "yaw"));
+      } else {
+        return message.reply(
+          `\`${args.yaw}\` game not supported. To see the supported games use the \`games\` command`
+        );
+      }
+    } else {
+      yaw = Number(args.yaw);
+    }
+
+    const output = (360 / (args.cpi * yaw * args.sens)).toFixed(args.dp);
+    return message.reply(output + " inch/rev");
   }
 }

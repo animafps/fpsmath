@@ -15,10 +15,10 @@ export default class gamesCommand extends Command {
     });
   }
 
-  async exec(message: Message) {
+  async exec(message: Message): Promise<Message> {
     const Embed = new MessageEmbed()
       .setColor("#0099ff")
-      .addField("Supported Games:", `\`\`\`${games()}\`\`\``);
-    return message.util?.send(Embed);
+      .addField("Supported Games:", `\n` + games());
+    return message.util?.send(Embed) || message.reply(Embed);
   }
 }

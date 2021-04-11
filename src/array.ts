@@ -1,141 +1,137 @@
-"use strict";
-const array = [
-  { name: "Aimgods", yaw: 0.0023331, aliases: ["aimgods"] },
-  {
-    name: "Source",
+interface Array {
+  [index: string]: {
+    yaw?: number;
+    aliases: string[];
+    fovt?: number;
+    afovt?: string;
+  };
+}
+const array: Array = {
+  Aimgods: { yaw: 0.0023331, aliases: ["aimgods"] },
+  Source: {
     yaw: 0.022,
     fovt: 4 / 3,
     aliases: ["source"],
     afovt: "4ML3",
   },
-  {
-    name: "Counter Strike",
+  "Counter Strike": {
     yaw: 0.022,
     fovt: 4 / 3,
     aliases: ["cs", "cs:go", "csgo", "counter-strike"],
     afovt: "4ML3",
   },
-  { name: "Quake", yaw: 0.022, fovt: 4 / 3, aliases: ["quake"], afovt: "4ML3" },
-  {
-    name: "Quake Champions",
+  Quake: { yaw: 0.022, fovt: 4 / 3, aliases: ["quake"], afovt: "4ML3" },
+  "Quake Champions": {
     fovt: 16 / 9,
     aliases: ["qc", "quake-champions"],
     yaw: 0.022,
+    afovt: "hML",
   },
-  {
-    name: "Apex Legends",
+  "Apex Legends": {
     yaw: 0.022,
     fovt: 4 / 3,
     aliases: ["apex-legends", "apex"],
     afovt: "4ML3",
   },
-  { name: "Valorant", yaw: 0.07, fovt: 16 / 9, aliases: ["valorant", "val"] },
-  {
-    name: "Overwatch",
+  Valorant: { yaw: 0.07, fovt: 16 / 9, aliases: ["valorant", "val"] },
+  Overwatch: {
     yaw: 0.0066,
     fovt: 16 / 9,
     aliases: ["overwatch", "ow"],
     afovt: "16MF9",
   },
-  {
-    name: "Fortnite",
+  Fortnite: {
     yaw: 0.005555,
     fovt: 16 / 9,
     aliases: ["fortnite", "fn"],
     afovt: "16MF9",
   },
-  {
-    name: "Fortnite config",
+  "Fortnite config": {
     yaw: 2.222,
     fovt: 16 / 9,
     aliases: ["fn-config", "fortnite-config"],
+    afovt: "16MF9",
   },
-  {
-    name: "Diabotical",
+  Diabotical: {
     yaw: 0.022,
     fovt: 1,
     aliases: ["diabotical", "dbt"],
     afovt: "vML",
   },
-  {
-    name: "Rainbow Six: Siege",
+  "Rainbow Six: Siege": {
     yaw: 0.005729577951308232,
     fovt: 1,
     aliases: ["r6", "rainbow6", "r6s"],
     afovt: "vML",
   },
-  {
-    name: "Call of Duty",
+  "Call of Duty": {
     yaw: 0.0066,
     fovt: 16 / 9,
     aliases: ["cod", "callofduty", "call-of-duty", "warzone", "wz"],
-    afovt: "16ML9",
+    afovt: "hML",
   },
-  {
-    name: "Battlefield",
+  Battlefield: {
     yaw: 2.291831180523293,
     fovt: 1,
     aliases: ["battlefield", "bf"],
     afovt: "vML",
   },
-  {
-    name: "Destiny",
+  Destiny: {
     yaw: 0.0066,
     fovt: 16 / 9,
     aliases: ["destiny", "d2", "destiny2"],
     afovt: "16ML9",
   },
-  {
-    name: "Reflex",
+  Reflex: {
     yaw: 0.005729577951308232087679815481411,
     fovt: 4 / 3,
     aliases: ["reflex", "reflex-arena"],
     afovt: "4ML3",
   },
-  {
-    name: "Krunker",
+  Krunker: {
     yaw: 0.13750954927425516,
     fovt: 1,
     aliases: ["krunker"],
     afovt: "vML",
   },
-  {
-    name: "Minecraft",
+  Minecraft: {
     yaw: 0.2592,
     aliases: ["mc", "minecraft"],
     afovt: "hML",
   },
-  {
-    name: "Palidins",
+  Palidins: {
     aliases: ["palidins"],
     afovt: "hML",
   },
-];
-array.sort();
+  "Player Unknown's: Battleground": {
+    aliases: ["pubg"],
+  },
+};
 
-export function getObject(args: string, object: string | number): string {
-  const isYaw = array.some((elem) =>
-    elem.aliases.some((currentValue) => currentValue === args.toLowerCase())
-  );
-  if (!isYaw) {
-    return args;
-  } else {
-    let outcome: string = "";
-    array.forEach((item: { [index: string]: any }) => {
-      item.aliases.forEach((val: string) => {
-        if (val === args.toLowerCase()) {
-          outcome = item[object];
-        }
-      });
+export function getObject(
+  game: string,
+  object: string
+): string | number | string[] | null {
+  let output: string | number | string[] = "Error";
+  for (const x in array) {
+    array[x].aliases.forEach((element) => {
+      if (element === game.toLowerCase()) {
+        output = (array[x] as { [key: string]: number | string | string[] })[
+          object
+        ];
+      }
     });
-    return outcome;
+    if (output !== "Error") {
+      return output;
+    }
   }
+  return null;
 }
 
-export function games() {
+export function games(): string {
   let result = "";
-  array.forEach((item) => {
-    result += `${item.name}: (${item.aliases.join(", ")})\n`;
-  });
+  for (const x in array) {
+    result += `${x}: \`${array[x].aliases.join(", ")}\`\n`;
+  }
   return result;
 }

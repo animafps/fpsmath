@@ -1,13 +1,13 @@
 import { getObject } from "../../array";
 import { Command } from "discord-akairo";
-import { Message } from "discord.js";
+import type { Message } from "discord.js";
 
-export default class degCommand extends Command {
+export default class arcminCommand extends Command {
   constructor() {
-    super("deg", {
-      aliases: ["deg/mm", "deg"],
+    super("arcmin", {
+      aliases: ["arcmin", "minute-of-arc", "arcmin/inch", "minute-of-arc/inch"],
       description: {
-        content: "Converts Sensitivity to deg/mm",
+        content: "Converts Sensitivity to arcmin(minute of arc per inch)",
       },
       args: [
         {
@@ -17,7 +17,6 @@ export default class degCommand extends Command {
         },
         {
           id: "yaw",
-          type: "string",
           prompt: true,
         },
         {
@@ -35,7 +34,7 @@ export default class degCommand extends Command {
       ],
       argumentDefaults: {
         prompt: {
-          start: `Invalid command usage. The \`deg\` command's accepted format is \`deg <sens> <game|yaw> <cpi>\`. Use \`help deg\` for more information`,
+          start: `Invalid command usage. The \`arcmin\` command's accepted format is \`arcmin <sens> <game|yaw> <cpi>\`. Use \`help arcmin\` for more information`,
           time: 1,
           retries: 0,
         },
@@ -43,7 +42,7 @@ export default class degCommand extends Command {
     });
   }
 
-  async run(
+  async exec(
     message: Message,
     args: { cpi: number; yaw: string; sens: number; dp: number }
   ): Promise<Message> {
@@ -59,7 +58,7 @@ export default class degCommand extends Command {
     } else {
       yaw = Number(args.yaw);
     }
-    const output = ((args.cpi * yaw * args.sens) / 25.4).toFixed(args.dp);
-    return message.reply(output + " deg/mm");
+    const output = (args.cpi * yaw * args.sens * (1/60)).toFixed(args.dp);
+    return message.reply(output + " arcmin");
   }
 }
