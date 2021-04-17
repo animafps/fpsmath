@@ -49,79 +49,88 @@ export default class fovCommand extends Command {
 
   async exec(
     msg: Message,
-    args: { fov: number; fovt: string; aspect?: string; dp?: number }
-  ): Promise<Message> {
-    const FOVT = (game: string) => {
+    args: { fov: number; fovt: string; aspect: string; dp?: number }
+  ): Promise<Message | undefined> {
+    let output: {hfov?: number, vfov?:number} = {hfov: undefined, vfov: undefined}
+    if (!getObject(args.fovt, "afovt")){
+      if (!/^\d{1,2}m[lfi]\d{1,2}$/gi.test(args.fovt) && !/^[hv]m[lif]/gi.test(args.fovt)) {
+        return msg.util?.reply(`${args.fovt} not supported. To see the supported game us the \`games\` command`)
+      }
+      return msg.util?.reply(`Incorrect FILM Notation. To learn about Film notation read this: https://www.kovaak.com/film-notation/`)
+    }
+
+    const getFOVT = (game: string) => {
       return (getObject(game, "afovt")
         ? getObject(game, "afovt") || "".toLowerCase()
         : game.toLowerCase()
       ).toString();
     };
 
-    const func = (from: number, to: number, fov: number) => {
+    const convertFOV = (from: number, to: number, fov: number) => {
       return (atan((to / from) * tan((fov * pi) / 360)) * 360) / pi;
     };
 
     const fovtAspect =
-      Number(FOVT(args.fovt).split(/m[l|f|i]/)[0]) /
-      Number(FOVT(args.fovt).split(/m[l|f|i]/)[1]);
+      Number(getFOVT(args.fovt).split(/m[l|f|i]/)[0]) /
+      Number(getFOVT(args.fovt).split(/m[l|f|i]/)[1]);
+
+    const fovtEndsWith = getFOVT(args.fovt).split(/m|M/)[1].toLowerCase()[0]
+
+    const fovtStartsWith = getFOVT(args.fovt)[0].toLowerCase()
 
     const argAspect =
-      parseFloat(args.aspect?.split(":")[0] || "") /
-      parseFloat(args.aspect?.split(":")[1] || "");
+      Number(args.aspect?.split(":")[0] || "") /
+      Number(args.aspect?.split(":")[1] || "");
 
-    const output = () => {
       if (
-        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("l") &&
-        (args.fovt.split("")[0].toLowerCase() !== "v" || "h")
+        fovtEndsWith === "l" &&
+        Number(fovtStartsWith)
       ) {
-        return {
-          vfov: func(fovtAspect, 1, args.fov),
-          hfov: func(fovtAspect, argAspect, args.fov),
+        output = {
+          vfov: convertFOV(fovtAspect, 1, args.fov),
+          hfov: convertFOV(fovtAspect, argAspect, args.fov),
         };
       } else if (
-        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("l") &&
-        args.fovt.split("")[0].toLowerCase() == "h"
+        fovtEndsWith === "l" &&
+        fovtStartsWith === "h"
       ) {
-        return { vfov: func(argAspect, 1, args.fov), hfov: args.fov };
+        output = { vfov: convertFOV(argAspect, 1, args.fov), hfov: args.fov };
       } else if (
-        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("l") &&
-        args.fovt.split("")[0].toLowerCase() == "v"
+        fovtEndsWith === "l" &&
+        fovtStartsWith ===  "v"
       ) {
-        return { hfov: func(1, argAspect, args.fov), vfov: args.fov };
+        output = { hfov: convertFOV(1, argAspect, args.fov), vfov: args.fov };
       } else if (
-        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("f")
+        fovtStartsWith === "f"
       ) {
         if (argAspect > fovtAspect) {
-          return { hfov: args.fov, vfov: func(argAspect, 1, args.fov) };
+          output = { hfov: args.fov, vfov: convertFOV(argAspect, 1, args.fov) };
         } else {
-          return {
-            hfov: func(fovtAspect, argAspect, args.fov),
-            vfov: func(fovtAspect, 1, args.fov),
+          output = {
+            hfov: convertFOV(fovtAspect, argAspect, args.fov),
+            vfov: convertFOV(fovtAspect, 1, args.fov),
           };
         }
       } else if (
-        FOVT(args.fovt).split(/m|M/)[1].toLowerCase().startsWith("i")
+        fovtStartsWith === "i"
       ) {
         if (argAspect > fovtAspect) {
-          return {
-            hfov: func(fovtAspect, argAspect, args.fov),
-            vfov: func(fovtAspect, 1, args.fov),
+          output = {
+            hfov: convertFOV(fovtAspect, argAspect, args.fov),
+            vfov: convertFOV(fovtAspect, 1, args.fov),
           };
         } else if (argAspect < fovtAspect) {
-          return {
+          output = {
             hfov: args.fov,
-            vfov: func(argAspect, 1, args.fov),
+            vfov: convertFOV(argAspect, 1, args.fov),
           };
         } else {
-          return { hfov: args.fov, vfov: func(argAspect, 1, args.fov) };
+          output = { hfov: args.fov, vfov: convertFOV(argAspect, 1, args.fov) };
         }
       }
-      return { hfov: undefined, vfov: undefined };
-    };
     return msg.reply(`Horizontal FOV: ${
-      output().hfov?.toFixed(args.dp) || "error"
+      output.hfov?.toFixed(args.dp) || "error"
     }
-    Vertical FOV: ${output().vfov?.toFixed(args.dp) || "error"}`);
+    Vertical FOV: ${output.vfov?.toFixed(args.dp) || "error"}`);
   }
 }

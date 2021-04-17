@@ -53,19 +53,6 @@ class Client extends AkairoClient {
       aliasReplacement: /-/g,
     });
     this.commandHandler.loadAll();
-    this.commandHandler.resolver.addType("film", (message, phrase) => {
-      if (!phrase) return null;
-
-      if (/^\d{1,2}m[lfi]\d{1,2}$/gi.test(phrase)) {
-        return phrase;
-      }
-
-      if (/^[hv]m[lif]/gi.test(phrase)) {
-        return phrase;
-      }
-
-      return null;
-    });
   }
 }
 
