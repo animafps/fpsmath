@@ -6,6 +6,13 @@ export default class convertCommand extends Command {
   constructor() {
     super("convert", {
       aliases: ["convert"],
+      description: {
+        content:
+          "Converts different sensitivities from one game or yaw value to another",
+        usage: "<input game | yaw> <output game | yaw> <cpi>",
+        flags: "-dp <output decimal places>",
+        examples: ["convert 6 wz 0.022"],
+      },
       args: [
         {
           id: "sens",
@@ -37,9 +44,6 @@ export default class convertCommand extends Command {
           retries: 0,
         },
       },
-      description: {
-        content: "Converts Different Sensitivities from one game to another",
-      },
     });
   }
   async exec(
@@ -54,7 +58,7 @@ export default class convertCommand extends Command {
     const output = (
       (args.sens *
         (typeof args.inGame === "string"
-          ? Number(getObject(args.inGame, "yaw") )
+          ? Number(getObject(args.inGame, "yaw"))
           : args.inGame)) /
       (typeof args.outGame === "string"
         ? Number(getObject(args.outGame, "yaw"))

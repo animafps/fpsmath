@@ -8,6 +8,9 @@ export default class focalCommand extends Command {
       description: {
         content:
           "Focal Length Scales a desired sens between 2 fov values of the same type",
+        usage: "<sens> <input fov> <output fov>",
+        flags: "-dp <output decimal places>",
+        examples: ["focal 0.95 90 100"],
       },
       args: [
         {

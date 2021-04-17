@@ -8,7 +8,6 @@ export default class cminfoCommand extends Command {
       description: {
         content: "Displays an explaination for what cm/360 is",
         usage: "",
-        examples: ["cminfo"],
       },
     });
   }

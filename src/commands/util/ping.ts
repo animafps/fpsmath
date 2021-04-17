@@ -7,6 +7,7 @@ export default class PingCommand extends Command {
       aliases: ["ping", "hello"],
       description: {
         content: "Checks the bots ping to discord",
+        usage: "",
       },
     });
   }

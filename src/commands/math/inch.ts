@@ -8,13 +8,15 @@ export default class inchCommand extends Command {
       aliases: ["inch/rev", "inch/360", "inch"],
       description: {
         content: "Converts Sensitivity to inch/rev",
+        usage: "<sens> <game|yaw> <cpi>",
+        flags: "-dp <output decimal places>",
+        examples: ["inch 3 ow 1600", "inch 2 0.022 800"],
       },
       args: [
         {
           id: "sens",
           type: "number",
           prompt: true,
-
         },
         {
           id: "yaw",

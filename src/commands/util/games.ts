@@ -10,7 +10,6 @@ export default class gamesCommand extends Command {
       description: {
         content: "Displays the supported games for this bot",
         usage: "",
-        examples: ["games"],
       },
     });
   }

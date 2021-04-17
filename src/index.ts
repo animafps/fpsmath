@@ -62,20 +62,11 @@ client
   .on("warn", (m) => logger.warn(m))
   .on("error", (m) => logger.error(m))
   .on("ready", () => {
-    client.user?.setActivity("/help | animafps.xyz");
+    client.user?.setActivity("/help | fpsmath.animafps.xyz");
     logger.info(
       `Client ready; logged in as ${client.user?.username}#${client.user?.discriminator} (${client.user?.id})`
     );
-    logger.info(
-      `Running on ${
-        client.guilds.cache.array().length
-      } servers: ${client.guilds.cache
-        .array()
-        .map((val: { name: string; memberCount: number }) => {
-          return `${val.name}(${val.memberCount})`;
-        })
-        .join(", ")}`
-    );
+    logger.info(`Running on ${client.guilds.cache.array().length}`);
     const poster = new Poster({
       client,
       apiKeys: {

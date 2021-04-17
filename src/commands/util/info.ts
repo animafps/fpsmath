@@ -7,6 +7,7 @@ export default class PingCommand extends Command {
       aliases: ["info", "botinfo", "information"],
       description: {
         content: "Info about the bot",
+        usage: "",
       },
     });
   }

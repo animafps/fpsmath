@@ -15,15 +15,25 @@ function commandHelp(command: Command, msg: Message, handler: CommandHandler) {
     .addField(
       "Format",
       `\`${handler.prefix}${command.id} ${command.description.usage}\``
-    )
-    .addField("Supported Flags", `\`\`${command.description.flags}\`\``)
-    .addField("Aliases", `\`\`${command.aliases.join(", ")}\`\``)
-    .addField("Group", command.categoryID)
-    .addField("Examples", `\`\`${command.description.examples.join(`\n`)}\`\``)
-    .addField(
-      "Quick Links",
-      "[**Documentation**](https://fpsmath.animafps.xyz) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/)"
     );
+  if (command.description.flags) {
+    commandHelpEmbed.addField(
+      "Supported Flags",
+      `\`\`${command.description.flags}\`\``
+    );
+  }
+  commandHelpEmbed.addField("Aliases", `\`\`${command.aliases.join(", ")}\`\``);
+  commandHelpEmbed.addField("Group", command.categoryID);
+  if (command.description.examples) {
+    commandHelpEmbed.addField(
+      "Examples",
+      `\`\`${command.description.examples.join(`\n`)}\`\``
+    );
+  }
+  commandHelpEmbed.addField(
+    "Quick Links",
+    "[**Documentation**](https://fpsmath.animafps.xyz) | [**Invite and Upvote the bot**](https://top.gg/bot/792712521546465301/)"
+  );
   return commandHelpEmbed;
 }
 
@@ -83,7 +93,7 @@ function generalHelp(
   });
   generalHelpEmbed.addField(
     "Quick Links",
-    "[**Documentation**](https://fpsmath.animafps.xyz) | [**Invite or Upvote the bot**](https://top.gg/bot/792712521546465301/)"
+    "[**Documentation**](https://fpsmath.animafps.xyz) | [**Invite and Upvote the bot**](https://top.gg/bot/792712521546465301/)"
   );
   return generalHelpEmbed;
 }
@@ -94,6 +104,7 @@ export default class HelpCommand extends Command {
       description: {
         content:
           "Displays a list of available commands, or detailed information for a specified command.",
+        usage: "[command name]",
       },
       args: [
         {

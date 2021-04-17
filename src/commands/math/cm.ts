@@ -8,7 +8,7 @@ export default class cmCommand extends Command {
       aliases: ["cm/rev", "cm/360", "cm"],
       description: {
         content: "Converts a sensitivity value to cm/rev (cm/360)",
-        usage: "cm <sens> <game|yaw> <cpi>",
+        usage: "<sens> <game|yaw> <cpi>",
         flags: "-dp <output decimal places>",
         examples: ["cm 1 0.0022 1600", "cm 6 ow 800"],
       },

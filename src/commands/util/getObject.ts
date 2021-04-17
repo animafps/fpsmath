@@ -6,8 +6,12 @@ export default class getObjectCommand extends Command {
   constructor() {
     super("getobject", {
       aliases: ["get-object"],
-      description:
-        "Displays the object associated for a game \nTo see the Supported games use the `games` Command, (Supported Objects: fovt, yaw, aliases, afovt)",
+      description: {
+        content:
+          "Displays the object associated for a game \nTo see the Supported games use the `games` Command, (Supported Objects: fovt, yaw, aliases, afovt)",
+        usage: '<game> <"fovt" | "yaw" | "afovt" | "aliases">',
+        examples: ["getobject source afovt"],
+      },
       args: [
         {
           id: "game",

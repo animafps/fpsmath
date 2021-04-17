@@ -8,6 +8,9 @@ export default class MPICommand extends Command {
       aliases: ["mpi", "milliradian", "mrad/inch", "milliradian/inch"],
       description: {
         content: "Converts Sensitivity to MPI(milliradian per inch)",
+        usage: "<sens> <game|yaw> <cpi>",
+        flags: "-dp <output decimal places>",
+        examples: ["mpi 3 ow 1600", "mpi 2 0.022 800"],
       },
       args: [
         {

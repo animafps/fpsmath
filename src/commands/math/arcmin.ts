@@ -8,6 +8,9 @@ export default class arcminCommand extends Command {
       aliases: ["arcmin", "minute-of-arc", "arcmin/inch", "minute-of-arc/inch"],
       description: {
         content: "Converts Sensitivity to arcmin(minute of arc per inch)",
+        usage: "<sens> <game | yaw> <cpi>",
+        flags: "-dp <output decimal places>",
+        examples: ["arcmin 4 r6 800", "arcmin 2 0.032 1600"],
       },
       args: [
         {
@@ -58,7 +61,7 @@ export default class arcminCommand extends Command {
     } else {
       yaw = Number(args.yaw);
     }
-    const output = (args.cpi * yaw * args.sens * (1/60)).toFixed(args.dp);
+    const output = (args.cpi * yaw * args.sens * (1 / 60)).toFixed(args.dp);
     return message.reply(output + " arcmin");
   }
 }

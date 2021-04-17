@@ -8,6 +8,9 @@ export default class degCommand extends Command {
       aliases: ["deg/mm", "deg"],
       description: {
         content: "Converts Sensitivity to deg/mm",
+        usage: "<sens> <game|yaw> <cpi>",
+        flags: "-dp <output decimal places>",
+        examples: ["deg 3 ow 1600", "deg 2 0.022 800"],
       },
       args: [
         {
