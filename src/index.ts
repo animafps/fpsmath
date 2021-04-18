@@ -67,7 +67,7 @@ client
       `Client ready; logged in as ${client.user?.username}#${client.user?.discriminator} (${client.user?.id})`
     );
     logger.info(`Running on ${client.guilds.cache.array().length} servers`);
-    const poster = new dbots.Poster({
+    const poster = new Poster({
       client,
       apiKeys: {
         topgg: process.env.TOPGG_API_TOKEN || "",
@@ -76,6 +76,8 @@ client
       },
       clientLibrary: "discord.js",
     });
+    poster.addHandler("postFail", () => logger.debug("Api Post Fail"));
+    poster.addHandler("postSuccess", () => logger.debug("Api Post Success"));    
     poster.post("all");
     poster.startInterval();
   })
