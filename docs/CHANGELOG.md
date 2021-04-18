@@ -2,4 +2,4 @@
 
 ### Bug Fixes
 
-- **index:** fixed the api posters config ([054cf0b](https://github.com/AnimaFPS/FPSMath/commit/054cf0bd088588cf6a98cc0ef0679296822695bc))
+* **index:** fixed the api posters config ([054cf0b](https://github.com/AnimaFPS/FPSMath/commit/054cf0bd088588cf6a98cc0ef0679296822695bc))

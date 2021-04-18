@@ -66,8 +66,8 @@ client
     logger.info(
       `Client ready; logged in as ${client.user?.username}#${client.user?.discriminator} (${client.user?.id})`
     );
-    logger.info(`Running on ${client.guilds.cache.array().length}`);
-    const poster = new Poster({
+    logger.info(`Running on ${client.guilds.cache.array().length} servers`);
+    const poster = new dbots.Poster({
       client,
       apiKeys: {
         topgg: process.env.TOPGG_API_TOKEN || "",

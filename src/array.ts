@@ -21,6 +21,7 @@ const array: Array = {
   Quake: { yaw: 0.022, aliases: ["quake"], afovt: "4ML3" },
   "Quake Champions": {
     aliases: ["qc", "quake-champions"],
+    afovt: "16ML9",
     yaw: 0.022,
     afovt: "hML",
   },
