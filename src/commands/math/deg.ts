@@ -46,7 +46,7 @@ export default class degCommand extends Command {
     });
   }
 
-  async run(
+  async exec(
     message: Message,
     args: { cpi: number; yaw: string; sens: number; dp: number }
   ): Promise<Message> {

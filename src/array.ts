@@ -23,7 +23,6 @@ const array: Array = {
     aliases: ["qc", "quake-champions"],
     afovt: "16ML9",
     yaw: 0.022,
-    afovt: "hML",
   },
   "Apex Legends": {
     yaw: 0.022,

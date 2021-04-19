@@ -76,7 +76,6 @@ client
       },
       clientLibrary: "discord.js",
     });
-    poster.addHandler("postFail", () => logger.debug("Api Post Fail"));
     poster.addHandler("postSuccess", () => logger.debug("Api Post Success"));    
     poster.post("all");
     poster.startInterval();

@@ -49,21 +49,38 @@ export default class convertCommand extends Command {
   async exec(
     message: Message,
     args: {
-      inGame: string | number;
-      outGame: string | number;
+      inGame: string;
+      outGame: string;
       sens: number;
       dp: number;
     }
   ): Promise<Message> {
-    const output = (
-      (args.sens *
-        (typeof args.inGame === "string"
-          ? Number(getObject(args.inGame, "yaw"))
-          : args.inGame)) /
-      (typeof args.outGame === "string"
-        ? Number(getObject(args.outGame, "yaw"))
-        : args.outGame)
-    ).toFixed(args.dp);
-    return message.reply(output);
+    let inYaw = 0;
+    let outYaw = 0;
+    if (isNaN(Number(args.inGame))) {
+      if (getObject(args.inGame, "yaw")) {
+        inYaw = Number(getObject(args.inGame, "yaw"));
+      } else if (!getObject(args.inGame, "yaw")) {
+        return message.reply(
+          `\`${args.inGame}\` game not supported. To see the supported games use the \`games\` command`
+        );
+      }
+    } else {
+      inYaw = Number(args.inGame);
+    }
+
+    if (isNaN(Number(args.outGame))) {
+      if (getObject(args.outGame, "yaw")) {
+        outYaw = Number(getObject(args.outGame, "yaw"));
+      } else if (!getObject(args.outGame, "yaw")) {
+        return message.reply(
+          `\`${args.outGame}\` game not supported. To see the supported games use the \`games\` command`
+        );
+      }
+    } else {
+      outYaw = Number(args.outGame);
+    }
+
+    return message.reply((args.sens * (inYaw / outYaw)).toFixed(args.dp));
   }
 }
