@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/AnimaFPS/FPSMath/compare/v2.0.1...v2.1.0) (2021-04-19)
+
+
+### Features
+
+* Moved the framework to Akairo, added fovconvert, arcmin commands ([#59](https://github.com/AnimaFPS/FPSMath/issues/59)) ([3397b12](https://github.com/AnimaFPS/FPSMath/commit/3397b128c0020bf100b6059e020743bf878517e1))
+
 ## [2.0.1](https://github.com/AnimaFPS/FPSMath/compare/v2.0.0...v2.0.1) (2021-04-09)
 
 ### Bug Fixes
