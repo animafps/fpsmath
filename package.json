@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "start": "tsc && node dist/index.ts",
+    "start": "ts-node src/index.ts",
     "lint:fix": "eslint --fix .",
     "cz": "cz",
     "prettier": "prettier --write .",
@@ -17,6 +17,9 @@
   "author": "AnimaFPS",
   "license": "MIT",
   "dependencies": {
+    "@types/common-tags": "^1.8.0",
+    "@types/mathjs": "^6.0.11",
+    "@types/node": "^14.14.37",
     "common-tags": "^1.8.0",
     "dbots": "^9.0.0",
     "discord-akairo": "^8.1.0",
@@ -24,6 +27,7 @@
     "dotenv": "^8.2.0",
     "mathjs": "^9.0.0",
     "ms": "^2.1.2",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
     "winston": "^3.3.3"
   },
@@ -33,9 +37,6 @@
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
-    "@types/common-tags": "^1.8.0",
-    "@types/mathjs": "^6.0.11",
-    "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "cz-conventional-changelog": "^3.3.0",
@@ -47,8 +48,7 @@
     "eslint-plugin-security": "^1.4.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.3.7",
-    "ts-node": "^9.1.1"
+    "semantic-release": "^17.3.7"
   },
   "config": {
     "commitizen": {
