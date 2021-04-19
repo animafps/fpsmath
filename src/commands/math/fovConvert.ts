@@ -79,25 +79,13 @@ export default class FOVConvertCommand extends Command {
             !getObject(args.inFOVT, "afovt") ? args.inFOVT : args.outFOVT
           } not supported. To see the supported game us the \`games\` command`
         );
+      } else {
+        return message.util?.reply(
+          "Incorrect FILM Notation. To learn about Film notation read this: <https://www.kovaak.com/film-notation/>"
+        );
       }
     }
 
-    if (
-      !/^\d{1,2}m[lfi]\d{1,2}$/gi.test(
-        !getObject(args.inFOVT, "afovt")
-          ? args.inFOVT.toLowerCase()
-          : args.outFOVT.toLowerCase()
-      ) &&
-      !/^[hv]m[lif]/gi.test(
-        !getObject(args.inFOVT, "afovt")
-          ? args.inFOVT.toLowerCase()
-          : args.outFOVT.toLowerCase()
-      )
-    ) {
-      return message.util?.reply(
-        "Incorrect FILM Notation. To learn about Film notation read this: <https://www.kovaak.com/film-notation/>"
-      );
-    }
     const getFOVT = (game: string) => {
       return (getObject(game, "afovt") ? getObject(game, "afovt") || "" : game)
         .toString()
