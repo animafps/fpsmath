@@ -1,53 +1,59 @@
 import { tan, pi } from "mathjs";
-import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
-module.exports = class focalCommand extends Command {
-  constructor(client: CommandoClient) {
-    super(client, {
-      name: "focal",
-      group: "math",
-      memberName: "focal",
-      description:
-        "Focal Length Scales a desired sens between 2 fov values of the same type",
-      examples: ["focal 0.95 90 100"],
-      format: "<sens> <old fov> <new fov>",
-
+import { Command } from "discord-akairo";
+import { Message } from "discord.js";
+export default class focalCommand extends Command {
+  constructor() {
+    super("focal", {
+      aliases: ["focal", "focallengthscaling", "visomotor"],
+      description: {
+        content:
+          "Focal Length Scales a desired sens between 2 fov values of the same type",
+        usage: "<sens> <input fov> <output fov>",
+        flags: "-dp <output decimal places>",
+        examples: ["focal 0.95 90 100"],
+      },
       args: [
         {
-          key: "sens",
-          prompt: "What Sensitivity do you want to convert from",
-          type: "float",
+          id: "sens",
+          type: "number",
+          prompt: true,
         },
         {
-          key: "iFOV",
-          label: "old fov",
-          prompt: "What is the old FOV value",
-          type: "float",
+          id: "iFOV",
+          type: "number",
+          prompt: true,
         },
         {
-          key: "oFOV",
-          label: "new fov",
-          prompt: "What is the new FOV value",
-          type: "float",
+          id: "oFOV",
+          type: "number",
+          prompt: true,
         },
         {
-          key: "dp",
-          label: "decimal places",
-          prompt: "How Many Decimal places",
-          type: "float",
-          default: "5",
+          id: "dp",
+          type: "number",
+          match: "option",
+          flag: ["-dp", "dp:", "dp"],
+          default: 5,
         },
       ],
+      argumentDefaults: {
+        prompt: {
+          start: `Invalid command usage. The \`focal\` command's accepted format is \`focal <sens> <input game | yaw> <output game | yaw>\`. Use \`help focal\` for more information`,
+          time: 1,
+          retries: 0,
+        },
+      },
     });
   }
 
-  async run(
-    message: CommandoMessage,
-    args: { oFOV: number; iFOV: number; sens: number; dp?: number }
-  ) {
+  async exec(
+    message: Message,
+    args: { oFOV: number; iFOV: number; sens: number; dp: number }
+  ): Promise<Message | unknown> {
     const output = (
       (tan((args.oFOV * pi) / 360) / tan((args.iFOV * pi) / 360)) *
       args.sens
     ).toFixed(args.dp);
-    return message.reply(output);
+    return message.util?.reply(output);
   }
-};
+}

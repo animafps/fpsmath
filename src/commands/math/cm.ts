@@ -1,55 +1,68 @@
 import { getObject } from "../../array";
-import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
-module.exports = class cmCommand extends Command {
-  constructor(client: CommandoClient) {
-    super(client, {
-      name: "cm",
-      aliases: ["cm/rev", "cm/rev"],
-      group: "math",
-      memberName: "cm",
-      description: "Converts Sensitivity to cm/rev (cm/360)",
-      details:
-        "Converts Sensitivity to cm/rev (cm/360) \nTo see the Supported games use the `games` Command",
-      examples: ["cm 0.23327 val 1600"],
-      format: "<sens> <game|yaw> <cpi>",
+import type { Message } from "discord.js";
+import { Command } from "discord-akairo";
 
+export default class cmCommand extends Command {
+  constructor() {
+    super("cm", {
+      aliases: ["cm/rev", "cm/360", "cm"],
+      description: {
+        content: "Converts a sensitivity value to cm/rev (cm/360)",
+        usage: "<sens> <game|yaw> <cpi>",
+        flags: "-dp <output decimal places>",
+        examples: ["cm 1 0.0022 1600", "cm 6 ow 800"],
+      },
       args: [
         {
-          key: "sens",
-          prompt: "What Sensitivity do you want to convert from",
-          type: "float",
+          id: "sens",
+          type: "number",
+          prompt: true,
         },
         {
-          key: "yaw",
-          label: "Game or yaw value",
-          prompt: "What game or yaw value do you want to use",
-          type: "gamename|float",
+          id: "yaw",
+          type: "string",
+          prompt: true,
         },
         {
-          key: "cpi",
-          label: "cpi/dpi",
-          prompt: "What CPI/DPI do you want to use",
-          type: "float",
+          id: "cpi",
+          type: "number",
+          prompt: true,
         },
         {
-          key: "dp",
-          label: "decimal places",
-          prompt: "How Many Decimal places",
-          type: "float",
-          default: "2",
+          id: "dp",
+          type: "number",
+          match: "option",
+          flag: ["-dp", "dp:", "dp"],
+          default: 3,
         },
       ],
+      argumentDefaults: {
+        prompt: {
+          start: `Invalid command usage. The \`cm\` command's accepted format is \`cm <sens> <game|yaw> <cpi>\`. Use \`help cm\` for more information`,
+          time: 1,
+          retries: 0,
+        },
+      },
     });
   }
 
-  async run(
-    message: CommandoMessage,
-    args: { cpi: number; yaw: any; sens: number; dp: number | undefined }
-  ) {
-    const output = (
-      (2.54 * 360) /
-      (args.cpi * parseFloat(getObject(args.yaw, "yaw")) * args.sens)
-    ).toFixed(args.dp);
-    return message.reply(output + " cm/rev");
+  async exec(
+    message: Message,
+    args: { cpi: number; yaw: string; sens: number; dp: number }
+  ): Promise<Message> {
+    let yaw: number;
+    if (isNaN(Number(args.yaw))) {
+      if (getObject(args.yaw, "yaw")) {
+        yaw = Number(getObject(args.yaw, "yaw"));
+      } else {
+        return message.reply(
+          `\`${args.yaw}\` game not supported. To see the supported games use the \`games\` command`
+        );
+      }
+    } else {
+      yaw = Number(args.yaw);
+    }
+    const output = (2.54 * 360) / (args.cpi * yaw * args.sens);
+    return message.reply(output.toFixed(args.dp) + " cm/rev");
   }
-};
+}

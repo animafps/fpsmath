@@ -1,50 +1,68 @@
 import { getObject } from "../../array";
-import { Command, CommandoClient, CommandoMessage } from "discord.js-commando";
-module.exports = class MPICommand extends Command {
-  constructor(client: CommandoClient) {
-    super(client, {
-      name: "mpi",
-      aliases: ["mpi"],
-      group: "math",
-      memberName: "mpi",
-      description: "Converts Sensitivity to MPI",
-      details:
-        "Converts Sensitivity to MPI(minute of arc per inch) \nTo see the Supported games use the `games` Command",
-      examples: ["MPI 0.95 ow 1600"],
-      format: "<sens> <game|yaw> <cpi>",
+import { Command } from "discord-akairo";
+import type { Message } from "discord.js";
 
+export default class MPICommand extends Command {
+  constructor() {
+    super("mpi", {
+      aliases: ["mpi", "milliradian", "mrad/inch", "milliradian/inch"],
+      description: {
+        content: "Converts Sensitivity to MPI(milliradian per inch)",
+        usage: "<sens> <game|yaw> <cpi>",
+        flags: "-dp <output decimal places>",
+        examples: ["mpi 3 ow 1600", "mpi 2 0.022 800"],
+      },
       args: [
         {
-          key: "sens",
-          prompt: "What Sensitivity do you want to convert from",
-          type: "float",
+          id: "sens",
+          type: "number",
+          prompt: true,
         },
         {
-          key: "yaw",
-          label: "Game or yaw value",
-          prompt: "What game or yaw value do you want to use",
-          type: "gamename|float",
+          id: "yaw",
+          prompt: true,
         },
         {
-          key: "cpi",
-          label: "cpi/dpi",
-          prompt: "What CPI/DPI do you want to use",
-          type: "float",
+          id: "cpi",
+          type: "number",
+          prompt: true,
+        },
+        {
+          id: "dp",
+          type: "number",
+          match: "option",
+          flag: ["-dp", "dp:", "dp"],
+          default: 3,
         },
       ],
+      argumentDefaults: {
+        prompt: {
+          start: `Invalid command usage. The \`mpi\` command's accepted format is \`cpi <sens> <game|yaw> <cpi>\`. Use \`help cpi\` for more information`,
+          time: 1,
+          retries: 0,
+        },
+      },
     });
   }
 
-  async run(
-    message: CommandoMessage,
-    args: { cpi: number; yaw: any; sens: number }
-  ) {
-    const output = (
-      args.cpi *
-      parseFloat(getObject(args.yaw, "yaw")) *
-      args.sens *
-      60
-    ).toFixed(0);
+  async exec(
+    message: Message,
+    args: { cpi: number; yaw: string; sens: number; dp: number }
+  ): Promise<Message> {
+    let yaw: number;
+    if (isNaN(Number(args.yaw))) {
+      if (getObject(args.yaw, "yaw")) {
+        yaw = Number(getObject(args.yaw, "yaw"));
+      } else {
+        return message.reply(
+          `\`${args.yaw}\` game not supported. To see the supported games use the \`games\` command`
+        );
+      }
+    } else {
+      yaw = Number(args.yaw);
+    }
+
+    const output = (args.cpi * yaw * args.sens * 60).toFixed(args.dp);
     return message.reply(output + " MPI");
   }
-};
+}

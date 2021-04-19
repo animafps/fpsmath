@@ -2,15 +2,15 @@ import { getObject } from "../../array";
 import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
-export default class inchCommand extends Command {
+export default class arcminCommand extends Command {
   constructor() {
-    super("inch", {
-      aliases: ["inch/rev", "inch/360", "inch"],
+    super("arcmin", {
+      aliases: ["arcmin", "minute-of-arc", "arcmin/inch", "minute-of-arc/inch"],
       description: {
-        content: "Converts Sensitivity to inch/rev",
-        usage: "<sens> <game|yaw> <cpi>",
+        content: "Converts Sensitivity to arcmin(minute of arc per inch)",
+        usage: "<sens> <game | yaw> <cpi>",
         flags: "-dp <output decimal places>",
-        examples: ["inch 3 ow 1600", "inch 2 0.022 800"],
+        examples: ["arcmin 4 r6 800", "arcmin 2 0.032 1600"],
       },
       args: [
         {
@@ -32,12 +32,12 @@ export default class inchCommand extends Command {
           type: "number",
           match: "option",
           flag: ["-dp", "dp:", "dp"],
-          default: 2,
+          default: 5,
         },
       ],
       argumentDefaults: {
         prompt: {
-          start: `Invalid command usage. The \`inch\` command's accepted format is \`inch <sens> <game|yaw> <cpi>\`. Use \`help inch\` for more information`,
+          start: `Invalid command usage. The \`arcmin\` command's accepted format is \`arcmin <sens> <game|yaw> <cpi>\`. Use \`help arcmin\` for more information`,
           time: 1,
           retries: 0,
         },
@@ -47,7 +47,7 @@ export default class inchCommand extends Command {
 
   async exec(
     message: Message,
-    args: { cpi: number; yaw: string; sens: number; dp: number | undefined }
+    args: { cpi: number; yaw: string; sens: number; dp: number }
   ): Promise<Message> {
     let yaw: number;
     if (isNaN(Number(args.yaw))) {
@@ -61,8 +61,7 @@ export default class inchCommand extends Command {
     } else {
       yaw = Number(args.yaw);
     }
-
-    const output = (360 / (args.cpi * yaw * args.sens)).toFixed(args.dp);
-    return message.reply(output + " inch/rev");
+    const output = (args.cpi * yaw * args.sens * (1 / 60)).toFixed(args.dp);
+    return message.reply(output + " arcmin");
   }
 }

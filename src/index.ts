@@ -1,9 +1,10 @@
-require("dotenv").config();
-import { Client } from "discord.js-commando";
+import * as dotenv from "dotenv";
+import { AkairoClient, CommandHandler } from "discord-akairo";
 import * as winston from "winston";
-import * as path from "path";
-const oneLine = require("common-tags");
-import * as dbots from "dbots";
+import { Poster } from "dbots";
+
+dotenv.config();
+const Token = process.env.DISCORD_TOKEN;
 
 const logger = winston.createLogger({
   level: "debug",
@@ -21,29 +22,52 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.printf(
-          (info) => `${info.timestamp} ${info.level}: ${info.message}`
+          (info: winston.Logform.TransformableInfo) =>
+            `${info.timestamp} ${info.level}: ${info.message}`
         )
       ),
     }),
   ],
 });
 
-const client = new Client({
-  owner: process.env.OWNERID,
-  commandPrefix: process.env.PREFIX,
-  invite: process.env.INVITE,
-});
+class Client extends AkairoClient {
+  commandHandler: CommandHandler;
+  constructor() {
+    super(
+      {
+        ownerID: process.env.OWNER_ID,
+      },
+      {}
+    );
+
+    this.commandHandler = new CommandHandler(this, {
+      directory: __dirname.includes("/dist/")
+        ? "./dist/commands/"
+        : "./src/commands/",
+      commandUtil: true,
+      handleEdits: true,
+      automateCategories: true,
+      commandUtilLifetime: 30000,
+      prefix: "/",
+      allowMention: true,
+      aliasReplacement: /-/g,
+    });
+    this.commandHandler.loadAll();
+  }
+}
+
+const client = new Client();
 
 client
   .on("warn", (m) => logger.warn(m))
   .on("error", (m) => logger.error(m))
   .on("ready", () => {
-    client.user?.setActivity("/help | animafps.xyz");
+    client.user?.setActivity("/help | fpsmath.animafps.xyz");
     logger.info(
       `Client ready; logged in as ${client.user?.username}#${client.user?.discriminator} (${client.user?.id})`
     );
     logger.info(`Running on ${client.guilds.cache.array().length} servers`);
-    const poster = new dbots.Poster({
+    const poster = new Poster({
       client,
       apiKeys: {
         topgg: process.env.TOPGG_API_TOKEN || "",
@@ -52,51 +76,15 @@ client
       },
       clientLibrary: "discord.js",
     });
-    poster.addHandler("postFail", () => logger.debug("Api Post Fail"));
-    poster.addHandler("postSuccess", () => logger.debug("Api Post Success"));
+    poster.addHandler("postSuccess", () => logger.debug("Api Post Success"));    
     poster.post("all");
     poster.startInterval();
   })
   .on("disconnect", () => {
     logger.warn("Disconnected!");
-  })
-  .on("commandPrefixChange", (guild, Prefix) => {
-    logger.info(oneLine`
-			Prefix ${Prefix === "" ? "removed" : `changed to ${Prefix || "the default"}`}
-			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
-  })
-  .on("commandStatusChange", (guild, command, enabled) => {
-    logger.info(oneLine`
-			Command ${command.groupID}:${command.memberName}
-			${enabled ? "enabled" : "disabled"}
-			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
-  })
-  .on("groupStatusChange", (guild, group, enabled) => {
-    logger.info(oneLine`
-			Group ${group.id}
-			${enabled ? "enabled" : "disabled"}
-			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
   });
 
 process.on("uncaughtException", (error) => logger.error(error));
+process.on("unhandledRejection", (m) => logger.error(m));
 
-client.registry
-  .registerGroup("math", "Math")
-  .registerDefaultGroups()
-  .registerDefaultTypes()
-  .registerDefaultCommands({
-    unknownCommand: false,
-    help: false,
-  })
-  .registerTypesIn(path.join(__dirname, "./types"))
-  .registerCommandsIn(path.join(__dirname, "./commands"));
-
-client.registry.commands
-  .filter((c) => !c.argsCollector === false)
-  .forEach((c) => (c.argsCollector.promptLimit = 0));
-
-const Token = process.env.DISCORD_TOKEN;
 client.login(Token);

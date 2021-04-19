@@ -1,36 +1,30 @@
 {
   "name": "fpsmath",
   "version": "2.0.1",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "npm run lint",
-    "lint": "eslint",
-    "start": "tsc && node dist/index.js",
-    "lint:fix": "eslint --fix",
+    "lint": "eslint .",
+    "start": "ts-node src/index.ts",
+    "lint:fix": "eslint --fix .",
     "cz": "cz",
     "prettier": "prettier --write .",
-    "semantic-release": "semantic-release"
+    "dev": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/AnimaFPS/FPSMath.git"
   },
-  "keywords": [],
   "author": "AnimaFPS",
   "license": "MIT",
-  "description": "A Discord bot designed to convert sensitivities, fovs, mouse feel across themselves and preset games",
   "dependencies": {
-    "@types/common-tags": "^1.8.0",
-    "@types/mathjs": "^6.0.11",
-    "@types/node": "^14.14.20",
-    "better-sqlite3": "^7.1.2",
     "common-tags": "^1.8.0",
+    "discord-akairo": "^8.1.0",
     "dbots": "^9.0.0",
     "discord.js": "^12.5.1",
-    "discord.js-commando": "^0.12.2",
     "dotenv": "^8.2.0",
     "mathjs": "^9.0.0",
-    "typescript": "^4.1.5",
+    "ms": "^2.1.2",
+    "typescript": "^4.2.4",
     "winston": "^3.3.3"
   },
   "engines": {
@@ -39,14 +33,22 @@
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
+    "@types/common-tags": "^1.8.0",
+    "@types/mathjs": "^6.0.11",
+    "@types/node": "^14.14.37",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.16.0",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-security": "^1.4.0",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.3.7"
+    "semantic-release": "^17.3.7",
+    "ts-node": "^9.1.1"
   },
   "config": {
     "commitizen": {
