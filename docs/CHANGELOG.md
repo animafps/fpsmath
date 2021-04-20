@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/AnimaFPS/FPSMath/compare/v2.1.1...v2.1.2) (2021-04-20)
+
+
+### Bug Fixes
+
+* **fov, fovconvert:** fixed issue with the fovt argument not being tested properly ([71b670a](https://github.com/AnimaFPS/FPSMath/commit/71b670a22bae83dc7fac0fb3b42d856c4f1efd62))
+
 ## [2.1.1](https://github.com/AnimaFPS/FPSMath/compare/v2.1.0...v2.1.1) (2021-04-19)
 
 
