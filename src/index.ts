@@ -2,6 +2,16 @@ import * as dotenv from "dotenv";
 import { AkairoClient, CommandHandler } from "discord-akairo";
 import * as winston from "winston";
 import { Poster } from "dbots";
+import * as Sentry from "@sentry/node";
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 dotenv.config();
 const Token = process.env.DISCORD_TOKEN;
