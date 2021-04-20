@@ -55,23 +55,12 @@ export default class fovCommand extends Command {
       hfov: undefined,
       vfov: undefined,
     };
-    if (!getObject(args.fovt, "afovt")) {
-      if (
-        !/^\d{1,2}m[lfi]\d{1,2}$/gi.test(args.fovt.toLowerCase()) &&
-        !/^[hv]m[lif]/gi.test(args.fovt.toLowerCase())
-      ) {
-        return message.util?.reply(
-          `${args.fovt} not supported. To see the supported game us the \`games\` command`
-        );
-      }
-    }
-
     if (
-      !/^\d{1,2}m[lfi]\d{1,2}$/gi.test(args.fovt) &&
-      !/^[hv]m[lif]/gi.test(args.fovt)
+      !getObject(args.fovt, "afovt") &&
+      !/^hm[lfi]$|vm[lfi]$|\d{1,2}m[lfi]\d{1,2}$/i.test(args.fovt)
     ) {
       return message.util?.reply(
-        "Incorrect FILM Notation. To learn about Film notation read this: <https://www.kovaak.com/film-notation/>"
+        `Invalid command usage. The \`fov\` command's accepted format is \`fov <fov> <Game | FILM> <aspect ratio>\`. Use \`help fov\` for more information`
       );
     }
 

@@ -61,29 +61,15 @@ export default class FOVConvertCommand extends Command {
       dp: number;
     }
   ): Promise<Message | undefined> {
-    if (!getObject(args.inFOVT, "afovt") || !getObject(args.outFOVT, "afovt")) {
-      if (
-        !/^\d{1,2}m[lfi]\d{1,2}$/gi.test(
-          !getObject(args.inFOVT, "afovt")
-            ? args.inFOVT.toLowerCase()
-            : args.outFOVT.toLowerCase()
-        ) &&
-        !/^[hv]m[lif]/gi.test(
-          !getObject(args.inFOVT, "afovt")
-            ? args.inFOVT.toLowerCase()
-            : args.outFOVT.toLowerCase()
-        )
-      ) {
-        return message.util?.reply(
-          `${
-            !getObject(args.inFOVT, "afovt") ? args.inFOVT : args.outFOVT
-          } not supported. To see the supported game us the \`games\` command`
-        );
-      } else {
-        return message.util?.reply(
-          "Incorrect FILM Notation. To learn about Film notation read this: <https://www.kovaak.com/film-notation/>"
-        );
-      }
+    if (
+      (!getObject(args.inFOVT, "afovt") &&
+        !/^hm[lfi]$|vm[lfi]$|\d{1,2}m[lfi]\d{1,2}$/i.test(args.inFOVT)) ||
+      (!getObject(args.outFOVT, "afovt") &&
+        !/^hm[lfi]$|vm[lfi]$|\d{1,2}m[lfi]\d{1,2}$/i.test(args.outFOVT))
+    ) {
+      return message.util?.reply(
+        `Invalid command usage. The \`fovconvert\` command's accepted format is \`fovconvert <fov> <input game | FILM> <output game | FILM> <aspect ratio>\`. Use \`help fovconvert\` for more information`
+      );
     }
 
     const getFOVT = (game: string) => {
@@ -96,9 +82,9 @@ export default class FOVConvertCommand extends Command {
       (atan((to / from) * tan((fov * pi) / 360)) * 360) / pi;
 
     const fovtAspect = (fovt: string) =>
-      Number(fovt.split(/m[l|f|i]/)[0]) / Number(fovt.split(/m[l|f|i]/)[1]);
+      Number(fovt.split(/m[l|f|i]/i)[0]) / Number(fovt.split(/m[l|f|i]/i)[1]);
 
-    const fovtEndsWith = (fovt: string) => fovt.split(/m|M/)[1][0];
+    const fovtEndsWith = (fovt: string) => fovt.split(/m/i)[1][0];
 
     const fovtStartsWith = (fovt: string) => fovt[0];
 
