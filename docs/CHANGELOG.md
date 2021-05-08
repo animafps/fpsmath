@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/AnimaFPS/FPSMath/compare/v2.1.2...v2.1.3) (2021-05-08)
+
+
+### Bug Fixes
+
+* **fov.ts:** fixed bug with fill method not functioning correctly ([686b5a5](https://github.com/AnimaFPS/FPSMath/commit/686b5a5d8997a6b9e68e793b3006df40780f2748))
+
 ## [2.1.2](https://github.com/AnimaFPS/FPSMath/compare/v2.1.1...v2.1.2) (2021-04-20)
 
 ### Bug Fixes
