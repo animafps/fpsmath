@@ -1,7 +1,7 @@
 import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
-export default class cminfoCommand extends Command {
+export default class CMInfoCommand extends Command {
   constructor() {
     super("cminfo", {
       aliases: ["cm-info"],

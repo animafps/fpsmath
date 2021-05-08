@@ -2,7 +2,7 @@ import { getObject } from "../../array";
 import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
-export default class arcminCommand extends Command {
+export default class ArcminCommand extends Command {
   constructor() {
     super("arcmin", {
       aliases: ["arcmin", "minute-of-arc", "arcmin/inch", "minute-of-arc/inch"],

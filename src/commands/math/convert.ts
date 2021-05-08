@@ -2,7 +2,7 @@ import { getObject } from "../../array";
 import { Message } from "discord.js";
 import { Command } from "discord-akairo";
 
-export default class convertCommand extends Command {
+export default class ConvertCommand extends Command {
   constructor() {
     super("convert", {
       aliases: ["convert"],

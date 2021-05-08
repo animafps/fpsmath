@@ -2,7 +2,7 @@ import { getObject } from "../../array";
 import type { Message } from "discord.js";
 import { Command } from "discord-akairo";
 
-export default class cmCommand extends Command {
+export default class CMCommand extends Command {
   constructor() {
     super("cm", {
       aliases: ["cm/rev", "cm/360", "cm"],

@@ -3,7 +3,7 @@ import { Command } from "discord-akairo";
 import { MessageEmbed } from "discord.js";
 import type { Message } from "discord.js";
 
-export default class gamesCommand extends Command {
+export default class GamesCommand extends Command {
   constructor() {
     super("games", {
       aliases: ["games", "supported-games"],

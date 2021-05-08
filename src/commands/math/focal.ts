@@ -1,7 +1,8 @@
 import { tan, pi } from "mathjs";
 import { Command } from "discord-akairo";
 import { Message } from "discord.js";
-export default class focalCommand extends Command {
+
+export default class FocalCommand extends Command {
   constructor() {
     super("focal", {
       aliases: ["focal", "focallengthscaling", "visomotor"],

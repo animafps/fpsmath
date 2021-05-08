@@ -2,7 +2,7 @@ import { getObject } from "../../array";
 import { Command } from "discord-akairo";
 import { Message } from "discord.js";
 
-export default class degCommand extends Command {
+export default class DegCommand extends Command {
   constructor() {
     super("deg", {
       aliases: ["deg/mm", "deg"],

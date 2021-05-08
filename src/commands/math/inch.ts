@@ -2,7 +2,7 @@ import { getObject } from "../../array";
 import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
-export default class inchCommand extends Command {
+export default class InchCommand extends Command {
   constructor() {
     super("inch", {
       aliases: ["inch/rev", "inch/360", "inch"],

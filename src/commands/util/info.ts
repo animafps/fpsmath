@@ -1,7 +1,7 @@
 import { MessageEmbed, Message } from "discord.js";
 import { Command } from "discord-akairo";
 
-export default class PingCommand extends Command {
+export default class InfoCommand extends Command {
   constructor() {
     super("info", {
       aliases: ["info", "botinfo", "information"],
