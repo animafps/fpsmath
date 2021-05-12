@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/AnimaFPS/FPSMath/compare/v2.2.0...v2.2.1) (2021-05-12)
+
+
+### Bug Fixes
+
+* **games command:** fixed footer to show correct games length ([0b76bc5](https://github.com/AnimaFPS/FPSMath/commit/0b76bc580ead7a88af01b60fc35353984b8c8773))
+
 # [2.2.0](https://github.com/AnimaFPS/FPSMath/compare/v2.1.3...v2.2.0) (2021-05-12)
 
 
