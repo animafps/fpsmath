@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/AnimaFPS/FPSMath/compare/v2.2.1...v2.2.2) (2021-05-12)
+
+
+### Bug Fixes
+
+* **fovconvert:** fixed issue with vertical fov types not outputting the correct fov ([06ca1a1](https://github.com/AnimaFPS/FPSMath/commit/06ca1a1c9a9e55663841dc4143b1fc22484d9ea1))
+
 ## [2.2.1](https://github.com/AnimaFPS/FPSMath/compare/v2.2.0...v2.2.1) (2021-05-12)
 
 
