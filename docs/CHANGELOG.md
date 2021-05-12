@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/AnimaFPS/FPSMath/compare/v2.1.3...v2.2.0) (2021-05-12)
+
+
+### Features
+
+* **games:** added support for Halo: MCC, small qol changes for games command also ([4712263](https://github.com/AnimaFPS/FPSMath/commit/4712263baffaadc8186d4984ff7da52a951550aa))
+
 ## [2.1.3](https://github.com/AnimaFPS/FPSMath/compare/v2.1.2...v2.1.3) (2021-05-08)
 
 
