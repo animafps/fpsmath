@@ -18,7 +18,7 @@ export default class GamesCommand extends Command {
     const Embed = new MessageEmbed()
       .setColor("#0099ff")
       .addField("Supported Games:", `\n` + games())
-      .setFooter(`# of Supported Games: ${games().length}`);
+      .setFooter(`# of Supported Games: ${games().split("\n").length}`);
     return message.reply(Embed)
   }
 }
