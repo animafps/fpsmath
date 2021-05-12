@@ -17,7 +17,8 @@ export default class GamesCommand extends Command {
   async exec(message: Message): Promise<Message> {
     const Embed = new MessageEmbed()
       .setColor("#0099ff")
-      .addField("Supported Games:", `\n` + games());
-    return message.util?.send(Embed) || message.reply(Embed);
+      .addField("Supported Games:", `\n` + games())
+      .setFooter(`# of Supported Games: ${games().length}`);
+    return message.reply(Embed)
   }
 }

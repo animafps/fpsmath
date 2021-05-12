@@ -103,6 +103,11 @@ const array: Array = {
     aliases: ["ue4", "unreal", "unreal-engine"],
     yaw: 0.07,
   },
+  "Halo: Master Chief Collection" : {
+    yaw: 0.022222222222222223,
+    aliases: ["halo", "halo-mcc"],
+    afovt: "hML"
+  }
 };
 
 export function getObject(
