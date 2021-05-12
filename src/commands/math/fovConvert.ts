@@ -101,7 +101,7 @@ export default class FOVConvertCommand extends Command {
       } else if (fovtEndsWith(fovt) === "l" && fovtStartsWith(fovt) === "h") {
         return { vfov: convertFOV(argAspect, 1, fov), hfov: fov };
       } else if (fovtEndsWith(fovt) === "l" && fovtStartsWith(fovt) === "v") {
-        return { hfov: convertFOV(1, argAspect, fov), vfov: fov };
+        return { hfov: fov, vfov: convertFOV(argAspect, 1, fov) };
       } else if (fovtEndsWith(fovt) === "f") {
         if (argAspect >= fovtAspect(fovt)) {
           return { hfov: fov, vfov: convertFOV(argAspect, 1, fov) };
@@ -129,7 +129,7 @@ export default class FOVConvertCommand extends Command {
     }
 
     const output =
-      fovtStartsWith(args.inFOVT) === "v"
+      fovtStartsWith(getFOVT(args.outFOVT)) === "v"
         ? findFOV(
             getFOVT(args.outFOVT),
             findFOV(getFOVT(args.inFOVT), args.fov)?.hfov || 0
