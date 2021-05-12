@@ -3,7 +3,7 @@ import { getObject } from "../../array";
 import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
-export default class fovCommand extends Command {
+export default class FOVCommand extends Command {
   constructor() {
     super("fov", {
       aliases: ["fov-scailing", "film", "fov"],
@@ -95,10 +95,10 @@ export default class fovCommand extends Command {
       output = { vfov: convertFOV(argAspect, 1, args.fov), hfov: args.fov };
     } else if (fovtEndsWith === "l" && fovtStartsWith === "v") {
       output = { hfov: convertFOV(1, argAspect, args.fov), vfov: args.fov };
-    } else if (fovtStartsWith === "f") {
+    } else if (fovtEndsWith === "f") {
       if (argAspect > fovtAspect) {
         output = { hfov: args.fov, vfov: convertFOV(argAspect, 1, args.fov) };
-      } else {
+      } else if (argAspect <= fovtAspect) {
         output = {
           hfov: convertFOV(fovtAspect, argAspect, args.fov),
           vfov: convertFOV(fovtAspect, 1, args.fov),
@@ -110,7 +110,7 @@ export default class fovCommand extends Command {
           hfov: convertFOV(fovtAspect, argAspect, args.fov),
           vfov: convertFOV(fovtAspect, 1, args.fov),
         };
-      } else {
+      } else if (argAspect <= fovtAspect) {
         output = { hfov: args.fov, vfov: convertFOV(argAspect, 1, args.fov) };
       }
     }

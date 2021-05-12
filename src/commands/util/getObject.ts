@@ -2,7 +2,7 @@ import { getObject } from "../../array";
 import { Command } from "discord-akairo";
 import type { Message } from "discord.js";
 
-export default class getObjectCommand extends Command {
+export default class GetObjectCommand extends Command {
   constructor() {
     super("getobject", {
       aliases: ["get-object"],

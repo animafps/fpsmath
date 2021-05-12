@@ -52,7 +52,7 @@ const array: Array = {
   },
   "Rainbow Six: Siege": {
     yaw: 0.005729577951308232,
-    aliases: ["r6", "rainbow6", "r6s"],
+    aliases: ["r6", "rainbow6", "r6s", "siege"],
     afovt: "vML",
   },
   "Call of Duty": {
@@ -99,6 +99,15 @@ const array: Array = {
     yaw: 0.001280683,
     afovt: "hML",
   },
+  "Unreal Engine 4": {
+    aliases: ["ue4", "unreal", "unreal-engine"],
+    yaw: 0.07,
+  },
+  "Halo: Master Chief Collection" : {
+    yaw: 0.022222222222222223,
+    aliases: ["halo", "halo-mcc"],
+    afovt: "hML"
+  }
 };
 
 export function getObject(

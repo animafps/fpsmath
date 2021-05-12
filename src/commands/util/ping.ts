@@ -17,7 +17,7 @@ export default class PingCommand extends Command {
     const timeDiff =
       (sent?.editedAt?.getTime() || sent?.createdAt.getTime() || 1) -
       (message.editedAt?.getTime() || message.createdAt.getTime());
-    return message.reply([
+    return sent.edit([
       "Pong!",
       `🔂 **RTT**: ${timeDiff} ms`,
       `💟 **Heartbeat**: ${Math.round(this.client.ws.ping)} ms`,

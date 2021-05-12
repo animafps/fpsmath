@@ -4,7 +4,7 @@
 
 ## Installing / Getting started
 
-[Install This Bot on Your Server](https://fpsmath.animafps.xyz/docs/getting-started) or DM `FPS Math#9838` with the commands outside of a server
+[Install This Bot on Your Server](https://fpsmath.animafps.xyz/docs/getting-started) or DM `FPSMath#9838`\(the bot\) with the commands outside of a server
 
 or from source [Instructions](/docs/CONTRIBUTING.md)
 
