@@ -39,7 +39,7 @@ export default class FocalCommand extends Command {
       ],
       argumentDefaults: {
         prompt: {
-          start: `Invalid command usage. The \`focal\` command's accepted format is \`focal <sens> <input game | yaw> <output game | yaw>\`. Use \`help focal\` for more information`,
+          start: `Invalid command usage. The \`focal\` command's accepted format is \`focal <sens> <input FOV> <output FOV>\`. Use \`help focal\` for more information`,
           time: 1,
           retries: 0,
         },
