@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/AnimaFPS/FPSMath/compare/v2.2.2...v2.2.3) (2021-06-27)
+
+
+### Bug Fixes
+
+* **array.ts:** fixed bad values for fn FOVT and BF yaw ([c975eed](https://github.com/AnimaFPS/FPSMath/commit/c975eed1bbb40e9cbdc9916d015563c5835bf85d))
+
 ## [2.2.2](https://github.com/AnimaFPS/FPSMath/compare/v2.2.1...v2.2.2) (2021-05-12)
 
 
