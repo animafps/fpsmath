@@ -38,12 +38,12 @@ const array: Array = {
   Fortnite: {
     yaw: 0.005555,
     aliases: ["fortnite", "fn"],
-    afovt: "16MF9",
+    afovt: "16ML9",
   },
   "Fortnite config": {
     yaw: 2.222,
     aliases: ["fn-config", "fortnite-config"],
-    afovt: "16MF9",
+    afovt: "16ML9",
   },
   Diabotical: {
     yaw: 0.022,
@@ -61,7 +61,7 @@ const array: Array = {
     afovt: "hML",
   },
   Battlefield: {
-    yaw: 2.291831180523293,
+    yaw:  0.6771319397,
     aliases: ["battlefield", "bf"],
     afovt: "vML",
   },
