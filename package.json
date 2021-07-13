@@ -23,8 +23,8 @@
 		"build": "tsc -b src",
 		"clean": "tsc -b src --clean",
 		"watch": "tsc -b src -w",
-		"commit": "git-cz",
-		"cz": "git-cz",
+		"commit": "git-cz --signoff",
+		"cz": "git-cz --signoff",
 		"update": "yarn upgrade-interactive",
 		"sversion": "standard-version",
 		"start": "ts-node src/index.ts"

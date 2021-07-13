@@ -25,7 +25,7 @@ jobs:
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --frozen-lockfile
+        run: yarn --immutable --immutable-cache
       - name: Run ESLint
         run: yarn lint --fix=false
 
@@ -47,7 +47,7 @@ jobs:
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --frozen-lockfile
+        run: yarn --immutable --immutable-cache
       - name: Run tests
         run: yarn test --coverage
       - name: Store code coverage report
@@ -74,7 +74,7 @@ jobs:
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --frozen-lockfile
+        run: yarn --immutable --immutable-cache
       - name: Build Code
         run: yarn build
 
