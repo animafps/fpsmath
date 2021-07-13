@@ -1,7 +1,7 @@
 {
 	"name": "fpsmath",
 	"private": true,
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"homepage": "https://fpsmath.animafps.xyz",
 	"license": "MIT",
 	"bugs": {
@@ -23,10 +23,10 @@
 		"build": "tsc -b src",
 		"clean": "tsc -b src --clean",
 		"watch": "tsc -b src -w",
-		"commit": "git-cz --signoff",
-		"cz": "git-cz --signoff",
+		"commit": "git-cz",
+		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
-		"sversion": "standard-version",
+		"release": "standard-version",
 		"start": "ts-node src/index.ts"
 	},
 	"devDependencies": {
