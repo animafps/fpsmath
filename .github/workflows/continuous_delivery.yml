@@ -34,7 +34,5 @@ jobs:
         run: yarn --immutable --immutable-cache
       - name: Bump Version & Publish
         run: |
-          # Resolve the tag to be used. "next" for push events, "pr-{prNumber}" for dispatch events.
-          TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
           # Bump the version
-          yarn standard-version --skip.commit --skip.tag --prerelease "${TAG}.$(git rev-parse --verify --short HEAD)"
+          yarn release

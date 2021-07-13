@@ -1,7 +1,7 @@
 {
 	"name": "fpsmath",
 	"private": true,
-	"version": "3.1.0",
+	"version": "3.0.0",
 	"homepage": "https://fpsmath.animafps.xyz",
 	"license": "MIT",
 	"bugs": {
@@ -26,8 +26,8 @@
 		"commit": "git-cz",
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
-		"release": "standard-version",
-		"start": "ts-node src/index.ts"
+		"start": "ts-node src/index.ts",
+		"release": "semantic-release"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^12.1.4",
@@ -35,10 +35,13 @@
 		"@sapphire/eslint-config": "^3.2.2",
 		"@sapphire/prettier-config": "^1.1.6",
 		"@sapphire/ts-config": "^2.3.2",
+		"@semantic-release/changelog": "^5.0.1",
+		"@semantic-release/git": "^9.0.0",
 		"@types/dotenv": "^8.2.0",
 		"@types/eslint-plugin-prettier": "^3.1.0",
 		"@types/jest": "^26.0.24",
 		"@types/node": "^16.3.1",
+		"@types/semantic-release": "^17",
 		"@types/ws": "^7.4.6",
 		"@typescript-eslint/eslint-plugin": "^4.28.3",
 		"@typescript-eslint/parser": "^4.28.3",
@@ -52,7 +55,7 @@
 		"nodemon": "^2.0.12",
 		"prettier": "^2.3.2",
 		"pretty-quick": "^3.1.1",
-		"standard-version": "^9.3.0",
+		"semantic-release": "^17.4.4",
 		"ts-jest": "^27.0.3",
 		"ts-node": "^10.1.0",
 		"typescript": "^4.3.5"
@@ -86,5 +89,28 @@
 	},
 	"lint-staged": {
 		"*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
+	},
+	"release": {
+		"branch": "main",
+		"plugins": [
+			"@semantic-release/commit-analyzer",
+			"@semantic-release/release-notes-generator",
+			[
+				"@semantic-release/changelog",
+				{
+					"changelogFile": "docs/changelog.md"
+				}
+			],
+			[
+				"@semantic-release/git",
+				{
+					"assets": [
+						"docs/changelog.md",
+						"package.json"
+					]
+				}
+			],
+			"@semantic-release/github"
+		]
 	}
 }
