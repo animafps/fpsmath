@@ -48,7 +48,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sapphire/ts-config", "npm:2.3.2"],
             ["@semantic-release/changelog", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:5.0.1"],
             ["@semantic-release/git", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:9.0.0"],
-            ["@sentry/node", "npm:6.9.0"],
             ["@types/dotenv", "npm:8.2.0"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/jest", "npm:26.0.24"],
@@ -2157,96 +2156,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@sentry/core", [
-        ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/@sentry-core-npm-6.9.0-ce4b126cf5-4e7931f333.zip/node_modules/@sentry/core/",
-          "packageDependencies": [
-            ["@sentry/core", "npm:6.9.0"],
-            ["@sentry/hub", "npm:6.9.0"],
-            ["@sentry/minimal", "npm:6.9.0"],
-            ["@sentry/types", "npm:6.9.0"],
-            ["@sentry/utils", "npm:6.9.0"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@sentry/hub", [
-        ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/@sentry-hub-npm-6.9.0-8ffb712567-e774c9433d.zip/node_modules/@sentry/hub/",
-          "packageDependencies": [
-            ["@sentry/hub", "npm:6.9.0"],
-            ["@sentry/types", "npm:6.9.0"],
-            ["@sentry/utils", "npm:6.9.0"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@sentry/minimal", [
-        ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/@sentry-minimal-npm-6.9.0-7e70308493-a8c99ecd68.zip/node_modules/@sentry/minimal/",
-          "packageDependencies": [
-            ["@sentry/minimal", "npm:6.9.0"],
-            ["@sentry/hub", "npm:6.9.0"],
-            ["@sentry/types", "npm:6.9.0"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@sentry/node", [
-        ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/@sentry-node-npm-6.9.0-5efe6e844a-774da8d962.zip/node_modules/@sentry/node/",
-          "packageDependencies": [
-            ["@sentry/node", "npm:6.9.0"],
-            ["@sentry/core", "npm:6.9.0"],
-            ["@sentry/hub", "npm:6.9.0"],
-            ["@sentry/tracing", "npm:6.9.0"],
-            ["@sentry/types", "npm:6.9.0"],
-            ["@sentry/utils", "npm:6.9.0"],
-            ["cookie", "npm:0.4.1"],
-            ["https-proxy-agent", "npm:5.0.0"],
-            ["lru_map", "npm:0.3.3"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@sentry/tracing", [
-        ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/@sentry-tracing-npm-6.9.0-de688ea0a2-6764239952.zip/node_modules/@sentry/tracing/",
-          "packageDependencies": [
-            ["@sentry/tracing", "npm:6.9.0"],
-            ["@sentry/hub", "npm:6.9.0"],
-            ["@sentry/minimal", "npm:6.9.0"],
-            ["@sentry/types", "npm:6.9.0"],
-            ["@sentry/utils", "npm:6.9.0"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@sentry/types", [
-        ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/@sentry-types-npm-6.9.0-dde15d76ae-b533e9ee9c.zip/node_modules/@sentry/types/",
-          "packageDependencies": [
-            ["@sentry/types", "npm:6.9.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@sentry/utils", [
-        ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/@sentry-utils-npm-6.9.0-24c11d949d-e75ae0deb0.zip/node_modules/@sentry/utils/",
-          "packageDependencies": [
-            ["@sentry/utils", "npm:6.9.0"],
-            ["@sentry/types", "npm:6.9.0"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["@sindresorhus/is", [
         ["npm:0.14.0", {
           "packageLocation": "./.yarn/cache/@sindresorhus-is-npm-0.14.0-9f906ea34b-da26389d6e.zip/node_modules/@sindresorhus/is/",
@@ -4331,15 +4240,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["cookie", [
-        ["npm:0.4.1", {
-          "packageLocation": "./.yarn/cache/cookie-npm-0.4.1-cc5e2ebb42-b8e0928e3e.zip/node_modules/cookie/",
-          "packageDependencies": [
-            ["cookie", "npm:0.4.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["core-util-is", [
         ["npm:1.0.2", {
           "packageLocation": "./.yarn/cache/core-util-is-npm-1.0.2-9fc2b94dc3-089015ee3c.zip/node_modules/core-util-is/",
@@ -5612,7 +5512,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sapphire/ts-config", "npm:2.3.2"],
             ["@semantic-release/changelog", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:5.0.1"],
             ["@semantic-release/git", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:9.0.0"],
-            ["@sentry/node", "npm:6.9.0"],
             ["@types/dotenv", "npm:8.2.0"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/jest", "npm:26.0.24"],
@@ -8123,15 +8022,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["lru-cache", "npm:6.0.0"],
             ["yallist", "npm:4.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["lru_map", [
-        ["npm:0.3.3", {
-          "packageLocation": "./.yarn/cache/lru_map-npm-0.3.3-a038bb3418-c1d5347da0.zip/node_modules/lru_map/",
-          "packageDependencies": [
-            ["lru_map", "npm:0.3.3"]
           ],
           "linkType": "HARD",
         }]

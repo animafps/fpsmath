@@ -1,4 +1,4 @@
-import { checkYawArgs } from '../src/helpers/helpers';
+import { checkYawArgs } from './helpers';
 
 describe('Check Yaw Arguments', () => {
 	test('Check game name parsing', () => {

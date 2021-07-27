@@ -8,7 +8,7 @@ import type { Message } from 'discord.js';
 	description: '',
 	detailedDescription: ''
 })
-export class UserCommand extends Command {
+export default class extends Command {
 	public async run(message: Message): Promise<Message> {
 		const sent = await message.reply('Pong!');
 		const timeDiff = (sent?.editedAt?.getTime() || sent?.createdAt.getTime() || 1) - (message.editedAt?.getTime() || message.createdAt.getTime());

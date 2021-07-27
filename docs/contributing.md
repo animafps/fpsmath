@@ -11,6 +11,7 @@ Thanks for showing your interest in using or contributing to this project
 ## How to Setup
 
 Using Nodejs above v14.0.0
+Using Yarn 2
 
 1. Download the [Latest Release](https://github.com/AnimaFPS/fpsmath/releases/latest) or clone the repo(`git clone https://github.com/AnimaFPS/fpsmath.git`)
 2. Navigate and open a command prompt or terminal in the root directory
@@ -20,25 +21,13 @@ Using Nodejs above v14.0.0
 yarn
 ```
 
-or
-
-```shell
-npm i
-```
-
 4. Create a .env file for environment variables
     1. `DISCORD_TOKEN` for the discord bot token
     2. `OWNER_ID` for the owners discord id
-5. To run you execute the start script with
+5. To run you execute the start script
 
 ```shell
 yarn start
-```
-
-or
-
-```shell
-npm run start
 ```
 
 6. Code as much as you want

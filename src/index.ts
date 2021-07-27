@@ -1,26 +1,25 @@
 import { SapphireClient, LogLevel } from '@sapphire/framework';
 import '@sapphire/plugin-logger/register';
 import 'dotenv/config';
-import * as Sentry from '@sentry/node';
 
-Sentry.init({
-	dsn: process.env.SENTRY_DSN,
-
-	// Set tracesSampleRate to 1.0 to capture 100%
-	// of transactions for performance monitoring.
-	// We recommend adjusting this value in production
-	tracesSampleRate: 1.0
-});
-
-export const client = new SapphireClient({
-	defaultPrefix: 'fps-',
+const client = new SapphireClient({
+	defaultPrefix: process.env.PREFIX || 'fps-',
 	caseInsensitiveCommands: true,
 	logger: {
 		level: LogLevel.Trace
 	},
 	shards: 'auto',
 	ws: {
-		intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS']
+		intents: [
+			'GUILDS',
+			'GUILD_BANS',
+			'GUILD_EMOJIS',
+			'GUILD_VOICE_STATES',
+			'GUILD_MESSAGES',
+			'GUILD_MESSAGE_REACTIONS',
+			'DIRECT_MESSAGES',
+			'DIRECT_MESSAGE_REACTIONS'
+		]
 	},
 	presence: {
 		activity: {

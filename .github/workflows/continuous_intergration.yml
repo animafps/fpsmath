@@ -17,14 +17,19 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
       - name: Restore CI Cache
         uses: actions/cache@v2.1.6
-        id: cache-restore
+        id: yarn-cache
         with:
-          path: node_modules
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Install Dependencies if Cache Miss
-        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+        if: ${{ !steps.yarn-cache.outputs.cache-hit }}
         run: yarn --immutable --immutable-cache
       - name: Run ESLint
         run: yarn lint --fix=false
@@ -39,14 +44,19 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
       - name: Restore CI Cache
         uses: actions/cache@v2.1.6
-        id: cache-restore
+        id: yarn-cache
         with:
-          path: node_modules
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Install Dependencies if Cache Miss
-        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+        if: ${{ !steps.yarn-cache.outputs.cache-hit }}
         run: yarn --immutable --immutable-cache
       - name: Run tests
         run: yarn test --coverage
@@ -66,14 +76,19 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
       - name: Restore CI Cache
         uses: actions/cache@v2.1.6
-        id: cache-restore
+        id: yarn-cache
         with:
-          path: node_modules
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Install Dependencies if Cache Miss
-        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+        if: ${{ !steps.yarn-cache.outputs.cache-hit }}
         run: yarn --immutable --immutable-cache
       - name: Build Code
         run: yarn build
