@@ -61,7 +61,7 @@ const array: Array = {
     afovt: "hML",
   },
   Battlefield: {
-    yaw:  0.6771319397,
+    yaw: 0.6771319397,
     aliases: ["battlefield", "bf"],
     afovt: "vML",
   },
@@ -103,11 +103,16 @@ const array: Array = {
     aliases: ["ue4", "unreal", "unreal-engine"],
     yaw: 0.07,
   },
-  "Halo: Master Chief Collection" : {
+  "Halo: Master Chief Collection": {
     yaw: 0.022222222222222223,
     aliases: ["halo", "halo-mcc"],
-    afovt: "hML"
-  }
+    afovt: "hML",
+  },
+  "3D Aim Trainer": {
+    yaw: 0.0066,
+    aliases: ["3daimtrainer", "3dat"],
+    afovt: "16MF9",
+  },
 };
 
 export function getObject(
