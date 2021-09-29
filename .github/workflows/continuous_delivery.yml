@@ -26,5 +26,5 @@ jobs:
           node-version: 16
       - name: Bump Version & Publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: yarn release
