@@ -1,3 +1,24 @@
+# [3.0.0](https://github.com/animafps/fpsmath/compare/v2.2.3...v3.0.0) (2021-09-29)
+
+
+### Features
+
+* added docs, gameinfo, finished integration into sapphire, changed default prefix & more ([04130b2](https://github.com/animafps/fpsmath/commit/04130b25524b8dd0893bc6edb10dfb24a2368ef8))
+* **game support:** now supports 3D Aim Trainer as a supported game for calculations ([08731ee](https://github.com/animafps/fpsmath/commit/08731ee068c5710555503fb685b91615b95f9779))
+* initial commit for reformatting to Sapphire Framework ([bed2012](https://github.com/animafps/fpsmath/commit/bed20129944a5bbce6352b68de8e8ac7a1340d05))
+
+
+### Reverts
+
+* reverts the change with the PAT token in CD ([4e46b8c](https://github.com/animafps/fpsmath/commit/4e46b8c9d1c623141544721dc0d18717a99d0de6))
+* troubleshooting the bot nolonger launching/recognising command messages ([2123884](https://github.com/animafps/fpsmath/commit/21238849fb8215f1b0ce5425e8bff642d1c40aeb))
+
+
+### BREAKING CHANGES
+
+* Changed default prefix to `fps-` and removed getobject command plus changed some of
+the command aliases and flags
+
 ## [2.2.3](https://github.com/AnimaFPS/FPSMath/compare/v2.2.2...v2.2.3) (2021-06-27)
 
 
