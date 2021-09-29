@@ -54,7 +54,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/changelog", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:6.0.0"],
             ["@semantic-release/git", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:9.0.1"],
             ["@sentry/node", "npm:6.13.2"],
-            ["@types/concurrently", "npm:6.2.1"],
             ["@types/dotenv", "npm:8.2.0"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/node", "npm:16.9.6"],
@@ -1379,16 +1378,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@tootallnate-once-npm-2.0.0-e36cf4f140-ad87447820.zip/node_modules/@tootallnate/once/",
           "packageDependencies": [
             ["@tootallnate/once", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@types/concurrently", [
-        ["npm:6.2.1", {
-          "packageLocation": "./.yarn/cache/@types-concurrently-npm-6.2.1-67efca76e9-2fcddbdc53.zip/node_modules/@types/concurrently/",
-          "packageDependencies": [
-            ["@types/concurrently", "npm:6.2.1"],
-            ["@types/node", "npm:16.3.1"]
           ],
           "linkType": "HARD",
         }]
@@ -4625,7 +4614,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/changelog", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:6.0.0"],
             ["@semantic-release/git", "virtual:101af6b429b0a28bf5790dd9cbca07e634d8e0e166191a6463c22a4a281e005d1e9651dcd89a15cb71adfdf12017f361ae834263e49609f1d6a69a33e79b1d3a#npm:9.0.1"],
             ["@sentry/node", "npm:6.13.2"],
-            ["@types/concurrently", "npm:6.2.1"],
             ["@types/dotenv", "npm:8.2.0"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/node", "npm:16.9.6"],

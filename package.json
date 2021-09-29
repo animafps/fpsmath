@@ -26,7 +26,7 @@
 		"commit": "git-cz",
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
-		"start": "yarn build && node dist/index.js",
+		"start": "node dist/index.js",
 		"release": "semantic-release"
 	},
 	"devDependencies": {
@@ -37,7 +37,6 @@
 		"@sapphire/ts-config": "^3.0.0",
 		"@semantic-release/changelog": "^6.0.0",
 		"@semantic-release/git": "^9.0.1",
-		"@types/concurrently": "^6",
 		"@types/dotenv": "^8.2.0",
 		"@types/eslint-plugin-prettier": "^3.1.0",
 		"@types/node": "^16.9.6",
@@ -101,7 +100,9 @@
 		"*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
 	},
 	"release": {
-		"branches": ["main"],
+		"branches": [
+			"main"
+		],
 		"plugins": [
 			"@semantic-release/commit-analyzer",
 			"@semantic-release/release-notes-generator",
