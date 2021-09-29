@@ -26,11 +26,12 @@ const main = async () => {
 			dsn: process.env.SENTRY_DSN
 		});
 	}
-	if (process.env.TOPGG_API_TOKEN && process.env.DISCORDBOTSGG_TOKEN) {
+	if (process.env.TOPGG_API_TOKEN && process.env.DISCORDBOTLIST_TOKEN && process.env.DISCORDBOTSGG_TOKEN) {
 		const poster = new Poster({
 			client,
 			apiKeys: {
 				topgg: process.env.TOPGG_API_TOKEN,
+				discordbotlist: process.env.DISCORDBOTLIST_TOKEN,
 				discordbotsgg: process.env.DISCORDBOTSGG_TOKEN
 			},
 			clientLibrary: 'discord.js'
