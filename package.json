@@ -79,8 +79,8 @@
 		"tslib": "^2.3.1"
 	},
 	"engines": {
-		"node": ">=16.0.0",
-		"yarn": ">=3.0.2"
+		"node": "16.x",
+		"yarn": "3.x"
 	},
 	"prettier": "@sapphire/prettier-config",
 	"eslintConfig": {
