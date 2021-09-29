@@ -17,14 +17,14 @@ Just 4 easy steps away from converting in your own server. Let's go!
 
 ### 2. Select a Server
 
-![server](assets/server-select.png)
+![server](assets/images/server-select.png)
 
 ### 3. Choose Default Permissions
 
-![Permissions](assets/permissions.png)
+![Permissions](assets/images/permissions.png)
 
 ### 4. Authorize
 
-![authorize](assets/authorize.png)
+![authorize](assets/images/authorize.png)
 
 And you're done! its that simple, now on to using it.

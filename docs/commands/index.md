@@ -7,7 +7,7 @@
 
 Below is a shortlist of all the bot commands.
 
-### Math Commands
+## Math Commands
 
 **Hint**: You can click on a command to go to its full help entry.
 
@@ -24,7 +24,7 @@ Below is a shortlist of all the bot commands.
 | [`inch`](math.md#inch)             | Converts Sensitivity to inch/rev                                                                                  |
 | [`sens`](math.md#sens)             | Converts cm/rev\|deg/mm\|MPI\|inch/rev\|arcmin to a game sensitivity default cm/rev                               |
 
-### Miscellaneous Commands
+## Miscellaneous Commands
 
 | **Command**                 | **Description **                                                                        |
 | --------------------------- | --------------------------------------------------------------------------------------- |

@@ -27,4 +27,4 @@ All the games that FPSMath supports and the features that are avaliable for cert
 | Totally Accurate Battlegrounds | `tabg`                                               | ✔️  | ✔️ |
 | Valorant                       | `val`, `valorant`                                    | ✔️  | ✔️ |
 
-To add to this list you can edit and create PR for the src/array.ts and input new games and values or correct new ones or you can dm `Anima#4242` on discord from the support server
+To add to this list you can edit and create PR for the src/helpers/array.ts and input new games and values or correct new ones or you can dm `Anima.#4242` on discord from the support server
