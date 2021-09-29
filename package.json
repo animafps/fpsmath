@@ -66,7 +66,6 @@
 		"@sapphire/pieces": "3.0.0",
 		"@sapphire/plugin-api": "next",
 		"@sapphire/plugin-logger": "next",
-		"@sapphire/type": "^2.1.0",
 		"@sapphire/utilities": "^2.0.1",
 		"@sentry/node": "^6.13.2",
 		"colorette": "^1.4.0",
