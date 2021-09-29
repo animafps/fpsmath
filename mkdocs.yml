@@ -1,0 +1,39 @@
+site_name: FPSMath Documentation
+site_url: 'http://fpsmath.animafps.xyz'
+repo_url: 'https://github.com/animafps/fpsmath'
+repo_name: animafps/fpsmath
+edit_uri: edit/main/docs/
+site_description: 'Convert Conveniently'
+copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://fpsmath.animafps.xyz">FPSMath Docs</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://animafps.xyz">Anima</a> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"></a></p>
+theme:
+  favicon: assets/logo.png
+  features:
+    - navigation.instant
+    - navigation.expand
+    - navigation.sections
+    - navigation.top
+  palette:
+    scheme: slate
+  name: 'material'
+  custom_dir: docs/overrides
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/Bg2gNT35s9
+  analytics:
+    provider: custom
+extra_javascript:
+  - javascript/extra.js
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+nav:
+  - index.md
+  - Getting Started: getting-started.md
+  - Supported Games: games.md
+  - Commands:
+      - Overview: commands/index.md
+      - Math: commands/math.md
+      - Miscellaneous: commands/misc.md
+  - Changelog: changelog.md

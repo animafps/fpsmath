@@ -17,20 +17,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore CI Cache
-        uses: actions/cache@v2.1.6
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install Dependencies if Cache Miss
-        if: ${{ !steps.yarn-cache.outputs.cache-hit }}
-        run: yarn --immutable --immutable-cache
       - name: Run ESLint
         run: yarn lint --fix=false
 
@@ -44,20 +30,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore CI Cache
-        uses: actions/cache@v2.1.6
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install Dependencies if Cache Miss
-        if: ${{ !steps.yarn-cache.outputs.cache-hit }}
-        run: yarn --immutable --immutable-cache
       - name: Run tests
         run: yarn test --coverage
       - name: Store code coverage report
@@ -76,20 +48,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - name: Restore CI Cache
-        uses: actions/cache@v2.1.6
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: Install Dependencies if Cache Miss
-        if: ${{ !steps.yarn-cache.outputs.cache-hit }}
-        run: yarn --immutable --immutable-cache
       - name: Build Code
         run: yarn build
 
@@ -113,3 +71,13 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: coverage/
           fail_ci_if_error: true
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force

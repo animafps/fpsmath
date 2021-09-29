@@ -3,7 +3,8 @@
 	"private": true,
 	"version": "3.0.0",
 	"homepage": "https://fpsmath.animafps.xyz",
-	"license": "MIT",
+	"license": "AGPL",
+	"main": "dist/index.js",
 	"bugs": {
 		"url": "https://github.com/AnimaFPS/FPSMath/issues"
 	},
@@ -13,16 +14,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://github.com/animafps/fpsmath.git"
+		"url": "git+https://github.com/animafps/fpsmath.git"
 	},
 	"scripts": {
-		"test": "jest",
-		"dev": "nodemon src/index.ts --project src/tsconfig.json ",
+		"dev": "nodemon dist/index.js",
 		"lint": "eslint src --ext ts --fix",
 		"format": "prettier --write {src,tests}/**/*.ts",
-		"build": "tsc -b src",
-		"clean": "tsc -b src --clean",
-		"watch": "tsc -b src -w",
+		"build": "tsc",
+		"clean": "tsc --clean",
+		"watch": "tsc -w",
 		"commit": "git-cz",
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
@@ -30,47 +30,57 @@
 		"release": "semantic-release"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^12.1.4",
-		"@commitlint/config-conventional": "^12.1.4",
-		"@sapphire/eslint-config": "^3.2.2",
+		"@commitlint/cli": "^13.1.0",
+		"@commitlint/config-conventional": "^13.1.0",
+		"@sapphire/eslint-config": "^3.2.3",
 		"@sapphire/prettier-config": "^1.1.6",
-		"@sapphire/ts-config": "^2.3.2",
-		"@semantic-release/changelog": "^5.0.1",
-		"@semantic-release/git": "^9.0.0",
+		"@sapphire/ts-config": "^3.0.0",
+		"@semantic-release/changelog": "^6.0.0",
+		"@semantic-release/git": "^9.0.1",
+		"@types/concurrently": "^6",
 		"@types/dotenv": "^8.2.0",
 		"@types/eslint-plugin-prettier": "^3.1.0",
-		"@types/jest": "^26.0.24",
-		"@types/node": "^16.3.1",
-		"@types/semantic-release": "^17",
-		"@types/ws": "^7.4.6",
-		"@typescript-eslint/eslint-plugin": "^4.28.3",
-		"@typescript-eslint/parser": "^4.28.3",
+		"@types/node": "^16.9.6",
+		"@types/semantic-release": "^17.2.2",
+		"@types/ws": "^7.4.7",
+		"@typescript-eslint/eslint-plugin": "^4.31.2",
+		"@typescript-eslint/parser": "^4.31.2",
 		"cz-conventional-changelog": "3.3.0",
-		"eslint": "^7.30.0",
+		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-prettier": "^3.4.0",
-		"husky": "^7.0.1",
-		"jest": "^27.0.6",
-		"lint-staged": "^11.0.0",
-		"nodemon": "^2.0.12",
-		"prettier": "^2.3.2",
+		"eslint-plugin-prettier": "^3.4.1",
+		"husky": "^7.0.2",
+		"lint-staged": "^11.1.2",
+		"nodemon": "^2.0.13",
+		"prettier": "^2.4.1",
 		"pretty-quick": "^3.1.1",
-		"semantic-release": "^17.4.4",
-		"ts-jest": "^27.0.3",
-		"ts-node": "^10.1.0",
+		"release": "^6.3.0",
+		"semantic": "^0.0.1",
+		"semantic-release": "^18.0.0",
 		"typescript": "^4.3.5"
 	},
 	"dependencies": {
-		"@discordjs/collection": "^0.2.0",
-		"@sapphire/decorators": "^2.1.5",
-		"@sapphire/framework": "^1.0.2",
-		"@sapphire/plugin-logger": "^1.0.13",
-		"discord.js": "^12.5.3",
+		"@discordjs/collection": "^0.2.1",
+		"@sapphire/decorators": "^2.2.0",
+		"@sapphire/discord-utilities": "^2.1.5",
+		"@sapphire/discord.js-utilities": "next",
+		"@sapphire/fetch": "next",
+		"@sapphire/framework": "next",
+		"@sapphire/pieces": "3.0.0",
+		"@sapphire/plugin-api": "next",
+		"@sapphire/plugin-logger": "next",
+		"@sapphire/type": "^2.1.0",
+		"@sapphire/utilities": "^2.0.1",
+		"@sentry/node": "^6.13.2",
+		"colorette": "^1.4.0",
+		"dbots": "^9.0.1",
+		"discord-api-types": "^0.23.1",
+		"discord.js": "^13.1.0",
 		"dotenv": "^10.0.0",
-		"tslib": "^2.3.0"
+		"tslib": "^2.3.1"
 	},
 	"engines": {
-		"node": ">=14.0.0"
+		"node": ">=16.0.0"
 	},
 	"prettier": "@sapphire/prettier-config",
 	"eslintConfig": {
@@ -112,5 +122,6 @@
 			],
 			"@semantic-release/github"
 		]
-	}
+	},
+	"packageManager": "yarn@3.0.2"
 }
