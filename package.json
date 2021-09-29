@@ -17,7 +17,6 @@
 		"url": "git+https://github.com/animafps/fpsmath.git"
 	},
 	"scripts": {
-		"dev": "nodemon dist/index.js",
 		"lint": "eslint src --ext ts --fix",
 		"format": "prettier --write {src,tests}/**/*.ts",
 		"build": "tsc",
@@ -50,7 +49,6 @@
 		"eslint-plugin-prettier": "^3.4.1",
 		"husky": "^7.0.2",
 		"lint-staged": "^11.1.2",
-		"nodemon": "^2.0.13",
 		"prettier": "^2.4.1",
 		"pretty-quick": "^3.1.1",
 		"release": "^6.3.0",
