@@ -1,100 +1,54 @@
-import * as dotenv from "dotenv";
-import { AkairoClient, CommandHandler } from "discord-akairo";
-import * as winston from "winston";
-import { Poster } from "dbots";
-import * as Sentry from "@sentry/node";
+import { SapphireClient, LogLevel } from '@sapphire/framework';
+import * as Sentry from '@sentry/node';
+import { Poster } from 'dbots';
+import '@sapphire/plugin-api/register';
+import '@sapphire/plugin-logger/register';
+import 'dotenv/config';
 
-Sentry.init({
-  dsn: process.env.SENTRY_DSN,
-
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
-  tracesSampleRate: 1.0,
+const client = new SapphireClient({
+	fetchPrefix: (msg) => (msg.guild ? [process.env.PREFIX ?? 'fps-'] : [process.env.PREFIX ?? 'fps-', '']),
+	caseInsensitiveCommands: true,
+	logger: {
+		level: LogLevel.Debug
+	},
+	shards: 'auto',
+	intents: ['GUILDS', 'GUILD_MESSAGES', 'DIRECT_MESSAGES'],
+	partials: ['MESSAGE', 'CHANNEL'],
+	presence: {
+		status: 'online',
+		activities: [{ name: 'fps-help', type: 'LISTENING' }]
+	}
 });
 
-dotenv.config();
-const Token = process.env.DISCORD_TOKEN;
+const main = async () => {
+	if (process.env.SENTRY_DSN) {
+		Sentry.init({
+			dsn: process.env.SENTRY_DSN
+		});
+	}
+	if (process.env.TOPGG_API_TOKEN && process.env.DISCORDBOTLIST_TOKEN && process.env.DISCORDBOTSGG_TOKEN) {
+		const poster = new Poster({
+			client,
+			apiKeys: {
+				topgg: process.env.TOPGG_API_TOKEN,
+				discordbotlist: process.env.DISCORDBOTLIST_TOKEN,
+				discordbotsgg: process.env.DISCORDBOTSGG_TOKEN
+			},
+			clientLibrary: 'discord.js'
+		});
+		poster.addHandler('postSuccess', () => client.logger.debug('Api Post Success'));
+		void poster.post('all');
+		poster.startInterval();
+	}
+	try {
+		client.logger.info('Logging in');
+		await client.login();
+		client.logger.info(`Logged in`);
+	} catch (error) {
+		client.logger.fatal(error);
+		client.destroy();
+		process.exit(1);
+	}
+};
 
-const logger = winston.createLogger({
-  level: "debug",
-  format: winston.format.combine(
-    winston.format.timestamp({
-      format: "YYYY-MM-DD HH:mm:ss",
-    }),
-    winston.format.errors({ stack: true }),
-    winston.format.splat(),
-    winston.format.json()
-  ),
-  defaultMeta: { service: "fpsmath" },
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.printf(
-          (info: winston.Logform.TransformableInfo) =>
-            `${info.timestamp} ${info.level}: ${info.message}`
-        )
-      ),
-    }),
-  ],
-});
-
-class Client extends AkairoClient {
-  commandHandler: CommandHandler;
-  constructor() {
-    super(
-      {
-        ownerID: process.env.OWNER_ID,
-      },
-      {}
-    );
-
-    this.commandHandler = new CommandHandler(this, {
-      directory: __dirname.includes("/dist/")
-        ? "./dist/commands/"
-        : "./src/commands/",
-      commandUtil: true,
-      handleEdits: true,
-      automateCategories: true,
-      commandUtilLifetime: 30000,
-      prefix: "/",
-      allowMention: true,
-      aliasReplacement: /-/g,
-    });
-    this.commandHandler.loadAll();
-  }
-}
-
-const client = new Client();
-
-client
-  .on("warn", (m) => logger.warn(m))
-  .on("error", (m) => logger.error(m))
-  .on("ready", () => {
-    client.user?.setActivity("/help | fpsmath.animafps.xyz");
-    logger.info(
-      `Client ready; logged in as ${client.user?.username}#${client.user?.discriminator} (${client.user?.id})`
-    );
-    logger.info(`Running on ${client.guilds.cache.array().length} servers`);
-    const poster = new Poster({
-      client,
-      apiKeys: {
-        topgg: process.env.TOPGG_API_TOKEN || "",
-        discordbotsgg: process.env.DISCORD_BOTSGG_TOKEN || "",
-        botsfordiscord: process.env.BOTSFORDISCORD_TOKEN || "",
-      },
-      clientLibrary: "discord.js",
-    });
-    poster.addHandler("postSuccess", () => logger.debug("Api Post Success"));
-    poster.post("all");
-    poster.startInterval();
-  })
-  .on("disconnect", () => {
-    logger.warn("Disconnected!");
-  });
-
-process.on("uncaughtException", (error) => logger.error(error));
-process.on("unhandledRejection", (m) => logger.error(m));
-
-client.login(Token);
+void main();
