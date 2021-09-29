@@ -1,3 +1,15 @@
+## [3.0.1](https://github.com/animafps/fpsmath/compare/v3.0.0...v3.0.1) (2021-09-29)
+
+
+### Bug Fixes
+
+* fixed bug where analytics is being loaded before the client ([482f129](https://github.com/animafps/fpsmath/commit/482f129645a043ff85063e0f6e3f3cfbee83741d))
+
+
+### Reverts
+
+* reverts change to analytics system ([d8aad3e](https://github.com/animafps/fpsmath/commit/d8aad3e961f40be01004ddb1e00f95f9bf1e8e13))
+
 # [3.0.0](https://github.com/animafps/fpsmath/compare/v2.2.3...v3.0.0) (2021-09-29)
 
 
