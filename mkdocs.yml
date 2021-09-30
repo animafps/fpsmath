@@ -10,8 +10,6 @@ theme:
   favicon: assets/images/logo.png
   features:
     - navigation.instant
-    - navigation.expand
-    - navigation.sections
     - navigation.top
   palette:
     scheme: slate
@@ -21,6 +19,7 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/Bg2gNT35s9
+      name: Support Discord server
   analytics:
     provider: custom
 markdown_extensions:

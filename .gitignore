@@ -9,3 +9,4 @@
 dist/
 .env
 node_modules
+site/

@@ -8,6 +8,8 @@ title: Overview
     Global Prefix: `fps-`
 
     You can also use `@FPSMath` instead of the prefix. Example `@FPSMath help`
+    
+    But in DMs no prefix is required
 
 Below is a shortlist of all the bot commands.
 
