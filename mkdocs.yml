@@ -23,15 +23,18 @@ extra:
   analytics:
     provider: custom
 markdown_extensions:
+  - attr_list
+  - meta
   - admonition
   - toc:
       permalink: true
 nav:
-  - index.md
-  - Getting Started: getting-started.md
-  - Supported Games: games.md
+  - Introduction: index.md
+  - getting-started.md
   - Commands:
-      - Overview: commands/index.md
-      - Math: commands/math.md
-      - Miscellaneous: commands/misc.md
-  - Changelog: changelog.md
+      - commands/index.md
+      - commands/math.md
+      - commands/misc.md
+  - Other:
+      - games.md
+      - Changelog: changelog.md
