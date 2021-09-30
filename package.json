@@ -108,6 +108,7 @@
 					"changelogFile": "docs/changelog.md"
 				}
 			],
+			"@semantic-release/npm",
 			[
 				"@semantic-release/git",
 				{
