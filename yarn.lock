@@ -1212,7 +1212,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ws@npm:8.2.0":
+"@types/ws@npm:8.2.0, @types/ws@npm:^8.2.0":
   version: 8.2.0
   resolution: "@types/ws@npm:8.2.0"
   dependencies:
@@ -3574,7 +3574,7 @@ __metadata:
     "@types/eslint-plugin-prettier": ^3.1.0
     "@types/node": ^16.10.1
     "@types/semantic-release": ^17.2.2
-    "@types/ws": ^7.4.7
+    "@types/ws": ^8.2.0
     "@typescript-eslint/eslint-plugin": ^4.32.0
     "@typescript-eslint/parser": ^4.32.0
     colorette: ^1.4.0
