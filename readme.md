@@ -7,10 +7,11 @@
 
 <div align="center">
 
-[![Discord](https://img.shields.io/discord/830046036579450880?logo=discord&style=flat-square)](https://discord.com/invite/Bg2gNT35s9)
-[![GitHub Issues](https://img.shields.io/github/issues/animafps/fpsmath?style=flat-square)](https://github.com/animafps/fpsmath/issues)
+[![Discord](https://img.shields.io/discord/830046036579450880?logo=discord&style=flat)](https://discord.com/invite/Bg2gNT35s9)
 [![Status](https://top.gg/api/widget/status/792712521546465301.svg?noavatar=true)](https://top.gg/bot/792712521546465301)
 [![Servers Serving](https://top.gg/api/widget/servers/792712521546465301.svg?noavatar=true)](https://top.gg/bot/792712521546465301)
+[![GitHub Issues](https://img.shields.io/github/issues/animafps/fpsmath?style=flat)](https://github.com/animafps/fpsmath/issues)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/animafps/fpsmath/Continuous%20Integration)](https://github.com/animafps/fpsmath/actions)
 
 </div>
 

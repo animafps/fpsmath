@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "3.0.3",
 	"homepage": "https://fpsmath.animafps.xyz",
-	"license": "AGPL",
+	"license": "AGPL-3.0-or-later",
 	"main": "dist/index.js",
 	"bugs": {
 		"url": "https://github.com/AnimaFPS/FPSMath/issues"

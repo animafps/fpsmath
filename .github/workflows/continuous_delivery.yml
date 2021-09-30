@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c # renovate: tag=v2
         with:
           node-version: 16
+          cache: 'yarn'
       - name: Bump Version & Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
