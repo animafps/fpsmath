@@ -33,7 +33,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-FPSMath is just a handy little bot that helps with converting everything related to video games. It supports [over 20 games](https://fpsmath.animafps.xyz/games) and are happy to add plenty more. As well it is the discord bot with the most units that can be converted and used.
+FPSMath is just a handy little bot that helps with converting everything related to video games. It supports [over 20 games](https://fpsmath.animafps.xyz/games/) and are happy to add plenty more. As well it is the discord bot with the most units that can be converted and used.
 
 ## 💭 How it works <a name = "working"></a>
 
@@ -41,7 +41,7 @@ The entire bot is written in Typescript and uses the Sapphire framework with Dis
 
 ## 🎈 Usage <a name = "usage"></a>
 
-See [Overview](https://fpsmath.animafps.xyz/commands/overview)
+See [Overview](https://fpsmath.animafps.xyz/commands/)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
