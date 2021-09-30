@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/animafps/fpsmath/compare/v3.0.1...v3.0.2) (2021-09-30)
+
+
+### Bug Fixes
+
+* fixed bug with convert and sens commands adding cm/rev to the output ([8d26dd0](https://github.com/animafps/fpsmath/commit/8d26dd0ab199bba3a30d4a0693d535b9b5a276cf))
+
 ## [3.0.1](https://github.com/animafps/fpsmath/compare/v3.0.0...v3.0.1) (2021-09-29)
 
 
