@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/animafps/fpsmath/compare/v3.0.2...v3.0.3) (2021-09-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency colorette to v2 ([#117](https://github.com/animafps/fpsmath/issues/117)) ([0b89657](https://github.com/animafps/fpsmath/commit/0b8965735351ca45d4d94abea4f552db655b1e96))
+
 ## [3.0.2](https://github.com/animafps/fpsmath/compare/v3.0.1...v3.0.2) (2021-09-30)
 
 
