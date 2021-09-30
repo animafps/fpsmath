@@ -30,6 +30,6 @@ export default class FocalCommand extends Command {
 		const inFOV = await args.pick('float');
 		const outFOV = await args.pick('float');
 		const output = (Math.tan((outFOV * Math.PI) / 360) / Math.tan((inFOV * Math.PI) / 360)) * sens;
-		return message.reply(output.toFixed(5));
+		return message.reply(parseFloat(output.toFixed(5)).toString());
 	}
 }

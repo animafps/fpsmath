@@ -32,6 +32,6 @@ export default class InchCommand extends Command {
 		const yaw = await args.pick('yaw');
 		const cpi = await args.pick('float');
 		const output = 360 / (cpi * yaw * sens);
-		return message.reply(`${output.toFixed(5)} inch/rev`);
+		return message.reply(`${parseFloat(output.toFixed(5))} inch/rev`);
 	}
 }

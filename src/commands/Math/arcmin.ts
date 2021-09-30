@@ -32,6 +32,6 @@ export default class ArcMinCommand extends Command {
 		const yaw = await args.pick('yaw');
 		const cpi = await args.pick('float');
 		const output = cpi * yaw * sens * (1 / 60);
-		return message.reply(`${output.toFixed(5)} arcmin`);
+		return message.reply(`${parseFloat(output.toFixed(5))} arcmin`);
 	}
 }

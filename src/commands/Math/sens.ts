@@ -43,6 +43,6 @@ export default class SensCommand extends Command {
 		} else {
 			output = (2.54 * 360) / (cpi * yaw * sens);
 		}
-		return message.reply(output.toFixed(5));
+		return message.reply(parseFloat(output.toFixed(5)).toString());
 	}
 }

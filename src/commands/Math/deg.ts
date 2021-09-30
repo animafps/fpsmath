@@ -32,6 +32,6 @@ export default class CMCommand extends Command {
 		const yaw = await args.pick('yaw');
 		const cpi = await args.pick('float');
 		const output = (cpi * yaw * sens) / 25.4;
-		return message.reply(`${output.toFixed(5)} deg/mm`);
+		return message.reply(`${parseFloat(output.toFixed(5))} deg/mm`);
 	}
 }

@@ -32,6 +32,6 @@ export default class MPICommand extends Command {
 		const yaw = await args.pick('yaw');
 		const cpi = await args.pick('float');
 		const output = cpi * yaw * sens * 60;
-		return message.reply(`${output.toFixed(5)} MPI`);
+		return message.reply(`${parseFloat(output.toFixed(5))} MPI`);
 	}
 }
