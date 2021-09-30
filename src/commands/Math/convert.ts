@@ -31,6 +31,6 @@ export default class ConvertCommand extends Command {
 		const inYaw = await args.pick('yaw');
 		const outYaw = await args.pick('yaw');
 		const output = sens * (inYaw / outYaw);
-		return message.reply(`${output.toFixed(5)} cm/rev`);
+		return message.reply(output.toFixed(5));
 	}
 }
