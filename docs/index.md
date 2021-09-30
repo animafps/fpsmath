@@ -2,6 +2,8 @@
 title: Welcome!
 ---
 
+# Welcome!
+
 !!! tip
     This documentation outlines everything there is to know about FPSMath.
 

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="http://fpsmath.animafps.xyz/assets/logo.png" alt="Bot logo"></a>
+ <img width=200px height=200px src="http://fpsmath.animafps.xyz/assets/images/logo.png" alt="Bot logo"></a>
 </p>
 
 <h3 align="center">fpsmath</h3>
