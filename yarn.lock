@@ -3577,7 +3577,7 @@ __metadata:
     "@types/ws": ^7.4.7
     "@typescript-eslint/eslint-plugin": ^4.32.0
     "@typescript-eslint/parser": ^4.32.0
-    colorette: ^1.4.0
+    colorette: ^2.0.12
     cz-conventional-changelog: 3.3.0
     dbots: ^9.0.1
     discord-api-types: ^0.23.1
