@@ -21,47 +21,42 @@
     <br> 
 </p>
 
-## 📝 Table of Contents
-
--   [📝 Table of Contents](#-table-of-contents)
--   [🧐 About <a name = "about"></a>](#-about-)
--   [💭 How it works <a name = "working"></a>](#-how-it-works-)
--   [🎈 Usage <a name = "usage"></a>](#-usage-)
--   [🏁 Getting Started <a name = "getting_started"></a>](#-getting-started-)
--   [⛏️ Built Using <a name = "built_using"></a>](#️-built-using-)
--   [✍️ Authors <a name = "authors"></a>](#️-authors-)
--   [🎉 Acknowledgements <a name = "acknowledgement"></a>](#-acknowledgements-)
-
-## 🧐 About <a name = "about"></a>
+## 🧐 About
 
 FPSMath is just a handy little bot that helps with converting everything related to video games. It supports [over 20 games](https://fpsmath.animafps.xyz/games/) and are happy to add plenty more. As well it is the discord bot with the most units that can be converted and used.
 
-## 💭 How it works <a name = "working"></a>
+## 💭 How it works
 
 The entire bot is written in Typescript and uses the Sapphire framework with Discord.js
 
-## 🎈 Usage <a name = "usage"></a>
+## 🎈 Usage
 
 See [Overview](https://fpsmath.animafps.xyz/commands/)
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🏁 Getting Started
 
-See [Getting Started](https://fpsmath.animafps.xyz/getting-started/)
+See [Getting Started](https://fpsmath.animafps.xyz/getting-started/) if you want to use the live hosted version of the bot
 
-## ⛏️ Built Using <a name = "built_using"></a>
+## Contributing
+
+If you are interested in contributing or helping with creation of this bot please read [the code of conduct](docs/code_of_conduct.md) and [the contributing guide and guidelines](docs/contributing.md)
+
+As well for any questions regarding development or usage join the [support Discord server](https://discord.com/invite/Bg2gNT35s9)
+
+## ⛏️ Built Using
 
 -   [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
 -   [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
 -   [Typescript](https://typescriptlang.org) - Language the bot is written in
 -   [Node.js](https://nodejs.org) - The runtime
 
-## ✍️ Authors <a name = "authors"></a>
+## ✍️ Authors
 
 -   [@animafps](https://github.com/animafps) - Idea & Initial work
 
 See also the list of [contributors](https://github.com/animafps/fpsmath/contributors) who participated in this project.
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+## 🎉 Acknowledgements
 
 -   [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
 -   [Sensitivity-Converter-Bot](https://github.com/JSanchezIO/Sensitivity-Converter-Bot) - The inspiration for me making this bot
