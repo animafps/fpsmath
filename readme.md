@@ -54,9 +54,13 @@ As well for any questions regarding development or usage join the [support Disco
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
-
-
-
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://animafps.xyz"><img src="https://avatars.githubusercontent.com/u/18208134?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anima.</b></sub></a><br /><a href="https://github.com/animafps/fpsmath/commits?author=animafps" title="Code">💻</a> <a href="https://github.com/animafps/fpsmath/commits?author=animafps" title="Documentation">📖</a> <a href="#design-animafps" title="Design">🎨</a> <a href="#ideas-animafps" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-animafps" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#projectManagement-animafps" title="Project Management">📆</a></td>
+  </tr>
+</table>
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
