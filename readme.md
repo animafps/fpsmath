@@ -50,12 +50,6 @@ As well for any questions regarding development or usage join the [support Disco
 -   [Typescript](https://typescriptlang.org) - Language the bot is written in
 -   [Node.js](https://nodejs.org) - The runtime
 
-## ✍️ Authors
-
--   [@animafps](https://github.com/animafps) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/animafps/fpsmath/contributors) who participated in this project.
-
 ## 🎉 Acknowledgements
 
 -   [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values

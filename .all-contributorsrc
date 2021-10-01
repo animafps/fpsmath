@@ -1,0 +1,5 @@
+{
+    files: ['readme.md'],
+    "skipCi": "true",
+    "contributors": []
+}
