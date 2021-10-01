@@ -1,54 +1,76 @@
-# Contributing to FPSMath
+# Contributing
 
-Thanks for showing your interest in using or contributing to this project
+## Workflow
 
-**Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://kcd.im/pull-request)
+1. Fork and clone this repository.
+2. Create a new branch in your fork based off the **main** branch.
+3. Make your changes.
+4. Commit your changes, and push them.
+5. Submit a Pull Request [here]!
 
-## Links
+## Contributing to the guides
 
--   [Discord Server](https://discord.gg/Bg2gNT35s9) - Join to ask questions or to discuss this project with me and other contributors
+All guides for FPSMath use Markdown formatting.
 
-## How to Setup
+When writing guides there are some rules to follow:
 
-Using Nodejs above v14.0.0
-Using Yarn 2
+1. All files should have the `.md` file extension.
+2. Folder names are allowed to have spaces.
+3. All folder names should be in lower case and different words should be split by hyphens (e.g., `hello-world` or `getting-started`).
+4. File names should _never_ have spaces.
+5. File names that consist of multiple words should be PascalCased.
+6. Information in a guide page should be generally useful to the majority of people.
 
-1. Download the [Latest Release](https://github.com/AnimaFPS/fpsmath/releases/latest) or clone the repo(`git clone https://github.com/AnimaFPS/fpsmath.git`)
-2. Navigate and open a command prompt or terminal in the root directory
-3. Install dependencies
+## Contributing to the code
 
-```shell
-yarn
+**The issue tracker is only for issue reporting or proposals/suggestions. If you have a question, you can find us in our [Discord Server][discord server]**.
+
+To contribute to this repository, feel free to create a new fork of the repository and
+submit a pull request. We highly suggest [ESLint] to be installed
+in your text editor or IDE of your choice to ensure builds from GitHub Actions do not fail.
+
+**_Before committing and pushing your changes, please ensure that you do not have any linting errors by running `yarn lint`!_**
+
+## Running FPSMath locally
+
+To run FPSMath locally a few steps should be taken.
+
+1. Install [Node.JS] and [Yarn].
+1. Copy and paste the [`.env.example`] file and rename it to `.env`.
+1. Scroll down to the tokens section.
+1. At this section enter your own bot's API token at `DISCORD_TOKEN`.
+1. Fill in any other API keys you have / want to fill in.
+1. Install project dependencies with `yarn install`.
+1. Start FPSMath in development mode with `yarn dev`.
+
+A few other important commands:
+
+```bash
+# Lints and format all the code:
+$ yarn lint
+
+# Run FPSMath in development mode:
+$ yarn start
 ```
 
-4. Create a .env file for environment variables
-    1. `DISCORD_TOKEN` for the discord bot token
-    2. `OWNER_ID` for the owners discord id
-5. To run you execute the start script
+## FPSMath Concept Guidelines
 
-```shell
-yarn start
-```
+There are a number of guidelines considered when reviewing Pull Requests to be merged. _This is by no means an exhaustive list, but here are some things to consider before/while submitting your ideas._
 
-6. Code as much as you want
+-   FPSMath should never change sapphire's or Discord.js' default behavior. FPSMath should only add to Sapphire and Discord.js, and be as consistent as possible with them.
+-   Everything in FPSMath should be generally useful for the majority of users. Don't let that stop you if you've got a good concept though, as your idea still might be a great addition.
+-   Everything should be shard compliant. If code you put in a pull request would break when sharding, break other things from supporting sharding, or is incompatible with sharding; then you will need to think of a way to make it work with sharding in mind before the pull request will be accepted and merged.
+-   Everything should follow [OOP paradigms] and generally rely on behaviour over state where possible. This generally helps methods be predictable, keeps the codebase simple and understandable, reduces code duplication through abstraction, and leads to efficiency and therefore scalability.
+-   Everything should follow our ESLint rules as closely as possible, and should pass lint tests even if you must disable a rule for a single line.
+-   Everything should follow [Discord Bot Best Practices]
 
-## How to submit changes
+<!-- Link Dump -->
 
-1. Stage the changes(`git add .`)
-2. Lint-staged and commit with script (`yarn commit` or `yarn cz`)/ [commitizen](https://https://github.com/commitizen/cz-cli) to make sure all push requests and commits are uniform
-3. Push to a pull request
-
-## How to report a bug
-
-Click this link: [Make a new issue](https://github.com/AnimaFPS/fpsmath/issues/new?assignees=&labels=&template=bug_report.md&title=)
-
-## How to request a feature, New command or New Supported game/unit
-
-Click this link: [Make a new issue](https://github.com/AnimaFPS/fpsmath/issues/new?assignees=&labels=&template=feature_request.md&title=)
-
-## Style guide
-
-This project uses
-
--   [Commitizen](https://https://github.com/commitizen/cz-cli) for the commit messages
--   [Prettier](https://prettier.io/) for the code styling
+[discord server]: https://discord.gg/Bg2gNT35s9
+[here]: https://github.com/animafps/fpsmath/pulls
+[eslint]: https://eslint.org/
+[node.js]: https://nodejs.org/en/download/
+[yarn]: https://yarnpkg.com/en/docs/install
+[oop paradigms]: https://en.wikipedia.org/wiki/Object-oriented_programming
+[discord bot best practices]: https://github.com/meew0/discord-bot-best-practices
+[`.env.example`]: /src/.env.example

@@ -6,7 +6,7 @@
 	"license": "AGPL-3.0-or-later",
 	"main": "dist/index.js",
 	"bugs": {
-		"url": "https://github.com/AnimaFPS/FPSMath/issues"
+		"url": "https://github.com/animafps/fpsmath/issues"
 	},
 	"author": {
 		"name": "Anima",
