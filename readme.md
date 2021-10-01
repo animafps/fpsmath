@@ -37,7 +37,7 @@ See [Overview](https://fpsmath.animafps.xyz/commands/)
 
 See [Getting Started](https://fpsmath.animafps.xyz/getting-started/) if you want to use the live hosted version of the bot
 
-## Contributing
+## ✍️ Contributing
 
 If you are interested in contributing or helping with creation of this bot please read [the code of conduct](.github/code_of_conduct.md) and [the contributing guide and guidelines](.github/contributing.md)
 
@@ -50,7 +50,7 @@ As well for any questions regarding development or usage join the [support Disco
 -   [Typescript](https://typescriptlang.org) - Language the bot is written in
 -   [Node.js](https://nodejs.org) - The runtime
 
-## Contributors
+## ✨ Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
