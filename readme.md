@@ -39,7 +39,7 @@ See [Getting Started](https://fpsmath.animafps.xyz/getting-started/) if you want
 
 ## Contributing
 
-If you are interested in contributing or helping with creation of this bot please read [the code of conduct](docs/code_of_conduct.md) and [the contributing guide and guidelines](docs/contributing.md)
+If you are interested in contributing or helping with creation of this bot please read [the code of conduct](.github/code_of_conduct.md) and [the contributing guide and guidelines](.github/contributing.md)
 
 As well for any questions regarding development or usage join the [support Discord server](https://discord.com/invite/Bg2gNT35s9)
 
