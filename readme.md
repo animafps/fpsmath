@@ -50,6 +50,8 @@ As well for any questions regarding development or usage join the [support Disco
 -   [Typescript](https://typescriptlang.org) - Language the bot is written in
 -   [Node.js](https://nodejs.org) - The runtime
 
+## Contributors
+
 ## 🎉 Acknowledgements
 
 -   [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
