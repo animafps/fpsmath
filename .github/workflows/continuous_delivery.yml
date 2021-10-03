@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: 16
           cache: 'yarn'
+      - name: Install Dependencies
+        run: yarn install
       - name: Bump Version & Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
