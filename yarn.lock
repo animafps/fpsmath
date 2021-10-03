@@ -2175,6 +2175,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"colorette@npm:^2.0.13":
+  version: 2.0.13
+  resolution: "colorette@npm:2.0.13"
+  checksum: e257bfacd468b0a9a2970fd7160ef150647292da976fe1866336bdb6145dbcb5f8deba970c0d9237d79f5d90299c75164ac13649669cdc47c371e86a71f8b14f
+  languageName: node
+  linkType: hard
+
 "colors@npm:^1.1.2":
   version: 1.4.0
   resolution: "colors@npm:1.4.0"
@@ -3577,7 +3584,7 @@ __metadata:
     "@types/ws": ^8.2.0
     "@typescript-eslint/eslint-plugin": ^4.32.0
     "@typescript-eslint/parser": ^4.32.0
-    colorette: ^2.0.12
+    colorette: ^2.0.13
     cz-conventional-changelog: 3.3.0
     dbots: ^9.0.1
     discord-api-types: ^0.23.1
