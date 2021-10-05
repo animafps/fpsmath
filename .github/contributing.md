@@ -1,5 +1,9 @@
 # Contributing
 
+Thank you for being interested in contributing in fpsmath.
+
+By deciding to contribute to this project you accept the [Code of Conduct][code of conduct].
+
 ## Workflow
 
 1. Fork and clone this repository.
@@ -8,18 +12,17 @@
 4. Commit your changes, and push them.
 5. Submit a Pull Request [here]!
 
-## Contributing to the guides
+## Contributing to the guides/documentation
 
 All guides for FPSMath use Markdown formatting.
 
-When writing guides there are some rules to follow:
+When writing guides/documentation there are some rules to follow:
 
 1. All files should have the `.md` file extension.
 2. Folder names are allowed to have spaces.
-3. All folder names should be in lower case and different words should be split by hyphens (e.g., `hello-world` or `getting-started`).
+3. All folder and file names should be in lower case and different words should be split by hyphens (e.g., `hello-world` or `getting-started`).
 4. File names should _never_ have spaces.
-5. File names that consist of multiple words should be PascalCased.
-6. Information in a guide page should be generally useful to the majority of people.
+5. Information in a guide page should be generally useful to the majority of people.
 
 ## Contributing to the code
 
@@ -57,12 +60,12 @@ $ yarn start
 
 There are a number of guidelines considered when reviewing Pull Requests to be merged. _This is by no means an exhaustive list, but here are some things to consider before/while submitting your ideas._
 
--   FPSMath should never change sapphire's or Discord.js' default behavior. FPSMath should only add to Sapphire and Discord.js, and be as consistent as possible with them.
--   Everything in FPSMath should be generally useful for the majority of users. Don't let that stop you if you've got a good concept though, as your idea still might be a great addition.
--   Everything should be shard compliant. If code you put in a pull request would break when sharding, break other things from supporting sharding, or is incompatible with sharding; then you will need to think of a way to make it work with sharding in mind before the pull request will be accepted and merged.
--   Everything should follow [OOP paradigms] and generally rely on behaviour over state where possible. This generally helps methods be predictable, keeps the codebase simple and understandable, reduces code duplication through abstraction, and leads to efficiency and therefore scalability.
--   Everything should follow our ESLint rules as closely as possible, and should pass lint tests even if you must disable a rule for a single line.
--   Everything should follow [Discord Bot Best Practices]
+- FPSMath should never change Sapphire's or Discord.js' default behavior. FPSMath should only add to Sapphire and Discord.js, and be as consistent as possible with them.
+- Everything in FPSMath should be generally useful for the majority of users. Don't let that stop you if you've got a good concept though, as your idea still might be a great addition.
+- Everything should be shard compliant. If code you put in a pull request would break when sharding, break other things from supporting sharding, or is incompatible with sharding; then you will need to think of a way to make it work with sharding in mind before the pull request will be accepted and merged.
+- Everything should follow [OOP paradigms] and generally rely on behaviour over state where possible. This generally helps methods be predictable, keeps the codebase simple and understandable, reduces code duplication through abstraction, and leads to efficiency and therefore scalability.
+- Everything should follow our ESLint rules as closely as possible, and should pass lint tests even if you must disable a rule for a single line.
+- Everything should follow [Discord Bot Best Practices]
 
 <!-- Link Dump -->
 
@@ -73,4 +76,5 @@ There are a number of guidelines considered when reviewing Pull Requests to be m
 [yarn]: https://yarnpkg.com/en/docs/install
 [oop paradigms]: https://en.wikipedia.org/wiki/Object-oriented_programming
 [discord bot best practices]: https://github.com/meew0/discord-bot-best-practices
-[`.env.example`]: /src/.env.example
+[`.env.example`]: ../.env.example
+[code of conduct]: code_of_conduct.md

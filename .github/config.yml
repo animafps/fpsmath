@@ -3,7 +3,7 @@
 # *OPTIONAL* Comment to reply with
 # Can be either a string :
 requestInfoReplyComment: >
-  We would appreciate it if you could provide us with more info about this issue/pr!
+    We would appreciate it if you could provide us with more info about this issue/pr!
 # Or an array:
 # requestInfoReplyComment:
 #  - Ah no! young blade! That was a trifle short!
@@ -13,8 +13,8 @@ requestInfoReplyComment: >
 # *OPTIONAL* default titles to check against for lack of descriptiveness
 # MUST BE ALL LOWERCASE
 requestInfoDefaultTitles:
-  - update readme.md
-  - updates
+    - update readme.md
+    - updates
 
 # *OPTIONAL* Label to be added to Issues and Pull Requests with insufficient information given
 requestInfoLabelToAdd: needs-more-info
@@ -30,13 +30,13 @@ checkPullRequestTemplate: true
 # *OPTIONAL* Only warn about insufficient information on these events type
 # Keys must be lowercase. Valid values are 'issue' and 'pullRequest'
 requestInfoOn:
-  pullRequest: true
-  issue: true
+    pullRequest: true
+    issue: true
 
 # *OPTIONAL* Add a list of people whose Issues/PRs will not be commented on
 # keys must be GitHub usernames
 requestInfoUserstoExclude:
-  - animafps
+    - animafps
 
 # Configuration for welcome - https://github.com/behaviorbot/welcome
 
@@ -44,14 +44,14 @@ requestInfoUserstoExclude:
 
 # Comment to be posted to on first time issues
 newIssueWelcomeComment: >
-  Thanks for opening your first issue here! Be sure to follow the issue template!
+    Thanks for opening your first issue here! Be sure to follow the issue template!
 # Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
 # Comment to be posted to on PRs from first time contributors in your repository
 newPRWelcomeComment: >
-  Thanks for opening this pull request! Please check out our contributing guidelines.
+    Thanks for opening this pull request! Please check out our [contributing guidelines](https://github.com/animafps/fpsmath/blob/main/.github/contributing.md).
 # Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
 # Comment to be posted to on pull requests merged by a first time user
 firstPRMergeComment: >
-  Congrats on merging your first pull request! We here at behaviorbot are proud of you!
+    🎉 Congrats on merging your first pull request! 🎉
 
 # It is recommended to include as many gifs and emojis as possible!

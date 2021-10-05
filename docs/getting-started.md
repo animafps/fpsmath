@@ -1,5 +1,5 @@
 ---
-title: Getting Started/ Inviting
+title: Getting Started/Inviting
 ---
 
 !!! caution IMPORTANT
