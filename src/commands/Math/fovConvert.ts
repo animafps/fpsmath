@@ -1,10 +1,11 @@
-import { Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-convert', 'film-convert', 'convert-fov'],
-	description: 'Converts a FoV value from one game or FILM notation to another',
+	description:
+		'Converts a FoV value from one game or FILM notation to another',
 	detailedDescription: `
 	📝 **| Command Usage**
 	→ fps-fovconvert *FoV* *InputGameName* *OuputGameName* *Aspectratio*
@@ -26,10 +27,10 @@ import { ApplyOptions } from '@sapphire/decorators';
 	🔗 **| Examples**
 	→ fps-fovconvert *90* *cs* *ow* *16:9*
 	→ fps-fovconvert *103* *ow* *r6s* *4:3*
-	`
+	`,
 })
 export default class FOVConvertCommand extends Command {
 	public async run(message: Message) {
-		return message.reply('Not fully implemented yet');
+		return message.reply('Not fully implemented yet')
 	}
 }

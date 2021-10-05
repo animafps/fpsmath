@@ -1,7 +1,7 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework';
-import { Message, MessageEmbed } from 'discord.js';
-import { get } from '../../helpers/array';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Args, Command, CommandOptions } from '@sapphire/framework'
+import { Message, MessageEmbed } from 'discord.js'
+import { get } from '../../helpers/array'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['game-info', 'game'],
@@ -17,11 +17,11 @@ import { ApplyOptions } from '@sapphire/decorators';
 
 	🔗 **| Examples**
 	→ fps-gameinfo *cs*
-	`
+	`,
 })
 export default class GetObjectCommand extends Command {
 	public async run(message: Message, args: Args) {
-		const gameObject = get(await args.pick('game'));
+		const gameObject = get(await args.pick('game'))
 		return message.reply({
 			embeds: [
 				new MessageEmbed()
@@ -30,13 +30,19 @@ export default class GetObjectCommand extends Command {
 					.setTimestamp(Date.now())
 					.setDescription(
 						`
-						🖇️ **| Aliases**: \`${gameObject?.aliases.join('`, `')}\`${gameObject?.yaw ? `\n\n🖱️ **| Yaw**: \`${gameObject?.yaw}\`` : ''}${
-							gameObject?.film ? `\n\n🎥 **| FILM Notation**: \`${gameObject?.film}\`` : ''
+						🖇️ **| Aliases**: \`${gameObject?.aliases.join('`, `')}\`${
+							gameObject?.yaw
+								? `\n\n🖱️ **| Yaw**: \`${gameObject?.yaw}\``
+								: ''
+						}${
+							gameObject?.film
+								? `\n\n🎥 **| FILM Notation**: \`${gameObject?.film}\``
+								: ''
 						}
 					`
 					)
-					.setFooter(`Game info`)
-			]
-		});
+					.setFooter(`Game info`),
+			],
+		})
 	}
 }

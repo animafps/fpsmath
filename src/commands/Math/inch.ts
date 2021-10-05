@@ -1,6 +1,6 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Args, Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['inch/rev', 'inch/360', 'inch/revolution'],
@@ -24,14 +24,14 @@ import { ApplyOptions } from '@sapphire/decorators';
 	🔗 **| Examples**
 	→ fps-inch *2* *cs* *800*
 	→ fps-inch *3* *0.006* *1600*
-	`
+	`,
 })
 export default class InchCommand extends Command {
 	public async run(message: Message, args: Args) {
-		const sens = await args.pick('float');
-		const yaw = await args.pick('yaw');
-		const cpi = await args.pick('float');
-		const output = 360 / (cpi * yaw * sens);
-		return message.reply(`${parseFloat(output.toFixed(5))} inch/rev`);
+		const sens = await args.pick('float')
+		const yaw = await args.pick('yaw')
+		const cpi = await args.pick('float')
+		const output = 360 / (cpi * yaw * sens)
+		return message.reply(`${parseFloat(output.toFixed(5))} inch/rev`)
 	}
 }

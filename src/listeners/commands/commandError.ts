@@ -1,4 +1,9 @@
-import { ArgumentError, CommandErrorPayload, Events, Listener } from '@sapphire/framework';
+import {
+	ArgumentError,
+	CommandErrorPayload,
+	Events,
+	Listener,
+} from '@sapphire/framework'
 
 export default class UserListener extends Listener<typeof Events.CommandError> {
 	public run(error: ArgumentError, { message, args }: CommandErrorPayload) {
@@ -7,23 +12,25 @@ export default class UserListener extends Listener<typeof Events.CommandError> {
 				void message.reply(
 					`You need to write another parameter!
 					> **Tip**: You can do \`${args.commandContext.prefix}help ${args.command.name}\` to find out how to use this command.`
-				);
-				break;
+				)
+				break
 
 			case 'gameNoSupport':
 				void message.reply(
 					`Game: \`${error.parameter}\` not supported.
 					> **Tip**: You can do \`${args.commandContext.prefix}games\` to see all the supported games.`
-				);
-				break;
+				)
+				break
 
 			case 'floatError':
-				void message.reply(`\`${error.parameter}\` is not a valid decimal.`);
-				break;
+				void message.reply(
+					`\`${error.parameter}\` is not a valid decimal.`
+				)
+				break
 
 			default:
-				void message.reply(`${error.identifier}: ${error.message}`);
-				break;
+				void message.reply(`${error.identifier}: ${error.message}`)
+				break
 		}
 	}
 }

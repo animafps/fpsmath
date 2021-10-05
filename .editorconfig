@@ -6,7 +6,7 @@ insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
 
-[*.{js,ts}]
+[*.{js,ts,json}]
 indent_size = 4
 indent_style = tab
 block_comment_start = /*

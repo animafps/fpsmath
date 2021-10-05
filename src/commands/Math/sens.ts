@@ -1,10 +1,18 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Args, Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
-	aliases: ['sens-cm', 'sens-deg', 'sens-inch', 'sens', 'sens-mpi', 'sens-arcmin'],
-	description: 'Converts a universal sensitivity value to a game specific sensitivity',
+	aliases: [
+		'sens-cm',
+		'sens-deg',
+		'sens-inch',
+		'sens',
+		'sens-mpi',
+		'sens-arcmin',
+	],
+	description:
+		'Converts a universal sensitivity value to a game specific sensitivity',
 	detailedDescription: `
 	📝 **| Command Usage**
 	→ fps-arcmin *Sensitivity* *GameName* *CPI*
@@ -24,25 +32,25 @@ import { ApplyOptions } from '@sapphire/decorators';
 	🔗 **| Examples**
 	→ fps-arcmin *2* *cs* *800*
 	→ fps-arcmin *3* *0.006* *1600*
-	`
+	`,
 })
 export default class SensCommand extends Command {
 	public async run(message: Message, args: Args) {
-		const sens = await args.pick('float');
-		const yaw = await args.pick('yaw');
-		const cpi = await args.pick('float');
-		let output: number;
+		const sens = await args.pick('float')
+		const yaw = await args.pick('yaw')
+		const cpi = await args.pick('float')
+		let output: number
 		if (args.getFlags('deg')) {
-			output = (cpi * yaw * 60) / sens;
+			output = (cpi * yaw * 60) / sens
 		} else if (args.getFlags('inch')) {
-			output = 360 / (cpi * yaw * sens);
+			output = 360 / (cpi * yaw * sens)
 		} else if (args.getFlags('mpi')) {
-			output = (24.5 * sens) / (cpi * yaw);
+			output = (24.5 * sens) / (cpi * yaw)
 		} else if (args.getFlags('arcmin')) {
-			output = (cpi * yaw * (1 / 60)) / sens;
+			output = (cpi * yaw * (1 / 60)) / sens
 		} else {
-			output = (2.54 * 360) / (cpi * yaw * sens);
+			output = (2.54 * 360) / (cpi * yaw * sens)
 		}
-		return message.reply(parseFloat(output.toFixed(5)).toString());
+		return message.reply(parseFloat(output.toFixed(5)).toString())
 	}
 }

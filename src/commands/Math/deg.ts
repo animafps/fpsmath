@@ -1,6 +1,6 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Args, Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['deg/mm', 'degree', 'degree/mm'],
@@ -24,14 +24,14 @@ import { ApplyOptions } from '@sapphire/decorators';
 	🔗 **| Examples**
 	→ fps-deg *2* *cs* *800*
 	→ fps-deg *3* *0.006* *1600*
-	`
+	`,
 })
 export default class CMCommand extends Command {
 	public async run(message: Message, args: Args) {
-		const sens = await args.pick('float');
-		const yaw = await args.pick('yaw');
-		const cpi = await args.pick('float');
-		const output = (cpi * yaw * sens) / 25.4;
-		return message.reply(`${parseFloat(output.toFixed(5))} deg/mm`);
+		const sens = await args.pick('float')
+		const yaw = await args.pick('yaw')
+		const cpi = await args.pick('float')
+		const output = (cpi * yaw * sens) / 25.4
+		return message.reply(`${parseFloat(output.toFixed(5))} deg/mm`)
 	}
 }

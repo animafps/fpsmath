@@ -17,7 +17,7 @@ Below is a shortlist of all the bot commands.
 
 **Hint**: You can click on a command to go to its full help entry.
 
-| **Command**                        | **Description **                                                                                                  |
+| **Command**                        | **Description**                                                                                                   |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | [`arcmin`](math.md#arcmin)         | Converts Sensitivity to arcmin                                                                                    |
 | [`convert`](math.md#convert)       | Converts Different Sensitivities from one game to another                                                         |
@@ -32,9 +32,9 @@ Below is a shortlist of all the bot commands.
 
 ## Miscellaneous Commands
 
-| **Command**                 | **Description **                                                                        |
+| **Command**                 | **Description**                                                                         |
 | --------------------------- | --------------------------------------------------------------------------------------- |
-| [`cminfo `](misc.md#cminfo) | Displays an explanation for what cm/rev \(cm/rev\) is                                   |
+| [`cminfo`](misc.md#cminfo)  | Displays an explanation for what cm/rev \(cm/rev\) is                                   |
 | [`gameinfo`](misc.md#games) | Displays the information associated for a game                                          |
 | [`games`](misc.md#games)    | Displays the supported games for this bot                                               |
 | [`info`](misc.md#info)      | Displays the major information about this bot                                           |
@@ -45,10 +45,10 @@ Below is a shortlist of all the bot commands.
 
 For commands that accept input, you'll see keys with the following:
 
--   `<required>` - parameters between `<>` must be included with the command
--   `[optional]` - parameters between `[]` are optional parameters and may be excluded
--   `a | or | b` - `|` means that you can use the parameters on either side of the symbol
--   `repeat...` - means that you can provide multiple parameters as input
+- `<required>` - parameters between `<>` must be included with the command
+- `[optional]` - parameters between `[]` are optional parameters and may be excluded
+- `a | or | b` - `|` means that you can use the parameters on either side of the symbol
+- `repeat...` - means that you can provide multiple parameters as input
 
 These may be nested. Example: `[parameter1 <parameter2>]` means that the input is optional, but if you provide parameter1 then parameter2 is required. `[parameter...]` means that input is optional, and that the input can be any number of parameters.
 

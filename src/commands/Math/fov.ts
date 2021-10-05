@@ -1,10 +1,11 @@
-import { Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-scaling', 'film'],
-	description: 'Finds the true vertical and horizontal FOV that is being displayed on screen',
+	description:
+		'Finds the true vertical and horizontal FOV that is being displayed on screen',
 	detailedDescription: `
 	📝 **| Command Usage**
 	→ fps-fov *FoV* *GameName* *AspectRatio*
@@ -24,10 +25,10 @@ import { ApplyOptions } from '@sapphire/decorators';
 	🔗 **| Examples**
 	→ fps-fov *90* *cs* *16:9*
 	→ fps-fov *103* *ow* *4:3*
-	`
+	`,
 })
 export default class FOVCommand extends Command {
 	public async run(message: Message) {
-		return message.reply('Not fully implemented yet');
+		return message.reply('Not fully implemented yet')
 	}
 }

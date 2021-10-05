@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="http://fpsmath.animafps.xyz/assets/images/logo.png" alt="Bot logo"></a>
+    <a href="" rel="noopener">
+    <img width=200px height=200px src="http://fpsmath.animafps.xyz/assets/images/logo.png" alt="Bot logo"></a>
 </p>
 
 <h3 align="center">fpsmath</h3>
@@ -45,12 +45,14 @@ As well for any questions regarding development or usage join the [support Disco
 
 ## ⛏️ Built Using
 
--   [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
--   [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
--   [Typescript](https://typescriptlang.org) - Language the bot is written in
--   [Node.js](https://nodejs.org) - The runtime
+- [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
+- [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
+- [Typescript](https://typescriptlang.org) - Language the bot is written in
+- [Node.js](https://nodejs.org) - The runtime
 
 ## ✨ Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -65,13 +67,14 @@ As well for any questions regarding development or usage join the [support Disco
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 ## 🎉 Acknowledgements
 
--   [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
--   [Sensitivity-Converter-Bot](https://github.com/JSanchezIO/Sensitivity-Converter-Bot) - The inspiration for me making this bot
--   Nocro - Helped with the initial math equations
--   [Kovaak's Website/Articles](https://kovaak.com) - Source of many of the terms and ideas used in the bot
+- [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
+- [Sensitivity-Converter-Bot](https://github.com/JSanchezIO/Sensitivity-Converter-Bot) - The inspiration for me making this bot
+- Nocro - Helped with the initial math equations
+- [Kovaak's Website/Articles](https://kovaak.com) - Source of many of the terms and ideas used in the bot
 
-## License
+## ⚠️ License
 
-The source code of the FPSMath bot are licensed under [AGPLv3](license). The content of the documentation is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](docs/license).
+The source code of the fpsmath bot are licensed under [AGPLv3](license). The content of the documentation(docs/) is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](docs/license).

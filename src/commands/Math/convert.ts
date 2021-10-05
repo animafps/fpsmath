@@ -1,10 +1,11 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Args, Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['convert-sens'],
-	description: 'Converts different sensitivities from one game or yaw value to another',
+	description:
+		'Converts different sensitivities from one game or yaw value to another',
 	detailedDescription: `
 	📝 **| Command Usage**
 	→ fps-convert *Sensitivity* *InputGameName* *OutputGameName*
@@ -23,14 +24,14 @@ import { ApplyOptions } from '@sapphire/decorators';
 	🔗 **| Examples**
 	→ fps-convert *2* *cs* *overwatch*
 	→ fps-arcmin *3* *0.006* *0.022*
-	`
+	`,
 })
 export default class ConvertCommand extends Command {
 	public async run(message: Message, args: Args) {
-		const sens = await args.pick('float');
-		const inYaw = await args.pick('yaw');
-		const outYaw = await args.pick('yaw');
-		const output = sens * (inYaw / outYaw);
-		return message.reply(parseFloat(output.toFixed(5)).toString());
+		const sens = await args.pick('float')
+		const inYaw = await args.pick('yaw')
+		const outYaw = await args.pick('yaw')
+		const output = sens * (inYaw / outYaw)
+		return message.reply(parseFloat(output.toFixed(5)).toString())
 	}
 }

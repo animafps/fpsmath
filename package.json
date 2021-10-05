@@ -1,126 +1,114 @@
 {
-	"name": "fpsmath",
-	"private": true,
-	"version": "3.0.3",
-	"homepage": "https://fpsmath.animafps.xyz",
-	"license": "AGPL-3.0-or-later",
-	"main": "dist/index.js",
-	"bugs": {
-		"url": "https://github.com/animafps/fpsmath/issues"
-	},
-	"author": {
-		"name": "Anima",
-		"email": "animafps@pm.me"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/animafps/fpsmath.git"
-	},
-	"scripts": {
-		"lint": "eslint src --ext ts --fix",
-		"format": "prettier --write {src,tests}/**/*.ts",
-		"build": "tsc",
-		"clean": "tsc --clean",
-		"watch": "tsc -w",
-		"commit": "git-cz",
-		"cz": "git-cz",
-		"update": "yarn upgrade-interactive",
-		"start": "node dist/index.js",
-		"release": "semantic-release"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^13.2.0",
-		"@commitlint/config-conventional": "^13.2.0",
-		"@sapphire/eslint-config": "^3.2.3",
-		"@sapphire/prettier-config": "^1.1.6",
-		"@sapphire/ts-config": "^3.0.0",
-		"@semantic-release/changelog": "^6.0.0",
-		"@semantic-release/git": "^10.0.0",
-		"@types/eslint-plugin-prettier": "^3.1.0",
-		"@types/node": "^16.10.1",
-		"@types/semantic-release": "^17.2.2",
-		"@types/ws": "^8.2.0",
-		"@typescript-eslint/eslint-plugin": "^4.32.0",
-		"@typescript-eslint/parser": "^4.32.0",
-		"cz-conventional-changelog": "3.3.0",
-		"eslint": "^7.32.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-prettier": "^4.0.0",
-		"husky": "^7.0.2",
-		"lint-staged": "^11.1.2",
-		"prettier": "^2.4.1",
-		"pretty-quick": "^3.1.1",
-		"release": "^6.3.0",
-		"semantic": "^0.0.1",
-		"semantic-release": "^18.0.0",
-		"typescript": "^4.4.3"
-	},
-	"dependencies": {
-		"@discordjs/collection": "^0.2.1",
-		"@sapphire/decorators": "^2.2.0",
-		"@sapphire/discord-utilities": "^2.1.5",
-		"@sapphire/discord.js-utilities": "next",
-		"@sapphire/fetch": "next",
-		"@sapphire/framework": "next",
-		"@sapphire/pieces": "3.0.0",
-		"@sapphire/plugin-api": "next",
-		"@sapphire/plugin-logger": "next",
-		"@sapphire/utilities": "^2.0.1",
-		"@sentry/node": "^6.13.2",
-		"colorette": "^2.0.12",
-		"dbots": "^9.0.1",
-		"discord-api-types": "^0.23.1",
-		"discord.js": "^13.1.0",
-		"dotenv": "^10.0.0",
-		"tslib": "^2.3.1"
-	},
-	"engines": {
-		"node": "16.x",
-		"yarn": "3.x"
-	},
-	"prettier": "@sapphire/prettier-config",
-	"eslintConfig": {
-		"extends": "@sapphire"
-	},
-	"config": {
-		"commitizen": {
-			"path": "cz-conventional-changelog"
-		}
-	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
-	"lint-staged": {
-		"*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
-	},
-	"release": {
-		"branches": [
-			"main"
-		],
-		"plugins": [
-			"@semantic-release/commit-analyzer",
-			"@semantic-release/release-notes-generator",
-			[
-				"@semantic-release/changelog",
-				{
-					"changelogFile": "docs/changelog.md"
-				}
-			],
-			"@semantic-release/npm",
-			[
-				"@semantic-release/git",
-				{
-					"assets": [
-						"docs/changelog.md",
-						"package.json"
-					],
-					"message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-				}
-			],
-			"@semantic-release/github"
-		]
-	},
-	"packageManager": "yarn@3.0.2"
+    "name": "fpsmath",
+    "private": true,
+    "version": "3.0.3",
+    "homepage": "https://fpsmath.animafps.xyz",
+    "license": "AGPL-3.0-or-later",
+    "main": "dist/index.js",
+    "bugs": {
+        "url": "https://github.com/animafps/fpsmath/issues"
+    },
+    "author": {
+        "name": "Anima",
+        "email": "animafps@pm.me"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/animafps/fpsmath.git"
+    },
+    "scripts": {
+        "lint": "eslint src --ext ts --fix",
+        "format": "prettier --write {src,tests}/**/*.ts",
+        "build": "tsc -b src",
+        "clean": "tsc -b src --clean",
+        "watch": "tsc -b src -w",
+        "commit": "git-cz",
+        "cz": "git-cz",
+        "update": "yarn upgrade-interactive",
+        "start": "node dist/index.js",
+        "release": "semantic-release",
+        "pretty-quick": "pretty-quick"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^13.2.0",
+        "@commitlint/config-conventional": "^13.2.0",
+        "@semantic-release/changelog": "^6.0.0",
+        "@semantic-release/git": "^10.0.0",
+        "@types/node": "^16.10.1",
+        "@types/semantic-release": "^17.2.2",
+        "@types/ws": "^8.2.0",
+        "@typescript-eslint/eslint-plugin": "^4.32.0",
+        "@typescript-eslint/parser": "^4.32.0",
+        "cz-conventional-changelog": "3.3.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "husky": "^7.0.2",
+        "lint-staged": "^11.1.2",
+        "prettier": "^2.4.1",
+        "pretty-quick": "^3.1.1",
+        "semantic-release": "^18.0.0",
+        "typescript": "^4.4.3"
+    },
+    "dependencies": {
+        "@discordjs/collection": "^0.2.1",
+        "@sapphire/decorators": "^2.2.0",
+        "@sapphire/discord.js-utilities": "next",
+        "@sapphire/framework": "next",
+        "@sapphire/pieces": "3.0.0",
+        "@sapphire/plugin-api": "next",
+        "@sapphire/plugin-logger": "next",
+        "@sapphire/utilities": "^2.0.1",
+        "@sentry/node": "^6.13.2",
+        "colorette": "^2.0.13",
+        "dbots": "^9.0.1",
+        "discord-api-types": "^0.23.1",
+        "discord.js": "^13.1.0",
+        "dotenv": "^10.0.0",
+        "tslib": "^2.3.1"
+    },
+    "engines": {
+        "node": "16.x",
+        "yarn": "3.x"
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "lint-staged": {
+        "*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
+    },
+    "release": {
+        "branches": [
+            "main"
+        ],
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            [
+                "@semantic-release/changelog",
+                {
+                    "changelogFile": "docs/changelog.md"
+                }
+            ],
+            "@semantic-release/npm",
+            [
+                "@semantic-release/git",
+                {
+                    "assets": [
+                        "docs/changelog.md",
+                        "package.json"
+                    ],
+                    "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+                }
+            ],
+            "@semantic-release/github"
+        ]
+    },
+    "packageManager": "yarn@3.0.2"
 }

@@ -1,25 +1,30 @@
-import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework';
+import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
 
 export default class GameArgument extends Argument<string> {
 	public constructor(context: PieceContext) {
-		super(context, { name: 'gameObject' });
+		super(context, { name: 'gameObject' })
 	}
 
 	public run(parameter: string, context: ArgumentContext) {
-		if (parameter.toLowerCase() === 'yaw' || 'film' || 'aliases') {
-			return this.ok(parameter);
+		if (
+			parameter.toLowerCase() === 'yaw' ||
+			parameter.toLowerCase() === 'film' ||
+			parameter.toLowerCase() === 'alias' ||
+			parameter.toLowerCase() === 'name'
+		) {
+			return this.ok(parameter)
 		}
 		return this.error({
 			parameter,
-			message: 'Game not supported.',
+			message: '',
 			identifier: 'gameNoSupport',
-			context
-		});
+			context,
+		})
 	}
 }
 
 declare module '@sapphire/framework' {
 	interface ArgType {
-		arrayObject: 'yaw' | 'film' | 'aliases';
+		arrayObject: 'yaw' | 'film' | 'aliases' | 'name'
 	}
 }

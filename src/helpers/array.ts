@@ -1,129 +1,140 @@
-export const array: { [key: string]: { yaw?: number; aliases: string[]; film?: string } } = {
+export const array: {
+	[key: string]: { yaw?: number; aliases: string[]; film?: string }
+} = {
 	'3D Aim Trainer': {
 		yaw: 0.0066,
 		aliases: ['3daimtrainer', '3dat'],
-		film: '16MF9'
+		film: '16MF9',
 	},
 	Aimgods: { yaw: 0.0023331, aliases: ['aimgods'] },
 	Source: {
 		yaw: 0.022,
 		aliases: ['source'],
-		film: '4ML3'
+		film: '4ML3',
 	},
 	'Counter Strike': {
 		yaw: 0.022,
 		aliases: ['cs', 'cs:go', 'csgo', 'counter-strike'],
-		film: '4ML3'
+		film: '4ML3',
 	},
 	Quake: { yaw: 0.022, aliases: ['quake'], film: '4ML3' },
 	'Quake Champions': {
 		aliases: ['qc', 'quake-champions'],
 		film: '16ML9',
-		yaw: 0.022
+		yaw: 0.022,
 	},
 	'Apex Legends': {
 		yaw: 0.022,
 		aliases: ['apex-legends', 'apex'],
-		film: '4ML3'
+		film: '4ML3',
 	},
 	Valorant: { yaw: 0.07, aliases: ['valorant', 'val'] },
 	Overwatch: {
 		yaw: 0.0066,
 		aliases: ['overwatch', 'ow'],
-		film: '16MF9'
+		film: '16MF9',
 	},
 	Fortnite: {
 		yaw: 0.005555,
 		aliases: ['fortnite', 'fn'],
-		film: '16ML9'
+		film: '16ML9',
 	},
 	'Fortnite config': {
 		yaw: 2.222,
 		aliases: ['fn-config', 'fortnite-config'],
-		film: '16ML9'
+		film: '16ML9',
 	},
 	Diabotical: {
 		yaw: 0.022,
 		aliases: ['diabotical', 'dbt'],
-		film: 'vML'
+		film: 'vML',
 	},
 	'Rainbow Six: Siege': {
 		yaw: 0.005729577951308232,
 		aliases: ['r6', 'rainbow6', 'r6s', 'siege'],
-		film: 'vML'
+		film: 'vML',
 	},
 	'Call of Duty': {
 		yaw: 0.0066,
 		aliases: ['cod', 'callofduty', 'call-of-duty', 'warzone', 'wz'],
-		film: 'hML'
+		film: 'hML',
 	},
 	Battlefield: {
 		yaw: 0.6771319397,
 		aliases: ['battlefield', 'bf'],
-		film: 'vML'
+		film: 'vML',
 	},
 	Destiny: {
 		yaw: 0.0066,
 		aliases: ['destiny', 'd2', 'destiny2'],
-		film: '16ML9'
+		film: '16ML9',
 	},
 	Reflex: {
 		yaw: 0.005729577951308232087679815481411,
 		aliases: ['reflex', 'reflex-arena'],
-		film: '4ML3'
+		film: '4ML3',
 	},
 	Krunker: {
 		yaw: 0.13750954927425516,
 		aliases: ['krunker'],
-		film: 'vML'
+		film: 'vML',
 	},
 	Minecraft: {
 		yaw: 0.2592,
 		aliases: ['mc', 'minecraft'],
-		film: 'hML'
+		film: 'hML',
 	},
-	Palidins: {
-		aliases: ['palidins'],
-		film: 'hML'
+	Paladins: {
+		aliases: ['paladins'],
+		film: 'hML',
 	},
 	"PlayerUnknown's: Battleground": {
 		aliases: ['pubg'],
 		yaw: 2.49975,
-		film: '16ML9'
+		film: '16ML9',
 	},
 	'Totally Accurate Battlegrounds': {
 		aliases: ['tabg'],
 		yaw: 0.001280683,
-		film: 'hML'
+		film: 'hML',
 	},
 	'Unreal Engine 4': {
 		aliases: ['ue4', 'unreal', 'unreal-engine'],
-		yaw: 0.07
+		yaw: 0.07,
 	},
 	'Halo: Master Chief Collection': {
 		yaw: 0.022222222222222223,
 		aliases: ['halo', 'halo-mcc'],
-		film: 'hML'
-	}
-};
+		film: 'hML',
+	},
+}
 
 export function get(game: string) {
-	return map.get(game) ?? aliases.get(game);
+	return map.get(game) ?? aliasesMap.get(game)
 }
 
-export const map = new Map<string, { name: string; yaw?: number; aliases: string[]; film?: string }>();
+export const map = new Map<
+	string,
+	{ name: string; yaw?: number; aliases: string[]; film?: string }
+>()
 for (const x of Object.keys(array)) {
-	map.set(x, { name: x, ...array[x] });
+	map.set(x, { name: x, ...array[x] })
 }
 
-export const aliases = new Map<string, { name: string; yaw?: number; aliases: string[]; film?: string }>();
+export const aliasesMap = new Map<
+	string,
+	{ name: string; yaw?: number; aliases: string[]; film?: string }
+>()
 for (const x of map) {
 	x[1].aliases.forEach((val) => {
-		aliases.set(val, x[1]);
-	});
+		aliasesMap.set(val, x[1])
+	})
 }
 
-export function getObject(game: string, object: 'yaw' | 'aliases' | 'film' | 'name') {
-	const value = map.get(game) ?? aliases.get(game);
-	return value ? value[object] ?? null : null;
+export function getObject(
+	game: string,
+	object: 'yaw' | 'aliases' | 'film' | 'name'
+) {
+	const value = map.get(game) ?? aliasesMap.get(game)
+	return value ? value[object] ?? null : null
 }

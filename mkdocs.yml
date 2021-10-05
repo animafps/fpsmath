@@ -6,35 +6,48 @@ edit_uri: edit/main/docs/
 site_description: 'Documentation for the FPSMath Discord Bot'
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://fpsmath.animafps.xyz">FPSMath Docs</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://animafps.xyz">Anima</a> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"></a></p>
 theme:
-  font: false
-  favicon: assets/images/logo.png
-  features:
-    - navigation.instant
-    - navigation.top
-  palette:
-    scheme: slate
-  name: 'material'
-  custom_dir: docs/overrides
+    font: false
+    favicon: assets/images/logo.png
+    features:
+        - navigation.instant
+        - navigation.top
+    palette:
+        - media: '(prefers-color-scheme: light)'
+          scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/toggle-switch-off-outline
+              name: Switch to dark mode
+        - media: '(prefers-color-scheme: dark)'
+          scheme: slate
+          primary: blue
+          accent: blue
+          toggle:
+              icon: material/toggle-switch
+              name: Switch to light mode
+    name: 'material'
+    custom_dir: docs/overrides
 extra:
-  social:
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/Bg2gNT35s9
-      name: Support Discord server
-  analytics:
-    provider: custom
+    social:
+        - icon: fontawesome/brands/discord
+          link: https://discord.gg/Bg2gNT35s9
+          name: Support Discord server
+    analytics:
+        provider: custom
 markdown_extensions:
-  - attr_list
-  - meta
-  - admonition
-  - toc:
-      permalink: true
+    - attr_list
+    - meta
+    - admonition
+    - toc:
+          permalink: true
 nav:
-  - Introduction: index.md
-  - getting-started.md
-  - Commands:
-      - commands/index.md
-      - commands/math.md
-      - commands/misc.md
-  - Other:
-      - games.md
-      - Changelog: changelog.md
+    - Introduction: index.md
+    - getting-started.md
+    - Commands:
+          - commands/index.md
+          - commands/math.md
+          - commands/misc.md
+    - Other:
+          - games.md
+          - Changelog: changelog.md

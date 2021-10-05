@@ -14,8 +14,7 @@ title: Math
 
 ## Commands
 
-
-### arcmin 
+### arcmin
 
 Converts sensitivity to arcmin
 

@@ -1,6 +1,6 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Args, Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['mpi', 'milliradian', 'mrad/inch', 'milliradian/inch'],
@@ -24,14 +24,14 @@ import { ApplyOptions } from '@sapphire/decorators';
 	🔗 **| Examples**
 	→ fps-mpi *2* *cs* *800*
 	→ fps-mpi *3* *0.006* *1600*
-	`
+	`,
 })
 export default class MPICommand extends Command {
 	public async run(message: Message, args: Args) {
-		const sens = await args.pick('float');
-		const yaw = await args.pick('yaw');
-		const cpi = await args.pick('float');
-		const output = cpi * yaw * sens * 60;
-		return message.reply(`${parseFloat(output.toFixed(5))} MPI`);
+		const sens = await args.pick('float')
+		const yaw = await args.pick('yaw')
+		const cpi = await args.pick('float')
+		const output = cpi * yaw * sens * 60
+		return message.reply(`${parseFloat(output.toFixed(5))} MPI`)
 	}
 }

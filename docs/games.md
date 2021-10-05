@@ -2,7 +2,7 @@
 title: 'Supported Games'
 ---
 
-All the games that FPSMath supports and the features that are avaliable for certain commands
+All the games that FPSMath supports and the features that are available for certain commands
 
 | Game/ Engine                   | Aliases/ Game Code                                   | yaw | fov |
 | ------------------------------ | ---------------------------------------------------- | --- | --- |
@@ -17,8 +17,8 @@ All the games that FPSMath supports and the features that are avaliable for cert
 | Krunker                        | `krunker`                                            | ✔️  | ✔️ |
 | Minecraft                      | `mc`, `minecraft`                                    | ✔️  | ✔️ |
 | Overwatch                      | `ow`, `overwatch`                                    | ✔️  | ✔️ |
-| Palidins                       | `palidins`                                           | ❌  | ✔️ |
-| PlayersUnkowns: Battleground   | `pubg`                                               | ✔️  | ✔️ |
+| Paladins                       | `paladins`                                           | ❌  | ✔️ |
+| PlayersUnknowns: Battleground  | `pubg`                                               | ✔️  | ✔️ |
 | Quake                          | `quake`                                              | ✔️  | ✔️ |
 | Quake Champions                | `qc`, `quake-champions`                              | ✔️  | ✔️ |
 | Rainbow Six: Siege             | `r6`, `rainbow6`, `r6s`, `rainbow6s`, `seige`        | ✔️  | ✔️ |

@@ -1,10 +1,11 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework';
-import type { Message } from 'discord.js';
-import { ApplyOptions } from '@sapphire/decorators';
+import { Args, Command, CommandOptions } from '@sapphire/framework'
+import type { Message } from 'discord.js'
+import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['focallengthscaling', 'visomotor', 'focallength'],
-	description: 'Focal length scales a desired sensitivity between two FoV values of the same type',
+	description:
+		'Focal length scales a desired sensitivity between two FoV values of the same type',
 	detailedDescription: `
 	📝 **| Command Usage**
 	→ fps-focal *Sensitivity* *InputFoV* *OutputFoV*
@@ -22,14 +23,17 @@ import { ApplyOptions } from '@sapphire/decorators';
 
 	🔗 **| Examples**
 	→ fps-focal *2* *100* *90*
-	`
+	`,
 })
 export default class FocalCommand extends Command {
 	public async run(message: Message, args: Args) {
-		const sens = await args.pick('float');
-		const inFOV = await args.pick('float');
-		const outFOV = await args.pick('float');
-		const output = (Math.tan((outFOV * Math.PI) / 360) / Math.tan((inFOV * Math.PI) / 360)) * sens;
-		return message.reply(parseFloat(output.toFixed(5)).toString());
+		const sens = await args.pick('float')
+		const inFOV = await args.pick('float')
+		const outFOV = await args.pick('float')
+		const output =
+			(Math.tan((outFOV * Math.PI) / 360) /
+				Math.tan((inFOV * Math.PI) / 360)) *
+			sens
+		return message.reply(parseFloat(output.toFixed(5)).toString())
 	}
 }

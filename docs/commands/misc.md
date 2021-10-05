@@ -81,5 +81,3 @@ Tests the latency
 ```text
 fps-ping
 ```
-
-
