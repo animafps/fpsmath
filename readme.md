@@ -29,13 +29,15 @@ FPSMath is just a handy little bot that helps with converting everything related
 
 The entire bot is written in Typescript and uses the Sapphire framework with Discord.js
 
-## 🎈 Usage
+## 🎈 Usage/Commands
 
 See [Overview](https://fpsmath.animafps.xyz/commands/)
 
 ## 🏁 Getting Started
 
-See [Getting Started](https://fpsmath.animafps.xyz/getting-started/) if you want to use the live hosted version of the bot
+[Invite the bot to your server](https://discord.com/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=19520).
+
+See [Getting Started](https://fpsmath.animafps.xyz/getting-started/) for more information and guidance for using the hosted bot.
 
 ## ✍️ Contributing
 
