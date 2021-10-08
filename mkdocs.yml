@@ -39,6 +39,9 @@ markdown_extensions:
     - attr_list
     - meta
     - admonition
+    - pymdownx.superfences
+    - pymdownx.saneheaders
+    - pymdownx.smartsymbols
     - toc:
           permalink: true
 nav:
@@ -51,3 +54,8 @@ nav:
     - Other:
           - games.md
           - Changelog: changelog.md
+plugins:
+    - git-revision-date-localized
+    - search
+    - minify:
+          minify_html: true
