@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 <p align="center">
     <a href="" rel="noopener">
     <img width=200px height=200px src="http://fpsmath.animafps.xyz/assets/images/logo.png" alt="Bot logo"></a>
@@ -14,20 +15,19 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/animafps/fpsmath/Continuous%20Integration)](https://github.com/animafps/fpsmath/actions)
 
 </div>
+<!-- markdownlint-restore -->
+
+![Demo](docs/assets/images/demo.gif)
 
 ---
 
-<p align="center"> 🤖 A Discord bot designed to convert video game sensitivities, FoV values, mouse feel across themselves and preset games.
-    <br> 
-</p>
-
 ## 🧐 About
 
-FPSMath is just a handy little bot that helps with converting everything related to video games. It supports [over 20 games](https://fpsmath.animafps.xyz/games/) and are happy to add plenty more. As well it is the Discord bot with the most units that can be converted and used including cm/rev, inch/rev, MPI, arcmin and deg/mm.
+FPSMath is just a handy little bot that helps with converting everything related to video games from sensitivity to field of view. It supports [over 20 games](https://fpsmath.animafps.xyz/games/) and 5 units(cm/rev, inch/rev, MPI, arcmin and deg/mm) and are happy to add plenty more.
 
 ## 🎈 Usage/Commands
 
-See [Overview](https://fpsmath.animafps.xyz/commands/)
+See [Commands Overview](https://fpsmath.animafps.xyz/commands/)
 
 ## 🏁 Getting Started
 
