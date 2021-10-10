@@ -59,7 +59,7 @@
 		"@sapphire/plugin-logger": "next",
 		"@sapphire/utilities": "^2.0.1",
 		"@sentry/node": "^6.13.3",
-		"dbots": "^9.0.1",
+		"dbots": "^10.0.0",
 		"discord-api-types": "^0.23.1",
 		"discord.js": "^13.2.0",
 		"dotenv": "^10.0.0",
