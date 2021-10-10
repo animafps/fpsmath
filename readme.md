@@ -14,10 +14,11 @@
 [![GitHub Issues](https://img.shields.io/github/issues/animafps/fpsmath?style=flat)](https://github.com/animafps/fpsmath/issues)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/animafps/fpsmath/Continuous%20Integration)](https://github.com/animafps/fpsmath/actions)
 
-</div>
-<!-- markdownlint-restore -->
 
 ![Demo](docs/assets/images/demo.gif)
+
+</div>
+<!-- markdownlint-restore -->
 
 ---
 
