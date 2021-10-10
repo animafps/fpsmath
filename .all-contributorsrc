@@ -1,27 +1,27 @@
 {
-  "files": [
-    "readme.md"
-  ],
-  "skipCi": true,
-  "contributors": [
-    {
-      "login": "animafps",
-      "name": "Anima.",
-      "avatar_url": "https://avatars.githubusercontent.com/u/18208134?v=4",
-      "profile": "https://animafps.xyz",
-      "contributions": [
-        "code",
-        "doc",
-        "design",
-        "ideas",
-        "infra",
-        "projectManagement"
-      ]
-    }
-  ],
-  "projectName": "fpsmath",
-  "projectOwner": "animafps",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "contributorsPerLine": 7
+	"files": [
+		"readme.md"
+	],
+	"skipCi": true,
+	"contributors": [
+		{
+			"login": "animafps",
+			"name": "Anima.",
+			"avatar_url": "https://avatars.githubusercontent.com/u/18208134?v=4",
+			"profile": "https://animafps.xyz",
+			"contributions": [
+				"code",
+				"doc",
+				"design",
+				"ideas",
+				"infra",
+				"projectManagement"
+			]
+		}
+	],
+	"projectName": "fpsmath",
+	"projectOwner": "animafps",
+	"repoType": "github",
+	"repoHost": "https://github.com",
+	"contributorsPerLine": 7
 }

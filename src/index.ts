@@ -61,4 +61,14 @@ const main = async () => {
 	}
 }
 
+process.on('unhandledRejection', (reason: string) => {
+	throw reason
+})
+
+process.on('uncaughtException', (error: Error) => {
+	client.logger.fatal(error)
+	client.destroy()
+	process.exit(1)
+})
+
 void main()
