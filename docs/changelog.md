@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/animafps/fpsmath/compare/v3.0.6...v3.1.0) (2021-10-10)
+
+
+### Features
+
+* added better command error handling and replying ([#131](https://github.com/animafps/fpsmath/issues/131)) ([b658e6b](https://github.com/animafps/fpsmath/commit/b658e6b5dc3d287011970dcb5c3c9afcf2d18da8))
+
 ## [3.0.6](https://github.com/animafps/fpsmath/compare/v3.0.5...v3.0.6) (2021-10-10)
 
 
