@@ -1,3 +1,10 @@
+## [3.0.5](https://github.com/animafps/fpsmath/compare/v3.0.4...v3.0.5) (2021-10-10)
+
+
+### Bug Fixes
+
+* fixed the sens command not showing correct help message and added correct command permisions ([d865a74](https://github.com/animafps/fpsmath/commit/d865a74e03b17c1622c6932efa88157dbc62c376))
+
 ## [3.0.4](https://github.com/animafps/fpsmath/compare/v3.0.3...v3.0.4) (2021-10-10)
 
 
