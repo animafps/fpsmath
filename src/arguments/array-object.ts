@@ -17,7 +17,7 @@ export default class GameArgument extends Argument<string> {
 		return this.error({
 			parameter,
 			message: '',
-			identifier: 'gameNoSupport',
+			identifier: 'gameObjectNoSupport',
 			context,
 		})
 	}

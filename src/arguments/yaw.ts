@@ -14,8 +14,8 @@ export default class YawArgument extends Argument<number> {
 			} else {
 				return this.error({
 					parameter,
-					message: 'Game not supported.',
-					identifier: 'gameNoSupport',
+					message: 'Game not supported or a valid yaw value.',
+					identifier: 'yawNoSupport',
 					context,
 				})
 			}
