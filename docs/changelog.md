@@ -1,3 +1,10 @@
+## [3.0.6](https://github.com/animafps/fpsmath/compare/v3.0.5...v3.0.6) (2021-10-10)
+
+
+### Bug Fixes
+
+* fixed info command not showing correct tag of the bot user ([5c00215](https://github.com/animafps/fpsmath/commit/5c0021509850f2761771618a59c7f83e247dba97))
+
 ## [3.0.5](https://github.com/animafps/fpsmath/compare/v3.0.4...v3.0.5) (2021-10-10)
 
 
