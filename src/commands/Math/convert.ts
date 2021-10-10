@@ -3,7 +3,7 @@ import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
-	aliases: ['convert-sens'],
+	aliases: ['convert-sens', 'convert-sensitivities'],
 	description:
 		'Converts different sensitivities from one game or yaw value to another',
 	detailedDescription: `
@@ -25,6 +25,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-convert *2* *cs* *overwatch*
 	→ fps-arcmin *3* *0.006* *0.022*
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class ConvertCommand extends Command {
 	public async run(message: Message, args: Args) {

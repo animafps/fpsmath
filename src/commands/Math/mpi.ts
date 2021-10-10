@@ -25,6 +25,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-mpi *2* *cs* *800*
 	→ fps-mpi *3* *0.006* *1600*
 	`,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class MPICommand extends Command {
 	public async run(message: Message, args: Args) {

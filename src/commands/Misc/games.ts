@@ -4,7 +4,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 import { map } from '../../helpers/array'
 
 @ApplyOptions<CommandOptions>({
-	aliases: ['supported-games', 'supportedgames'],
+	aliases: ['supported-games'],
 	description: 'Sends a list of all the supported games',
 	detailedDescription: `
 	📝 **| Command Usage**
@@ -12,6 +12,8 @@ import { map } from '../../helpers/array'
 
 	🖇️ **| Aliases**: \`supported-games\` and \`supportedgames\`
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class GamesCommand extends Command {
 	public async run(message: Message) {

@@ -25,6 +25,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-deg *2* *cs* *800*
 	→ fps-deg *3* *0.006* *1600*
 	`,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class CMCommand extends Command {
 	public async run(message: Message, args: Args) {

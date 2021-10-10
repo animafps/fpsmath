@@ -18,6 +18,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 	🔗 **| Examples**
 	→ fps-gameinfo *cs*
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export default class GetObjectCommand extends Command {
 	public async run(message: Message, args: Args) {

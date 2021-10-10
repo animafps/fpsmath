@@ -25,6 +25,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-arcmin *2* *cs* *800*
 	→ fps-arcmin *3* *0.006* *1600*
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class ArcMinCommand extends Command {
 	public async run(message: Message, args: Args) {

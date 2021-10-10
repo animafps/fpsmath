@@ -25,6 +25,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-inch *2* *cs* *800*
 	→ fps-inch *3* *0.006* *1600*
 	`,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class InchCommand extends Command {
 	public async run(message: Message, args: Args) {

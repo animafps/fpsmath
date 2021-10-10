@@ -45,6 +45,7 @@ function sortCommandsAlphabetically(
 	→ fps-help *--all*
 	→ fps-help *arcmin*
 	`,
+	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export class UserCommand extends Command {
 	public async run(message: Message, args: Args, context: CommandContext) {

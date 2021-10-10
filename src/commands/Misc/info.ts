@@ -11,6 +11,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 
 	🖇️ **| Aliases**: \`bot-info\`
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export default class InfoCommand extends Command {
 	public async run(message: Message) {

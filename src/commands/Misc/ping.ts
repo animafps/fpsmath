@@ -11,6 +11,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 
 	🖇️ **| Aliases**: \`pong\`
 	`,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class PingCommand extends Command {
 	public async run(message: Message) {

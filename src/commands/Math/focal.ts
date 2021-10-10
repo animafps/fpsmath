@@ -3,7 +3,7 @@ import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
-	aliases: ['focallengthscaling', 'visomotor', 'focallength'],
+	aliases: ['focal-length-scaling', 'visomotor', 'focal-length'],
 	description:
 		'Focal length scales a desired sensitivity between two FoV values of the same type',
 	detailedDescription: `
@@ -24,6 +24,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 	🔗 **| Examples**
 	→ fps-focal *2* *100* *90*
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class FocalCommand extends Command {
 	public async run(message: Message, args: Args) {

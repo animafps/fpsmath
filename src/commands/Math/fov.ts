@@ -26,6 +26,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-fov *90* *cs* *16:9*
 	→ fps-fov *103* *ow* *4:3*
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class FOVCommand extends Command {
 	public async run(message: Message) {

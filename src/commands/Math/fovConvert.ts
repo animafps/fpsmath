@@ -28,6 +28,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-fovconvert *90* *cs* *ow* *16:9*
 	→ fps-fovconvert *103* *ow* *r6s* *4:3*
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class FOVConvertCommand extends Command {
 	public async run(message: Message) {

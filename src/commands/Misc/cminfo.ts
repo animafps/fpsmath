@@ -11,6 +11,8 @@ import { ApplyOptions } from '@sapphire/decorators'
 
 	🖇️ **| Aliases**: \`cm-info\`
 	`,
+	generateDashLessAliases: true,
+	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class CMInfoCommand extends Command {
 	public async run(message: Message) {
