@@ -671,12 +671,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/decorators@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "@sapphire/decorators@npm:2.2.0"
+"@sapphire/decorators@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@sapphire/decorators@npm:3.0.1"
   dependencies:
-    tslib: 2.x
-  checksum: db42303eeecf045554cda22328b54865e3f6c1fcb7ba598a5238b8d9ac79170e30e60268ec43aacf9c201eb7bbaf19e8fe9445bdbf639494c9e03e6f7ef38ec3
+    tslib: ^2.3.1
+  checksum: bb7398f4e9ccb2577b0aef8925a1ac9ee37b5e9afb645491df198a0d462230ef916158aacd01b587e2328050f94175c7c0074c6d6a863e55caa8e4c365a344a2
   languageName: node
   linkType: hard
 
@@ -3108,7 +3108,7 @@ __metadata:
     "@commitlint/cli": ^13.2.0
     "@commitlint/config-conventional": ^13.2.0
     "@discordjs/collection": ^0.2.1
-    "@sapphire/decorators": ^2.2.0
+    "@sapphire/decorators": ^3.0.1
     "@sapphire/discord.js-utilities": next
     "@sapphire/framework": next
     "@sapphire/pieces": 3.0.0
@@ -7066,17 +7066,17 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.x, tslib@npm:^2, tslib@npm:^2.3.0, tslib@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "tslib@npm:2.3.1"
-  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
-  languageName: node
-  linkType: hard
-
 "tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2, tslib@npm:^2.3.0, tslib@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "tslib@npm:2.3.1"
+  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
   languageName: node
   linkType: hard
 
