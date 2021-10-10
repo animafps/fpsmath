@@ -1,3 +1,10 @@
+## [3.0.4](https://github.com/animafps/fpsmath/compare/v3.0.3...v3.0.4) (2021-10-10)
+
+
+### Bug Fixes
+
+* fixed dependencies having conflict ([7b00614](https://github.com/animafps/fpsmath/commit/7b006145a65ce09ce38cf9eb8c8b1bb29277e7fa))
+
 ## [3.0.3](https://github.com/animafps/fpsmath/compare/v3.0.2...v3.0.3) (2021-09-30)
 
 
