@@ -29,7 +29,7 @@ export class UserEvent extends Listener<typeof Events.ClientReady> {
 ${pad}${process.env.npm_package_name}@${
 				process.env.npm_package_version || '1.0.0'
 			}
-${pad}[x] Gateway (${this.container.client.user?.username}#${
+${pad}[+] Gateway (${this.container.client.user?.username}#${
 				this.container.client.user?.discriminator
 			})
 ${pad}Severs: ${this.container.client.guilds.cache.size}
