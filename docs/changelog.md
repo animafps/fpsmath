@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/animafps/fpsmath/compare/v3.1.0...v3.1.1) (2021-10-12)
+
+
+### Bug Fixes
+
+* **array:** fixed bug with game names not allowing mixed or upper case inputs ([e33cdac](https://github.com/animafps/fpsmath/commit/e33cdaca902e6ce7e7cd95a0220c42b51e832a71))
+
 # [3.1.0](https://github.com/animafps/fpsmath/compare/v3.0.6...v3.1.0) (2021-10-10)
 
 
