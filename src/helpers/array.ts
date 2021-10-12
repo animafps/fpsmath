@@ -135,6 +135,7 @@ export function getObject(
 	game: string,
 	object: 'yaw' | 'aliases' | 'film' | 'name'
 ) {
-	const value = map.get(game) ?? aliasesMap.get(game)
+	const value =
+		map.get(game.toLowerCase()) ?? aliasesMap.get(game.toLowerCase())
 	return value ? value[object] ?? null : null
 }
