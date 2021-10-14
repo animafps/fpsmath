@@ -7,7 +7,7 @@ import {
 } from '@sapphire/framework'
 const dev = process.env.NODE_ENV !== 'production'
 
-export class UserEvent extends Listener<typeof Events.ClientReady> {
+export class UserListener extends Listener<typeof Events.ClientReady> {
 	public constructor(context: PieceContext, options?: ListenerOptions) {
 		super(context, {
 			...options,
@@ -33,7 +33,10 @@ ${pad}[+] Gateway (${this.container.client.user?.username}#${
 				this.container.client.user?.discriminator
 			})
 ${pad}Severs: ${this.container.client.guilds.cache.size}
-${pad}Serving: ${this.container.client.users.cache.size} people
+${pad}Users: ${this.container.client.guilds.cache.reduce(
+				(acc, val) => acc + (val.memberCount ?? 0),
+				0
+			)}
 ${dev ? ` ${pad}</> DEVELOPMENT MODE` : ''}
 		`.trim()
 		)
