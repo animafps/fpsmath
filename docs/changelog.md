@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/animafps/fpsmath/compare/v3.1.1...v3.1.2) (2021-10-14)
+
+
+### Bug Fixes
+
+* **ready listener:** fixed users count ([970de7a](https://github.com/animafps/fpsmath/commit/970de7a68d8fa63afc51c96ec96e4a2c83b6e36b))
+
 ## [3.1.1](https://github.com/animafps/fpsmath/compare/v3.1.0...v3.1.1) (2021-10-12)
 
 
