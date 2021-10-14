@@ -5,7 +5,7 @@ import {
 	Listener,
 } from '@sapphire/framework'
 
-export default class UserListener extends Listener<typeof Events.CommandError> {
+export class UserListener extends Listener<typeof Events.CommandError> {
 	public run(error: ArgumentError, { message, args }: CommandErrorPayload) {
 		switch (error.identifier) {
 			case 'argsMissing':

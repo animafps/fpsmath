@@ -21,7 +21,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
-export default class GetObjectCommand extends Command {
+export class UserCommand extends Command {
 	public async run(message: Message, args: Args) {
 		const gameObject = get(await args.pick('game'))
 		return message.reply({

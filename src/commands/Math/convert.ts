@@ -28,7 +28,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
-export default class ConvertCommand extends Command {
+export class UserCommand extends Command {
 	public async run(message: Message, args: Args) {
 		const sens = await args.pick('float')
 		const inYaw = await args.pick('yaw')

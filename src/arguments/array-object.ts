@@ -1,6 +1,6 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
 
-export default class GameArgument extends Argument<string> {
+export class UserArgument extends Argument<string> {
 	public constructor(context: PieceContext) {
 		super(context, { name: 'gameObject' })
 	}

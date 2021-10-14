@@ -13,7 +13,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	`,
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
-export default class PingCommand extends Command {
+export class UserCommand extends Command {
 	public async run(message: Message) {
 		const response = await message.channel.send('Ping...')
 		const latency = response.createdTimestamp - message.createdTimestamp

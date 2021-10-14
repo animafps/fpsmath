@@ -46,7 +46,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 	flags: ['deg', 'inch', 'arcmin', 'cm'],
 })
-export default class SensCommand extends Command {
+export class UserCommand extends Command {
 	public async run(message: Message, args: Args) {
 		const sens = await args.pick('float')
 		const yaw = await args.pick('yaw')

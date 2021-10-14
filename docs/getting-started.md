@@ -13,7 +13,7 @@ Just 4 easy steps away from converting in your own server. Let's go!
 
 [**Invite The Bot To Your Server**](https://discord.com/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=19520){ .md-button .md-button--primary }
 
-\(Login to Discord if you're not already logged in.\)
+#### 1.5 \(Login to Discord if you're not already logged in.\)
 
 ### 2. Select a Server
 

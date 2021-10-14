@@ -15,7 +15,7 @@ import { map } from '../../helpers/array'
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
-export default class GamesCommand extends Command {
+export class UserCommand extends Command {
 	public async run(message: Message) {
 		let result = ''
 		for (const game of map) {

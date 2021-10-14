@@ -27,7 +27,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
-export default class FocalCommand extends Command {
+export class UserCommand extends Command {
 	public async run(message: Message, args: Args) {
 		const sens = await args.pick('float')
 		const inFOV = await args.pick('float')

@@ -8,7 +8,7 @@ title: Overview
     Global Prefix: `fps-`
 
     You can also use `@FPSMath` instead of the prefix. Example `@FPSMath help`
-    
+
     But in DMs no prefix is required
 
 Below is a shortlist of all the bot commands.
@@ -32,14 +32,14 @@ Below is a shortlist of all the bot commands.
 
 ## Miscellaneous Commands
 
-| **Command**                 | **Description**                                                                         |
-| --------------------------- | --------------------------------------------------------------------------------------- |
-| [`cminfo`](misc.md#cminfo)  | Displays an explanation for what cm/rev \(cm/rev\) is                                   |
-| [`gameinfo`](misc.md#games) | Displays the information associated for a game                                          |
-| [`games`](misc.md#games)    | Displays the supported games for this bot                                               |
-| [`info`](misc.md#info)      | Displays the major information about this bot                                           |
-| [`help`](misc.md#help)      | Displays a list of available commands, or detailed information for a specified command. |
-| [`ping`](misc.md#ping)      | Tests the latency                                                                       |
+| **Command**                    | **Description**                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------- |
+| [`cminfo`](misc.md#cminfo)     | Displays an explanation for what cm/rev \(cm/rev\) is                                   |
+| [`gameinfo`](misc.md#gameinfo) | Displays the information associated for a game                                          |
+| [`games`](misc.md#games)       | Displays the supported games for this bot                                               |
+| [`info`](misc.md#info)         | Displays the major information about this bot                                           |
+| [`help`](misc.md#help)         | Displays a list of available commands, or detailed information for a specified command. |
+| [`ping`](misc.md#ping)         | Tests the latency                                                                       |
 
 ## Usage Key
 

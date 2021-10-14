@@ -29,7 +29,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
-export default class FOVCommand extends Command {
+export class UserCommand extends Command {
 	public async run(message: Message) {
 		return message.reply('Not fully implemented yet')
 	}

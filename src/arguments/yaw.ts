@@ -1,7 +1,7 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
 import { getObject } from '../helpers/array'
 
-export default class YawArgument extends Argument<number> {
+export class UserArgument extends Argument<number> {
 	public constructor(context: PieceContext) {
 		super(context, { name: 'yaw' })
 	}
