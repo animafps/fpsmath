@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/animafps/fpsmath/compare/v3.1.2...v3.2.0) (2021-10-14)
+
+
+### Features
+
+* added tf2 as a supported game and added invite command ([8bea8b6](https://github.com/animafps/fpsmath/commit/8bea8b6aa76c985b56da7ca2604930c05ea8c4e3))
+
 ## [3.1.2](https://github.com/animafps/fpsmath/compare/v3.1.1...v3.1.2) (2021-10-14)
 
 
