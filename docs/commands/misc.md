@@ -72,6 +72,16 @@ Displays the major information about this bot
 fps-info
 ```
 
+### invite
+
+Sends a link to invite the bot to your server
+
+#### Usage
+
+```text
+fps-invite
+```
+
 ### ping
 
 Tests the latency

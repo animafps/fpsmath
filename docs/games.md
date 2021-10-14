@@ -24,6 +24,7 @@ All the games that FPSMath supports and the features that are available for cert
 | Rainbow Six: Siege             | `r6`, `rainbow6`, `r6s`, `rainbow6s`, `seige`        | ✔️  | ✔️ |
 | Reflex Arena                   | `reflex`, `reflex-arena`                             | ✔️  | ✔️ |
 | Source                         | `source`                                             | ✔️  | ✔️ |
+| Team Fortress 2                | `tf2`, `team-fortress`, `team-fortress-2`            | ✔️  | ✔️ |
 | Totally Accurate Battlegrounds | `tabg`                                               | ✔️  | ✔️ |
 | Valorant                       | `val`, `valorant`                                    | ✔️  | ✔️ |
 

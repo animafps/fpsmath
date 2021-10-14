@@ -1,6 +1,14 @@
+/**
+ * Object of games and units
+ */
 export const array: {
 	[key: string]: { yaw?: number; aliases: string[]; film?: string }
 } = {
+	'Team Fortress 2': {
+		yaw: 0.022,
+		aliases: ['tf2', 'team-fortress', 'team-fortress-2'],
+		film: '4ML3',
+	},
 	'3D Aim Trainer': {
 		yaw: 0.0066,
 		aliases: ['3daimtrainer', '3dat'],
@@ -109,6 +117,11 @@ export const array: {
 	},
 }
 
+/**
+ * Gets a game from the array
+ * @param game Game name or alias
+ * @returns The object of the associated game
+ */
 export function get(game: string) {
 	return map.get(game) ?? aliasesMap.get(game)
 }
@@ -120,7 +133,6 @@ export const map = new Map<
 for (const x of Object.keys(array)) {
 	map.set(x, { name: x, ...array[x] })
 }
-
 export const aliasesMap = new Map<
 	string,
 	{ name: string; yaw?: number; aliases: string[]; film?: string }
@@ -131,6 +143,12 @@ for (const x of map) {
 	})
 }
 
+/**
+ * Gets a specific object from a game object
+ * @param game Game name
+ * @param object Type of object
+ * @returns The specific object requested or null if nothing found
+ */
 export function getObject(
 	game: string,
 	object: 'yaw' | 'aliases' | 'film' | 'name'

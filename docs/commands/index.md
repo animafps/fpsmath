@@ -38,6 +38,7 @@ Below is a shortlist of all the bot commands.
 | [`gameinfo`](misc.md#gameinfo) | Displays the information associated for a game                                          |
 | [`games`](misc.md#games)       | Displays the supported games for this bot                                               |
 | [`info`](misc.md#info)         | Displays the major information about this bot                                           |
+| [`invite`](misc.md#invite)     | Sends a link to invite the bot to your server                                           |
 | [`help`](misc.md#help)         | Displays a list of available commands, or detailed information for a specified command. |
 | [`ping`](misc.md#ping)         | Tests the latency                                                                       |
 
