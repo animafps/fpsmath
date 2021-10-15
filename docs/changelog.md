@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/animafps/fpsmath/compare/v3.2.0...v3.3.0) (2021-10-15)
+
+
+### Features
+
+* added fov & fovconvert commands and fov helper functions ([#133](https://github.com/animafps/fpsmath/issues/133)) ([8c21582](https://github.com/animafps/fpsmath/commit/8c215824fa4c2ea258cad4b1c1a8281ed310bdde))
+
 # [3.2.0](https://github.com/animafps/fpsmath/compare/v3.1.2...v3.2.0) (2021-10-14)
 
 
