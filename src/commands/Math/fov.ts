@@ -1,11 +1,12 @@
-import { Command, CommandOptions } from '@sapphire/framework'
+import { Args, Command, CommandOptions } from '@sapphire/framework'
 import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
+import { filmToTrue } from '../../helpers/fov'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-scaling', 'film'],
 	description:
-		'Finds the true vertical and horizontal FOV that is being displayed on screen',
+		'Finds the true vertical and horizontal FoV that is being displayed on screen',
 	detailedDescription: `
 	📝 **| Command Usage**
 	→ fps-fov *FoV* *GameName* *AspectRatio*
@@ -14,7 +15,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	🖇️ **| Aliases**: \`fov-scaling\` and \`film\`
 
 	🔍 **| Extended Help**
-	Finds the true vertical and horizontal FOV for certain aspect ratio that the game is being rendered at plus game's FoV scaling method
+	Finds the true vertical or horizontal FoV for certain aspect ratio that the game is being rendered at plus game's FoV scaling method
 
 	⚙ **| Explained usage**
 	→ **FoV**: The in-game FoV value or equivalent FoV value.
@@ -29,8 +30,16 @@ import { ApplyOptions } from '@sapphire/decorators'
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
-export class UserCommand extends Command {
-	public async run(message: Message) {
-		return message.reply('Not fully implemented yet')
+export default class UserCommand extends Command {
+	public async run(message: Message, args: Args) {
+		const fov = await args.pick('float')
+		const film = await args.pick('film')
+		const aspect = await args.pick('aspectRatio')
+		const { horizontalFOV, verticalFOV } = filmToTrue(fov, film, aspect)
+		return message.reply(
+			`Horizontal FoV: ${parseFloat(
+				horizontalFOV.toFixed(5)
+			)}°\nVertical FoV: ${parseFloat(verticalFOV.toFixed(5))}°`
+		)
 	}
 }

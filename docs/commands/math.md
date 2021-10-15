@@ -98,8 +98,17 @@ fps-focal <sens> <old fov> <new fov>
 
 ### fov
 
-!!! error
-    Command not implemented yet
+Finds the true vertical and horizontal FoV that is being displayed on screen
+
+#### Usage
+
+```text
+fps-fov <FoV> <game|FILM notation> <screen aspect ratio>
+```
+
+#### Aliases
+
+`fov-scaling`, `film`
 
 ### fovconvert
 
