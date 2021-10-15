@@ -60,7 +60,7 @@ export function trueToFILM(
 	} else if (film.startsWith('V')) {
 		return verticalFOV
 	} else {
-		return convertFOV(horizontalFOV, filmAspect, aspectRatio)
+		return convertFOV(horizontalFOV, aspectRatio, filmAspect)
 	}
 }
 
