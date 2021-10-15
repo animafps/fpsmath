@@ -2,7 +2,7 @@ export function convertFOV(
 	fov: number,
 	inputAspect: number,
 	outputAspect: number
-): number {
+) {
 	return (
 		(Math.atan(
 			(outputAspect / inputAspect) * Math.tan((fov * Math.PI) / 360)
@@ -12,7 +12,7 @@ export function convertFOV(
 	)
 }
 
-export function filmToAspect(filmNotation: string): number {
+export function filmToAspect(filmNotation: string) {
 	const startString = filmNotation.split(/M/)[0]
 	const endString = filmNotation.split(/M[FLI]/)[1]
 	return Number(startString) / Number(endString)
@@ -22,35 +22,53 @@ export function filmToTrue(
 	fov: number,
 	film: string,
 	aspectRatio: number
-): { horizontalFOV: number; verticalFOV: number } {
-	if (film.startsWith('H')) {
+): fovValues {
+	const filmAspect = filmToAspect(film)
+	if (/^\d{1,2}MS\d{1,2}$/.test(film)) {
+		return {
+			horizontalFOV: fov,
+			verticalFOV: convertFOV(fov, filmAspect, 1),
+		}
+	} else if (film.startsWith('H')) {
 		return lockHorizontal(fov, aspectRatio)
 	} else if (film.startsWith('V')) {
 		return lockVertical(fov, aspectRatio)
 	} else if (/^\d{1,2}ML\d{1,2}$/.test(film)) {
-		const filmAspect = filmToAspect(film)
 		return lockVertical(fov, aspectRatio, filmAspect)
 	} else if (/^\d{1,2}MF\d{1,2}$/.test(film)) {
-		const filmAspect = filmToAspect(film)
 		if (aspectRatio > filmAspect) {
 			return lockHorizontal(fov, aspectRatio)
 		}
 		return lockVertical(fov, aspectRatio, filmAspect)
 	} else if (/^\d{1,2}MI\d{1,2}$/.test(film)) {
-		const filmAspect = filmToAspect(film)
 		if (aspectRatio < filmAspect) {
 			return lockHorizontal(fov, aspectRatio)
 		}
 		return lockVertical(fov, aspectRatio, filmAspect)
 	}
-	return lockHorizontal(fov, aspectRatio)
+	throw Error('parsing failed')
+}
+
+export function trueToFILM(
+	{ horizontalFOV, verticalFOV }: fovValues,
+	film: string,
+	aspectRatio: number
+): number {
+	const filmAspect = filmToAspect(film)
+	if (/^\d{1,2}MS\d{1,2}$/.test(film) || film.startsWith('H')) {
+		return horizontalFOV
+	} else if (film.startsWith('V')) {
+		return verticalFOV
+	} else {
+		return convertFOV(horizontalFOV, filmAspect, aspectRatio)
+	}
 }
 
 export function lockVertical(
 	fov: number,
 	aspectRatio: number,
 	filmAspect?: number
-): { horizontalFOV: number; verticalFOV: number } {
+): fovValues {
 	if (filmAspect) {
 		return {
 			horizontalFOV: convertFOV(fov, filmAspect, aspectRatio),
@@ -63,12 +81,27 @@ export function lockVertical(
 	}
 }
 
-export function lockHorizontal(
-	fov: number,
-	aspectRatio: number
-): { horizontalFOV: number; verticalFOV: number } {
+export function lockHorizontal(fov: number, aspectRatio: number): fovValues {
 	return {
 		horizontalFOV: fov,
 		verticalFOV: convertFOV(fov, aspectRatio, 1),
 	}
+}
+
+export interface fovValues {
+	horizontalFOV: number
+	verticalFOV: number
+}
+
+export function filmToFilm(
+	fov: number,
+	inFILM: string,
+	outFILM: string,
+	aspectRatio: number
+): number {
+	return trueToFILM(
+		filmToTrue(fov, inFILM, aspectRatio),
+		outFILM,
+		aspectRatio
+	)
 }

@@ -1,5 +1,5 @@
 ---
-title: 'Supported Games'
+title: Supported Games
 ---
 
 All the games that FPSMath supports and the features that are available for certain commands
@@ -26,6 +26,6 @@ All the games that FPSMath supports and the features that are available for cert
 | Source                         | `source`                                             | ✔️  | ✔️ |
 | Team Fortress 2                | `tf2`, `team-fortress`, `team-fortress-2`            | ✔️  | ✔️ |
 | Totally Accurate Battlegrounds | `tabg`                                               | ✔️  | ✔️ |
-| Valorant                       | `val`, `valorant`                                    | ✔️  | ❌ |
+| Valorant                       | `val`, `valorant`                                    | ✔️  | ✔️ |
 
 To add to this list you can edit and create PR for the src/helpers/array.ts and input new games and values or correct new ones or you can dm `Anima.#4242` on discord from the support server

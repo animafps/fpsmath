@@ -1,6 +1,7 @@
-import { Command, CommandOptions } from '@sapphire/framework'
+import { Args, Command, CommandOptions } from '@sapphire/framework'
 import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
+import { filmToFilm } from '../../helpers/fovHelper'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-convert', 'film-convert', 'convert-fov'],
@@ -32,7 +33,12 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message) {
-		return message.reply('Not fully implemented yet')
+	public async run(message: Message, args: Args) {
+		const fov = await args.pick('float')
+		const inFILM = await args.pick('film')
+		const outFILM = await args.pick('film')
+		const aspect = await args.pick('aspectRatio')
+		const output = filmToFilm(fov, inFILM, outFILM, aspect)
+		return message.reply(`${parseFloat(output.toFixed(5))}°`)
 	}
 }
