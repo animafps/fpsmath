@@ -36,7 +36,7 @@ export const array: {
 		aliases: ['apex-legends', 'apex'],
 		film: '4ML3',
 	},
-	Valorant: { yaw: 0.07, aliases: ['valorant', 'val'] },
+	Valorant: { yaw: 0.07, aliases: ['valorant', 'val'], film: '16MS9' },
 	Overwatch: {
 		yaw: 0.0066,
 		aliases: ['overwatch', 'ow'],

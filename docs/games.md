@@ -1,5 +1,5 @@
 ---
-title: 'Supported Games'
+title: Supported Games
 ---
 
 All the games that FPSMath supports and the features that are available for certain commands

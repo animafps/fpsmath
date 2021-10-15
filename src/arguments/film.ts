@@ -1,4 +1,5 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
+import { getObject } from '../helpers/array'
 
 export class UserArgument extends Argument<string> {
 	public constructor(context: PieceContext) {
@@ -7,11 +8,13 @@ export class UserArgument extends Argument<string> {
 
 	public run(parameter: string, context: ArgumentContext) {
 		if (
-			/^hm[lfi]$|^vm[lfi]$|^\d{1,2}m[lfi]\d{1,2}$/i.test(
-				parameter.toLowerCase()
+			/^HM[LFI]$|^VM[LFI]$|^\d{1,2}M[LFI]\d{1,2}$/.test(
+				parameter.toUpperCase()
 			)
 		) {
-			return this.ok(parameter.toLowerCase())
+			return this.ok(parameter.toUpperCase())
+		} else if (getObject(parameter, 'film')) {
+			return this.ok(getObject(parameter, 'film') as string)
 		}
 		return this.error({
 			parameter,
