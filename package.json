@@ -57,7 +57,7 @@
 		"@sapphire/pieces": "3.0.1",
 		"@sapphire/plugin-api": "next",
 		"@sapphire/plugin-logger": "next",
-		"@sapphire/utilities": "^2.0.1",
+		"@sapphire/utilities": "^3.0.3",
 		"@sentry/node": "^6.13.3",
 		"dbots": "^10.0.0",
 		"discord-api-types": "^0.23.1",

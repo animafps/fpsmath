@@ -836,6 +836,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sapphire/utilities@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@sapphire/utilities@npm:3.0.3"
+  checksum: 21fca640a8e0de16f00b0d1f057683aed9e8a03e56320295d410aa5bcf74a9f873c45622bfcdda42092975b858565709c52eac93a0298b14d109d77a84d96736
+  languageName: node
+  linkType: hard
+
 "@semantic-release/changelog@npm:^6.0.0":
   version: 6.0.0
   resolution: "@semantic-release/changelog@npm:6.0.0"
@@ -3140,7 +3147,7 @@ __metadata:
     "@sapphire/pieces": 3.0.1
     "@sapphire/plugin-api": next
     "@sapphire/plugin-logger": next
-    "@sapphire/utilities": ^2.0.1
+    "@sapphire/utilities": ^3.0.3
     "@semantic-release/changelog": ^6.0.0
     "@semantic-release/git": ^10.0.0
     "@sentry/node": ^6.13.3
