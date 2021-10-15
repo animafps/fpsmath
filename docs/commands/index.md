@@ -25,7 +25,7 @@ Below is a shortlist of all the bot commands.
 | [`deg`](math.md#deg)               | Converts Sensitivity to deg/mm                                                                                    |
 | [`mpi`](math.md#mpi)               | Converts Sensitivity to MPI                                                                                       |
 | [`focal`](math.md#focal)           | Focal Length Scales a desired sens between 2 fov values of the same type                                          |
-| [`fov`](math.md#fov)               | Finds the true vertical and horizontal FOVs for certain aspect ratio and game/FOV scaling method\(FILM notation\) |
+| [`fov`](math.md#fov)               | Finds the true vertical and horizontal FoV that is being displayed on screen                                      |
 | [`fovconvert`](math.md#fovconvert) | Converts a FOV value from one game or film notation to another                                                    |
 | [`inch`](math.md#inch)             | Converts Sensitivity to inch/rev                                                                                  |
 | [`sens`](math.md#sens)             | Converts cm/rev\|deg/mm\|MPI\|inch/rev\|arcmin to a game sensitivity default cm/rev                               |
