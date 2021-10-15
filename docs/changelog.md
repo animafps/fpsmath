@@ -1,3 +1,10 @@
+## [3.3.1](https://github.com/animafps/fpsmath/compare/v3.3.0...v3.3.1) (2021-10-15)
+
+
+### Bug Fixes
+
+* hotfix for fovconvert command doing wrong calculation ([f1c3df3](https://github.com/animafps/fpsmath/commit/f1c3df3766e7d74bdc67ed6c8974d9a670028726))
+
 # [3.3.0](https://github.com/animafps/fpsmath/compare/v3.2.0...v3.3.0) (2021-10-15)
 
 
