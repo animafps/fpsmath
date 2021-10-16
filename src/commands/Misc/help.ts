@@ -48,7 +48,11 @@ function sortCommandsAlphabetically(
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message, args: Args, context: CommandContext) {
+	public async messageRun(
+		message: Message,
+		args: Args,
+		context: CommandContext
+	) {
 		const command = args.nextMaybe()
 		return command.exists && !args.getFlags('all')
 			? this.specific(message, command.value)

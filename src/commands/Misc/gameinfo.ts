@@ -22,7 +22,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const gameObject = get(await args.pick('game'))
 		return message.reply({
 			embeds: [

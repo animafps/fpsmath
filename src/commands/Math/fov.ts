@@ -31,7 +31,7 @@ import { filmToTrue } from '../../helpers/fovHelper'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class UserCommand extends Command {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const fov = await args.pick('float')
 		const film = await args.pick('film')
 		const aspect = await args.pick('aspectRatio')

@@ -16,7 +16,7 @@ import { map } from '../../helpers/array'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		let result = ''
 		for (const game of map) {
 			result += `• ${game[0]}: \`${game[1].aliases.join(', ')}\` ${

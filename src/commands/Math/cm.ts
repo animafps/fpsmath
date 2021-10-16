@@ -28,7 +28,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message, args: Args) {
+	public async messageRun(message: Message, args: Args) {
 		const sens = await args.pick('float')
 		const yaw = await args.pick('yaw')
 		const cpi = await args.pick('float')

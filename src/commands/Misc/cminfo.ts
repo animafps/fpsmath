@@ -15,7 +15,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		return message.reply(
 			'cm/rev also known as cm/360 is a universal metric used for describing mouse sensitivity across all games. The definition is: how much centimeters you need to move your mouse in order to perform a 360 degree turn in-game.\n\nTo calculate yours use the `cm` command'
 		)

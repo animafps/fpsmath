@@ -14,7 +14,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		const response = await message.channel.send('Ping...')
 		const latency = response.createdTimestamp - message.createdTimestamp
 		await response.edit(`Pong! Took me ${latency}ms.`)

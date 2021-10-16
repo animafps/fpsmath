@@ -16,7 +16,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export class UserCommand extends Command {
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		const embed = new MessageEmbed().setColor('#0099ff').setDescription(`
 				[Invite FPSMath to your server](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&scope=bot&permissions=19520) | [Join Support Server](https://discord.gg/xJdQxps)
                 `)
