@@ -658,9 +658,9 @@ __metadata:
   linkType: hard
 
 "@sapphire/async-queue@npm:^1.1.5":
-  version: 1.1.6
-  resolution: "@sapphire/async-queue@npm:1.1.6"
-  checksum: c0ecdd00f1d5ee8644e63ab63411aae12847f1c90200a7518e7d9e599402bce57a80dddbec5f78f02357a1eec2d542230a52e642ac5eb842343907c9c8097d75
+  version: 1.1.7
+  resolution: "@sapphire/async-queue@npm:1.1.7"
+  checksum: cdfd7819bc0847be3d11e663712d42a3a3b574897fb253274acdbff5433bf4ddba37cf0541233d070cdd6757ce5f565829f36abdd98257507b5a00b727b8abcf
   languageName: node
   linkType: hard
 
@@ -762,14 +762,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/utilities@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "@sapphire/utilities@npm:3.0.3"
-  checksum: 21fca640a8e0de16f00b0d1f057683aed9e8a03e56320295d410aa5bcf74a9f873c45622bfcdda42092975b858565709c52eac93a0298b14d109d77a84d96736
-  languageName: node
-  linkType: hard
-
-"@sapphire/utilities@npm:^3.0.4":
+"@sapphire/utilities@npm:^3.0.3, @sapphire/utilities@npm:^3.0.4":
   version: 3.0.4
   resolution: "@sapphire/utilities@npm:3.0.4"
   checksum: 3a0026b3888c655f26f0616fe899573d3864b49fa032e019f15c79e837c639779b547e25386cbd5244008b910009e84a202dd97b64877c72382cb39563c75dba
