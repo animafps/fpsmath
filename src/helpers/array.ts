@@ -78,7 +78,7 @@ export const array: {
 		film: '16ML9',
 	},
 	Reflex: {
-		yaw: 0.005729577951308232087679815481411,
+		yaw: 0.00572957795130823,
 		aliases: ['reflex', 'reflex-arena'],
 		film: '4ML3',
 	},
