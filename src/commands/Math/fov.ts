@@ -29,6 +29,8 @@ import { filmToTrue } from '../../helpers/fovHelper'
 	`,
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
+	cooldownLimit: 1,
+	cooldownDelay: 0,
 })
 export default class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {

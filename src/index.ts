@@ -1,6 +1,5 @@
 import { SapphireClient, LogLevel } from '@sapphire/framework'
 import * as Sentry from '@sentry/node'
-import { Poster } from 'dbots'
 import '@sapphire/plugin-api/register'
 import '@sapphire/plugin-logger/register'
 import 'dotenv/config'
@@ -33,27 +32,6 @@ const main = async () => {
 		client.logger.info('Logging in')
 		await client.login()
 		client.logger.info(`Logged in`)
-
-		if (
-			process.env.TOPGG_API_TOKEN &&
-			process.env.DISCORDBOTLIST_TOKEN &&
-			process.env.DISCORDBOTSGG_TOKEN
-		) {
-			const poster = new Poster({
-				client,
-				apiKeys: {
-					topgg: process.env.TOPGG_API_TOKEN,
-					discordbotlist: process.env.DISCORDBOTLIST_TOKEN,
-					discordbotsgg: process.env.DISCORDBOTSGG_TOKEN,
-				},
-				clientLibrary: 'discord.js',
-			})
-			poster.addHandler('postSuccess', () =>
-				client.logger.debug('Api Post Success')
-			)
-			void poster.post('all')
-			poster.startInterval()
-		}
 	} catch (error) {
 		client.logger.fatal(error)
 		client.destroy()
