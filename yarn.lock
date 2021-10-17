@@ -664,7 +664,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/decorators@npm:^3.1.0":
+"@sapphire/decorators@npm:^3.1.1":
   version: 3.1.1
   resolution: "@sapphire/decorators@npm:3.1.1"
   dependencies:
@@ -2387,6 +2387,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"discord-api-types@npm:^0.24.0":
+  version: 0.24.0
+  resolution: "discord-api-types@npm:0.24.0"
+  checksum: b1a17cb3be4ade974193cedb92fb37e51ba8f1832dfe3ec0d188ba41f255f3dab8359c9d618d32469f1e648126258f9d6ed8828dc1cb50b74d9fd9d875f3390a
+  languageName: node
+  linkType: hard
+
 "discord.js@npm:^13.2.0":
   version: 13.2.0
   resolution: "discord.js@npm:13.2.0"
@@ -3061,7 +3068,7 @@ __metadata:
     "@commitlint/cli": ^13.2.1
     "@commitlint/config-conventional": ^13.2.0
     "@discordjs/collection": ^0.2.1
-    "@sapphire/decorators": ^3.1.0
+    "@sapphire/decorators": ^3.1.1
     "@sapphire/discord.js-utilities": ^3.2.1
     "@sapphire/framework": ^2.0.0
     "@sapphire/pieces": 3.0.1
@@ -3078,7 +3085,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.0.0
     cz-conventional-changelog: 3.3.0
     dbots: ^10.0.0
-    discord-api-types: ^0.23.1
+    discord-api-types: ^0.24.0
     discord.js: ^13.2.0
     dotenv: ^10.0.0
     eslint: ^8.0.1
@@ -3089,7 +3096,7 @@ __metadata:
     pretty-quick: ^3.1.1
     semantic-release: ^18.0.0
     tslib: ^2.3.1
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   languageName: unknown
   linkType: soft
 
@@ -7156,7 +7163,7 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-typescript@^4.4.3:
+"typescript@^4.4.3, typescript@^4.4.4":
   version: 4.4.4
   resolution: "typescript@npm:4.4.4"
   bin:
@@ -7166,7 +7173,7 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>":
   version: 4.4.4
   resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"
   bin:
