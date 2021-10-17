@@ -1,3 +1,10 @@
+## [3.3.2](https://github.com/animafps/fpsmath/compare/v3.3.1...v3.3.2) (2021-10-17)
+
+
+### Bug Fixes
+
+* hotfix for bug not loading defaults for cooldown ([52f2a42](https://github.com/animafps/fpsmath/commit/52f2a42cd64678e3dc69eea2e411d4090deda22c))
+
 ## [3.3.1](https://github.com/animafps/fpsmath/compare/v3.3.0...v3.3.1) (2021-10-15)
 
 

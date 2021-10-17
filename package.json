@@ -1,7 +1,7 @@
 {
 	"name": "fpsmath",
 	"private": true,
-	"version": "3.3.1",
+	"version": "3.3.2",
 	"homepage": "https://fpsmath.animafps.xyz",
 	"license": "AGPL-3.0-or-later",
 	"main": "dist/index.js",
