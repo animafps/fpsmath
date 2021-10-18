@@ -26,8 +26,6 @@ import { ApplyOptions } from '@sapphire/decorators'
 	`,
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
-	cooldownLimit: 1,
-	cooldownDelay: 0,
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {

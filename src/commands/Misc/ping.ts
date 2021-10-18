@@ -12,8 +12,6 @@ import { ApplyOptions } from '@sapphire/decorators'
 	🖇️ **| Aliases**: \`pong\`
 	`,
 	requiredClientPermissions: ['SEND_MESSAGES'],
-	cooldownLimit: 1,
-	cooldownDelay: 0,
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {

@@ -26,8 +26,6 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-inch *3* *0.006* *1600*
 	`,
 	requiredClientPermissions: ['SEND_MESSAGES'],
-	cooldownLimit: 1,
-	cooldownDelay: 0,
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
