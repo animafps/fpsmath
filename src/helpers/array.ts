@@ -1,9 +1,13 @@
+interface objectArray {
+	yaw?: number
+	aliases: string[]
+	film?: string
+}
+
 /**
  * Object of games and units
  */
-export const array: {
-	[key: string]: { yaw?: number; aliases: string[]; film?: string }
-} = {
+export const array: { [key: string]: objectArray } = {
 	'Team Fortress 2': {
 		yaw: 0.022,
 		aliases: ['tf2', 'team-fortress', 'team-fortress-2'],
@@ -126,12 +130,22 @@ export function get(game: string) {
 	return map.get(game) ?? aliasesMap.get(game)
 }
 
+function sortObj(obj: Record<string, objectArray>) {
+	return Object.keys(obj)
+		.sort()
+		.reduce(function (result: Record<string, objectArray>, key) {
+			result[key] = obj[key]
+			return result
+		}, {})
+}
+
 export const map = new Map<
 	string,
 	{ name: string; yaw?: number; aliases: string[]; film?: string }
 >()
-for (const x of Object.keys(array)) {
-	map.set(x, { name: x, ...array[x] })
+const sortedArray = sortObj(array)
+for (const x of Object.keys(sortedArray)) {
+	map.set(x, { name: x, ...sortedArray[x] })
 }
 export const aliasesMap = new Map<
 	string,
