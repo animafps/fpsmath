@@ -8,11 +8,6 @@ WORKDIR /usr/src/app
 
 ENV CI=true
 
-RUN apt-get update && \
-	apt-get upgrade -y --no-install-recommends && \
-	apt-get clean && \
-	rm -rf /var/lib/apt/lists/*
-
 COPY --chown=node:node yarn.lock .
 COPY --chown=node:node package.json .
 COPY --chown=node:node .yarnrc.yml .
