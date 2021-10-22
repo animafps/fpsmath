@@ -20,7 +20,11 @@ export class UserCommand extends Command {
 			.setColor('#0099ff')
 			.setTitle('FPSMath - Info')
 			.setDescription(
-				`Various links and info to help you get to know me \n\nMe: <@${message.client.user?.id}>\nID: ${message.client.user?.id}\n`
+				`Various links and info to help you get to know me\n\nMe: <@${message.client.user?.id}>\nID: ${message.client.user?.id}\n`
+			)
+			.addField(
+				'About Me',
+				'A Discord bot designed to convert video game sensitivities, FoVs, mouse feel across themselves and preset games'
 			)
 			.addField('Version', `v${process.env.npm_package_version}`)
 			.addField(

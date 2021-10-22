@@ -25,20 +25,16 @@ export class UserListener extends Listener<typeof Events.ClientReady> {
 		const pad = ' '.repeat(7)
 
 		console.log(
-			String.raw`
-${pad}${process.env.npm_package_name}@${
+			String.raw`${pad}${process.env.npm_package_name}@${
 				process.env.npm_package_version || '1.0.0'
 			}
-${pad}[+] Gateway (${this.container.client.user?.username}#${
-				this.container.client.user?.discriminator
-			})
+${pad}[+] Gateway (${this.container.client.user?.tag})
 ${pad}Severs: ${this.container.client.guilds.cache.size}
 ${pad}Users: ${this.container.client.guilds.cache.reduce(
 				(acc, val) => acc + (val.memberCount ?? 0),
 				0
 			)}
-${dev ? ` ${pad}</> DEVELOPMENT MODE` : ''}
-		`.trim()
+${dev ? ` ${pad}</> DEVELOPMENT MODE` : ''}`
 		)
 	}
 

@@ -11,12 +11,18 @@ import { ApplyOptions } from '@sapphire/decorators'
 
 	🖇️ **| Aliases**: \`pong\`
 	`,
-	requiredClientPermissions: ['SEND_MESSAGES'],
+	requiredClientPermissions: ['SEND_MESSAGES', 'MANAGE_MESSAGES'],
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
-		const response = await message.channel.send('Ping...')
-		const latency = response.createdTimestamp - message.createdTimestamp
-		await response.edit(`Pong! Took me ${latency}ms.`)
+		const sent = await message.reply('Pong!')
+		const timeDiff =
+			(sent?.editedAt?.getTime() || sent?.createdAt.getTime() || 1) -
+			(message.editedAt?.getTime() || message.createdAt.getTime())
+		return sent.edit(
+			`Pong!\n🔂 **RTT**: ${timeDiff} ms\n💟 **Heartbeat**: ${Math.round(
+				this.container.client.ws.ping
+			)} ms`
+		)
 	}
 }
