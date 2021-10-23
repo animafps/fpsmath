@@ -43,4 +43,4 @@ RUN yarn workspaces focus --all --production
 
 USER node
 
-CMD [ "yarn", "run", "start"]
+CMD ["node", "dist/index.js"]
