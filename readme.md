@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 <p align="center">
-    <img width=200px height=200px src="http://fpsmath.animafps.xyz/assets/images/logo.png" alt="Bot logo"></a>
+    <img width=200px height=200px src="http://fpsmath.xyz/assets/images/logo.png" alt="Bot logo"></a>
 </p>
 
 <h3 align="center">fpsmath</h3>
@@ -12,7 +12,6 @@
 [![GitHub Issues](https://img.shields.io/github/issues/animafps/fpsmath?style=flat)](https://github.com/animafps/fpsmath/issues)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/animafps/fpsmath/Continuous%20Integration)](https://github.com/animafps/fpsmath/actions)
 
-
 ![Demo](docs/assets/images/demo.gif)
 
 </div>
@@ -22,17 +21,17 @@
 
 ## 🧐 About
 
-FPSMath is just a handy little bot that helps with converting everything related to video games from sensitivity to field of view. It supports [over 20 games](https://fpsmath.animafps.xyz/games/) and 5 units(cm/rev, inch/rev, MPI, arcmin and deg/mm) and are happy to add plenty more.
+FPSMath is just a handy little bot that helps with converting everything related to video games from sensitivity to field of view. It supports [over 20 games](https://fpsmath.xyz/games/) and 5 units(cm/rev, inch/rev, MPI, arcmin and deg/mm) and are happy to add plenty more.
 
 ## 🎈 Usage/Commands
 
-See [Commands Overview](https://fpsmath.animafps.xyz/commands/)
+See [Commands Overview](https://fpsmath.xyz/commands/)
 
 ## 🏁 Getting Started
 
 [Invite the bot to your server](https://discord.com/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=19520).
 
-See [Getting Started](https://fpsmath.animafps.xyz/getting-started/) for more information and guidance for using the hosted bot.
+See [Getting Started](https://fpsmath.xyz/getting-started/) for more information and guidance for using the hosted bot.
 
 ## ✍️ Contributing
 
@@ -42,10 +41,10 @@ As well for any questions regarding development or usage join the [support Disco
 
 ## ⛏️ Built Using
 
-- [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
-- [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
-- [Typescript](https://typescriptlang.org) - Language the bot is written in
-- [Node.js](https://nodejs.org) - The runtime
+-   [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
+-   [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
+-   [Typescript](https://typescriptlang.org) - Language the bot is written in
+-   [Node.js](https://nodejs.org) - The runtime
 
 ## ✨ Contributors
 
@@ -67,10 +66,10 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## 🎉 Acknowledgements
 
-- [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
-- [Sensitivity-Converter-Bot](https://github.com/JSanchezIO/Sensitivity-Converter-Bot) - The inspiration for me making this bot
-- Nocro - Helped with the initial math equations
-- [Kovaak's Website/Articles](https://kovaak.com) - Source of many of the terms and ideas used in the bot
+-   [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
+-   [Sensitivity-Converter-Bot](https://github.com/JSanchezIO/Sensitivity-Converter-Bot) - The inspiration for me making this bot
+-   Nocro - Helped with the initial math equations
+-   [Kovaak's Website/Articles](https://kovaak.com) - Source of many of the terms and ideas used in the bot
 
 ## ⚠️ License
 

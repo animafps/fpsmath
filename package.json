@@ -2,7 +2,7 @@
 	"name": "fpsmath",
 	"private": true,
 	"version": "3.3.2",
-	"homepage": "https://fpsmath.animafps.xyz",
+	"homepage": "https://fpsmath.xyz",
 	"license": "AGPL-3.0-or-later",
 	"main": "dist/index.js",
 	"bugs": {
@@ -27,7 +27,8 @@
 		"update": "yarn upgrade-interactive",
 		"start": "node --enable-source-maps dist/index.js",
 		"release": "semantic-release",
-		"pretty-quick": "pretty-quick"
+		"pretty-quick": "pretty-quick",
+		"postinstall": "husky install"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",
