@@ -1,3 +1,12 @@
+## [3.3.3](https://github.com/animafps/fpsmath/compare/v3.3.2...v3.3.3) (2021-10-30)
+
+
+### Reverts
+
+* "docs: changed gif to webm for index doc page" ([850665e](https://github.com/animafps/fpsmath/commit/850665ea8306b9644b4cecd8b7cfde6723768cfb))
+* "docs: fixed error with docs not being formatted correctly" ([515c0fd](https://github.com/animafps/fpsmath/commit/515c0fd973001223c3164df230701b1979762fe6))
+* reverts commit 52f2a42cd64678e3dc69eea2e411d4090deda22c ([4d4a5c8](https://github.com/animafps/fpsmath/commit/4d4a5c891d62fc46c693b87cfcc7cfbc7f220de2))
+
 ## [3.3.2](https://github.com/animafps/fpsmath/compare/v3.3.1...v3.3.2) (2021-10-17)
 
 
