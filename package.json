@@ -27,7 +27,7 @@
 		"update": "yarn upgrade-interactive",
 		"start": "node --enable-source-maps dist/index.js",
 		"release": "semantic-release",
-		"pretty-quick": "pretty-quick --pattern '**/*.ts'",
+		"pretty-quick": "pretty-quick",
 		"postinstall": "husky install"
 	},
 	"devDependencies": {
@@ -108,8 +108,5 @@
 			"@semantic-release/github"
 		]
 	},
-	"packageManager": "yarn@3.0.2",
-	"volta": {
-		"node": "16.12.0"
-	}
+	"packageManager": "yarn@3.0.2"
 }
