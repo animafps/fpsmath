@@ -12,7 +12,7 @@ title: Welcome!
 FPSMath is a Discord bot designed to convert video game sensitivities, FOV values, mouse feel across themselves and preset games
 
 <video autoplay="true" loop muted height="500px">
-	<source src="/assets/demo.mp4" type="video/mp4">
+	<source src="/assets/demo.webm" type="video/webm">
 </video>
 
 ## Why FPSMath
