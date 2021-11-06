@@ -1,3 +1,10 @@
+## [3.3.4](https://github.com/animafps/fpsmath/compare/v3.3.3...v3.3.4) (2021-11-06)
+
+
+### Bug Fixes
+
+* fixed incorrect support server invite ([43a701c](https://github.com/animafps/fpsmath/commit/43a701ccb87949fee46409d247eb2abf87f7decd))
+
 ## [3.3.3](https://github.com/animafps/fpsmath/compare/v3.3.2...v3.3.3) (2021-10-30)
 
 
