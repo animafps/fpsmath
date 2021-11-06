@@ -18,7 +18,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
 		const embed = new MessageEmbed().setColor('#0099ff').setDescription(`
-				[Invite FPSMath to your server](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&scope=bot&permissions=19520) | [Join Support Server](https://discord.gg/xJdQxps)
+				[Invite FPSMath to your server](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&scope=bot&permissions=19520) | [Join Support Server](https://discord.gg/Bg2gNT35s9)
                 `)
 		return message.reply({ embeds: [embed] })
 	}

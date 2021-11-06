@@ -18,7 +18,7 @@ const client = new SapphireClient({
 	partials: ['MESSAGE', 'CHANNEL'],
 	presence: {
 		status: 'online',
-		activities: [{ name: 'fps-help', type: 'LISTENING' }],
+		activities: [{ name: 'fps-help | fpsmath.xyz', type: 'PLAYING' }],
 	},
 })
 

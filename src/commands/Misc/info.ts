@@ -37,7 +37,7 @@ export class UserCommand extends Command {
 			)
 			.addField(
 				'Links',
-				`[**Bot Invite**](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&scope=bot&permissions=19520)\nInvite FPSMath\n\n[**Documentation**](https://fpsmath.xyz)\nGuides, Commands and everything else you need\n\n[**Developer**](https://animafps.xyz)\nMy developers website\n\n[**Support Server Invite**](https://discord.gg/xJdQxps)\nNeed Assistance? Join and find support\n\n[**Source Code**](https://github.com/animafps/fpsmath)`
+				`[**Bot Invite**](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&scope=bot&permissions=19520)\nInvite FPSMath\n\n[**Documentation**](https://fpsmath.xyz)\nGuides, Commands and everything else you need\n\n[**Developer**](https://animafps.xyz)\nMy developers website\n\n[**Support Server Invite**](https://discord.gg/Bg2gNT35s9)\nNeed Assistance? Join and find support\n\n[**Source Code**](https://github.com/animafps/fpsmath)`
 			)
 			.setTimestamp(Date.now())
 		return message.reply({ embeds: [Embed] })
