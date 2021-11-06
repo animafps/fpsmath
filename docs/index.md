@@ -3,7 +3,7 @@ title: Welcome!
 ---
 
 !!! tip
-This documentation outlines everything there is to know about FPSMath.
+    This documentation outlines everything there is to know about FPSMath.
 
     If you're new to FPSMath, we suggest you follow this guide by clicking "Next" at the bottom of the page when you're done reading!
 
@@ -22,6 +22,6 @@ FPSMath is a Discord bot designed to convert video game sensitivities, FOV value
 -   It's even [open source](https://github.com/animafps/fpsmath)!
 
 !!! info
-For further support or feedback about the bot or the documentation.
+    For further support or feedback about the bot or the documentation.
 
     Join the [support Discord server](https://discord.gg/Bg2gNT35s9).
