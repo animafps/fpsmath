@@ -27,7 +27,7 @@
 		"update": "yarn upgrade-interactive",
 		"start": "node --enable-source-maps dist/index.js",
 		"release": "semantic-release",
-		"pretty-quick": "pretty-quick",
+		"pretty-quick": "pretty-quick --staged --pattern '{src,tests}/**/*.ts'",
 		"postinstall": "husky install"
 	},
 	"devDependencies": {
