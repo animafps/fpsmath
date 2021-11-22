@@ -16,5 +16,13 @@ jobs:
             - uses: actions/setup-python@0066b88440aa9562be742e2c60ee750fc57d8849 # renovate: tag=v2
               with:
                   python-version: 3.x
-            - run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-minify-plugin
+            - uses: actions/cache@v2
+              id: pip-cache
+              with:
+                  path: ~/.cache/pip
+                  key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pip-
+            - if: steps.pip-cache.outputs.cache-hit != 'true'
+              run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-minify-plugin
             - run: mkdocs gh-deploy --force
