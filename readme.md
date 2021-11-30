@@ -29,7 +29,7 @@ See [Commands Overview](https://fpsmath.xyz/commands/)
 
 ## 🏁 Getting Started
 
-[Invite the bot to your server](https://discord.com/oauth2/authorize?client_id=792712521546465301&scope=bot&permissions=19520).
+[Invite the bot to your server](https://discord.com/oauth2/authorize?client_id=792712521546465301&permissions=274877926400&scope=bot%20applications.commands).
 
 See [Getting Started](https://fpsmath.xyz/getting-started/) for more information and guidance for using the hosted bot.
 
@@ -41,10 +41,10 @@ As well for any questions regarding development or usage join the [support Disco
 
 ## ⛏️ Built Using
 
--   [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
--   [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
--   [Typescript](https://typescriptlang.org) - Language the bot is written in
--   [Node.js](https://nodejs.org) - The runtime
+- [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
+- [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
+- [Typescript](https://typescriptlang.org) - Language the bot is written in
+- [Node.js](https://nodejs.org) - The runtime
 
 ## ✨ Contributors
 
@@ -66,10 +66,10 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## 🎉 Acknowledgements
 
--   [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
--   [Sensitivity-Converter-Bot](https://github.com/JSanchezIO/Sensitivity-Converter-Bot) - The inspiration for me making this bot
--   Nocro - Helped with the initial math equations
--   [Kovaak's Website/Articles](https://kovaak.com) - Source of many of the terms and ideas used in the bot
+- [Kovaak's Sensitivity Matcher Script](https://github.com/KovaaK/SensitivityMatcher) - Tool used to find the yaw values
+- [Sensitivity-Converter-Bot](https://github.com/JSanchezIO/Sensitivity-Converter-Bot) - The inspiration for me making this bot
+- Nocro - Helped with the initial math equations
+- [Kovaak's Website/Articles](https://kovaak.com) - Source of many of the terms and ideas used in the bot
 
 ## ⚠️ License
 

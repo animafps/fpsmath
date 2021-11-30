@@ -46,8 +46,6 @@ markdown_extensions:
 nav:
     - Introduction: index.md
     - getting-started.md
-    - custom-yaw.md
-    - film-notation.md
     - Commands:
           - commands/index.md
           - commands/math.md
