@@ -105,3 +105,11 @@ export function filmToFilm(
 		aspectRatio
 	)
 }
+
+export function parseAspect(string: string) {
+	if (/\d{1,4}:\d{1,4}/.test(string)) {
+		const split = string.split(':')
+		return Number(split[0]) / Number(split[1])
+	}
+	return
+}

@@ -2,8 +2,9 @@ import { ApplyOptions } from '@sapphire/decorators'
 import {
 	Args,
 	Command,
-	CommandContext,
 	CommandOptions,
+	MessageCommand,
+	MessageCommandContext,
 } from '@sapphire/framework'
 import { Collection, Message, MessageEmbed } from 'discord.js'
 
@@ -46,12 +47,15 @@ function sortCommandsAlphabetically(
 	→ fps-help *arcmin*
 	`,
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
+	chatInputCommand: {
+		register: true,
+	},
 })
 export class UserCommand extends Command {
 	public async messageRun(
 		message: Message,
 		args: Args,
-		context: CommandContext
+		context: MessageCommandContext
 	) {
 		const command = args.nextMaybe()
 		return command.exists && !args.getFlags('all')
@@ -73,7 +77,7 @@ export class UserCommand extends Command {
 		})
 	}
 
-	private async all(message: Message, context: CommandContext) {
+	private async all(message: Message, context: MessageCommandContext) {
 		const content = await this.buildHelp(message, context.commandPrefix)
 		return message.reply({
 			embeds: [
@@ -110,19 +114,23 @@ export class UserCommand extends Command {
 		const commands = this.container.stores.get('commands')
 		const filtered = new Collection<string, Command[]>()
 		await Promise.all(
-			commands.map(async (cmd: Command<Args>) => {
-				const command = cmd as Command
+			commands.map(async (cmd: Command) => {
+				const command = cmd as MessageCommand
 
-				const result = await cmd.preconditions.run(message, command, {
-					command: null,
-				})
+				const result = await cmd.preconditions.messageRun(
+					message,
+					command,
+					{
+						command: null,
+					}
+				)
 				if (!result.success) return
 
 				const category = filtered.get(command.fullCategory.join(' → '))
 				if (category) category.push(command)
 				else
 					filtered.set(command.fullCategory.join(' → '), [
-						command as Command,
+						command as MessageCommand,
 					])
 			})
 		)

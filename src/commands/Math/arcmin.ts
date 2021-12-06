@@ -1,6 +1,12 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework'
-import type { Message } from 'discord.js'
+import {
+	ApplicationCommandRegistry,
+	Command,
+	CommandOptions,
+	RegisterBehavior,
+} from '@sapphire/framework'
+import type { AutocompleteInteraction, CommandInteraction } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
+import { filterMap } from '../../helpers/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['minute-of-arc', 'arcmin/inch', 'minute-of-arc/inch'],
@@ -29,11 +35,61 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async messageRun(message: Message, args: Args) {
-		const sens = await args.pick('float')
-		const yaw = await args.pick('yaw')
-		const cpi = await args.pick('float')
+	public override registerApplicationCommands(
+		registry: ApplicationCommandRegistry
+	) {
+		registry.registerChatInputCommand(
+			{
+				name: this.name,
+				description: this.description,
+				options: [
+					{
+						type: 'NUMBER',
+						name: 'sensitivity',
+						description:
+							'The in-game sensitivity value for the game provided',
+						required: true,
+					},
+					{
+						type: 'STRING',
+						name: 'game',
+						description: 'The game that is tied to the sensitivity',
+						required: true,
+						autocomplete: true,
+					},
+					{
+						type: 'NUMBER',
+						name: 'cpi',
+						description:
+							'The CPI value of the mouse used. CPI is also known as DPI.',
+						required: true,
+					},
+				],
+			},
+			{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }
+		)
+	}
+
+	public async chatInputRun(interaction: CommandInteraction) {
+		if (
+			!interaction.options.getNumber('custom-yaw') &&
+			interaction.options.getNumber('game') === 0
+		) {
+			return interaction.reply('No custom yaw inputted')
+		}
+		const sens = interaction.options.getNumber('sensitivity') ?? 1
+		const yaw =
+			(interaction.options.getNumber('custom-yaw') ||
+				interaction.options.getNumber('game')) ??
+			1
+		const cpi = interaction.options.getNumber('cpi') ?? 1
 		const output = cpi * yaw * sens * (1 / 60)
-		return message.reply(`${parseFloat(output.toFixed(5))} arcmin`)
+		return interaction.reply(`${parseFloat(output.toFixed(5))} arcmin`)
+	}
+
+	public autocompleteRun(interaction: AutocompleteInteraction) {
+		const focusedValue = interaction.options.getFocused()
+		const filtered = filterMap(focusedValue.toString(), 'yaw')
+		return interaction.respond(filtered)
 	}
 }

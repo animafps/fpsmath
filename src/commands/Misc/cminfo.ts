@@ -1,5 +1,5 @@
 import { Command, CommandOptions } from '@sapphire/framework'
-import { Message, MessageEmbed } from 'discord.js'
+import { CommandInteraction, MessageEmbed } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -13,17 +13,22 @@ import { ApplyOptions } from '@sapphire/decorators'
 	`,
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
+	chatInputCommand: {
+		register: true,
+	},
 })
 export class UserCommand extends Command {
-	public async messageRun(message: Message) {
-		return message.reply({
-			embeds: [
-				new MessageEmbed()
-					.setDescription(
-						'cm/rev also known as cm/360 is a universal metric used for describing mouse sensitivity across all games. The definition is: how much centimeters you need to move your mouse in order to perform a 360 degree turn in-game.\n\nTo calculate yours use the `cm` command'
-					)
-					.setColor('#0099ff'),
-			],
+	public chatInputRun(interaction: CommandInteraction) {
+		return interaction.reply({
+			embeds: [this.buildEmbed()],
 		})
+	}
+
+	public buildEmbed() {
+		return new MessageEmbed()
+			.setDescription(
+				'**cm/rev** also known as cm/360 is a universal metric used for describing mouse sensitivity across all games. The definition is: how much centimeters you need to move your mouse in order to perform a 360 degree turn in-game.\n\nTo calculate yours use the `cm` command'
+			)
+			.setColor('#0099ff')
 	}
 }

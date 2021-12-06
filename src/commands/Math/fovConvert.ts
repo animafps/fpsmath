@@ -1,10 +1,9 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework'
+import { Command, CommandOptions } from '@sapphire/framework'
 import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 import { filmToFilm } from '../../helpers/fovHelper'
 
 @ApplyOptions<CommandOptions>({
-	aliases: ['fov-convert', 'film-convert', 'convert-fov'],
 	description:
 		'Converts a FoV value from one game or FILM notation to another',
 	detailedDescription: `
@@ -29,15 +28,9 @@ import { filmToFilm } from '../../helpers/fovHelper'
 	→ fps-fovconvert *90* *cs* *ow* *16:9*
 	→ fps-fovconvert *103* *ow* *r6s* *4:3*
 	`,
-	generateDashLessAliases: true,
-	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async messageRun(message: Message, args: Args) {
-		const fov = await args.pick('float')
-		const inFILM = await args.pick('film')
-		const outFILM = await args.pick('film')
-		const aspect = await args.pick('aspectRatio')
+	public async messageRun(message: Message) {
 		const output = filmToFilm(fov, inFILM, outFILM, aspect)
 		return message.reply(`${parseFloat(output.toFixed(5))}°`)
 	}

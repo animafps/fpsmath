@@ -1,6 +1,12 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework'
-import type { Message } from 'discord.js'
+import {
+	ApplicationCommandRegistry,
+	Command,
+	CommandOptions,
+	RegisterBehavior,
+} from '@sapphire/framework'
+import type { AutocompleteInteraction, CommandInteraction } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
+import { filterMap } from '../../helpers/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['convert-sens', 'convert-sensitivities'],
@@ -29,11 +35,52 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
-	public async messageRun(message: Message, args: Args) {
-		const sens = await args.pick('float')
-		const inYaw = await args.pick('yaw')
-		const outYaw = await args.pick('yaw')
+	public override registerApplicationCommands(
+		registry: ApplicationCommandRegistry
+	) {
+		registry.registerChatInputCommand(
+			{
+				name: this.name,
+				description: this.description,
+				options: [
+					{
+						type: 'NUMBER',
+						name: 'sensitivity',
+						description:
+							'The in-game sensitivity value for the game provided',
+						required: true,
+					},
+					{
+						type: 'STRING',
+						name: 'ingame',
+						description:
+							'The game that is tied to the input sensitivity',
+						required: true,
+					},
+					{
+						type: 'STRING',
+						name: 'outgame',
+						description:
+							'The game that is tied to the output sensitivity',
+						required: true,
+					},
+				],
+			},
+			{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }
+		)
+	}
+
+	public chatInputRun(interaction: CommandInteraction) {
+		const sens = interaction.options.getNumber('sensitivity') ?? 1
+		const inYaw = Number(interaction.options.getString('ingame')) ?? 1
+		const outYaw = Number(interaction.options.getString('outgame')) ?? 1
 		const output = sens * (inYaw / outYaw)
-		return message.reply(parseFloat(output.toFixed(5)).toString())
+		return interaction.reply(parseFloat(output.toFixed(5)).toString())
+	}
+
+	public autocompleteRun(interaction: AutocompleteInteraction) {
+		const focusedValue = interaction.options.getFocused()
+		const filtered = filterMap(focusedValue.toString(), 'yaw')
+		return interaction.respond(filtered)
 	}
 }

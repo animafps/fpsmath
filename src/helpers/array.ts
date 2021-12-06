@@ -171,3 +171,25 @@ export function getObject(
 		map.get(game.toLowerCase()) ?? aliasesMap.get(game.toLowerCase())
 	return value ? value[object] ?? null : null
 }
+
+export function filterMap(
+	query: string,
+	object: 'yaw' | 'aliases' | 'film' | 'name'
+) {
+	const result: { name: string; value: string }[] = []
+
+	map.forEach((val) => {
+		if (
+			val.name.startsWith(query) ||
+			val.aliases.some((value) => {
+				return value.startsWith(query)
+			})
+		) {
+			result.push({
+				name: val.name,
+				value: val[object]?.toString() ?? '',
+			})
+		}
+	})
+	return result
+}

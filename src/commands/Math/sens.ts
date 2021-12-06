@@ -3,31 +3,12 @@ import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
-	aliases: [
-		'sens-cm',
-		'sens-deg',
-		'sens-inch',
-		'sens',
-		'sens-mpi',
-		'sens-arcmin',
-		'sensitivity',
-	],
 	description:
 		'Converts a universal sensitivity value to a game specific sensitivity',
 	detailedDescription: `
 	📝 **| Command Usage**
 	→ fps-sens *Sensitivity* *GameName* *CPI*
 	→ fps-sens *Sensitivity* *Yaw* *CPI*
-
-    🚩 **| Flags**
-    Append these to the end of the message to configure it for the desired input universal sensitivity
-    it defaults to cm/rev as the input sensitivity so if inputting that you dont need a flag
-    → **--deg**: For deg/mm
-    → **--inch**: For inch/rev
-    → **--mpi**: For MPI
-    → **--arcmin**: For arcmin/inch
-
-	🖇️ **| Aliases**: \`sens\` and \`sensitivity\`
 
 	🔍 **| Extended Help**
 	The sens command converts a universal sensitivity(cm/rev, inch/rev, deg/mm, mpi, arcmin) value to a game/yaw specific sensitivity.
@@ -43,8 +24,6 @@ import { ApplyOptions } from '@sapphire/decorators'
 	→ fps-sens *1.6* *0.006* *1600* *--deg*
 	`,
 	generateDashLessAliases: true,
-	requiredClientPermissions: ['SEND_MESSAGES'],
-	flags: ['deg', 'inch', 'arcmin', 'cm'],
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {

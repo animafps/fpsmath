@@ -1,6 +1,15 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework'
-import { Message, MessageEmbed } from 'discord.js'
-import { get } from '../../helpers/array'
+import {
+	ApplicationCommandRegistry,
+	Command,
+	CommandOptions,
+	RegisterBehavior,
+} from '@sapphire/framework'
+import {
+	AutocompleteInteraction,
+	CommandInteraction,
+	MessageEmbed,
+} from 'discord.js'
+import { filterMap, get } from '../../helpers/array'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -22,29 +31,59 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export class UserCommand extends Command {
-	public async messageRun(message: Message, args: Args) {
-		const gameObject = get(await args.pick('game'))
-		return message.reply({
-			embeds: [
-				new MessageEmbed()
-					.setTitle(gameObject?.name || 'Game Info')
-					.setColor('#0099ff')
-					.setTimestamp(Date.now())
-					.setDescription(
-						`
-						🖇️ **| Aliases**: \`${gameObject?.aliases.join('`, `')}\`${
-							gameObject?.yaw
-								? `\n\n🖱️ **| Yaw**: \`${gameObject?.yaw}\``
-								: ''
-						}${
-							gameObject?.film
-								? `\n\n🎥 **| FILM Notation**: \`${gameObject?.film}\``
-								: ''
-						}
-					`
-					)
-					.setFooter(`Game info`),
-			],
+	public override registerApplicationCommands(
+		registry: ApplicationCommandRegistry
+	) {
+		registry.registerChatInputCommand(
+			{
+				name: this.name,
+				description: this.description,
+				options: [
+					{
+						type: 'STRING',
+						name: 'game',
+						description:
+							'The name of the game that is tied to the object wanted.',
+						required: true,
+						autocomplete: true,
+					},
+				],
+			},
+			{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }
+		)
+	}
+
+	public async chatInputRun(interaction: CommandInteraction) {
+		const gameObject = get(interaction.options.getString('game') ?? '')
+		return interaction.reply({
+			embeds: [this.buildEmbed(gameObject)],
 		})
+	}
+
+	public buildEmbed(gameObject: any) {
+		return new MessageEmbed()
+			.setTitle(gameObject?.name || 'Game Info')
+			.setColor('#0099ff')
+			.setTimestamp(Date.now())
+			.setDescription(
+				`
+						🖇️ **| Aliases**: \`${gameObject?.aliases.join('`, `')}\`${
+					gameObject?.yaw
+						? `\n\n🖱️ **| Yaw**: \`${gameObject?.yaw}\``
+						: ''
+				}${
+					gameObject?.film
+						? `\n\n🎥 **| FILM Notation**: \`${gameObject?.film}\``
+						: ''
+				}
+					`
+			)
+			.setFooter(`Game info`)
+	}
+
+	public autocompleteRun(interaction: AutocompleteInteraction) {
+		const focusedValue = interaction.options.getFocused()
+		const filtered = filterMap(focusedValue.toString(), 'name')
+		return interaction.respond(filtered)
 	}
 }
