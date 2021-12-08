@@ -1,4 +1,4 @@
-import { MessageEmbed, CommandInteraction } from 'discord.js'
+import { MessageEmbed, CommandInteraction, Message } from 'discord.js'
 import { Command, CommandOptions } from '@sapphire/framework'
 import { ApplyOptions } from '@sapphire/decorators'
 
@@ -18,6 +18,10 @@ import { ApplyOptions } from '@sapphire/decorators'
 	},
 })
 export class UserCommand extends Command {
+	public async messageRun(message: Message) {
+		return message.reply({ embeds: [this.buildEmbed()] })
+	}
+
 	public chatInputRun(interaction: CommandInteraction) {
 		return interaction.reply({ embeds: [this.buildEmbed()] })
 	}
@@ -40,7 +44,7 @@ export class UserCommand extends Command {
 				}\nUsers: ${this.container.client.guilds.cache.reduce(
 					(acc, val) => acc + (val.memberCount ?? 0),
 					0
-				)}`
+				)}\nShards: ${this.container.client.shard?.count}`
 			)
 			.addField(
 				'Links',

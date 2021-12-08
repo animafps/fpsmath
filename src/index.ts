@@ -5,15 +5,22 @@ import '@sapphire/plugin-logger/register'
 import 'dotenv/config'
 
 const client = new SapphireClient({
+	fetchPrefix: (msg) =>
+		msg.guild
+			? [process.env.PREFIX ?? 'fps-']
+			: [process.env.PREFIX ?? 'fps-', ''],
+	caseInsensitiveCommands: true,
 	logger: {
 		level: LogLevel.Debug,
 	},
 	shards: 'auto',
-	intents: ['GUILDS'],
+	intents: ['GUILDS', 'DIRECT_MESSAGES', 'GUILD_MESSAGES'],
+	partials: ['MESSAGE'],
 	presence: {
 		status: 'online',
 		activities: [{ name: 'fps-help | fpsmath.xyz', type: 'PLAYING' }],
 	},
+	loadMessageCommandListeners: true,
 })
 
 const main = async () => {

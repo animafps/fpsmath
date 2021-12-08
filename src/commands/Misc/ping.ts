@@ -1,5 +1,5 @@
 import { Command, CommandOptions } from '@sapphire/framework'
-import type { CommandInteraction } from 'discord.js'
+import type { CommandInteraction, Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -17,7 +17,18 @@ import { ApplyOptions } from '@sapphire/decorators'
 	},
 })
 export class UserCommand extends Command {
-	public async chatInputRun(interaction: CommandInteraction): Promise<any> {
+	public async messageRun(message: Message) {
+		const sent = await message.reply('Pong!')
+		const timeDiff =
+			(sent?.editedAt?.getTime() || sent?.createdAt.getTime() || 1) -
+			(message.editedAt?.getTime() || message.createdAt.getTime())
+		return sent.edit(
+			`Pong!\n🔂 **RTT**: ${timeDiff} ms\n💟 **Heartbeat**: ${Math.round(
+				this.container.client.ws.ping
+			)} ms`
+		)
+	}
+	public chatInputRun(interaction: CommandInteraction): Promise<any> {
 		return interaction.reply(
 			`Pong!\n💟 **Heartbeat**: ${Math.round(
 				this.container.client.ws.ping

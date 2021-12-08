@@ -1,10 +1,15 @@
 import {
 	ApplicationCommandRegistry,
+	Args,
 	Command,
 	CommandOptions,
 	RegisterBehavior,
 } from '@sapphire/framework'
-import type { AutocompleteInteraction, CommandInteraction } from 'discord.js'
+import type {
+	AutocompleteInteraction,
+	CommandInteraction,
+	Message,
+} from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 import { filterMap } from '../../helpers/array'
 
@@ -84,6 +89,14 @@ export class UserCommand extends Command {
 		const cpi = interaction.options.getNumber('cpi') ?? 1
 		const output = 360 / (cpi * yaw * sens)
 		return interaction.reply(`${parseFloat(output.toFixed(5))} inch/rev`)
+	}
+
+	public async messageRun(message: Message, args: Args) {
+		const sens = await args.pick('float')
+		const yaw = await args.pick('yaw')
+		const cpi = await args.pick('float')
+		const output = 360 / (cpi * yaw * sens)
+		return message.reply(`${parseFloat(output.toFixed(5))} inch/rev`)
 	}
 
 	public autocompleteRun(interaction: AutocompleteInteraction) {

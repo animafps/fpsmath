@@ -1,12 +1,18 @@
 import {
 	ApplicationCommandRegistry,
+	Args,
 	Command,
 	CommandOptions,
 	RegisterBehavior,
 } from '@sapphire/framework'
-import type { CommandInteraction } from 'discord.js'
+import type {
+	AutocompleteInteraction,
+	CommandInteraction,
+	Message,
+} from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 import { filmToTrue, parseAspect } from '../../helpers/fovHelper'
+import { filterMap } from '../../helpers/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-scaling', 'film'],
@@ -32,8 +38,6 @@ import { filmToTrue, parseAspect } from '../../helpers/fovHelper'
 	→ fps-fov *90* *cs* *16:9*
 	→ fps-fov *103* *ow* *4:3*
 	`,
-	generateDashLessAliases: true,
-	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export default class UserCommand extends Command {
 	public override registerApplicationCommands(
@@ -79,11 +83,33 @@ export default class UserCommand extends Command {
 			interaction.options.getString('aspect-ratio') ?? ''
 		)
 		if (!aspect) return interaction.reply('Error: Not valid aspect ratio')
-		const { horizontalFOV, verticalFOV } = filmToTrue(fov, film, aspect)
+		const { horizontalFOV, verticalFOV } = filmToTrue(
+			fov,
+			film.toUpperCase(),
+			aspect
+		)
 		return interaction.reply(
 			`Horizontal FoV: ${parseFloat(
 				horizontalFOV.toFixed(5)
 			)}°\nVertical FoV: ${parseFloat(verticalFOV.toFixed(5))}°`
 		)
+	}
+
+	public async messageRun(message: Message, args: Args) {
+		const fov = await args.pick('float')
+		const film = await args.pick('film')
+		const aspect = await args.pick('aspectRatio')
+		const { horizontalFOV, verticalFOV } = filmToTrue(fov, film, aspect)
+		return message.reply(
+			`Horizontal FoV: ${parseFloat(
+				horizontalFOV.toFixed(5)
+			)}°\nVertical FoV: ${parseFloat(verticalFOV.toFixed(5))}°`
+		)
+	}
+
+	public autocompleteRun(interaction: AutocompleteInteraction) {
+		const focusedValue = interaction.options.getFocused()
+		const filtered = filterMap(focusedValue.toString(), 'film')
+		return interaction.respond(filtered)
 	}
 }

@@ -1,5 +1,5 @@
 import { Command, CommandOptions } from '@sapphire/framework'
-import { CommandInteraction, MessageEmbed } from 'discord.js'
+import { CommandInteraction, Message, MessageEmbed } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -20,6 +20,12 @@ import { ApplyOptions } from '@sapphire/decorators'
 export class UserCommand extends Command {
 	public chatInputRun(interaction: CommandInteraction) {
 		return interaction.reply({
+			embeds: [this.buildEmbed()],
+		})
+	}
+
+	public messageRun(message: Message) {
+		return message.reply({
 			embeds: [this.buildEmbed()],
 		})
 	}

@@ -31,7 +31,10 @@ ${pad}Severs: ${this.container.client.guilds.cache.size}
 ${pad}Users: ${this.container.client.guilds.cache.reduce(
 				(acc, val) => acc + (val.memberCount ?? 0),
 				0
-			)}${dev ? `\n${pad}</> DEVELOPMENT MODE` : ''}`
+			)}
+${pad}Shards: ${this.container.client.shard?.count ?? 0}${
+				dev ? `\n${pad}</> DEVELOPMENT MODE` : ''
+			}`
 		)
 	}
 

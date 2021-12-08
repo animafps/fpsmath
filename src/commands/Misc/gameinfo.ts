@@ -1,5 +1,6 @@
 import {
 	ApplicationCommandRegistry,
+	Args,
 	Command,
 	CommandOptions,
 	RegisterBehavior,
@@ -7,6 +8,7 @@ import {
 import {
 	AutocompleteInteraction,
 	CommandInteraction,
+	Message,
 	MessageEmbed,
 } from 'discord.js'
 import { filterMap, get } from '../../helpers/array'
@@ -53,9 +55,16 @@ export class UserCommand extends Command {
 		)
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public chatInputRun(interaction: CommandInteraction) {
 		const gameObject = get(interaction.options.getString('game') ?? '')
 		return interaction.reply({
+			embeds: [this.buildEmbed(gameObject)],
+		})
+	}
+
+	public async messageRun(message: Message, args: Args) {
+		const gameObject = get(await args.pick('game'))
+		return message.reply({
 			embeds: [this.buildEmbed(gameObject)],
 		})
 	}

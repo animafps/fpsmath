@@ -13,8 +13,6 @@ COPY --chown=node:node package.json .
 COPY --chown=node:node .yarnrc.yml .
 COPY --chown=node:node .yarn/ .yarn/
 
-RUN yarn dlx --quiet pinst --disable
-
 # ================ #
 #   Builder Stage  #
 # ================ #

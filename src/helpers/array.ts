@@ -24,7 +24,7 @@ export const array: { [key: string]: objectArray } = {
 		aliases: ['source'],
 		film: '4ML3',
 	},
-	'Counter Strike': {
+	'Counter Strike: Global Offensive': {
 		yaw: 0.022,
 		aliases: ['cs', 'cs:go', 'csgo', 'counter-strike'],
 		film: '4ML3',
