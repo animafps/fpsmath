@@ -28,7 +28,7 @@ export class UserCommand extends Command {
 			)} ms`
 		)
 	}
-	public chatInputRun(interaction: CommandInteraction): Promise<any> {
+	public chatInputRun(interaction: CommandInteraction) {
 		return interaction.reply(
 			`Pong!\n💟 **Heartbeat**: ${Math.round(
 				this.container.client.ws.ping

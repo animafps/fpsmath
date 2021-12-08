@@ -44,7 +44,7 @@ export class UserCommand extends Command {
 			new MessageButton()
 				.setLabel('Invite FPSMath to your server')
 				.setURL(
-					`https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&permissions=274877926400&scope=bot%20applications.commands`
+					`https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&permissions=19456&scope=bot%20applications.commands`
 				)
 				.setStyle('LINK'),
 			new MessageButton()
