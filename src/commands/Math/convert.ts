@@ -61,6 +61,7 @@ export class UserCommand extends Command {
 						description:
 							'The game that is tied to the input sensitivity',
 						required: true,
+						autocomplete: true,
 					},
 					{
 						type: 'STRING',
@@ -68,6 +69,7 @@ export class UserCommand extends Command {
 						description:
 							'The game that is tied to the output sensitivity',
 						required: true,
+						autocomplete: true,
 					},
 				],
 			},
@@ -76,9 +78,23 @@ export class UserCommand extends Command {
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const sens = interaction.options.getNumber('sensitivity') ?? 1
-		const inYaw = Number(interaction.options.getString('ingame')) ?? 1
-		const outYaw = Number(interaction.options.getString('outgame')) ?? 1
+		const sens = interaction.options.getNumber('sensitivity', true)
+		const inYaw = Number(interaction.options.getString('ingame', true))
+		if (isNaN(inYaw))
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
+					'ingame'
+				)}\` is not a valid number`,
+				ephemeral: true,
+			})
+		const outYaw = Number(interaction.options.getString('outgame', true))
+		if (isNaN(outYaw))
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
+					'outgame'
+				)}\` is not a valid number`,
+				ephemeral: true,
+			})
 		const output = sens * (inYaw / outYaw)
 		return interaction.reply(parseFloat(output.toFixed(5)).toString())
 	}

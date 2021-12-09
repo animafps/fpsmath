@@ -79,17 +79,25 @@ export default class UserCommand extends Command {
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const fov = interaction.options.getNumber('fov') ?? 1
-		const film = interaction.options.getString('game') ?? ''
+		const fov = interaction.options.getNumber('fov', true)
+		const film = interaction.options.getString('game', true)
 		const aspect = parseAspect(
-			interaction.options.getString('aspect-ratio') ?? ''
+			interaction.options.getString('aspect-ratio', true)
 		)
-		if (!aspect) return interaction.reply('Error: Not valid aspect ratio')
+		if (!aspect)
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
+					'aspect-ratio'
+				)}\` Not valid aspect ratio`,
+				ephemeral: true,
+			})
+
 		const { horizontalFOV, verticalFOV } = filmToTrue(
 			fov,
 			film.toUpperCase(),
 			aspect
 		)
+
 		return interaction.reply(
 			`Horizontal FoV: ${parseFloat(
 				horizontalFOV.toFixed(5)

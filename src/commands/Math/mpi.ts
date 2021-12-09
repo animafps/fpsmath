@@ -75,18 +75,16 @@ export class UserCommand extends Command {
 	}
 
 	public async chatInputRun(interaction: CommandInteraction) {
-		if (
-			!interaction.options.getNumber('custom-yaw') &&
-			interaction.options.getNumber('game') === 0
-		) {
-			return interaction.reply('No custom yaw inputted')
-		}
-		const sens = interaction.options.getNumber('sensitivity') ?? 1
-		const yaw =
-			(interaction.options.getNumber('custom-yaw') ||
-				interaction.options.getNumber('game')) ??
-			1
-		const cpi = interaction.options.getNumber('cpi') ?? 1
+		const yaw = Number(interaction.options.getString('game', true))
+		if (isNaN(yaw))
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
+					'game'
+				)}\` is not a valid number`,
+				ephemeral: true,
+			})
+		const sens = interaction.options.getNumber('sensitivity', true)
+		const cpi = interaction.options.getNumber('cpi', true)
 		const output = cpi * yaw * sens * 60
 		return interaction.reply(`${parseFloat(output.toFixed(5))}  MPI`)
 	}

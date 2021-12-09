@@ -88,19 +88,20 @@ export class UserCommand extends Command {
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const fov = interaction.options.getNumber('fov') ?? 0
-		const inFILM = interaction.options.getString('in-game') ?? ''
-		const outFILM = interaction.options.getString('out-game') ?? ''
+		const fov = interaction.options.getNumber('fov', true)
+		const inFILM = interaction.options.getString('in-game', true)
+		const outFILM = interaction.options.getString('out-game', true)
 		const aspect = parseAspect(
-			interaction.options.getString('aspect-ratio') ?? ''
+			interaction.options.getString('aspect-ratio', true)
 		)
 
 		if (!aspect)
-			return interaction.reply(
-				`Error: \`${interaction.options.getString(
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
 					'aspect-ratio'
-				)}\` not valid aspect ratio.`
-			)
+				)}\` Not valid aspect ratio`,
+				ephemeral: true,
+			})
 
 		const output = filmToFilm(
 			fov,

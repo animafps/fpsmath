@@ -119,10 +119,17 @@ export class UserCommand extends Command {
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const type = interaction.options.getString('sensitivity-type')
-		const sens = interaction.options.getNumber('sensitivity') ?? 0
-		const yaw = Number(interaction.options.getString('game'))
-		const cpi = interaction.options.getNumber('cpi') ?? 0
+		const yaw = Number(interaction.options.getString('game', true))
+		if (isNaN(yaw))
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
+					'game'
+				)}\` is not a valid number`,
+				ephemeral: true,
+			})
+		const sens = interaction.options.getNumber('sensitivity', true)
+		const cpi = interaction.options.getNumber('cpi', true)
+		const type = interaction.options.getString('sensitivity-type', true)
 		let output = 0
 		switch (type) {
 			case 'cm/rev':

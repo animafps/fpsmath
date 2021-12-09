@@ -1,20 +1,10 @@
-import {
-	Listener,
-	Store,
-	ListenerOptions,
-	PieceContext,
-	Events,
-} from '@sapphire/framework'
+import { ApplyOptions } from '@sapphire/decorators'
+import { Listener, Store, ListenerOptions, Events } from '@sapphire/framework'
 const dev = process.env.NODE_ENV !== 'production'
-
+@ApplyOptions<ListenerOptions>({
+	once: true,
+})
 export class UserListener extends Listener<typeof Events.ClientReady> {
-	public constructor(context: PieceContext, options?: ListenerOptions) {
-		super(context, {
-			...options,
-			once: true,
-		})
-	}
-
 	public run() {
 		this.printBanner()
 		this.printStoreDebugInformation()
@@ -25,7 +15,7 @@ export class UserListener extends Listener<typeof Events.ClientReady> {
 		const pad = ' '.repeat(7)
 
 		console.log(
-			String.raw`${pad}fpsmath
+			String.raw`fpsmath
 ${pad}[+] Gateway (${this.container.client.user?.tag})
 ${pad}Severs: ${this.container.client.guilds.cache.size}
 ${pad}Users: ${this.container.client.guilds.cache.reduce(

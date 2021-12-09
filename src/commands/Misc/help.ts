@@ -100,7 +100,7 @@ export class UserCommand extends Command {
 			: this.all(interaction, {
 					commandPrefix: '',
 					prefix: '',
-					commandName: command ?? '',
+					commandName: '',
 			  })
 	}
 

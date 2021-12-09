@@ -70,9 +70,10 @@ export class UserCommand extends Command {
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const sens = interaction.options.getNumber('sensitivity') ?? 1
-		const inFOV = interaction.options.getNumber('in-fov') ?? 1
-		const outFOV = interaction.options.getNumber('out-fov') ?? 1
+		const sens = interaction.options.getNumber('sensitivity', true)
+		const inFOV = interaction.options.getNumber('in-fov', true)
+		const outFOV = interaction.options.getNumber('out-fov', true)
+
 		const output =
 			(Math.tan((outFOV * Math.PI) / 360) /
 				Math.tan((inFOV * Math.PI) / 360)) *

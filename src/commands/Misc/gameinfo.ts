@@ -56,7 +56,7 @@ export class UserCommand extends Command {
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const gameObject = get(interaction.options.getString('game') ?? '')
+		const gameObject = get(interaction.options.getString('game', true))
 		return interaction.reply({
 			embeds: [this.buildEmbed(gameObject)],
 		})

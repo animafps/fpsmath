@@ -76,9 +76,16 @@ export class UserCommand extends Command {
 	}
 
 	public async chatInputRun(interaction: CommandInteraction) {
-		const sens = interaction.options.getNumber('sensitivity') ?? 1
-		const yaw = Number(interaction.options.getString('game')) ?? 1
-		const cpi = interaction.options.getNumber('cpi') ?? 1
+		const yaw = Number(interaction.options.getString('game', true))
+		if (isNaN(yaw))
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
+					'game'
+				)}\` is not a valid number`,
+				ephemeral: true,
+			})
+		const sens = interaction.options.getNumber('sensitivity', true)
+		const cpi = interaction.options.getNumber('cpi', true)
 		const output = (2.54 * 360) / (cpi * yaw * sens)
 		return interaction.reply(`${parseFloat(output.toFixed(5))} cm/rev`)
 	}
