@@ -22,6 +22,7 @@
 		"build": "tsc -b src",
 		"clean": "tsc -b src --clean",
 		"watch": "tsc -b src -w",
+		"dev": "tsc -b src && node --enable-source-maps dist/index.js",
 		"commit": "git-cz",
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
