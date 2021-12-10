@@ -30,6 +30,9 @@ theme:
     custom_dir: docs/overrides
 extra:
     social:
+        - icon: fontawesome/solid/info-circle
+          link: https://status.fpsmath.xyz
+          name: Status
         - icon: fontawesome/brands/discord
           link: https://discord.gg/Bg2gNT35s9
           name: Support Discord server
@@ -46,10 +49,7 @@ markdown_extensions:
 nav:
     - Introduction: index.md
     - getting-started.md
-    - Commands:
-          - commands/index.md
-          - commands/math.md
-          - commands/misc.md
+    - commands.md
     - Other:
           - games.md
           - Changelog: changelog.md
