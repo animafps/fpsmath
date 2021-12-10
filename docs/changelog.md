@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/animafps/fpsmath/compare/v3.3.4...v3.4.0) (2021-12-10)
+
+
+### Features
+
+* **routes:** added route for api ([1375c99](https://github.com/animafps/fpsmath/commit/1375c995009d3c7c17bf0e84b21a772f31320532))
+
 ## [3.3.4](https://github.com/animafps/fpsmath/compare/v3.3.3...v3.3.4) (2021-11-06)
 
 
