@@ -45,4 +45,6 @@ RUN yarn workspaces focus --all --production
 
 USER node
 
+EXPOSE 4000
+
 CMD ["node", "dist/index.js"]

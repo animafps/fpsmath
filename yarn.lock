@@ -720,17 +720,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/plugin-api@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@sapphire/plugin-api@npm:3.1.0"
+"@sapphire/plugin-api@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@sapphire/plugin-api@npm:3.1.1"
   dependencies:
     "@types/node-fetch": 2.5.12
     "@types/psl": ^1.1.0
-    "@types/ws": ^8.2.0
+    "@types/ws": ^8.2.1
     node-fetch: 2.6.6
     psl: ^1.8.0
     tslib: ^2.3.1
-  checksum: ea947a050c632ef60c67ed2787bb64bf68cf3f60a2dd6c9790bea18f9cefeefeca2bf9379234546b48a738fa445726f76517abd54b8600eda8bf98c66b6507b5
+  checksum: 0d2f1a0f23c5486f4a5c9df2921f3ea7d02b53545989d9b84aa190bce035823bc8ca9574875e9c3fb6ecd7e5507ec412774cf4d63a0e86c9c156b8c368815963
   languageName: node
   linkType: hard
 
@@ -2967,7 +2967,7 @@ __metadata:
     "@sapphire/discord.js-utilities": ^4.1.4
     "@sapphire/framework": ^2.2.0
     "@sapphire/pieces": 3.2.0
-    "@sapphire/plugin-api": ^3.1.0
+    "@sapphire/plugin-api": ^3.1.1
     "@sapphire/plugin-logger": ^2.1.0
     "@sapphire/utilities": ^3.1.0
     "@semantic-release/changelog": ^6.0.1
