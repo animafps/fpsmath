@@ -54,7 +54,6 @@ nav:
           - games.md
           - Changelog: changelog.md
 plugins:
-    - git-revision-date-localized
     - search
     - minify:
           minify_html: true
