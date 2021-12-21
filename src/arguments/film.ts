@@ -1,5 +1,6 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
-import { getObject } from '../helpers/array'
+import { getObject } from '../lib/array'
+import type { filmNotation } from 'fov-utilities'
 
 export class UserArgument extends Argument<string> {
 	public constructor(context: PieceContext) {
@@ -14,7 +15,7 @@ export class UserArgument extends Argument<string> {
 		) {
 			return this.ok(parameter.toUpperCase())
 		} else if (getObject(parameter, 'film')) {
-			return this.ok(getObject(parameter, 'film') as string)
+			return this.ok(getObject(parameter, 'film') as filmNotation)
 		}
 		return this.error({
 			parameter,
@@ -27,6 +28,6 @@ export class UserArgument extends Argument<string> {
 
 declare module '@sapphire/framework' {
 	interface ArgType {
-		film: string
+		film: filmNotation
 	}
 }

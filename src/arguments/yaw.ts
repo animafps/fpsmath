@@ -1,5 +1,5 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
-import { getObject } from '../helpers/array'
+import { getObject } from '../lib/array'
 
 export class UserArgument extends Argument<number> {
 	public constructor(context: PieceContext) {

@@ -1,7 +1,7 @@
 import { Args, Command, CommandOptions } from '@sapphire/framework'
 import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { filmToTrue } from '../../helpers/fovHelper'
+import { filmToTrue } from 'fov-utilities'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-scaling', 'film'],

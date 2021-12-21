@@ -1,6 +1,6 @@
 import { Args, Command, CommandOptions } from '@sapphire/framework'
 import { Message, MessageEmbed } from 'discord.js'
-import { get } from '../../helpers/array'
+import { get } from '../../lib/array'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
