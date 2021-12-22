@@ -5,7 +5,12 @@
 		"outDir": "../dist",
 		"composite": true,
 		"preserveConstEnums": true,
-		"useDefineForClassFields": false
+		"useDefineForClassFields": false,
+		"baseUrl": ".",
+		"paths": {
+			"#lib/*": ["lib/*"],
+			"#root/*": ["*"]
+		}
 	},
 	"include": ["."]
 }

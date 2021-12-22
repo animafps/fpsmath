@@ -3,8 +3,8 @@ import {
 	Store,
 	ListenerOptions,
 	PieceContext,
-	Events,
 } from '@sapphire/framework'
+import { Events } from '#lib/types/Enums'
 const dev = process.env.NODE_ENV !== 'production'
 
 export class UserListener extends Listener<typeof Events.ClientReady> {
@@ -16,8 +16,27 @@ export class UserListener extends Listener<typeof Events.ClientReady> {
 	}
 
 	public run() {
+		try {
+			this.initAnalytics()
+		} catch (error) {
+			this.container.logger.fatal(error)
+		}
 		this.printBanner()
 		this.printStoreDebugInformation()
+	}
+
+	private async initAnalytics() {
+		if (process.env.INFLUX_TOKEN) {
+			const { client } = this.container
+			client.emit(
+				Events.AnalyticsSync,
+				client.guilds.cache.size,
+				client.guilds.cache.reduce(
+					(acc, val) => acc + (val.memberCount ?? 0),
+					0
+				)
+			)
+		}
 	}
 
 	private printBanner() {
@@ -27,11 +46,9 @@ export class UserListener extends Listener<typeof Events.ClientReady> {
 		console.log(
 			String.raw`${pad}fpsmath
 ${pad}[+] Gateway (${this.container.client.user?.tag})
-${pad}Severs: ${this.container.client.guilds.cache.size}
-${pad}Users: ${this.container.client.guilds.cache.reduce(
-				(acc, val) => acc + (val.memberCount ?? 0),
-				0
-			)}${dev ? `\n${pad}</> DEVELOPMENT MODE` : ''}`
+${pad}[${this.container.client.analytics ? '+' : '-'}] Analytics${
+				dev ? `\n${pad}</> DEVELOPMENT MODE` : ''
+			}`
 		)
 	}
 

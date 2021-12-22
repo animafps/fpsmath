@@ -16,6 +16,12 @@
 		"type": "git",
 		"url": "git+https://github.com/animafps/fpsmath.git"
 	},
+	"imports": {
+		"#lib/*": "./dist/lib/*.js",
+		"#root/*": "./dist/*.js",
+		"#lib/types": "./dist/lib/types/index.js",
+		"#lib/structures": "./dist/lib/structures/index.js"
+	},
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
 		"format": "prettier --write {src,tests}/**/*.ts",
@@ -49,6 +55,7 @@
 	},
 	"dependencies": {
 		"@discordjs/collection": "^0.3.2",
+		"@influxdata/influxdb-client": "^1.21.0",
 		"@sapphire/decorators": "^3.1.4",
 		"@sapphire/discord.js-utilities": "^4.1.5",
 		"@sapphire/framework": "^2.2.1",
