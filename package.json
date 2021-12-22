@@ -32,7 +32,7 @@
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
 		"start": "node --enable-source-maps dist/index.js",
-		"release": "standard-version",
+		"release": "standard-version --infile docs/changelog.md",
 		"pretty-quick": "pretty-quick --staged --pattern '{src,tests}/**/*.ts'",
 		"postinstall": "husky install"
 	},
