@@ -11,7 +11,7 @@ import {
 	Message,
 	MessageEmbed,
 } from 'discord.js'
-import { filterMap, get } from '../../helpers/array'
+import { filterMap, get } from '#lib/array'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({

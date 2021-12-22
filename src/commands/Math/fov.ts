@@ -11,8 +11,8 @@ import type {
 	Message,
 } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { filmToTrue, parseAspect } from '../../helpers/fovHelper'
-import { filterMap } from '../../helpers/array'
+import { filterMap } from '#lib/array'
+import { filmToTrue } from 'fov-utilities'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-scaling', 'film'],

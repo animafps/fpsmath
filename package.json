@@ -1,7 +1,7 @@
 {
 	"name": "fpsmath",
 	"private": true,
-	"version": "3.4.0",
+	"version": "3.5.0",
 	"homepage": "https://fpsmath.xyz",
 	"license": "AGPL-3.0-or-later",
 	"main": "dist/index.js",
@@ -16,6 +16,12 @@
 		"type": "git",
 		"url": "git+https://github.com/animafps/fpsmath.git"
 	},
+	"imports": {
+		"#lib/*": "./dist/lib/*.js",
+		"#root/*": "./dist/*.js",
+		"#lib/types": "./dist/lib/types/index.js",
+		"#lib/structures": "./dist/lib/structures/index.js"
+	},
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
 		"format": "prettier --write {src,tests}/**/*.ts",
@@ -27,45 +33,44 @@
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
 		"start": "node --enable-source-maps dist/index.js",
-		"release": "semantic-release",
+		"release": "standard-version --infile docs/changelog.md",
 		"pretty-quick": "pretty-quick --staged --pattern '{src,tests}/**/*.ts'",
 		"postinstall": "is-ci || husky install"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
 		"@commitlint/config-conventional": "^15.0.0",
-		"@semantic-release/changelog": "^6.0.1",
-		"@semantic-release/git": "^10.0.1",
-		"@types/node": "^16.11.11",
-		"@types/semantic-release": "^17.2.3",
-		"@types/ws": "^8.2.1",
-		"@typescript-eslint/eslint-plugin": "^5.5.0",
-		"@typescript-eslint/parser": "^5.5.0",
+		"@types/node": "^16.11.12",
+		"@types/ws": "^8.2.2",
+		"@typescript-eslint/eslint-plugin": "^5.6.0",
+		"@typescript-eslint/parser": "^5.6.0",
 		"cz-conventional-changelog": "3.3.0",
-		"eslint": "^8.4.0",
+		"eslint": "^8.4.1",
 		"eslint-config-prettier": "^8.3.0",
 		"husky": "^7.0.4",
 		"is-ci": "^3.0.1",
 		"lint-staged": "^12.1.2",
 		"prettier": "^2.5.1",
 		"pretty-quick": "^3.1.2",
-		"semantic-release": "^18.0.1",
-		"tslib": "^2.3.1",
-		"typescript": "^4.5.2"
+		"standard-version": "^9.3.2",
+		"typescript": "^4.5.3"
 	},
 	"dependencies": {
 		"@discordjs/collection": "^0.3.2",
+		"@influxdata/influxdb-client": "^1.21.0",
 		"@sapphire/decorators": "^3.1.4",
-		"@sapphire/discord.js-utilities": "^4.1.4",
+		"@sapphire/discord.js-utilities": "^4.1.5",
 		"@sapphire/framework": "pr-293",
 		"@sapphire/pieces": "3.2.0",
 		"@sapphire/plugin-api": "^3.1.1",
-		"@sapphire/plugin-logger": "^2.1.0",
+		"@sapphire/plugin-logger": "^2.1.1",
 		"@sapphire/utilities": "^3.1.0",
-		"@sentry/node": "^6.15.0",
+		"@sentry/node": "^6.16.1",
 		"discord-api-types": "^0.25.2",
 		"discord.js": "^13.3.1",
-		"dotenv": "^10.0.0"
+		"dotenv": "^10.0.0",
+		"fov-utilities": "^1.1.0",
+		"tslib": "^2.3.1"
 	},
 	"engines": {
 		"node": "16.x"
@@ -82,33 +87,6 @@
 	},
 	"lint-staged": {
 		"*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
-	},
-	"release": {
-		"branches": [
-			"main"
-		],
-		"plugins": [
-			"@semantic-release/commit-analyzer",
-			"@semantic-release/release-notes-generator",
-			[
-				"@semantic-release/changelog",
-				{
-					"changelogFile": "docs/changelog.md"
-				}
-			],
-			"@semantic-release/npm",
-			[
-				"@semantic-release/git",
-				{
-					"assets": [
-						"docs/changelog.md",
-						"package.json"
-					],
-					"message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
-				}
-			],
-			"@semantic-release/github"
-		]
 	},
 	"packageManager": "yarn@3.1.1"
 }

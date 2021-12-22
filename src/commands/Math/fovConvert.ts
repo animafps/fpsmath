@@ -11,8 +11,13 @@ import type {
 	Message,
 } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { filmToFilm, parseAspect } from '../../helpers/fovHelper'
-import { filterMap } from '../../helpers/array'
+import {
+	filmToFilm,
+	parseAspect,
+	aspectRatio,
+	filmNotation,
+} from 'fov-utilities'
+import { filterMap } from '#lib/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-convert', 'film-convert', 'convert-fov'],
@@ -92,7 +97,7 @@ export class UserCommand extends Command {
 		const inFILM = interaction.options.getString('in-game', true)
 		const outFILM = interaction.options.getString('out-game', true)
 		const aspect = parseAspect(
-			interaction.options.getString('aspect-ratio', true)
+			interaction.options.getString('aspect-ratio', true) as aspectRatio
 		)
 
 		if (!aspect)
@@ -105,8 +110,8 @@ export class UserCommand extends Command {
 
 		const output = filmToFilm(
 			fov,
-			inFILM.toUpperCase(),
-			outFILM.toUpperCase(),
+			inFILM.toUpperCase() as filmNotation,
+			outFILM.toUpperCase() as filmNotation,
 			aspect
 		)
 		return interaction.reply(`${parseFloat(output.toFixed(5))}°`)

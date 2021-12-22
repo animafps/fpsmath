@@ -1,7 +1,7 @@
 import { Command, CommandOptions } from '@sapphire/framework'
 import type { CommandInteraction, Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { map } from '../../helpers/array'
+import { map } from '../../lib/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['supported-games'],
