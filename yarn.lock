@@ -293,6 +293,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@influxdata/influxdb-client@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@influxdata/influxdb-client@npm:1.21.0"
+  checksum: a7a8f1fda75e64fbcbd470c59e87108c2181267543bc3d7bd70b0d7b358cbfa31e4082a1f267eb0edfbf70645bf3f9821e8ce5c392c4c57f0c5fe53a36c75069
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -2112,6 +2119,7 @@ __metadata:
     "@commitlint/cli": ^15.0.0
     "@commitlint/config-conventional": ^15.0.0
     "@discordjs/collection": ^0.3.2
+    "@influxdata/influxdb-client": ^1.21.0
     "@sapphire/decorators": ^3.1.4
     "@sapphire/discord.js-utilities": ^4.1.5
     "@sapphire/framework": ^2.2.1

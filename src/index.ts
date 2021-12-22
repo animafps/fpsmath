@@ -1,10 +1,11 @@
-import { SapphireClient, LogLevel } from '@sapphire/framework'
+import { LogLevel } from '@sapphire/framework'
 import * as Sentry from '@sentry/node'
 import '@sapphire/plugin-api/register'
 import '@sapphire/plugin-logger/register'
 import 'dotenv/config'
+import { FPSMathClient } from '#lib/FPSMathClient'
 
-const client = new SapphireClient({
+const client = new FPSMathClient({
 	fetchPrefix: (msg) =>
 		msg.guild
 			? [process.env.PREFIX ?? 'fps-']
