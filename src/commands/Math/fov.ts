@@ -12,7 +12,12 @@ import type {
 } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 import { filterMap } from '#lib/array'
-import { filmToTrue } from 'fov-utilities'
+import {
+	aspectRatio,
+	filmNotation,
+	filmToTrue,
+	parseAspect,
+} from 'fov-utilities'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-scaling', 'film'],
@@ -82,7 +87,7 @@ export default class UserCommand extends Command {
 		const fov = interaction.options.getNumber('fov', true)
 		const film = interaction.options.getString('game', true)
 		const aspect = parseAspect(
-			interaction.options.getString('aspect-ratio', true)
+			interaction.options.getString('aspect-ratio', true) as aspectRatio
 		)
 		if (!aspect)
 			return interaction.reply({
@@ -94,7 +99,7 @@ export default class UserCommand extends Command {
 
 		const { horizontalFOV, verticalFOV } = filmToTrue(
 			fov,
-			film.toUpperCase(),
+			film.toUpperCase() as filmNotation,
 			aspect
 		)
 

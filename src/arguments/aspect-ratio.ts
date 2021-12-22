@@ -1,5 +1,5 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
-import { parseAspect } from '../helpers/fovHelper'
+import { aspectRatio, parseAspect } from 'fov-utilities'
 
 export default class GameArgument extends Argument<number> {
 	public constructor(context: PieceContext) {
@@ -7,7 +7,7 @@ export default class GameArgument extends Argument<number> {
 	}
 
 	public run(parameter: string, context: ArgumentContext) {
-		const parsed = parseAspect(parameter)
+		const parsed = parseAspect(parameter as aspectRatio)
 		if (parsed) {
 			return this.ok(parsed)
 		}

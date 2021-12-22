@@ -11,7 +11,7 @@ import type {
 	Message,
 } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { filterMap } from '../../helpers/array'
+import { filterMap } from '#lib/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['mpi', 'milliradian', 'mrad/inch', 'milliradian/inch'],

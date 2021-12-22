@@ -1,16 +1,16 @@
 import { Events } from '#lib/types/Enums'
 import { ApplyOptions } from '@sapphire/decorators'
 import {
-	MessageCommandSuccessPayload,
+	ChatInputCommandSuccessPayload,
 	Listener,
 	ListenerOptions,
 } from '@sapphire/framework'
 
-@ApplyOptions<ListenerOptions>({ event: Events.MessageCommandSuccess })
+@ApplyOptions<ListenerOptions>({ event: Events.ChatInputCommandSuccess })
 export class UserListener extends Listener<
-	typeof Events.MessageCommandSuccess
+	typeof Events.ChatInputCommandSuccess
 > {
-	public run(payload: MessageCommandSuccessPayload) {
+	public run(payload: ChatInputCommandSuccessPayload) {
 		const command = payload.command
 		this.container.client.emit(
 			Events.CommandUsageAnalytics,
