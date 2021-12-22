@@ -2,6 +2,7 @@ export const enum Points {
 	Guilds = 'guilds',
 	Users = 'users',
 	Commands = 'commands',
+	MessageCount = 'message_count',
 }
 
 export const enum Tags {

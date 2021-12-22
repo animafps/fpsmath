@@ -42,9 +42,17 @@ export class UserListener extends Listener<typeof Events.ClientReady> {
 	private printBanner() {
 		// Offset Pad
 		const pad = ' '.repeat(7)
+		const ascii1 = ' ___  ___  ___  __  __        _    _ '
+		const ascii2 = '| __|| _ \\/ __||  \\/  | __ _ | |_ | |_'
+		const ascii3 = '| _| |  _/\\__ \\| |\\/| |/ _` ||  _||   \\ '
+		const ascii4 = '|_|  |_|  |___/|_|  |_|\\__/_| \\__||_||_|'
 
 		console.log(
-			String.raw`${pad}fpsmath
+			String.raw`${ascii1}
+${ascii2}
+${ascii3}
+${ascii4}
+
 ${pad}[+] Gateway (${this.container.client.user?.tag})
 ${pad}[${this.container.client.analytics ? '+' : '-'}] Analytics${
 				dev ? `\n${pad}</> DEVELOPMENT MODE` : ''

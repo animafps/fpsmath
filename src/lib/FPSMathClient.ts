@@ -10,3 +10,9 @@ export class FPSMathClient extends SapphireClient {
 		this.analytics = process.env.INFLUX_TOKEN ? new AnalyticsData() : null
 	}
 }
+
+declare module '@sapphire/framework' {
+	interface SapphireClient {
+		analytics: AnalyticsData | null
+	}
+}

@@ -1,7 +1,6 @@
 import { Tags } from '#lib/types/AnalyticsSchema'
 import type { Point } from '@influxdata/influxdb-client'
 import { Listener, ListenerOptions, PieceContext } from '@sapphire/framework'
-import type { AnalyticsData } from './AnalyticsData'
 
 export abstract class AnalyticsListener extends Listener {
 	public tags: [Tags, string][] = []
@@ -50,10 +49,4 @@ export abstract class AnalyticsListener extends Listener {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace AnalyticsListener {
 	export type Options = Omit<ListenerOptions, 'enabled'>
-}
-
-declare module '@sapphire/framework' {
-	interface SapphireClient {
-		analytics: AnalyticsData | null
-	}
 }
