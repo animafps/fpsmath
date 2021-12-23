@@ -2105,10 +2105,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fov-utilities@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "fov-utilities@npm:1.1.0"
-  checksum: 73784c2c80eed31368af1fb5dca7a2a2c3f7f081ccf027587983fb139784829adac530591fd9e094d09dfb7e02c0bf0760dd18d114f885bacb7558be912ce3a8
+"fov-utilities@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "fov-utilities@npm:1.1.4"
+  checksum: e1f4d523be03e4d776f1e2f73272857f26c8171e83a71ebd2be4cd1286a8fab82da242e351abb6204485f8409e8312e600840639a4beb2ea4d89f2a84b705b64
   languageName: node
   linkType: hard
 
@@ -2138,7 +2138,7 @@ __metadata:
     dotenv: ^10.0.0
     eslint: ^8.4.1
     eslint-config-prettier: ^8.3.0
-    fov-utilities: ^1.1.0
+    fov-utilities: ^1.1.4
     husky: ^7.0.4
     lint-staged: ^12.1.2
     prettier: ^2.5.1

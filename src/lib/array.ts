@@ -1,7 +1,9 @@
+import type { filmNotation } from 'fov-utilities'
+
 interface objectArray {
 	yaw?: number
 	aliases: string[]
-	film?: string
+	film?: filmNotation
 }
 
 /**
@@ -59,22 +61,22 @@ export const array: { [key: string]: objectArray } = {
 	Diabotical: {
 		yaw: 0.022,
 		aliases: ['diabotical', 'dbt'],
-		film: 'vML',
+		film: 'VML',
 	},
 	'Rainbow Six: Siege': {
 		yaw: 0.005729577951308232,
 		aliases: ['r6', 'rainbow6', 'r6s', 'siege'],
-		film: 'vML',
+		film: 'VML',
 	},
 	'Call of Duty': {
 		yaw: 0.0066,
 		aliases: ['cod', 'callofduty', 'call-of-duty', 'warzone', 'wz'],
-		film: 'hML',
+		film: 'HML',
 	},
 	Battlefield: {
 		yaw: 0.6771319397,
 		aliases: ['battlefield', 'bf'],
-		film: 'vML',
+		film: 'VML',
 	},
 	Destiny: {
 		yaw: 0.0066,
@@ -89,16 +91,16 @@ export const array: { [key: string]: objectArray } = {
 	Krunker: {
 		yaw: 0.13750954927425516,
 		aliases: ['krunker'],
-		film: 'vML',
+		film: 'VML',
 	},
 	Minecraft: {
 		yaw: 0.2592,
 		aliases: ['mc', 'minecraft'],
-		film: 'hML',
+		film: 'HML',
 	},
 	Paladins: {
 		aliases: ['paladins'],
-		film: 'hML',
+		film: 'HML',
 	},
 	"PlayerUnknown's: Battleground": {
 		aliases: ['pubg'],
@@ -108,7 +110,7 @@ export const array: { [key: string]: objectArray } = {
 	'Totally Accurate Battlegrounds': {
 		aliases: ['tabg'],
 		yaw: 0.001280683,
-		film: 'hML',
+		film: 'HML',
 	},
 	'Unreal Engine 4': {
 		aliases: ['ue4', 'unreal', 'unreal-engine'],
@@ -117,7 +119,7 @@ export const array: { [key: string]: objectArray } = {
 	'Halo: Master Chief Collection': {
 		yaw: 0.022222222222222223,
 		aliases: ['halo', 'halo-mcc'],
-		film: 'hML',
+		film: 'HML',
 	},
 }
 
@@ -141,7 +143,7 @@ function sortObj(obj: Record<string, objectArray>) {
 
 export const map = new Map<
 	string,
-	{ name: string; yaw?: number; aliases: string[]; film?: string }
+	{ name: string; yaw?: number; aliases: string[]; film?: filmNotation }
 >()
 const sortedArray = sortObj(array)
 for (const x of Object.keys(sortedArray)) {
@@ -149,7 +151,7 @@ for (const x of Object.keys(sortedArray)) {
 }
 export const aliasesMap = new Map<
 	string,
-	{ name: string; yaw?: number; aliases: string[]; film?: string }
+	{ name: string; yaw?: number; aliases: string[]; film?: filmNotation }
 >()
 for (const x of map) {
 	x[1].aliases.forEach((val) => {
