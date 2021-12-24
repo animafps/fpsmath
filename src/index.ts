@@ -27,6 +27,16 @@ const main = async () => {
 	if (process.env.SENTRY_DSN) {
 		Sentry.init({
 			dsn: process.env.SENTRY_DSN,
+			integrations: [
+				new Sentry.Integrations.Modules(),
+				new Sentry.Integrations.FunctionToString(),
+				new Sentry.Integrations.LinkedErrors(),
+				new Sentry.Integrations.Console(),
+				new Sentry.Integrations.Http({
+					breadcrumbs: true,
+					tracing: true,
+				}),
+			],
 		})
 	}
 	try {
