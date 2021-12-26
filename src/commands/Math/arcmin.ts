@@ -11,8 +11,6 @@ import type {
 	Message,
 } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { filterMap } from '#lib/array'
-
 @ApplyOptions<CommandOptions>({
 	aliases: ['minute-of-arc', 'arcmin/inch', 'minute-of-arc/inch'],
 	description: 'Converts a sensitivity value to arcmin/inch',
@@ -100,7 +98,10 @@ export class UserCommand extends Command {
 
 	public autocompleteRun(interaction: AutocompleteInteraction) {
 		const focusedValue = interaction.options.getFocused()
-		const filtered = filterMap(focusedValue.toString(), 'yaw')
+		const filtered = this.container.games.filterMap(
+			focusedValue.toString(),
+			'yaw'
+		)
 		return interaction.respond(filtered)
 	}
 }

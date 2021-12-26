@@ -11,7 +11,6 @@ import type {
 	Message,
 } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { filterMap } from '#lib/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['mpi', 'milliradian', 'mrad/inch', 'milliradian/inch'],
@@ -99,7 +98,10 @@ export class UserCommand extends Command {
 
 	public autocompleteRun(interaction: AutocompleteInteraction) {
 		const focusedValue = interaction.options.getFocused()
-		const filtered = filterMap(focusedValue.toString(), 'yaw')
+		const filtered = this.container.games.filterMap(
+			focusedValue.toString(),
+			'yaw'
+		)
 		return interaction.respond(filtered)
 	}
 }
