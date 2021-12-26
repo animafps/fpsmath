@@ -17,7 +17,6 @@ import {
 	aspectRatio,
 	filmNotation,
 } from 'fov-utilities'
-import { filterMap } from '#lib/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['fov-convert', 'film-convert', 'convert-fov'],
@@ -128,7 +127,10 @@ export class UserCommand extends Command {
 
 	public autocompleteRun(interaction: AutocompleteInteraction) {
 		const focusedValue = interaction.options.getFocused()
-		const filtered = filterMap(focusedValue.toString(), 'film')
+		const filtered = this.container.games.filterMap(
+			focusedValue.toString(),
+			'film'
+		)
 		return interaction.respond(filtered)
 	}
 }

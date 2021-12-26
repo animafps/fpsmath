@@ -11,7 +11,6 @@ import type {
 	Message,
 } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { filterMap } from '#lib/array'
 import {
 	aspectRatio,
 	filmNotation,
@@ -124,7 +123,10 @@ export default class UserCommand extends Command {
 
 	public autocompleteRun(interaction: AutocompleteInteraction) {
 		const focusedValue = interaction.options.getFocused()
-		const filtered = filterMap(focusedValue.toString(), 'film')
+		const filtered = this.container.games.filterMap(
+			focusedValue.toString(),
+			'film'
+		)
 		return interaction.respond(filtered)
 	}
 }
