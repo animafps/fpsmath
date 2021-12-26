@@ -9,7 +9,7 @@ export class UserAnalyticsEvent extends AnalyticsListener {
 	public async run(guilds: number, users: number) {
 		this.writePoints([this.syncGuilds(guilds), this.syncUsers(users)])
 
-		return this.container.client.analytics!.writeApi.flush()
+		return this.container.analytics!.writeApi.flush()
 	}
 
 	private syncGuilds(value: number) {

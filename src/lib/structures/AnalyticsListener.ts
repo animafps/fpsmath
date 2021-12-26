@@ -21,14 +21,14 @@ export abstract class AnalyticsListener extends Listener {
 	}
 
 	public writePoint(point: Point) {
-		return this.container.client.analytics!.writeApi.writePoint(
+		return this.container.analytics!.writeApi.writePoint(
 			this.injectTags(point)
 		)
 	}
 
 	public writePoints(points: Point[]) {
 		points = points.map((point) => this.injectTags(point))
-		return this.container.client.analytics!.writeApi.writePoints(points)
+		return this.container.analytics!.writeApi.writePoints(points)
 	}
 
 	protected injectTags(point: Point) {

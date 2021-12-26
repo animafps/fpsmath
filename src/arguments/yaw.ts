@@ -1,5 +1,4 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
-import { getObject } from '../lib/array'
 
 export class UserArgument extends Argument<number> {
 	public constructor(context: PieceContext) {
@@ -7,10 +6,11 @@ export class UserArgument extends Argument<number> {
 	}
 
 	public run(parameter: string, context: ArgumentContext) {
-		let yaw: number
 		if (isNaN(Number(parameter))) {
-			if (getObject(parameter, 'yaw')) {
-				yaw = Number(getObject(parameter, 'yaw'))
+			if (this.container.client.games.get(parameter)?.yaw) {
+				this.ok(
+					this.container.client.games.get(parameter)?.yaw as number
+				)
 			} else {
 				return this.error({
 					parameter,
@@ -19,10 +19,8 @@ export class UserArgument extends Argument<number> {
 					context,
 				})
 			}
-		} else {
-			yaw = Number(parameter)
 		}
-		return this.ok(yaw)
+		return this.ok(Number(parameter))
 	}
 }
 

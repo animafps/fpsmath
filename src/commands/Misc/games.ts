@@ -1,7 +1,6 @@
 import { Command, CommandOptions } from '@sapphire/framework'
 import type { Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
-import { map } from '../../lib/array'
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['supported-games'],
@@ -18,14 +17,14 @@ import { map } from '../../lib/array'
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
 		let result = ''
-		for (const game of map) {
+		for (const game of this.container.games) {
 			result += `• ${game[0]}: \`${game[1].aliases.join(', ')}\` ${
 				game[1].film ? '🎥' : ''
 			}${game[1].yaw ? '🖱️' : ''}\n`
 		}
 		try {
 			await message.author.send(
-				`**__Supported Games__**:\n\n${result}\n\n__Key__:\n→ 🎥: FoV scaling support\n→ 🖱️: Yaw/Sensitivity support\n\nTotal games supported: ${map.size}`
+				`**__Supported Games__**:\n\n${result}\n\n__Key__:\n→ 🎥: FoV scaling support\n→ 🖱️: Yaw/Sensitivity support\n\nTotal games supported: ${this.container.games.size}`
 			)
 			if (message.guild) {
 				return message.reply('Sent you a DM with information.')

@@ -1,6 +1,5 @@
 import { Args, Command, CommandOptions } from '@sapphire/framework'
 import { Message, MessageEmbed } from 'discord.js'
-import { get } from '../../lib/array'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -23,7 +22,7 @@ import { ApplyOptions } from '@sapphire/decorators'
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message, args: Args) {
-		const gameObject = get(await args.pick('game'))
+		const gameObject = this.container.games.get(await args.pick('game'))
 		return message.reply({
 			embeds: [
 				new MessageEmbed()
