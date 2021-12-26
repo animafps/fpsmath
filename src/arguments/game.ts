@@ -1,5 +1,4 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
-import { getObject } from '../lib/array'
 
 export class UserArgument extends Argument<string> {
 	public constructor(context: PieceContext) {
@@ -7,7 +6,7 @@ export class UserArgument extends Argument<string> {
 	}
 
 	public run(parameter: string, context: ArgumentContext) {
-		if (getObject(parameter, 'aliases')) {
+		if (this.container.games.get(parameter)?.name) {
 			return this.ok(parameter)
 		}
 		return this.error({

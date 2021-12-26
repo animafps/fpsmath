@@ -1,5 +1,4 @@
 import { Argument, PieceContext, ArgumentContext } from '@sapphire/framework'
-import { getObject } from '../lib/array'
 import type { filmNotation } from 'fov-utilities'
 
 export class UserArgument extends Argument<string> {
@@ -14,8 +13,8 @@ export class UserArgument extends Argument<string> {
 			)
 		) {
 			return this.ok(parameter.toUpperCase())
-		} else if (getObject(parameter, 'film')) {
-			return this.ok(getObject(parameter, 'film') as filmNotation)
+		} else if (this.container.games.get(parameter)?.film) {
+			return this.ok(this.container.games.get(parameter)?.film as string)
 		}
 		return this.error({
 			parameter,

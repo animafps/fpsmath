@@ -11,7 +11,6 @@ import {
 	Message,
 	MessageEmbed,
 } from 'discord.js'
-import { filterMap, get } from '#lib/array'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -56,14 +55,16 @@ export class UserCommand extends Command {
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const gameObject = get(interaction.options.getString('game', true))
+		const gameObject = this.container.games.get(
+			interaction.options.getString('game', true)
+		)
 		return interaction.reply({
 			embeds: [this.buildEmbed(gameObject)],
 		})
 	}
 
 	public async messageRun(message: Message, args: Args) {
-		const gameObject = get(await args.pick('game'))
+		const gameObject = this.container.games.get(await args.pick('game'))
 		return message.reply({
 			embeds: [this.buildEmbed(gameObject)],
 		})
@@ -92,7 +93,10 @@ export class UserCommand extends Command {
 
 	public autocompleteRun(interaction: AutocompleteInteraction) {
 		const focusedValue = interaction.options.getFocused()
-		const filtered = filterMap(focusedValue.toString(), 'name')
+		const filtered = this.container.games.filterMap(
+			focusedValue.toString(),
+			'name'
+		)
 		return interaction.respond(filtered)
 	}
 }
