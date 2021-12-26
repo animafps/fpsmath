@@ -11,6 +11,7 @@ export class FPSMathClient extends SapphireClient {
 	public constructor(options: ClientOptions) {
 		super(options)
 		this.analytics = process.env.INFLUX_TOKEN ? new AnalyticsData() : null
+		container.analytics = this.analytics
 		this.games = new GameCollection()
 		container.games = this.games
 	}
