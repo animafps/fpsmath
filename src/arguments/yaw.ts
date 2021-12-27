@@ -8,7 +8,7 @@ export class UserArgument extends Argument<number> {
 	public run(parameter: string, context: ArgumentContext) {
 		if (isNaN(Number(parameter))) {
 			if (this.container.client.games.get(parameter)?.yaw) {
-				this.ok(
+				return this.ok(
 					this.container.client.games.get(parameter)?.yaw as number
 				)
 			} else {
