@@ -2246,6 +2246,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^16.0.0
     "@commitlint/config-conventional": ^16.0.0
+    "@discordjs/builders": ^0.10.0
     "@discordjs/collection": ^0.4.0
     "@influxdata/influxdb-client": ^1.21.0
     "@sapphire/decorators": ^3.1.4
@@ -2254,6 +2255,7 @@ __metadata:
     "@sapphire/pieces": 3.2.0
     "@sapphire/plugin-api": ^3.1.2
     "@sapphire/plugin-logger": ^2.1.1
+    "@sapphire/time-utilities": ^1.5.0
     "@sapphire/utilities": ^3.1.0
     "@sentry/node": ^6.16.1
     "@types/node": ^16.11.17

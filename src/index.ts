@@ -16,7 +16,7 @@ const client = new FPSMathClient({
 	},
 	shards: 'auto',
 	intents: ['GUILDS', 'DIRECT_MESSAGES', 'GUILD_MESSAGES'],
-	partials: ['MESSAGE'],
+	partials: ['MESSAGE', 'CHANNEL'],
 	presence: {
 		status: 'online',
 		activities: [{ name: 'fps-help | fpsmath.xyz', type: 'PLAYING' }],
