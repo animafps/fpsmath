@@ -71,10 +71,10 @@ There are a number of guidelines considered when reviewing Pull Requests to be m
 
 Not everyone can contribute with code or with documentation because of many reasons so there are many thing you can do to help and contribute to this project:
 
-1. Spread the word - share the project around
-2. Use the bot - just by using FPSMath in your server your helping people have convenience to convert
-3. Help in the [support server][discord server] - the maintainers and other contributors may not always be around to help people in need for support in the bot's use and many other aspects
-4. Financially sponsor - if you want to contribute and don't have the time to help in the many other ways to contribute above you can provide funding to the maintainers through [Github Sponsors][sponsor]
+- Spread the word - share the project around
+- Use the bot - just by using FPSMath in your server your helping people have convenience to convert
+- Help in the [support server][discord server] - the maintainers and other contributors may not always be around to help people in need for support in the bot's use and many other aspects
+- Financially sponsor - if you want to contribute and don't have the time to help in the many other ways to contribute above you can provide funding to the maintainers through [Github Sponsors][sponsor]
 
 <!-- Link Dump -->
 
