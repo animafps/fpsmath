@@ -34,7 +34,7 @@ in your text editor or IDE of your choice to ensure builds from GitHub Actions d
 
 **_Before committing and pushing your changes, please ensure that you do not have any linting errors by running `yarn lint`!_**
 
-## Running FPSMath locally
+### Running FPSMath locally
 
 To run FPSMath locally a few steps should be taken.
 
@@ -56,7 +56,7 @@ $ yarn lint
 $ yarn start
 ```
 
-## FPSMath Concept Guidelines
+### FPSMath Concept Guidelines
 
 There are a number of guidelines considered when reviewing Pull Requests to be merged. _This is by no means an exhaustive list, but here are some things to consider before/while submitting your ideas._
 
@@ -66,6 +66,15 @@ There are a number of guidelines considered when reviewing Pull Requests to be m
 - Everything should follow [OOP paradigms] and generally rely on behaviour over state where possible. This generally helps methods be predictable, keeps the codebase simple and understandable, reduces code duplication through abstraction, and leads to efficiency and therefore scalability.
 - Everything should follow our ESLint rules as closely as possible, and should pass lint tests even if you must disable a rule for a single line.
 - Everything should follow [Discord Bot Best Practices]
+
+## Non Code or Documentation Contributing
+
+Not everyone can contribute with code or with documentation because of many reasons so there are many thing you can do to help and contribute to this project:
+
+- Spread the word - share the project around
+- Use the bot - just by using FPSMath in your server your helping people have convenience to convert
+- Help in the [support server][discord server] - the maintainers and other contributors may not always be around to help people in need for support in the bot's use and many other aspects
+- Financially sponsor - if you want to contribute and don't have the time to help in the many other ways to contribute above you can provide funding to the maintainers through [Github Sponsors][sponsor]
 
 <!-- Link Dump -->
 
@@ -78,3 +87,4 @@ There are a number of guidelines considered when reviewing Pull Requests to be m
 [discord bot best practices]: https://github.com/meew0/discord-bot-best-practices
 [`.env.example`]: ../.env.example
 [code of conduct]: code_of_conduct.md
+[sponsor]: https://github.com/sponsors/animafps
