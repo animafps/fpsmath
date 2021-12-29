@@ -1,9 +1,14 @@
+// Unless explicitly defined, set NODE_ENV as development:
+process.env.NODE_ENV ??= 'development'
+
 import { LogLevel } from '@sapphire/framework'
 import * as Sentry from '@sentry/node'
 import '@sapphire/plugin-api/register'
 import '@sapphire/plugin-logger/register'
-import 'dotenv/config'
+import { config } from 'dotenv-cra'
 import { FPSMathClient } from '#lib/FPSMathClient'
+
+config()
 
 const client = new FPSMathClient({
 	fetchPrefix: (msg) =>

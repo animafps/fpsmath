@@ -1706,6 +1706,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv-cra@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "dotenv-cra@npm:3.0.2"
+  dependencies:
+    dotenv: ^10.0.0
+    dotenv-expand: ^5.1.0
+  checksum: dc33ca4c8751a16390f646513bbdfdf64e0cc6ebf3439e1d3e9fb418005f13d53106792e545824d9c08084a9c4e1bec425d30628f9791dab1f9a97f1e3684a64
+  languageName: node
+  linkType: hard
+
+"dotenv-expand@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "dotenv-expand@npm:5.1.0"
+  checksum: 8017675b7f254384915d55f9eb6388e577cf0a1231a28d54b0ca03b782be9501b0ac90ac57338636d395fa59051e6209e9b44b8ddf169ce6076dffb5dea227d3
+  languageName: node
+  linkType: hard
+
 "dotenv@npm:^10.0.0":
   version: 10.0.0
   resolution: "dotenv@npm:10.0.0"
@@ -2208,7 +2225,7 @@ __metadata:
     cz-conventional-changelog: 3.3.0
     discord-api-types: ^0.26.0
     discord.js: ^13.4.0
-    dotenv: ^10.0.0
+    dotenv-cra: ^3.0.2
     eslint: ^8.5.0
     eslint-config-prettier: ^8.3.0
     fov-utilities: ^1.1.4
