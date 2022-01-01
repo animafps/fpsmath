@@ -56,10 +56,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://animafps.xyz"><img src="https://avatars.githubusercontent.com/u/18208134?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anima.</b></sub></a><br /><a href="https://github.com/animafps/fpsmath/commits?author=animafps" title="Code">💻</a> <a href="https://github.com/animafps/fpsmath/commits?author=animafps" title="Documentation">📖</a> <a href="#design-animafps" title="Design">🎨</a> <a href="#ideas-animafps" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-animafps" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#projectManagement-animafps" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/apps/renovate"><img src="https://avatars.githubusercontent.com/in/2740?v=4?s=100" width="100px;" alt=""/><br /><sub><b>renovate[bot]</b></sub></a><br /><a href="#maintenance-renovate[bot]" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/apps/allcontributors"><img src="https://avatars.githubusercontent.com/in/23186?v=4?s=100" width="100px;" alt=""/><br /><sub><b>allcontributors[bot]</b></sub></a><br /><a href="https://github.com/animafps/fpsmath/commits?author=allcontributors[bot]" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/apps/dependabot"><img src="https://avatars.githubusercontent.com/in/29110?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dependabot[bot]</b></sub></a><br /><a href="#maintenance-dependabot[bot]" title="Maintenance">🚧</a></td>
   </tr>
 </table>
+
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

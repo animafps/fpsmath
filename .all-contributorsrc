@@ -1,27 +1,55 @@
 {
-	"files": [
-		"readme.md"
-	],
-	"skipCi": true,
-	"contributors": [
-		{
-			"login": "animafps",
-			"name": "Anima.",
-			"avatar_url": "https://avatars.githubusercontent.com/u/18208134?v=4",
-			"profile": "https://animafps.xyz",
-			"contributions": [
-				"code",
-				"doc",
-				"design",
-				"ideas",
-				"infra",
-				"projectManagement"
-			]
-		}
-	],
-	"projectName": "fpsmath",
-	"projectOwner": "animafps",
-	"repoType": "github",
-	"repoHost": "https://github.com",
-	"contributorsPerLine": 7
+  "files": [
+    "readme.md"
+  ],
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "animafps",
+      "name": "Anima.",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18208134?v=4",
+      "profile": "https://animafps.xyz",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "ideas",
+        "infra",
+        "projectManagement"
+      ]
+    },
+    {
+      "login": "renovate[bot]",
+      "name": "renovate[bot]",
+      "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+      "profile": "https://github.com/apps/renovate",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "allcontributors[bot]",
+      "name": "allcontributors[bot]",
+      "avatar_url": "https://avatars.githubusercontent.com/in/23186?v=4",
+      "profile": "https://github.com/apps/allcontributors",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "dependabot[bot]",
+      "name": "dependabot[bot]",
+      "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+      "profile": "https://github.com/apps/dependabot",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "projectName": "fpsmath",
+  "projectOwner": "animafps",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "contributorsPerLine": 7,
+  "commitConvention": "none"
 }
