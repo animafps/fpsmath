@@ -24,4 +24,4 @@ FPSMath is a Discord bot designed to convert video game sensitivities, FOV value
 !!! info
     For further support or feedback about the bot or the documentation.
 
-    Join the [support Discord server](https://discord.gg/Bg2gNT35s9).
+    Join the [support Discord server](https://fpsmath.xyz/support).

@@ -34,7 +34,7 @@ extra:
           link: https://status.fpsmath.xyz
           name: Status
         - icon: fontawesome/brands/discord
-          link: https://discord.gg/Bg2gNT35s9
+          link: https://fpsmath.xyz/support
           name: Support Discord server
     analytics:
         provider: custom

@@ -11,7 +11,7 @@ Just 4 easy steps away from converting in your own server. Let's go!
 
 ### 1. Click the Button
 
-[**Invite The Bot To Your Server**](https://discord.com/oauth2/authorize?client_id=792712521546465301&permissions=274877926400&scope=bot%20applications.commands){ .md-button .md-button--primary }
+[**Invite The Bot To Your Server**](https://fpsmath.xyz/invite){ .md-button .md-button--primary }
 
 #### 1.5 \(Login to Discord if you're not already logged in.\)
 

@@ -29,7 +29,7 @@ See [Commands Overview](https://fpsmath.xyz/commands/)
 
 ## 🏁 Getting Started
 
-[Invite the bot to your server](https://discord.com/oauth2/authorize?client_id=792712521546465301&permissions=274877926400&scope=bot%20applications.commands).
+[Invite the bot to your server](https://fpsmath.xyz/invite).
 
 See [Getting Started](https://fpsmath.xyz/getting-started/) for more information and guidance for using the hosted bot.
 
@@ -37,7 +37,7 @@ See [Getting Started](https://fpsmath.xyz/getting-started/) for more information
 
 If you are interested in contributing or helping with creation of this bot please read [the code of conduct](.github/code_of_conduct.md) and [the contributing guide and guidelines](.github/contributing.md)
 
-As well for any questions regarding development or usage join the [support Discord server](https://discord.com/invite/Bg2gNT35s9)
+As well for any questions regarding development or usage join the [support Discord server](https://fpsmath.xyz/support)
 
 ## ⛏️ Built Using
 
