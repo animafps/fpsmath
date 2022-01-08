@@ -22,7 +22,9 @@ export class GameCollection extends Collection<string, arrayType> {
 	}
 
 	public override get(key: string) {
-		return super.get(key) ?? this.aliases.get(key)
+		return (
+			super.get(key.toLowerCase()) ?? this.aliases.get(key.toLowerCase())
+		)
 	}
 
 	filterMap(query: string, object: 'yaw' | 'aliases' | 'film' | 'name') {
