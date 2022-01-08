@@ -17,7 +17,9 @@ import { ApplyOptions } from '@sapphire/decorators'
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
 		let result = ''
-		for (const game of this.container.games) {
+		for (const game of this.container.games.sort((a, b) =>
+			a.name.localeCompare(b.name)
+		)) {
 			result += `• ${game[0]}: \`${game[1].aliases.join(', ')}\` ${
 				game[1].film ? '🎥' : ''
 			}${game[1].yaw ? '🖱️' : ''}\n`
