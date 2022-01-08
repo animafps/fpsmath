@@ -7,6 +7,7 @@ import '@sapphire/plugin-api/register'
 import '@sapphire/plugin-logger/register'
 import { config } from 'dotenv-cra'
 import { FPSMathClient } from '#lib/FPSMathClient'
+import { start } from '@sapphire/plugin-hmr'
 
 config()
 
@@ -49,6 +50,9 @@ const main = async () => {
 		client.logger.info('Logging in')
 		await client.login()
 		client.logger.info(`Logged in`)
+		if (process.env.NODE_ENV === 'development') {
+			start()
+		}
 	} catch (error) {
 		client.logger.fatal(error)
 		client.destroy()
