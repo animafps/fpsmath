@@ -1,12 +1,6 @@
-import { Events } from '#lib/types/Enums'
-import { ApplyOptions } from '@sapphire/decorators'
-import {
-	ChatInputCommandSuccessPayload,
-	Listener,
-	ListenerOptions,
-} from '@sapphire/framework'
+import { Events } from '#lib/types'
+import { ChatInputCommandSuccessPayload, Listener } from '@sapphire/framework'
 
-@ApplyOptions<ListenerOptions>({ event: Events.ChatInputCommandSuccess })
 export class UserListener extends Listener<
 	typeof Events.ChatInputCommandSuccess
 > {

@@ -87,14 +87,24 @@ export class UserCommand extends Command {
 		args: Args,
 		context: MessageCommandContext
 	) {
-		const command = args.nextMaybe()
-		return command.exists && !args.getFlags('all')
-			? this.specific(message, command.value)
+		const commandName = args.nextMaybe()
+		let command: Command | undefined
+		if (commandName.exists) {
+			command = this.container.stores
+				.get('commands')
+				.get(commandName.value)
+		}
+		return command && !args.getFlags('all')
+			? this.specific(message, command)
 			: this.all(message, context)
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
-		const command = interaction.options.getString('command')
+		const commandName = interaction.options.getString('command')
+		let command: Command | undefined
+		if (commandName) {
+			command = this.container.stores.get('commands').get(commandName)
+		}
 		return command
 			? this.specific(interaction, command)
 			: this.all(interaction, {
@@ -106,16 +116,15 @@ export class UserCommand extends Command {
 
 	private async specific(
 		message: Message | CommandInteraction,
-		commandName: string
+		command: Command
 	) {
-		const command = this.container.stores.get('commands').get(commandName)
 		return message.reply({
 			embeds: [
 				new MessageEmbed()
 					.setTitle(`${command?.description}`)
 					.setColor('#0099ff')
 					.setDescription(`${command?.detailedDescription}`)
-					.setFooter(`Command help for ${command?.name}`)
+					.setFooter({ text: `Command help for ${command?.name}` })
 					.setTimestamp(Date.now()),
 			],
 		})

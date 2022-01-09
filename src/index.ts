@@ -66,6 +66,7 @@ process.on('unhandledRejection', (reason: string) => {
 
 process.on('uncaughtException', (error: Error) => {
 	client.logger.fatal(error)
+	Sentry.captureException(error, { level: Sentry.Severity.Fatal })
 	client.destroy()
 	process.exit(1)
 })

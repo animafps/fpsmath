@@ -4,6 +4,7 @@ import {
 	Events,
 	Listener,
 } from '@sapphire/framework'
+import { captureException } from '@sentry/node'
 
 export class UserListener extends Listener<typeof Events.MessageCommandError> {
 	public run(
@@ -53,6 +54,7 @@ export class UserListener extends Listener<typeof Events.MessageCommandError> {
 
 			default:
 				void message.reply(`${error.identifier}: ${error.message}`)
+				captureException(error, { tags: { command: command.name } })
 				break
 		}
 	}
