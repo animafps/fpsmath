@@ -1,5 +1,5 @@
 import { Command, CommandOptions } from '@sapphire/framework'
-import type { Message } from 'discord.js'
+import type { CommandInteraction, Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -13,6 +13,9 @@ import { ApplyOptions } from '@sapphire/decorators'
 	`,
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES'],
+	chatInputCommand: {
+		register: true,
+	},
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
@@ -37,5 +40,17 @@ export class UserCommand extends Command {
 				'Unable to send you the games list DM. You probably have DMs disabled.'
 			)
 		}
+	}
+
+	public chatInputRun(interaction: CommandInteraction) {
+		let result = ''
+		for (const game of this.container.games) {
+			result += `→  ${game[0]}: ${game[1].film ? '🎥' : ''}${
+				game[1].yaw ? '🖱️' : ''
+			}\n`
+		}
+		return interaction.reply(
+			`**__Supported Games__**:\n\n${result}\n\n__Key__:\n→ 🎥: FoV scaling support\n→ 🖱️: Yaw/Sensitivity support\n\nTotal games supported: ${this.container.games.size}`
+		)
 	}
 }

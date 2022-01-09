@@ -1,20 +1,11 @@
-import {
-	Listener,
-	Store,
-	ListenerOptions,
-	PieceContext,
-} from '@sapphire/framework'
+import { Listener, Store, ListenerOptions } from '@sapphire/framework'
 import { Events } from '#lib/types/Enums'
+import { ApplyOptions } from '@sapphire/decorators'
 const dev = process.env.NODE_ENV !== 'production'
-
+@ApplyOptions<ListenerOptions>({
+	once: true,
+})
 export class UserListener extends Listener<typeof Events.ClientReady> {
-	public constructor(context: PieceContext, options?: ListenerOptions) {
-		super(context, {
-			...options,
-			once: true,
-		})
-	}
-
 	public run() {
 		try {
 			this.initAnalytics()

@@ -1,5 +1,5 @@
 import { Command, CommandOptions } from '@sapphire/framework'
-import type { Message } from 'discord.js'
+import type { CommandInteraction, Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -12,6 +12,9 @@ import { ApplyOptions } from '@sapphire/decorators'
 	🖇️ **| Aliases**: \`pong\`
 	`,
 	requiredClientPermissions: ['SEND_MESSAGES', 'MANAGE_MESSAGES'],
+	chatInputCommand: {
+		register: true,
+	},
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
@@ -21,6 +24,13 @@ export class UserCommand extends Command {
 			(message.editedAt?.getTime() || message.createdAt.getTime())
 		return sent.edit(
 			`Pong!\n🔂 **RTT**: ${timeDiff} ms\n💟 **Heartbeat**: ${Math.round(
+				this.container.client.ws.ping
+			)} ms`
+		)
+	}
+	public chatInputRun(interaction: CommandInteraction) {
+		return interaction.reply(
+			`Pong!\n💟 **Heartbeat**: ${Math.round(
 				this.container.client.ws.ping
 			)} ms`
 		)

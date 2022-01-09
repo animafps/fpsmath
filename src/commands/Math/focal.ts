@@ -1,5 +1,11 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework'
-import type { Message } from 'discord.js'
+import {
+	ApplicationCommandRegistry,
+	Args,
+	Command,
+	CommandOptions,
+	RegisterBehavior,
+} from '@sapphire/framework'
+import type { CommandInteraction, Message } from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -28,6 +34,53 @@ import { ApplyOptions } from '@sapphire/decorators'
 	requiredClientPermissions: ['SEND_MESSAGES'],
 })
 export class UserCommand extends Command {
+	public override registerApplicationCommands(
+		registry: ApplicationCommandRegistry
+	) {
+		registry.registerChatInputCommand(
+			{
+				name: this.name,
+				description: this.description,
+				options: [
+					{
+						type: 'NUMBER',
+						name: 'sensitivity',
+						description:
+							'The in-game sensitivity value for the game provided',
+						required: true,
+					},
+					{
+						type: 'NUMBER',
+						name: 'in-fov',
+						description:
+							'The input in-game FoV value or equivalent FoV value',
+						required: true,
+					},
+					{
+						type: 'NUMBER',
+						name: 'out-fov',
+						description:
+							'The output in-game FoV value or equivalent FoV value',
+						required: true,
+					},
+				],
+			},
+			{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }
+		)
+	}
+
+	public chatInputRun(interaction: CommandInteraction) {
+		const sens = interaction.options.getNumber('sensitivity', true)
+		const inFOV = interaction.options.getNumber('in-fov', true)
+		const outFOV = interaction.options.getNumber('out-fov', true)
+
+		const output =
+			(Math.tan((outFOV * Math.PI) / 360) /
+				Math.tan((inFOV * Math.PI) / 360)) *
+			sens
+		return interaction.reply(parseFloat(output.toFixed(5)).toString())
+	}
+
 	public async messageRun(message: Message, args: Args) {
 		const sens = await args.pick('float')
 		const inFOV = await args.pick('float')

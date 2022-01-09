@@ -1,5 +1,10 @@
-import type { Message } from 'discord.js'
-import { MessageEmbed } from 'discord.js'
+import {
+	CommandInteraction,
+	Message,
+	MessageActionRow,
+	MessageButton,
+	MessageEmbed,
+} from 'discord.js'
 import { Command, CommandOptions } from '@sapphire/framework'
 import { ApplyOptions } from '@sapphire/decorators'
 
@@ -14,12 +19,48 @@ import { ApplyOptions } from '@sapphire/decorators'
 	`,
 	generateDashLessAliases: true,
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
+	chatInputCommand: {
+		register: true,
+	},
 })
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
-		const embed = new MessageEmbed().setColor('#0099ff').setDescription(`
-				[Invite FPSMath to your server](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&permissions=274877926400&scope=bot%20applications.commands) | [Join Support Server](https://discord.gg/Bg2gNT35s9)
-                `)
-		return message.reply({ embeds: [embed] })
+		const row = this.createRow()
+		const embed = this.createEmbed()
+		return message.reply({
+			components: [row],
+			embeds: [embed],
+		})
+	}
+
+	public chatInputRun(interaction: CommandInteraction) {
+		const row = this.createRow()
+		const embed = this.createEmbed()
+		return interaction.reply({
+			embeds: [embed],
+			components: [row],
+		})
+	}
+
+	public createRow() {
+		return new MessageActionRow().addComponents([
+			new MessageButton()
+				.setLabel('Invite FPSMath to your server')
+				.setURL(
+					`https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&permissions=19456&scope=bot%20applications.commands`
+				)
+				.setStyle('LINK'),
+			new MessageButton()
+				.setLabel('Join Support Server')
+				.setURL('https://discord.gg/Bg2gNT35s9')
+				.setStyle('LINK'),
+		])
+	}
+
+	public createEmbed() {
+		return new MessageEmbed().addField(
+			'Invites',
+			`[Invite FPSMath to your server](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&permissions=19456&scope=bot%20applications.commands)\n\n[Join Support Server](https://discord.gg/Bg2gNT35s9)\n\nOr click one of the buttons below`
+		)
 	}
 }

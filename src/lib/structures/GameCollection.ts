@@ -26,6 +26,25 @@ export class GameCollection extends Collection<string, arrayType> {
 			super.get(key.toLowerCase()) ?? this.aliases.get(key.toLowerCase())
 		)
 	}
+
+	filterMap(query: string, object: 'yaw' | 'aliases' | 'film' | 'name') {
+		const result: { name: string; value: string }[] = []
+
+		this.forEach((val) => {
+			if (
+				val.name.startsWith(query) ||
+				val.aliases.some((value) => {
+					return value.startsWith(query)
+				})
+			) {
+				result.push({
+					name: val.name,
+					value: val[object]?.toString() ?? '',
+				})
+			}
+		})
+		return result
+	}
 }
 
 interface arrayType {

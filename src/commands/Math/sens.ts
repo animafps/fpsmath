@@ -1,5 +1,15 @@
-import { Args, Command, CommandOptions } from '@sapphire/framework'
-import type { Message } from 'discord.js'
+import {
+	ApplicationCommandRegistry,
+	Args,
+	Command,
+	CommandOptions,
+	RegisterBehavior,
+} from '@sapphire/framework'
+import type {
+	AutocompleteInteraction,
+	CommandInteraction,
+	Message,
+} from 'discord.js'
 import { ApplyOptions } from '@sapphire/decorators'
 
 @ApplyOptions<CommandOptions>({
@@ -47,6 +57,99 @@ import { ApplyOptions } from '@sapphire/decorators'
 	flags: ['deg', 'inch', 'arcmin', 'cm'],
 })
 export class UserCommand extends Command {
+	public override registerApplicationCommands(
+		registry: ApplicationCommandRegistry
+	) {
+		registry.registerChatInputCommand(
+			{
+				name: this.name,
+				description: this.description,
+				options: [
+					{
+						type: 'STRING',
+						name: 'sensitivity-type',
+						description: 'The type of input universal sensitivity',
+						required: true,
+						choices: [
+							{
+								name: 'Centimeter per Revolution(cm/rev)',
+								value: 'cm/rev',
+							},
+							{
+								name: 'Inch per Revolution(inch/rev)',
+								value: 'inch/rev',
+							},
+							{
+								name: 'Millimeter per Degree(mm/deg)',
+								value: 'mm/deg',
+							},
+							{
+								name: 'Minute of Arc per Inch(arcmin)',
+								value: 'arcmin',
+							},
+							{ name: 'Milliradian per Inch(mpi)', value: 'mpi' },
+						],
+					},
+					{
+						type: 'NUMBER',
+						name: 'sensitivity',
+						description:
+							'The in-game sensitivity value for the game provided',
+						required: true,
+					},
+					{
+						type: 'STRING',
+						name: 'game',
+						description: 'The game that is tied to the sensitivity',
+						required: true,
+						autocomplete: true,
+					},
+					{
+						type: 'NUMBER',
+						name: 'cpi',
+						description:
+							'The CPI value of the mouse used. CPI is also known as DPI.',
+						required: true,
+					},
+				],
+			},
+			{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }
+		)
+	}
+
+	public chatInputRun(interaction: CommandInteraction) {
+		const yaw = Number(interaction.options.getString('game', true))
+		if (isNaN(yaw))
+			return interaction.reply({
+				content: `Error: \`${interaction.options.getString(
+					'game'
+				)}\` is not a valid number`,
+				ephemeral: true,
+			})
+		const sens = interaction.options.getNumber('sensitivity', true)
+		const cpi = interaction.options.getNumber('cpi', true)
+		const type = interaction.options.getString('sensitivity-type', true)
+		let output = 0
+		switch (type) {
+			case 'cm/rev':
+				output = (2.54 * 360) / (cpi * yaw * sens)
+				break
+			case 'deg/mm':
+				output = (cpi * yaw * 60) / sens
+				break
+			case 'inch/rev':
+				output = 360 / (cpi * yaw * sens)
+				break
+			case 'mpi':
+				output = (24.5 * sens) / (cpi * yaw)
+				break
+			case 'arcmin':
+				output = (cpi * yaw * (1 / 60)) / sens
+				break
+		}
+		return interaction.reply(parseFloat(output.toFixed(5)).toString())
+	}
+
 	public async messageRun(message: Message, args: Args) {
 		const sens = await args.pick('float')
 		const yaw = await args.pick('yaw')
@@ -64,5 +167,14 @@ export class UserCommand extends Command {
 			output = (2.54 * 360) / (cpi * yaw * sens)
 		}
 		return message.reply(parseFloat(output.toFixed(5)).toString())
+	}
+
+	public autocompleteRun(interaction: AutocompleteInteraction) {
+		const focusedValue = interaction.options.getFocused()
+		const filtered = this.container.games.filterMap(
+			focusedValue.toString(),
+			'yaw'
+		)
+		return interaction.respond(filtered)
 	}
 }

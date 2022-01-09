@@ -1,11 +1,19 @@
 import { ApplyOptions } from '@sapphire/decorators'
 import {
+	ApplicationCommandRegistry,
 	Args,
 	Command,
-	CommandContext,
 	CommandOptions,
+	MessageCommand,
+	MessageCommandContext,
+	RegisterBehavior,
 } from '@sapphire/framework'
-import { Collection, Message, MessageEmbed } from 'discord.js'
+import {
+	Collection,
+	CommandInteraction,
+	Message,
+	MessageEmbed,
+} from 'discord.js'
 
 /**
  * Sorts a collection alphabetically as based on the keys, rather than the values.
@@ -48,10 +56,36 @@ function sortCommandsAlphabetically(
 	requiredClientPermissions: ['SEND_MESSAGES', 'EMBED_LINKS'],
 })
 export class UserCommand extends Command {
+	public override registerApplicationCommands(
+		registry: ApplicationCommandRegistry
+	) {
+		registry.registerChatInputCommand(
+			{
+				name: this.name,
+				description: this.description,
+				options: [
+					{
+						type: 'STRING',
+						name: 'command',
+						description:
+							'The command wanting help information about',
+						choices: this.container.stores
+							.get('commands')
+							.toJSON()
+							.flatMap((val) => {
+								return { value: val.name, name: val.name }
+							}),
+					},
+				],
+			},
+			{ behaviorWhenNotIdentical: RegisterBehavior.Overwrite }
+		)
+	}
+
 	public async messageRun(
 		message: Message,
 		args: Args,
-		context: CommandContext
+		context: MessageCommandContext
 	) {
 		const command = args.nextMaybe()
 		return command.exists && !args.getFlags('all')
@@ -59,7 +93,21 @@ export class UserCommand extends Command {
 			: this.all(message, context)
 	}
 
-	private async specific(message: Message, commandName: string) {
+	public chatInputRun(interaction: CommandInteraction) {
+		const command = interaction.options.getString('command')
+		return command
+			? this.specific(interaction, command)
+			: this.all(interaction, {
+					commandPrefix: '',
+					prefix: '',
+					commandName: '',
+			  })
+	}
+
+	private async specific(
+		message: Message | CommandInteraction,
+		commandName: string
+	) {
 		const command = this.container.stores.get('commands').get(commandName)
 		return message.reply({
 			embeds: [
@@ -73,7 +121,10 @@ export class UserCommand extends Command {
 		})
 	}
 
-	private async all(message: Message, context: CommandContext) {
+	private async all(
+		message: Message | CommandInteraction,
+		context: MessageCommandContext
+	) {
 		const content = await this.buildHelp(message, context.commandPrefix)
 		return message.reply({
 			embeds: [
@@ -86,7 +137,10 @@ export class UserCommand extends Command {
 		})
 	}
 
-	private async buildHelp(message: Message, prefix: string) {
+	private async buildHelp(
+		message: Message | CommandInteraction,
+		prefix: string
+	) {
 		const commands = await this.fetchCommands(message)
 
 		const helpMessage: string[] = []
@@ -106,24 +160,27 @@ export class UserCommand extends Command {
 		return `• **${prefix}${command.name}** → ${description}`
 	}
 
-	private async fetchCommands(message: Message) {
+	private async fetchCommands(message: Message | CommandInteraction) {
 		const commands = this.container.stores.get('commands')
 		const filtered = new Collection<string, Command[]>()
 		await Promise.all(
-			commands.map(async (cmd: Command<Args>) => {
-				const command = cmd as Command
+			commands.map(async (cmd: Command) => {
+				const command = cmd as MessageCommand
 
-				const result = await cmd.preconditions.run(message, command, {
-					command: null,
-				})
-				if (!result.success) return
+				if (message instanceof Message) {
+					const result = await cmd.preconditions.messageRun(
+						message,
+						command,
+						{
+							command: null,
+						}
+					)
+					if (!result.success) return
+				}
 
 				const category = filtered.get(command.fullCategory.join(' → '))
 				if (category) category.push(command)
-				else
-					filtered.set(command.fullCategory.join(' → '), [
-						command as Command,
-					])
+				else filtered.set(command.fullCategory.join(' → '), [command])
 			})
 		)
 

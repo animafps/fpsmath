@@ -41,7 +41,7 @@ export abstract class AnalyticsListener extends Listener {
 	protected initTags() {
 		this.tags.push(
 			[Tags.Client, process.env.CLIENT_ID ?? ''],
-			[Tags.OriginEvent, this.event]
+			[Tags.OriginEvent, this.event.toString()]
 		)
 	}
 }
