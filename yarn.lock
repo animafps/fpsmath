@@ -415,9 +415,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:pr-293":
-  version: 2.3.0-pr-293.1f05598.0
-  resolution: "@sapphire/framework@npm:2.3.0-pr-293.1f05598.0"
+"@sapphire/framework@npm:next":
+  version: 2.4.0-next.6bc7f1b.0
+  resolution: "@sapphire/framework@npm:2.4.0-next.6bc7f1b.0"
   dependencies:
     "@sapphire/discord-utilities": ^2.4.0
     "@sapphire/discord.js-utilities": ^4.1.5
@@ -426,7 +426,7 @@ __metadata:
     "@sapphire/utilities": ^3.1.0
     lexure: ^0.17.0
     tslib: ^2.3.1
-  checksum: e99bef7ea40809506384c17072a5c9717143a7faf8fdad329a16a0fc416b48c902238e446f8c5e64425d138d5ade012addd5d6b9e0c8e0ca678b0eb5dab1de16
+  checksum: 9c88cb592b821ce60e22e306e5669387fdca0749a0c7a082d3bd11ea495677dd087822791030bea57ef890b97460ce92a487251b6ee69e7da293813eaa70c0d4
   languageName: node
   linkType: hard
 
@@ -2505,7 +2505,7 @@ __metadata:
     "@influxdata/influxdb-client": ^1.21.0
     "@sapphire/decorators": ^3.1.4
     "@sapphire/discord.js-utilities": ^4.1.5
-    "@sapphire/framework": pr-293
+    "@sapphire/framework": next
     "@sapphire/pieces": 3.2.0
     "@sapphire/plugin-api": ^3.1.2
     "@sapphire/plugin-hmr": ^1.0.1
