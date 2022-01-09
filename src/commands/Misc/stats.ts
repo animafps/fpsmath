@@ -8,13 +8,13 @@ import { Time } from '@sapphire/time-utilities'
 import { PermissionFlagsBits } from 'discord-api-types/v9'
 
 @ApplyOptions<CommandOptions>({
-	aliases: ['sts'],
+	aliases: ['sts', 'stats', 'statistics'],
 	description: 'Displays some statistics related to the bot',
 	detailedDescription: `
 	📝 **| Command Usage**
-	→ fps-sts
+	→ fps-stats
 
-	🖇️ **| Aliases**: \`sts\`
+	🖇️ **| Aliases**: \`sts\`, \`statistics\`
 	`,
 	requiredClientPermissions: [PermissionFlagsBits.EmbedLinks],
 	chatInputCommand: {

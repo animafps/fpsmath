@@ -3,6 +3,7 @@ import {
 	Message,
 	MessageActionRow,
 	MessageButton,
+	MessageEmbed,
 } from 'discord.js'
 import { Command, CommandOptions } from '@sapphire/framework'
 import { ApplyOptions } from '@sapphire/decorators'
@@ -25,16 +26,18 @@ import { ApplyOptions } from '@sapphire/decorators'
 export class UserCommand extends Command {
 	public async messageRun(message: Message) {
 		const row = this.createRow()
+		const embed = this.createEmbed()
 		return message.reply({
-			content: 'Click on of the buttons below:',
 			components: [row],
+			embeds: [embed],
 		})
 	}
 
 	public chatInputRun(interaction: CommandInteraction) {
 		const row = this.createRow()
+		const embed = this.createEmbed()
 		return interaction.reply({
-			content: 'Click one of the buttons below:',
+			embeds: [embed],
 			components: [row],
 		})
 	}
@@ -52,5 +55,12 @@ export class UserCommand extends Command {
 				.setURL('https://discord.gg/Bg2gNT35s9')
 				.setStyle('LINK'),
 		])
+	}
+
+	public createEmbed() {
+		return new MessageEmbed().addField(
+			'Invites',
+			`[Invite FPSMath to your server](https://discord.com/oauth2/authorize?client_id=${this.container.client.id}&permissions=19456&scope=bot%20applications.commands)\n\n[Join Support Server](https://discord.gg/Bg2gNT35s9)\n\nOr click one of the buttons below`
+		)
 	}
 }
