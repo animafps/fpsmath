@@ -43,6 +43,7 @@ export class GameCollection extends Collection<string, arrayType> {
 				})
 			}
 		})
+		result.length = 25
 		return result
 	}
 }

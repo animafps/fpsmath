@@ -148,5 +148,10 @@
 		"yaw": 0.1125,
 		"film": "16ML9",
 		"aliases": ["rust"]
+	},
+	"Left 4 Dead 2": {
+		"aliases": ["l4d2", "l4d", "left4dead", "left4dead2"],
+		"film": "4ML3",
+		"yaw": 0.022
 	}
 }
