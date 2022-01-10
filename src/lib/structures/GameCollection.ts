@@ -43,7 +43,10 @@ export class GameCollection extends Collection<string, arrayType> {
 				})
 			}
 		})
-		result.length = 25
+
+		if (result.length > 24) {
+			result.length = 24
+		}
 		return result
 	}
 }
