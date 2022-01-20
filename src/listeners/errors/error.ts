@@ -1,10 +1,12 @@
-import { Listener } from '@sapphire/framework'
+import { Events, Listener } from '@sapphire/framework'
+import { captureException } from '@sentry/node'
 import { DiscordAPIError, HTTPError } from 'discord.js'
 
 const NEWLINE = '\n'
 
-export class UserListener extends Listener {
+export class UserListener extends Listener<typeof Events.Error> {
 	public run(error: Error) {
+		captureException(error)
 		const { logger } = this.container
 		if (error instanceof DiscordAPIError) {
 			logger.warn(
