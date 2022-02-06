@@ -392,12 +392,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/decorators@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@sapphire/decorators@npm:4.1.0"
+"@sapphire/decorators@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@sapphire/decorators@npm:4.2.0"
   dependencies:
     tslib: ^2.3.1
-  checksum: 749d4dd8a1be5611a97d0851b6d483078620f25f70117b5593801d3ef2ac1cc40dd816109ee7be7f238e69d5b8e80ddd670f0191b5b07b7a9787780ddf8fc9a3
+  checksum: 273ccb477814c64171caeeddc3382c8f8d4decfe99f577f17fc4400f8cfc93bc55afbc4e9522033e363bfab9558b3f2feab13583a12e96157f48f01d33467406
   languageName: node
   linkType: hard
 
@@ -419,6 +419,18 @@ __metadata:
     "@sapphire/utilities": ^3.3.0
     tslib: ^2.3.1
   checksum: dd722658f67c27f5039bd9159f8790302875c0e3b0a134f1bd1d2f347715cd240dd2ef47657826e116f69a5d1cc842ebba99a6a745d9aad49f3662f527b24ad2
+  languageName: node
+  linkType: hard
+
+"@sapphire/discord.js-utilities@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "@sapphire/discord.js-utilities@npm:4.6.0"
+  dependencies:
+    "@sapphire/discord-utilities": ^2.7.0
+    "@sapphire/time-utilities": ^1.6.0
+    "@sapphire/utilities": ^3.3.0
+    tslib: ^2.3.1
+  checksum: d1d255412409e77247d7a114049268751ff2f0c4124755027d76d8f7fc5bf47c65da57a1ae44f886cfb4d3da7ec0e1ea4662365f9abfcfb2b70a1d2997726876
   languageName: node
   linkType: hard
 
@@ -518,85 +530,85 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:6.17.3":
-  version: 6.17.3
-  resolution: "@sentry/core@npm:6.17.3"
+"@sentry/core@npm:6.17.4":
+  version: 6.17.4
+  resolution: "@sentry/core@npm:6.17.4"
   dependencies:
-    "@sentry/hub": 6.17.3
-    "@sentry/minimal": 6.17.3
-    "@sentry/types": 6.17.3
-    "@sentry/utils": 6.17.3
+    "@sentry/hub": 6.17.4
+    "@sentry/minimal": 6.17.4
+    "@sentry/types": 6.17.4
+    "@sentry/utils": 6.17.4
     tslib: ^1.9.3
-  checksum: b7c1e60da81c46da8ec5142a2f67179dd3895724320de5fa76193a4ccb356eaab1e084147872c5e25453661f4e0b25da57ea7f0d86a990ef88b5382291f9f8d1
+  checksum: daf80e9b2df5acaf8eeafabfddf24d30b2f9ab981843e1b01120f428803dc71c58e761005eec17d9004ffb483c210118bad50d774a4042929f0d55d3fb476104
   languageName: node
   linkType: hard
 
-"@sentry/hub@npm:6.17.3":
-  version: 6.17.3
-  resolution: "@sentry/hub@npm:6.17.3"
+"@sentry/hub@npm:6.17.4":
+  version: 6.17.4
+  resolution: "@sentry/hub@npm:6.17.4"
   dependencies:
-    "@sentry/types": 6.17.3
-    "@sentry/utils": 6.17.3
+    "@sentry/types": 6.17.4
+    "@sentry/utils": 6.17.4
     tslib: ^1.9.3
-  checksum: 3f12ef7eb8056a0e850ffcbcbf32cfd973d3604132c7d033bc05e6ebb7bebf7c90dfbc6c009a8504f7837d622e9275b45d0f5ad7dd3f9240e4e0cd0012916d96
+  checksum: 61c27230a87c071050730a0d8cbd9ae1f92c5007c9852900d288fed5bf35303bdba8acdcb6cad849540085ce81e072b89ba0e1ede249f6d940e81e06c6452af6
   languageName: node
   linkType: hard
 
-"@sentry/minimal@npm:6.17.3":
-  version: 6.17.3
-  resolution: "@sentry/minimal@npm:6.17.3"
+"@sentry/minimal@npm:6.17.4":
+  version: 6.17.4
+  resolution: "@sentry/minimal@npm:6.17.4"
   dependencies:
-    "@sentry/hub": 6.17.3
-    "@sentry/types": 6.17.3
+    "@sentry/hub": 6.17.4
+    "@sentry/types": 6.17.4
     tslib: ^1.9.3
-  checksum: af7866cc2a75f5914d11fbd4f3528fd32ce669756d042fafbb26df314d3b20e127780d7c30485737ff4b50930b774afdb2f7fc0b86345b43b551d36db54eefca
+  checksum: e67efeaf1be5eda8afc1a9254f485fdf861361cc007cf2da18aad09fd7bae98600c94f013e673e907551dda80bc2925353ace2c7709cac42ba2e1924b6da6f04
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:^6.17.3":
-  version: 6.17.3
-  resolution: "@sentry/node@npm:6.17.3"
+"@sentry/node@npm:^6.17.4":
+  version: 6.17.4
+  resolution: "@sentry/node@npm:6.17.4"
   dependencies:
-    "@sentry/core": 6.17.3
-    "@sentry/hub": 6.17.3
-    "@sentry/tracing": 6.17.3
-    "@sentry/types": 6.17.3
-    "@sentry/utils": 6.17.3
+    "@sentry/core": 6.17.4
+    "@sentry/hub": 6.17.4
+    "@sentry/tracing": 6.17.4
+    "@sentry/types": 6.17.4
+    "@sentry/utils": 6.17.4
     cookie: ^0.4.1
     https-proxy-agent: ^5.0.0
     lru_map: ^0.3.3
     tslib: ^1.9.3
-  checksum: 3e5bd4cbce0d0ff6aa2fc813dcee675182564c93ddf25bb387d9a491c09f4199f463c7f35fe825b92ec0d841ac2dcda32bbab137648f6c05f1638b884673a354
+  checksum: 2d1f7844b14b145cf8233b8363fb43240805407d1ee89354184d91fa98ece7d6285453a2d56a8d2c0b6800e28c50a271ce26e7c668995c43dde3f472887958cc
   languageName: node
   linkType: hard
 
-"@sentry/tracing@npm:6.17.3":
-  version: 6.17.3
-  resolution: "@sentry/tracing@npm:6.17.3"
+"@sentry/tracing@npm:6.17.4":
+  version: 6.17.4
+  resolution: "@sentry/tracing@npm:6.17.4"
   dependencies:
-    "@sentry/hub": 6.17.3
-    "@sentry/minimal": 6.17.3
-    "@sentry/types": 6.17.3
-    "@sentry/utils": 6.17.3
+    "@sentry/hub": 6.17.4
+    "@sentry/minimal": 6.17.4
+    "@sentry/types": 6.17.4
+    "@sentry/utils": 6.17.4
     tslib: ^1.9.3
-  checksum: b8755c408a7083151b39c939cfff48cffbe5d93eeba8a6c0ba87795766d5437822330dd65e52a2a2d5ce668955c17574508d65e9ca3915cf8f9cb48afbad19cc
+  checksum: 4f630fece6ff9dd2d9d281ec9d70b30bb2c61ae4673c3780595fbbbc45d855478f4e8d26f1155769ea59fb476e1e9c70a252922992e7a55f935cbfc2696fe9c4
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:6.17.3":
-  version: 6.17.3
-  resolution: "@sentry/types@npm:6.17.3"
-  checksum: b3b38e725c113bc88fb546e67d9224179a920cdd7c8a9ea1bbf086f65e55f8cdafc720219d191a86b7a2057fc2d1d44beae1849675acd81a2b9278cd37892d41
+"@sentry/types@npm:6.17.4":
+  version: 6.17.4
+  resolution: "@sentry/types@npm:6.17.4"
+  checksum: e2c514b42cb27143150bcbea3438e65b96deebf5804ffbe6d889c5997cd448ec61ed486a4b903fd57d7297cfcc9cb33d2dd0b3a394830a66fe3b99c0fee05aab
   languageName: node
   linkType: hard
 
-"@sentry/utils@npm:6.17.3":
-  version: 6.17.3
-  resolution: "@sentry/utils@npm:6.17.3"
+"@sentry/utils@npm:6.17.4":
+  version: 6.17.4
+  resolution: "@sentry/utils@npm:6.17.4"
   dependencies:
-    "@sentry/types": 6.17.3
+    "@sentry/types": 6.17.4
     tslib: ^1.9.3
-  checksum: 7da5e7de04448de2d1443a3285b9217da8cd9fda71a945dcef1255cec6df92c8f8e4fcc7927131ae4df717648a7ef6b2a71a234b592b56e540c8ab4d19ccfc4d
+  checksum: 9c82b947d20a5324573963517fbde006f4b2b9568a788bd24889451eb922e4c726ff239793380d5af1a255c915f86d0c22d118e83eeedb5e0ec61c1b742127e9
   languageName: node
   linkType: hard
 
@@ -680,10 +692,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.11.21":
-  version: 16.11.21
-  resolution: "@types/node@npm:16.11.21"
-  checksum: 75b679dc6375cf09bc14a2d1b344be6f3fd8ea50f212b0d60970dc9e175cef45e44c284c716eb9e766ffa52d0c83b689adb3d1911b6dd8649c560b8f77442a22
+"@types/node@npm:^16.11.22":
+  version: 16.11.22
+  resolution: "@types/node@npm:16.11.22"
+  checksum: 9d879b9b0427e21a11e3162917553d5bc3c7d68d1ef4aa631512144801fe59bc3b4da5965e7ea7c2db99394487b543d4f2499b318e12392574802ac4f975b7c4
   languageName: node
   linkType: hard
 
@@ -717,7 +729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.10.1":
+"@typescript-eslint/eslint-plugin@npm:^5.10.2":
   version: 5.10.2
   resolution: "@typescript-eslint/eslint-plugin@npm:5.10.2"
   dependencies:
@@ -740,7 +752,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.10.1":
+"@typescript-eslint/parser@npm:^5.10.2":
   version: 5.10.2
   resolution: "@typescript-eslint/parser@npm:5.10.2"
   dependencies:
@@ -2518,8 +2530,8 @@ __metadata:
     "@discordjs/builders": ^0.12.0
     "@discordjs/collection": ^0.5.0
     "@influxdata/influxdb-client": ^1.22.0
-    "@sapphire/decorators": ^4.1.0
-    "@sapphire/discord.js-utilities": ^4.5.0
+    "@sapphire/decorators": ^4.2.0
+    "@sapphire/discord.js-utilities": ^4.6.0
     "@sapphire/framework": next
     "@sapphire/pieces": 3.2.0
     "@sapphire/plugin-api": ^3.1.4
@@ -2527,11 +2539,11 @@ __metadata:
     "@sapphire/plugin-logger": ^2.1.3
     "@sapphire/time-utilities": ^1.6.0
     "@sapphire/utilities": ^3.3.0
-    "@sentry/node": ^6.17.3
-    "@types/node": ^16.11.21
+    "@sentry/node": ^6.17.4
+    "@types/node": ^16.11.22
     "@types/ws": ^8.2.2
-    "@typescript-eslint/eslint-plugin": ^5.10.1
-    "@typescript-eslint/parser": ^5.10.1
+    "@typescript-eslint/eslint-plugin": ^5.10.2
+    "@typescript-eslint/parser": ^5.10.2
     cz-conventional-changelog: 3.3.0
     discord-api-types: ^0.26.1
     discord.js: ^13.6.0
@@ -2541,7 +2553,7 @@ __metadata:
     fov-utilities: ^1.1.7
     husky: ^7.0.4
     is-ci: ^3.0.1
-    lint-staged: ^12.3.2
+    lint-staged: ^12.3.3
     npm-run-all: ^4.1.5
     prettier: ^2.5.1
     pretty-quick: ^3.1.3
@@ -3513,9 +3525,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^12.3.2":
-  version: 12.3.2
-  resolution: "lint-staged@npm:12.3.2"
+"lint-staged@npm:^12.3.3":
+  version: 12.3.3
+  resolution: "lint-staged@npm:12.3.3"
   dependencies:
     cli-truncate: ^3.1.0
     colorette: ^2.0.16
@@ -3532,7 +3544,7 @@ __metadata:
     yaml: ^1.10.2
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 35cab689dfc967ff95afeeaa7be7d1e19a131f36eeac9ac1d80240e0b20108286ce04f2d6bdf0b77fdf58db3ca5313bcbf2667dc6017335e604ff455caf69e33
+  checksum: a9147eb5def6345622d1b772d5920b1282808738abf53e6034d8da2d21d6baf80135ea22f799bf4092867a3dba13cd875493b8e32e47f3b4574e4e8871a0aa8e
   languageName: node
   linkType: hard
 
