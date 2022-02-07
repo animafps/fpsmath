@@ -392,7 +392,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/decorators@npm:^4.2.0":
+"@sapphire/decorators@npm:^4.2.1":
   version: 4.2.1
   resolution: "@sapphire/decorators@npm:4.2.1"
   dependencies:
@@ -410,7 +410,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/discord.js-utilities@npm:^4.6.0":
+"@sapphire/discord.js-utilities@npm:^4.6.0, @sapphire/discord.js-utilities@npm:^4.6.1":
   version: 4.6.1
   resolution: "@sapphire/discord.js-utilities@npm:4.6.1"
   dependencies:
@@ -2518,8 +2518,8 @@ __metadata:
     "@discordjs/builders": ^0.12.0
     "@discordjs/collection": ^0.5.0
     "@influxdata/influxdb-client": ^1.22.0
-    "@sapphire/decorators": ^4.2.0
-    "@sapphire/discord.js-utilities": ^4.6.0
+    "@sapphire/decorators": ^4.2.1
+    "@sapphire/discord.js-utilities": ^4.6.1
     "@sapphire/framework": next
     "@sapphire/pieces": 3.2.0
     "@sapphire/plugin-api": ^3.1.4
