@@ -1,0 +1,151 @@
+{
+  "Team Fortress 2": {
+    "yaw": 0.022,
+    "aliases": ["tf2", "team-fortress", "team-fortress-2"],
+    "film": "4ML3"
+  },
+  "3D Aim Trainer": {
+    "yaw": 0.0066,
+    "aliases": ["3daimtrainer", "3dat"],
+    "film": "16MF9"
+  },
+  "Aimgods": { "yaw": 0.0023331, "aliases": ["aimgods"] },
+  "Source": {
+    "yaw": 0.022,
+    "aliases": ["source"],
+    "film": "4ML3"
+  },
+  "Counter Strike": {
+    "yaw": 0.022,
+    "aliases": ["cs", "cs:go", "csgo", "counter-strike"],
+    "film": "4ML3"
+  },
+  "Quake": { "yaw": 0.022, "aliases": ["quake"], "film": "4ML3" },
+  "Quake Champions": {
+    "aliases": ["qc", "quake-champions"],
+    "film": "16ML9",
+    "yaw": 0.022
+  },
+  "Apex Legends": {
+    "yaw": 0.022,
+    "aliases": ["apex-legends", "apex"],
+    "film": "4ML3"
+  },
+  "Valorant": {
+    "yaw": 0.07,
+    "aliases": ["valorant", "val"],
+    "film": "16MS9"
+  },
+  "Overwatch": {
+    "yaw": 0.0066,
+    "aliases": ["overwatch", "ow"],
+    "film": "16MF9"
+  },
+  "Fortnite": {
+    "yaw": 0.005555,
+    "aliases": ["fortnite", "fn"],
+    "film": "16ML9"
+  },
+  "Fortnite config": {
+    "yaw": 2.222,
+    "aliases": ["fn-config", "fortnite-config"],
+    "film": "16ML9"
+  },
+  "Diabotical": {
+    "yaw": 0.022,
+    "aliases": ["diabotical", "dbt"],
+    "film": "VML"
+  },
+  "Rainbow Six: Siege": {
+    "yaw": 0.005729577951308232,
+    "aliases": ["r6", "rainbow6", "r6s", "siege"],
+    "film": "VML"
+  },
+  "Call of Duty": {
+    "yaw": 0.0066,
+    "aliases": ["cod", "callofduty", "call-of-duty", "warzone", "wz"],
+    "film": "HML"
+  },
+  "Battlefield": {
+    "yaw": 0.6771319397,
+    "aliases": [
+      "battlefield",
+      "bf",
+      "bf5",
+      "bf1",
+      "bfhardline",
+      "battlefield5",
+      "battlefield1",
+      "battlefield-5",
+      "battlefield-1",
+      "hardline",
+      "bfv",
+      "battlefield-v",
+      "battlefieldv"
+    ],
+    "film": "VML"
+  },
+  "Destiny": {
+    "yaw": 0.0066,
+    "aliases": ["destiny", "d2", "destiny2"],
+    "film": "16ML9"
+  },
+  "Reflex": {
+    "yaw": 0.00572957795130823,
+    "aliases": ["reflex", "reflex-arena"],
+    "film": "4ML3"
+  },
+  "Krunker": {
+    "yaw": 0.13750954927425516,
+    "aliases": ["krunker"],
+    "film": "VML"
+  },
+  "Minecraft": {
+    "yaw": 0.2592,
+    "aliases": ["mc", "minecraft"],
+    "film": "HML"
+  },
+  "Paladins": {
+    "aliases": ["paladins"],
+    "film": "HML"
+  },
+  "PlayerUnknown's: Battleground": {
+    "aliases": ["pubg"],
+    "yaw": 2.49975,
+    "film": "16ML9"
+  },
+  "Totally Accurate Battlegrounds": {
+    "aliases": ["tabg"],
+    "yaw": 0.001280683,
+    "film": "HML"
+  },
+  "Unreal Engine 4": {
+    "aliases": ["ue4", "unreal", "unreal-engine"],
+    "yaw": 0.07,
+    "film": "HML"
+  },
+  "Halo: Master Chief Collection": {
+    "yaw": 0.022222222222222223,
+    "aliases": ["halo", "halo-mcc"],
+    "film": "HML"
+  },
+  "Titanfall": {
+    "yaw": 0.022,
+    "aliases": ["titanfall2", "titanfall", "tf", "titanfall-2"],
+    "film": "4ML3"
+  },
+  "Doom (Eternal/2016)": {
+    "film": "16MI9",
+    "aliases": ["doom", "doom-2016", "doometernal", "doom-eternal", "doom2016"]
+  },
+  "Rust": {
+    "yaw": 0.1125,
+    "film": "16ML9",
+    "aliases": ["rust"]
+  },
+  "Left 4 Dead 2": {
+    "aliases": ["l4d2", "l4d", "left4dead", "left4dead2"],
+    "film": "4ML3",
+    "yaw": 0.022
+  }
+}

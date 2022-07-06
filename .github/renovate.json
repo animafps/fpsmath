@@ -8,7 +8,7 @@
 	],
 	"labels": ["dependencies"],
 	"schedule": ["before 12pm on Sunday"],
-	"npm": {
+	"cargo": {
 		"rangeStrategy": "bump",
 		"packageRules": [
 			{

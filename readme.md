@@ -41,10 +41,9 @@ As well for any questions regarding development or usage join the [support Disco
 
 ## ⛏️ Built Using
 
-- [Discord.js](https://github.com/discordjs/discord.js) - Library that interacts with the Discord api
-- [Sapphire Framework](https://github.com/sapphiredev/framework) - The framework to work with Discord.js
-- [Typescript](https://typescriptlang.org) - Language the bot is written in
-- [Node.js](https://nodejs.org) - The runtime
+- Rust
+- Twilight
+- Tokio
 
 ## ✨ Contributors
 
